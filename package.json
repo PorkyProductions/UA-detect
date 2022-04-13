@@ -1,0 +1,32 @@
+{
+  "name": "uadetect",
+  "version": "1.0.0",
+  "description": "The dead-simple way of detecting a device's User Agent",
+  "main": "index.js",
+  "scripts": {
+    "test": "npx serve"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PorkyProductions/UA-detect.git"
+  },
+  "keywords": [
+    "User",
+    "Agent",
+    "User",
+    "Agent",
+    "serve",
+    "detect",
+    "browser",
+    "mobile",
+    "desktop",
+    "UADetect",
+    "ua-detect"
+  ],
+  "author": "PorkyProductions",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/PorkyProductions/UA-detect/issues"
+  },
+  "homepage": "https://github.com/PorkyProductions/UA-detect#readme"
+}
