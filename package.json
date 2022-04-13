@@ -4,7 +4,8 @@
   "description": "The dead-simple way of detecting a device's User Agent",
   "main": "index.js",
   "scripts": {
-    "test": "npx serve"
+    "test": "npx serve",
+    "build": "npx tsc -p tsconfig.json"
   },
   "repository": {
     "type": "git",
