@@ -29,5 +29,13 @@
   "bugs": {
     "url": "https://github.com/PorkyProductions/UA-detect/issues"
   },
-  "homepage": "https://github.com/PorkyProductions/UA-detect#readme"
+  "homepage": "https://github.com/PorkyProductions/UA-detect#readme",
+  "dependencies": {
+    "jquery": "^3.6.0",
+    "serve": "^13.0.2",
+    "typescript": "^4.6.3"
+  },
+  "devDependencies": {
+    "@types/jquery": "^3.5.14"
+  }
 }
