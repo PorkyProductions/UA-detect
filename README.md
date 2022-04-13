@@ -10,7 +10,7 @@
 
 ## Description
 
-The dead-simple way of detecting a device's user agent.
+✨The dead-simple way of detecting a device's user agent.✨
 
 ## Technologies Used
 <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/db/Npm-logo.svg/1920px-Npm-logo.svg.png" width="30px">
@@ -33,7 +33,7 @@ In a JavaScript (or TypeScript) file, import the `uadetect` module:
 ```javascript
 import { DetectScreenOrientation, DetectDeviceType, finiteMobileDeviceType, ORIENTATION_isLandscape, DEVICE_type, DEVICE_finiteType } from 'uadetect';
 ```
-All done. Now you can use the `ORIENTATION_isLandscape`, `DEVICE_finiteType` and `DEVICE_type` constraints in your code.
+All done.👍 Now you can use the `ORIENTATION_isLandscape`, `DEVICE_finiteType` and `DEVICE_type` constraints in your code.
 
 ## Usage
 
