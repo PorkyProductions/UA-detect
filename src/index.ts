@@ -6,22 +6,22 @@ Licensed under the Apache-2.0 License.
 */
 
 //SCREEN ORIENTATION
-let ORIENTATION_isLandscape = true;
-$(document).ready(function () {
+let ORIENTATION_isLandscape: boolean = true;
+$(document).ready((): void => {
     DetectScreenOrientation();
 })
-$(window).on("orientationchange", function (event) {
-    //When screen orientation changes
-    DetectScreenOrientation();
+$(window).on("orientationchange", (event): void => {
+        //When screen orientation changes
+        DetectScreenOrientation();
 
-});
+    });
 const DetectScreenOrientation = () => {
     //detects orientation of device
     ORIENTATION_isLandscape = (window.innerHeight <= window.innerWidth);
     return ORIENTATION_isLandscape;
 }
 //DEVICE TYPE
-function DetectDeviceType() {
+function DetectDeviceType(): "tablet" | "mobile" | "desktop" {
     const ua = navigator.userAgent;
     if (/(tablet|ipad|playbook|silk)|(android(?!.*mobi))/i.test(ua)) {
         return "tablet";
@@ -37,7 +37,8 @@ function DetectDeviceType() {
 }
 let DEVICE_type = DetectDeviceType();
 
-function finiteMobileDeviceType() {
+function finiteMobileDeviceType(): "iOS" | "Android" | "BlackBerry" | "Windows Phone" | "webOS" | "unknown" {
+    const ua = navigator.userAgent;
     if (/(iPhone|iPod|iPad)/i.test(ua)) {
         console.log("iOS");
         return "iOS";
