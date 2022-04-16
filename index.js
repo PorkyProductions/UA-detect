@@ -6,10 +6,10 @@ Licensed under the Apache-2.0 License.
 */
 //SCREEN ORIENTATION
 let ORIENTATION_isLandscape = true;
-$(document).ready(function () {
+$(document).ready(() => {
     DetectScreenOrientation();
 });
-$(window).on("orientationchange", function (event) {
+$(window).on("orientationchange", (event) => {
     //When screen orientation changes
     DetectScreenOrientation();
 });
@@ -34,6 +34,7 @@ function DetectDeviceType() {
 }
 let DEVICE_type = DetectDeviceType();
 function finiteMobileDeviceType() {
+    const ua = navigator.userAgent;
     if (/(iPhone|iPod|iPad)/i.test(ua)) {
         console.log("iOS");
         return "iOS";
