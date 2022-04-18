@@ -9,7 +9,7 @@ let ORIENTATION_isLandscape = true;
 $(document).ready(() => {
     DetectScreenOrientation();
 });
-$(window).on("orientationchange", (event) => {
+$(window).on("orientationchange", (_event) => {
     //When screen orientation changes
     DetectScreenOrientation();
 });
@@ -67,6 +67,6 @@ let getCurrentUA = () => {
 let currentUA = getCurrentUA();
 // Exports
 // Make the functions accessible
-export { DetectScreenOrientation, DetectDeviceType, finiteMobileDeviceType, getCurrentUA };
+export { DetectScreenOrientation, DetectDeviceType, finiteMobileDeviceType, getCurrentUA, };
 // As well as the returns on those functions
 export { ORIENTATION_isLandscape, DEVICE_type, DEVICE_finiteType, currentUA };

@@ -1,7 +1,11 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\scripts",
+    "\\scripts\\powershell",
+    "\\scripts\\shell",
+    "\\src"
   ],
-  "SelectedNode": "\\package.json",
+  "SelectedNode": "\\scripts\\powershell\\runner.ps1",
   "PreviewInSolutionExplorer": false
 }
