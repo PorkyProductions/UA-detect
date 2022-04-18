@@ -31,9 +31,9 @@ npm i -d uadetect
 In a JavaScript (or TypeScript) file, import the `uadetect` module:
 
 ```javascript
-import { DetectScreenOrientation, DetectDeviceType, finiteMobileDeviceType, ORIENTATION_isLandscape, DEVICE_type, DEVICE_finiteType } from 'uadetect';
+import { DetectScreenOrientation, DetectDeviceType, finiteMobileDeviceType, ORIENTATION_isLandscape, DEVICE_type, DEVICE_finiteType, getCurrentUA, currentUA } from 'uadetect';
 ```
-All done.👍 Now you can use the `ORIENTATION_isLandscape`, `DEVICE_finiteType` and `DEVICE_type` constraints in your code.
+All done.👍 Now you can use the `ORIENTATION_isLandscape`, `DEVICE_finiteType`, `currentUA` and `DEVICE_type` constraints in your code.
 
 ## Usage
 

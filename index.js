@@ -61,8 +61,12 @@ function finiteMobileDeviceType() {
     }
 }
 let DEVICE_finiteType = finiteMobileDeviceType();
+let getCurrentUA = () => {
+    return navigator.userAgent;
+};
+let currentUA = getCurrentUA();
 // Exports
 // Make the functions accessible
-export { DetectScreenOrientation, DetectDeviceType, finiteMobileDeviceType };
+export { DetectScreenOrientation, DetectDeviceType, finiteMobileDeviceType, getCurrentUA };
 // As well as the returns on those functions
-export { ORIENTATION_isLandscape, DEVICE_type, DEVICE_finiteType };
+export { ORIENTATION_isLandscape, DEVICE_type, DEVICE_finiteType, currentUA };
