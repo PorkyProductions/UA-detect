@@ -3,9 +3,8 @@
     "",
     "\\scripts",
     "\\scripts\\powershell",
-    "\\scripts\\shell",
-    "\\src"
+    "\\scripts\\shell"
   ],
-  "SelectedNode": "\\README.md",
+  "SelectedNode": "\\DetectDeviceType.js",
   "PreviewInSolutionExplorer": false
 }

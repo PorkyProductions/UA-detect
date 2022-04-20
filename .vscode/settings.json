@@ -1,7 +1,8 @@
 {
     "conventionalCommits.scopes": [
         "semver(minor)",
-        "ci"
+        "ci",
+        "config"
     ],
     "typescript.tsdk": "node_modules\\typescript\\lib"
 }
