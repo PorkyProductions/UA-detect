@@ -1,5 +1,5 @@
-﻿// Finite Device Type
-export default function finiteMobileDeviceType(): "iOS" | "Android" | "BlackBerry" | "Windows Phone" | "webOS" | "unknown" {
+// Finite Device Type
+export default function finiteMobileDeviceType() {
     const ua = navigator.userAgent;
     if (/(iPhone|iPod|iPad)/i.test(ua)) {
         console.log("iOS");
@@ -27,5 +27,4 @@ export default function finiteMobileDeviceType(): "iOS" | "Android" | "BlackBerr
     }
 }
 let DEVICE_finiteType = finiteMobileDeviceType();
-
-export { DEVICE_finiteType, finiteMobileDeviceType }
+export { DEVICE_finiteType, finiteMobileDeviceType };
