@@ -5,6 +5,9 @@ Licensed under the Apache-2.0 License.
 
 */
 
+
+
+
 //SCREEN ORIENTATION
 let ORIENTATION_isLandscape: boolean = true;
 $(document).ready((): void => {

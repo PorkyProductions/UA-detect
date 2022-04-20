@@ -7,7 +7,7 @@ Licensed under the Apache-2.0 License.
 
 //SCREEN ORIENTATION
 
-
+import { DetectScreenOrientation, ORIENTATION_isLandscape } from './orientation'
 
 
 //DEVICE TYPE
