@@ -1,6 +1,6 @@
-# UA-detect
+# UADetect
 
-- [UA-detect](#ua-detect)
+- [UADetect](#uadetect)
   - [Description](#description)
   - [Technologies Used](#technologies-used)
   - [Installation](#installation)
