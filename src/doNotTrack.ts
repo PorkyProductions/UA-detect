@@ -1,6 +1,6 @@
 let browserDoNotTrack = navigator.doNotTrack
 
-const getDoNotTrack = (browserDoNotTrack: any): "TRACKING_allowed" | "TRACKING_notAllowed" | "TRACKING_unspecified" => {
+const getDoNotTrack = (browserDoNotTrack: any): "TRACKING_allowed" | "TRACKING_notAllowed" | "TRACKING_unspecified" | "ERROR" => {
     if (browserDoNotTrack == 0) {
         return "TRACKING_allowed"
     };
@@ -12,6 +12,9 @@ const getDoNotTrack = (browserDoNotTrack: any): "TRACKING_allowed" | "TRACKING_n
     }
     if (browserDoNotTrack == "null") {
         return "TRACKING_unspecified"
+    }
+    else {
+        return "ERROR"
     }
 }
 

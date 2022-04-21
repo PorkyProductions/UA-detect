@@ -5,13 +5,18 @@ Licensed under the Apache-2.0 License.
 
 */
 
-//SCREEN ORIENTATION
 
-import { DetectScreenOrientation, ORIENTATION_isLandscape } from './orientation'
+// Cookies
+
+import { getCookies, cookieStatus } from './cookies'
 
 // Device Type
 
 import { DEVICE_type, DetectDeviceType } from './DetectDeviceType'
+
+// Do Not Track
+
+import { doNotTrackStatus, getDoNotTrack } from './doNotTrack'
 
 // Finite Mobile Device Type
 
@@ -19,12 +24,11 @@ import { DEVICE_finiteType, finiteMobileDeviceType } from './finiteMobileDeviceT
 
 // standard UA
 
-
 import { getCurrentUA, currentUA } from './getCurrentUA'
 
-// Cookies
+//SCREEN ORIENTATION
 
-import { getCookies, cookieStatus } from './cookies'
+import { DetectScreenOrientation, ORIENTATION_isLandscape } from './orientation'
 
 // Exports
 
@@ -36,10 +40,11 @@ export {
     DetectDeviceType,
     finiteMobileDeviceType,
     getCurrentUA,
-    cookieStatus
+    cookieStatus,
+    getDoNotTrack
 };
 
 
 // As well as the returns on those functions
 
-export { ORIENTATION_isLandscape, DEVICE_type, DEVICE_finiteType, currentUA, getCookies };
+export { ORIENTATION_isLandscape, DEVICE_type, DEVICE_finiteType, currentUA, getCookies, doNotTrackStatus };
