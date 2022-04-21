@@ -2,7 +2,7 @@
   "name": "uadetect",
   "version": "1.0.1",
   "description": "The dead-simple way of detecting a device's User Agent",
-  "main": "index.js",
+  "main": "./dist/index.js",
   "scripts": {
     "test": "npx serve",
     "build": "npx tsc -p tsconfig.json"
