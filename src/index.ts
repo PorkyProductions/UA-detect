@@ -8,7 +8,7 @@ Licensed under the Apache-2.0 License.
 
 // Browser
 
-import {  } from './browser'
+import { browser, getBrowser } from './browser'
 
 // Cookies
 
@@ -36,7 +36,7 @@ import { DetectScreenOrientation, ORIENTATION_isLandscape } from './orientation'
 
 // RAM
 
-
+import { getRam, browserSpecificChanges, browserRam } from './ram'
 
 // Exports
 
@@ -48,11 +48,14 @@ export {
     DetectDeviceType,
     finiteMobileDeviceType,
     getCurrentUA,
-    cookieStatus,
-    getDoNotTrack
+    getCookies,
+    getDoNotTrack,
+    getBrowser,
+    getRam,
+    browserSpecificChanges
 };
 
 
 // As well as the returns on those functions
 
-export { ORIENTATION_isLandscape, DEVICE_type, DEVICE_finiteType, currentUA, getCookies, doNotTrackStatus };
+export { ORIENTATION_isLandscape, DEVICE_type, DEVICE_finiteType, currentUA, cookieStatus, doNotTrackStatus, browser, browserRam };
