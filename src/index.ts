@@ -22,6 +22,10 @@ import { DEVICE_finiteType, finiteMobileDeviceType } from './finiteMobileDeviceT
 
 import { getCurrentUA, currentUA } from './getCurrentUA'
 
+// Cookies
+
+import { getCookies, cookieStatus } from './cookies'
+
 // Exports
 
 
@@ -32,9 +36,10 @@ export {
     DetectDeviceType,
     finiteMobileDeviceType,
     getCurrentUA,
+    cookieStatus
 };
 
 
 // As well as the returns on those functions
 
-export { ORIENTATION_isLandscape, DEVICE_type, DEVICE_finiteType, currentUA };
+export { ORIENTATION_isLandscape, DEVICE_type, DEVICE_finiteType, currentUA, getCookies };

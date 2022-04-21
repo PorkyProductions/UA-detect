@@ -1,6 +1,6 @@
 let cookies: boolean = navigator.cookieEnabled
 
-const detectCookies = (cookies: boolean): "COOKIES_enabled" | "COOKIES_notEnabled" | "ERROR" => {
+const getCookies = (cookies: boolean): "COOKIES_enabled" | "COOKIES_notEnabled" | "ERROR" => {
     if (cookies == true) {
         return "COOKIES_enabled"
     };
@@ -12,7 +12,7 @@ const detectCookies = (cookies: boolean): "COOKIES_enabled" | "COOKIES_notEnable
     }
 }
 
-let browserCookiesStatus = detectCookies(cookies);
+let cookieStatus = getCookies(cookies);
 
-export { browserCookiesStatus }
-export { detectCookies }
+export { cookieStatus }
+export { getCookies }
