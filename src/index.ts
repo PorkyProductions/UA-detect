@@ -6,6 +6,10 @@ Licensed under the Apache-2.0 License.
 */
 
 
+// Browser
+
+import {  } from './browser'
+
 // Cookies
 
 import { getCookies, cookieStatus } from './cookies'
@@ -29,6 +33,10 @@ import { getCurrentUA, currentUA } from './getCurrentUA'
 //SCREEN ORIENTATION
 
 import { DetectScreenOrientation, ORIENTATION_isLandscape } from './orientation'
+
+// RAM
+
+
 
 // Exports
 
