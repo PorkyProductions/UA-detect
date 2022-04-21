@@ -24,8 +24,6 @@ import { getCurrentUA, currentUA } from './getCurrentUA'
 
 // Exports
 
-
-
 // Make the functions accessible
 
 export {
