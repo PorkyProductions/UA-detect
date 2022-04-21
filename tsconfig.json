@@ -4,7 +4,7 @@
         "outDir": "./"
     },
     "files": [
-        "./src/index.ts", "./src/getCurrentUA.ts", "./src/finiteMobileDeviceType.ts", "./src/DetectDeviceType.ts", "./src/cookies.ts"
+        "./src/index.ts", "./src/getCurrentUA.ts", "./src/finiteMobileDeviceType.ts", "./src/DetectDeviceType.ts", "./doNotTrack.ts", "./src/cookies.ts"
     ],
     "types": [
         "jquery",
