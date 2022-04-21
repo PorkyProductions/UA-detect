@@ -1,10 +1,8 @@
 {
   "ExpandedNodes": [
     "",
-    "\\scripts",
-    "\\scripts\\powershell",
-    "\\scripts\\shell"
+    "\\src"
   ],
-  "SelectedNode": "\\DetectDeviceType.js",
+  "SelectedNode": "\\src\\doNotTrack.ts",
   "PreviewInSolutionExplorer": false
 }
