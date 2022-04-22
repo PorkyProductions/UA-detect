@@ -5,7 +5,7 @@
   - [Technologies Used](#technologies-used)
   - [Installation](#installation)
     - [via `npm`](#via-npm)
-  - [Usage](#usage)
+  - [Documentation](#documentation)
 
 
 ## Description
@@ -28,35 +28,7 @@ Install the `uadetect` package
 npm i -d uadetect
 ```
 
-In a JavaScript (or TypeScript) file, import the `uadetect` module:
 
-```javascript
-import { DetectScreenOrientation, DetectDeviceType, finiteMobileDeviceType, ORIENTATION_isLandscape, DEVICE_type, DEVICE_finiteType, getCurrentUA, currentUA } from 'uadetect';
-```
-All done.👍 Now you can use the `ORIENTATION_isLandscape`, `DEVICE_finiteType`, `currentUA` and `DEVICE_type` constraints in your code.
+## Documentation
 
-## Usage
-
-```javascript
-// An example hide element on mobile devices function
-function hideOnMobile(element) {
-    if (DEVICE_type == "mobile") {
-        element.style.display = "none";
-    }
-}
-```
-```javascript
-// An example show element on different operating systems function
-function showOnOS(element, element2) {
-    if (DEVICE_finiteType == "iOS") {
-        element.style.display = "block";
-    }
-    else if (DEVICE_finiteType == "Android") {
-        element2.style.display = "block";
-    }
-    else {
-        element.style.display = "none";
-        element2.style.display = "none";
-    }
-}
-```
+Read all about how to use the package in the [Docs](/docs/index.md)
