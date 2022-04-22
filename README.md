@@ -10,7 +10,9 @@
 
 ## Description
 
-✨The dead-simple way of detecting a device's user agent.✨
+✨The dead-simple way of interacting with the navigator API.✨
+
+It may say "UA", but we're way more than that. UADetect is the eaisiet way to interact with the navigator API. We have lots of componets, and they all are well documented in the [docs](./docs/index.md).
 
 ## Technologies Used
 <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/db/Npm-logo.svg/1920px-Npm-logo.svg.png" width="30px">
