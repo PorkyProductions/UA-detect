@@ -4,8 +4,6 @@ const getProcessors = (): number => {
     return navigator.hardwareConcurrency;
 }
 
-let processorCores: number = getProcessors();
-
 const browserSpecificSupportCores = () => {
     if (browser === "Chrome") {
         return getProcessors();
@@ -30,5 +28,7 @@ const browserSpecificSupportCores = () => {
     }
 
 }
+
+let processorCores: any = browserSpecificSupportCores();
 
 export { processorCores, browserSpecificSupportCores };
