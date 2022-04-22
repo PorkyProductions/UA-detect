@@ -15,7 +15,7 @@ You can think of a componet as a function, each of which return an interaction w
 Click any of them to go to their individual documentation.
 
 - [`browser`](browser.md)
-- `browserOnlineStatus` 
+- [`browserOnlineStatus`](browserOnlineStatus.md)
 - `browserRam` 
 - `cookieStatus`
 - `currentUA`
