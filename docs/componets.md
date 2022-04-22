@@ -21,7 +21,7 @@ You can think of a componet as a function, each of which return an interaction w
 - [`doNotTrackStatus`](doNotTrackStatus.md)
 - [`maxTouchPoints`](maxTouchPoints.md)
 - [`ORIENTATION_isLandscape`](orientation.md)
-- `OS`
+- [`OS`](os.md)
 - `PDFviewerStatus`
 - `processorCores`
 - `robotStatus`
