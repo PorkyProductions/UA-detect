@@ -26,6 +26,10 @@ import { doNotTrackStatus, getDoNotTrack } from './doNotTrack'
 
 import { DEVICE_finiteType, finiteMobileDeviceType } from './finiteMobileDeviceType'
 
+// Logical Processors
+
+import {  } from './logicalProcessors'
+
 // standard UA
 
 import { getCurrentUA, currentUA } from './getCurrentUA'

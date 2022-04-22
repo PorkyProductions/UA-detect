@@ -1,7 +1,7 @@
 let ua = navigator.userAgent;
 
 
-const getBrowser = (ua): "Opera" | "Chrome" | "Firefox" | "Safari" | "IE" | "unknown" => {
+const getBrowser = ({ ua }: { ua; }): "Opera" | "Chrome" | "Firefox" | "Safari" | "IE" | "Edge" | "unknown" => {
     if (ua.indexOf('Opera') > -1) {
         return 'Opera';
     }
@@ -17,11 +17,17 @@ const getBrowser = (ua): "Opera" | "Chrome" | "Firefox" | "Safari" | "IE" | "unk
     else if (ua.indexOf('MSIE') > -1) {
         return 'IE';
     }
+    else if (ua.indexOf('Trident') > -1) {
+        return 'IE';
+    }
+    else if (ua.indexOf('Edge') > -1) {
+        return 'Edge';
+    }
     else {
         return 'unknown';
     }
 };
 
-let browser = getBrowser(ua);
+let browser = getBrowser({ ua });
 
 export { browser, getBrowser };
