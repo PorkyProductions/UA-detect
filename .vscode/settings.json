@@ -3,7 +3,8 @@
         "semver(minor)",
         "ci",
         "config",
-        "git"
+        "git",
+        "prettier"
     ],
     "typescript.tsdk": "node_modules\\typescript\\lib"
 }
