@@ -12,7 +12,8 @@
         "semver(major)",
         "semver(prerelease-major)",
         "types",
-        "tests"
+        "tests",
+        "readme"
     ],
     "typescript.tsdk": "node_modules\\typescript\\lib"
 }
