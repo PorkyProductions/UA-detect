@@ -22,8 +22,8 @@ You can think of a componet as a function, each of which return an interaction w
 - [`maxTouchPoints`](maxTouchPoints.md)
 - [`ORIENTATION_isLandscape`](orientation.md)
 - [`OS`](os.md)
-- `PDFviewerStatus`
-- `processorCores`
+- [`PDFviewerStatus`](pdfviewerStatus.md)
+- [`processorCores`](processorCores.md)
 - `robotStatus`
 
 ### NOTE: 

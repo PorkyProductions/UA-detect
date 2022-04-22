@@ -6,6 +6,7 @@
   - [Usage Example](#usage-example)
     - [#1](#1)
     - [#2](#2)
+  - [NOTE:](#note)
 
 ## Description
 
@@ -37,3 +38,7 @@ if (ORIENTATION_isLandscape === false) {
   element.style.display = 'none';
 }
 ```
+
+## NOTE:
+
+This needs jQuery to work. If you are using a module bundler like Webpack or Rollup, it should be resolved automatically.
