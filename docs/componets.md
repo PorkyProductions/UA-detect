@@ -24,7 +24,7 @@ You can think of a componet as a function, each of which return an interaction w
 - [`OS`](os.md)
 - [`PDFviewerStatus`](pdfviewerStatus.md)
 - [`processorCores`](processorCores.md)
-- `robotStatus`
+- [`robotStatus`](robotStatus.md)
 
 ### NOTE: 
 Click any of them to go to their individual documentation.
