@@ -41,7 +41,7 @@ import { maxTouchPoints, getMaxTouchPoints } from "./maxTouchPoints";
 
 // Online Status
 
-import { browserIsOnline } from "./online";
+import { browserOnlineStatus } from "./online";
 
 // standard UA
 
@@ -53,6 +53,10 @@ import {
   DetectScreenOrientation,
   ORIENTATION_isLandscape,
 } from "./orientation";
+
+// PDF Viewer
+
+import { PDFviewerStatus } from "./pdf"; 
 
 // RAM
 
@@ -89,5 +93,6 @@ export {
   browserRam,
   processorCores,
   maxTouchPoints,
-  browserIsOnline,
+  browserOnlineStatus,
+  PDFviewerStatus
 };
