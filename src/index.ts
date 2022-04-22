@@ -35,6 +35,10 @@ import {
   processorCores,
 } from "./logicalProcessors";
 
+// Max Touch Points
+
+import { maxTouchPoints, getMaxTouchPoints } from "./maxTouchPoints";
+
 // standard UA
 
 import { getCurrentUA, currentUA } from "./getCurrentUA";
@@ -65,6 +69,7 @@ export {
   getRam,
   browserSpecificSupportRAM,
   browserSpecificSupportCores,
+  getMaxTouchPoints
 };
 
 // As well as the returns on those functions
@@ -79,4 +84,5 @@ export {
   browser,
   browserRam,
   processorCores,
+  maxTouchPoints
 };
