@@ -69,7 +69,7 @@ export {
   getRam,
   browserSpecificSupportRAM,
   browserSpecificSupportCores,
-  getMaxTouchPoints
+  getMaxTouchPoints,
 };
 
 // As well as the returns on those functions
@@ -84,5 +84,5 @@ export {
   browser,
   browserRam,
   processorCores,
-  maxTouchPoints
+  maxTouchPoints,
 };
