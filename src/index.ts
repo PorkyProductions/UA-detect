@@ -47,6 +47,10 @@ import { browserOnlineStatus } from "./online";
 
 import { getCurrentUA, currentUA } from "./getCurrentUA";
 
+// Operating System
+
+import { OS, getOS } from "./operatingSystem";
+
 //SCREEN ORIENTATION
 
 import {
@@ -82,6 +86,7 @@ export {
   browserSpecificSupportRAM,
   browserSpecificSupportCores,
   getMaxTouchPoints,
+  getOS
 };
 
 // As well as the returns on those functions
@@ -100,4 +105,5 @@ export {
   browserOnlineStatus,
   PDFviewerStatus,
   robotStatus,
+  OS
 };

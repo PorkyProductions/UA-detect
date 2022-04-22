@@ -23,6 +23,7 @@ const getBrowser = ({ ua }: { ua; }): "Opera" | "Chrome" | "Firefox" | "Safari" 
     else if (ua.indexOf('Edge') > -1) {
         return 'Edge';
     }
+    
     else {
         return 'unknown';
     }
