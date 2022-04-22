@@ -16,11 +16,11 @@ You can think of a componet as a function, each of which return an interaction w
 - [`browserRam`](browserRam.md) 
 - [`cookieStatus`](cookieStatus.md)
 - [`currentUA`](currentUA.md)
-- `DEVICE_finiteType`
+- [`DEVICE_finiteType`](DEVICE_finiteType.md)
 - `DEVICE_type`
 - `doNotTrackStatus`
 - `maxTouchPoints`
-- [`ORIENTATION_isLandscape`](DetectDeviceType.md) 
+- [`ORIENTATION_isLandscape`]
 - `OS`
 - `PDFviewerStatus`
 - `processorCores`
