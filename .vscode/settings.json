@@ -1,10 +1,16 @@
 {
     "conventionalCommits.scopes": [
-        "semver(minor)",
         "ci",
         "config",
         "git",
         "prettier",
+        "semver(minor)",
+        "semver(patch)",
+        "semver(prerelease)",
+        "semver(prerelease-minor)",
+        "semver(prerelease-patch)",
+        "semver(major)",
+        "semver(prerelease-major)",
         "types"
     ],
     "typescript.tsdk": "node_modules\\typescript\\lib"
