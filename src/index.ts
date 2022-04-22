@@ -39,6 +39,10 @@ import {
 
 import { maxTouchPoints, getMaxTouchPoints } from "./maxTouchPoints";
 
+// Online Status
+
+import { browserIsOnline } from "./online";
+
 // standard UA
 
 import { getCurrentUA, currentUA } from "./getCurrentUA";
@@ -85,4 +89,5 @@ export {
   browserRam,
   processorCores,
   maxTouchPoints,
+  browserIsOnline,
 };
