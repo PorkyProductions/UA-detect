@@ -62,6 +62,10 @@ import { PDFviewerStatus } from "./pdf";
 
 import { getRam, browserSpecificSupportRAM, browserRam } from "./ram";
 
+// Webdriver
+
+import { robotStatus } from "./webdriver";
+
 // Exports
 
 // Make the functions accessible
@@ -94,5 +98,6 @@ export {
   processorCores,
   maxTouchPoints,
   browserOnlineStatus,
-  PDFviewerStatus
+  PDFviewerStatus,
+  robotStatus,
 };
