@@ -1,7 +1,7 @@
 {
   "name": "uadetect",
-  "version": "1.0.1",
-  "description": "The dead-simple way of detecting a device's User Agent",
+  "version": "2.0.0",
+  "description": "The dead-simple way of interacting with the navigator API",
   "main": "index.js",
   "scripts": {
     "test": "npx serve",
@@ -22,7 +22,21 @@
     "mobile",
     "desktop",
     "UADetect",
-    "ua-detect"
+    "ua-detect",
+    "navigator",
+    "browser",
+    "online",
+    "memory",
+    "cookie",
+    "device",
+    "os",
+    "os-version",
+    "os-version-name",
+    "os-version-number",
+    "pdf",
+    "webdriver",
+    "logicalProcessors",
+    "hardwareConcurrency"
   ],
   "author": "PorkyProductions",
   "license": "Apache-2.0",
