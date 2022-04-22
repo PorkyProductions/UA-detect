@@ -18,9 +18,9 @@ You can think of a componet as a function, each of which return an interaction w
 - [`currentUA`](currentUA.md)
 - [`DEVICE_finiteType`](DEVICE_finiteType.md)
 - [`DEVICE_type`](DEVICE_type.md)
-- `doNotTrackStatus`
-- `maxTouchPoints`
-- [`ORIENTATION_isLandscape`]
+- [`doNotTrackStatus`](doNotTrackStatus.md)
+- [`maxTouchPoints`](maxTouchPoints.md)
+- [`ORIENTATION_isLandscape`](orientation.md)
 - `OS`
 - `PDFviewerStatus`
 - `processorCores`
