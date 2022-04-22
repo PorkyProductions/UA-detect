@@ -16,9 +16,9 @@ Click any of them to go to their individual documentation.
 
 - [`browser`](browser.md)
 - [`browserOnlineStatus`](browserOnlineStatus.md)
-- `browserRam` 
-- `cookieStatus`
-- `currentUA`
+- [`browserRam`](browserRam.md) 
+- [`cookieStatus`](cookieStatus.md)
+- [`currentUA`](currentUA.md)
 - `DEVICE_finiteType`
 - `DEVICE_type`
 - `doNotTrackStatus`
