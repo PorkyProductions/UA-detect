@@ -7,12 +7,9 @@
 
 ## Overview
 
-You can think of a componet as a function, each of which return an interaction with the `navigator`. Each of the componets are self-contained, and can be used in any project. Here are all of the componets available:
+You can think of a componet as a function, each of which return an interaction with the `navigator`, in a more readable form. Each of the componets are self-contained, and can be used in any project. Here are all of the componets available:
 
 ## Componets
-
-### NOTE: 
-Click any of them to go to their individual documentation.
 
 - [`browser`](browser.md)
 - [`browserOnlineStatus`](browserOnlineStatus.md)
@@ -28,3 +25,6 @@ Click any of them to go to their individual documentation.
 - `PDFviewerStatus`
 - `processorCores`
 - `robotStatus`
+
+### NOTE: 
+Click any of them to go to their individual documentation.
