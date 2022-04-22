@@ -5,7 +5,7 @@ const getRam = (): number => {
     return RAM
 };
 
-const browserSpecificChanges = (getRam) => {
+const browserSpecificSupportRAM = (getRam) => {
     if (browser == "Chrome") {
         getRam();
     }
@@ -23,7 +23,7 @@ const browserSpecificChanges = (getRam) => {
     }
 };
 
-let browserRam = browserSpecificChanges(getRam);
+let browserRam = browserSpecificSupportRAM(getRam);
 
 
-export { browserRam, getRam, browserSpecificChanges };
+export { browserRam, getRam, browserSpecificSupportRAM };

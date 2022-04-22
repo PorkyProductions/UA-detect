@@ -28,7 +28,7 @@ import { DEVICE_finiteType, finiteMobileDeviceType } from './finiteMobileDeviceT
 
 // Logical Processors
 
-import {  } from './logicalProcessors'
+import { browserSpecificSupportCores, processorCores } from './logicalProcessors'
 
 // standard UA
 
@@ -40,7 +40,7 @@ import { DetectScreenOrientation, ORIENTATION_isLandscape } from './orientation'
 
 // RAM
 
-import { getRam, browserSpecificChanges, browserRam } from './ram'
+import { getRam, browserSpecificSupportRAM, browserRam } from './ram'
 
 // Exports
 
@@ -56,10 +56,11 @@ export {
     getDoNotTrack,
     getBrowser,
     getRam,
-    browserSpecificChanges
+    browserSpecificSupportRAM,
+    browserSpecificSupportCores
 };
 
 
 // As well as the returns on those functions
 
-export { ORIENTATION_isLandscape, DEVICE_type, DEVICE_finiteType, currentUA, cookieStatus, doNotTrackStatus, browser, browserRam };
+export { ORIENTATION_isLandscape, DEVICE_type, DEVICE_finiteType, currentUA, cookieStatus, doNotTrackStatus, browser, browserRam, processorCores };
