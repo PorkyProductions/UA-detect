@@ -1,6 +1,6 @@
 # UADetect
 
-<img src="./images/svg/full.svg" style="margin: auto;">
+<img src="./images/png/full.png" style="margin: auto;">
 
 - [UADetect](#uadetect)
   - [Description](#description)
@@ -49,4 +49,4 @@ npm i -d uadetect
 
 Read all about how to use the package in the [Docs](/docs/index.md)
 
-<img src="./images/svg/miniNoTagline.svg">
+<img src="./images/png/miniNoTagline.png">
