@@ -8,7 +8,8 @@ const getCookies = (cookies: boolean): "COOKIES_enabled" | "COOKIES_notEnabled" 
         return "COOKIES_notEnabled"
     }
     else {
-        return "ERROR"
+        throw new Error("ERR: Cookie status can not be determined");
+        
     }
 }
 

@@ -7,6 +7,7 @@
     - [Module Bundler](#module-bundler)
   - [Knowledge](#knowledge)
   - [LET's GO!](#lets-go)
+    - [OR Skip to Error Codes](#or-skip-to-error-codes)
 
 ## WELCOME!
 
@@ -37,3 +38,7 @@ For this tutorial, you are expected to know the basics of JavaScript, as well as
 
 Click the button below to get started! <br>
 <button>[GO!](setup.md)</button>
+
+
+### OR Skip to Error Codes
+[ERROR CODES](error-codes.md)

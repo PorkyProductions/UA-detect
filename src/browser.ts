@@ -25,7 +25,7 @@ const getBrowser = ({ ua }: { ua; }): "Opera" | "Chrome" | "Firefox" | "Safari" 
     }
     
     else {
-        return 'unknown';
+        throw new Error("ERR: Browser can not be determined"); 
     }
 };
 
