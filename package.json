@@ -43,7 +43,7 @@
   "bugs": {
     "url": "https://github.com/PorkyProductions/UA-detect/issues"
   },
-  "homepage": "https://github.com/PorkyProductions/UA-detect#readme",
+  "homepage": "https://porkyproductions.github.io/UA-detect/",
   "dependencies": {
     "jquery": "^3.6.0",
     "serve": "^13.0.2",
