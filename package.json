@@ -95,7 +95,8 @@
     "wrappy": "^1.0.2"
   },
   "scripts": {
-    "test": "npx vite"
+    "test": "npx vite",
+    "build": "npx vite build"
   },
   "repository": {
     "type": "git",

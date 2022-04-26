@@ -11,7 +11,7 @@ export default {
                 main: resolve(__dirname, 'index.html')
             },
             output: {
-                file: resolve(__dirname, './docs'),
+                dir: resolve(__dirname, './docs'),
             }
         }
     }

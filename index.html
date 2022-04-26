@@ -5,15 +5,39 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>UADetect</title>
-    <script src="./typescript/index.ts"></script>
+    <script type="module" src="./typescript/index.ts"></script>
     <link rel="stylesheet" href="./styles/css/tailwind.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;800&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet"> 
 </head>
 <body>
-    <h1 class="text-center font-primary text-9xl" id="header">
-        HELLO
-    </h1>
+    <header class="flex justify-between bg-gradient-to-r from-UADblue to-UADGreen dark:bg-slate-700 text-white">
+        <h1 class="text-3xl font-bold text-white font-specialty p-4">UADetect</h1>
+        <h1 class="text-2xl font-primary hover:bg-lime-500 hover:rounded-xl dark:hover:bg-slate-500 dark:hover:rounded-xl p-4" id="download">
+            <a href="https://www.npmjs.com/package/uadetect">
+                Download
+            </a>
+        </h1>
+    </header>
+    <section id="hero">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-wrap justify-center">
+                <div class="w-full lg:w-1/2 p-4">
+                    <img src="images/png/noTagline2.png" alt="the UA Detect Logo" class="pt-36 m-auto">
+                    <p class="text-center p-4">
+                        The JavaScript library that makes interacting with the user agent a breeze.
+                    </p>
+                    <p class="text-center">
+                        <a href="https://www.npmjs.com/package/uadetect">
+                            <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full">
+                                Download
+                            </button>
+                        </a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
 </body>
 </html>
