@@ -9,6 +9,10 @@ Licensed under the Apache-2.0 License.
 
 import { browser, getBrowser } from "./browser";
 
+// Build Number
+
+import { buildNumber, browserSpecificSupportBuildID } from "./buildNumber";
+
 // Cookies
 
 import { getCookies, cookieStatus } from "./cookies";
@@ -86,7 +90,8 @@ export {
   browserSpecificSupportRAM,
   browserSpecificSupportCores,
   getMaxTouchPoints,
-  getOS
+  getOS,
+  browserSpecificSupportBuildID
 };
 
 // As well as the returns on those functions
@@ -100,6 +105,7 @@ export {
   doNotTrackStatus,
   browser,
   browserRam,
+  buildNumber,
   processorCores,
   maxTouchPoints,
   browserOnlineStatus,

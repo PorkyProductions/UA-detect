@@ -27,6 +27,7 @@ The following series are just the numbers, but when used in development, they ar
 - 1200 (PDFviewerStatus)
 - 1300 (processorCores)
 - 1400 (robotStatus)
+- 1500 (buildNumber) 
 
 ## Explanations
 
@@ -53,3 +54,9 @@ The following series are just the numbers, but when used in development, they ar
 - 1300
   - 1301: This means that the browser refuses to report the logical processor count.
 - 1400
+- 1500
+  - 1501: Build number is not supported on Chrome
+  - 1502: Build number is not supported on Edge
+  - 1503: Build number is not supported on IE
+  - 1504: Build number is not supported on Opera
+  - 1505: Build number is not supported on Safari

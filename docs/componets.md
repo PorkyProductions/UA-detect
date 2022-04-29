@@ -13,7 +13,8 @@ You can think of a componet as a function, each of which return an interaction w
 
 - [`browser`](browser.md)
 - [`browserOnlineStatus`](browserOnlineStatus.md)
-- [`browserRam`](browserRam.md) 
+- [`browserRam`](browserRam.md)
+- [`buildNumber`](buildNumber.md)
 - [`cookieStatus`](cookieStatus.md)
 - [`currentUA`](currentUA.md)
 - [`DEVICE_finiteType`](DEVICE_finiteType.md)
