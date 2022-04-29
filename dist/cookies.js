@@ -1,14 +1,14 @@
 let cookies = navigator.cookieEnabled;
 const getCookies = (cookies) => {
-    if (cookies == true) {
+    if (cookies === true) {
         return "COOKIES_enabled";
     }
     ;
-    if (cookies == false) {
+    if (cookies === false) {
         return "COOKIES_notEnabled";
     }
     else {
-        return "ERROR";
+        throw new Error("ERR: Cookie status can not be determined \(UAD_201\)");
     }
 };
 let cookieStatus = getCookies(cookies);
