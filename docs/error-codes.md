@@ -32,3 +32,17 @@ The following series are just the numbers, but when used in development, they ar
 
 - 100
   - 101: This means that UAD could not detect the browser, or, the browser is not mainstream enough to be supported.
+- 200
+  - 201: This means that the user has either prevented sharing their cookie preferences, or, the browser does not support this feature. Or the user has disabled the feature.
+- 300
+- 400
+- 500
+- 600
+- 700
+- 800
+- 900
+- 1000
+- 1100
+- 1200
+- 1300
+- 1400
