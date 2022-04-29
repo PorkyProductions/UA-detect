@@ -40,6 +40,7 @@ The following series are just the numbers, but when used in development, they ar
 - 600
 - 700
 - 800
+  - 801: The `doNotTrack` value could not be determined from the user's browser.
 - 900
 - 1000
 - 1100
