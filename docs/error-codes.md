@@ -31,4 +31,4 @@ The following series are just the numbers, but when used in development, they ar
 ## Explanations
 
 - 100
-  - 
+  - 101: This means that UAD could not detect the browser, or, the browser is not mainstream enough to be supported.
