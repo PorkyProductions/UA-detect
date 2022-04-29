@@ -45,6 +45,7 @@ The following series are just the numbers, but when used in development, they ar
 - 900
 - 1000
 - 1100
+  - 1101: This means that the user's OS cannot be determined.
 - 1200
 - 1300
   - 1301: This means that the browser refuses to report the logical processor count.
