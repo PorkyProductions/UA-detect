@@ -1,0 +1,17 @@
+* {
+    body {
+        .spin {
+            // make the image spin
+            animation: spin 2s infinite linear;
+            @keyframes spin {
+                from {
+                    transform: rotate(0deg);
+                }
+
+                to {
+                    transform: rotate(360deg);
+                }
+            }
+        }
+    }
+}

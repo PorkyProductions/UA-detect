@@ -6,13 +6,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>UADetect</title>
     <script type="module" src="./typescript/index.ts"></script>
+    <script type="module" src="./typescript/hedgehog.ts"></script>
+    <link rel="shortcut icon" href="./images/png/miniNoTagline.png" type="image/x-icon">
+    <link rel="stylesheet" href="./styles/scss/spin.scss">
     <link rel="stylesheet" href="./styles/css/tailwind.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;800&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet"> 
 </head>
-<body>
-    <header class="flex justify-between bg-gradient-to-r from-UADblue to-UADGreen dark:bg-slate-700 text-white">
+<body class="dark:bg-black dark:text-white">
+    <header class="flex justify-between bg-gradient-to-r from-UADblue to-UADGreen dark:bg-gradient-to-r dark:from-blue-900 dark:to-lime-900 text-white">
         <h1 class="text-3xl font-bold text-white font-specialty p-4">UADetect</h1>
         <h1 class="text-2xl font-primary hover:bg-lime-500 hover:rounded-xl dark:hover:bg-slate-500 dark:hover:rounded-xl p-4" id="download">
             <a href="https://www.npmjs.com/package/uadetect">
@@ -31,7 +34,7 @@
                     <p class="text-center">
                         <a href="https://www.npmjs.com/package/uadetect">
                             <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full">
-                                Download
+                                Download <img src="./node_modules/bootstrap-icons/icons/download.svg" class="m-auto" />
                             </button>
                         </a>
                     </p>
@@ -43,7 +46,7 @@
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#0003f9" fill-opacity="1" d="M0,32L48,69.3C96,107,192,181,288,176C384,171,480,85,576,80C672,75,768,149,864,202.7C960,256,1056,288,1152,298.7C1248,309,1344,299,1392,293.3L1440,288L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>
         <div class="bg-UADblue text-white">
             <h1 class="text-6xl font-primary font-bold p-4">
-                Tons of componets 
+                Tons of componets
             </h1>
             <p class="text-3xl p-4 pb-10">
                 With features like <code>DEVICE_type</code>, <code>cookieStatus</code>, <code>doNotTrackStatus</code>, and <code>userAgent</code>, <br>
@@ -53,17 +56,50 @@
     </section>
     <section id="lines">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#0003f9" fill-opacity="1" d="M0,256L1440,32L1440,0L0,0Z"></path></svg>
-        <div class="bg-white text-black">
-            <h1 class="text-6xl font-primary font-bold p-4 text-UADGreen">
+        <div class="pb-5">
+            <h1 class="text-6xl font-primary font-bold p-4 text-UADGreen text-center">
                 Easy to use
             </h1>
-            <p class="text-3xl p-4 pb-10 leading-9">
-                We built this library from the ground-up with the intention to simplify the <code>navigator</code> API. <br>
-                We started by running into a problem on one of our other websites, where the header text would show up on mobile devices, making it look messy
-                and unreadable. We decided to solve this problem by writing some JavaScript that would scan the User Agent string, and if any attributes related to a mobile device showed up, it would hide the text.
-                This script eventually evolved into the library that it is tody, with many more features, and more coming in the future.
+            <div class="flex">
+                <p class="text-3xl p-4 pb-10 leading-9">
+                    We built this library from the ground-up with the intention to simplify the <code>navigator</code> API.
+                    We started by running into a problem on one of our other websites, where the header text would show up on mobile devices, making it look messy
+                    and unreadable. We decided to solve this problem by writing some JavaScript that would scan the User Agent string, and if any attributes related to a mobile device showed up, it would hide the text.
+                    This script eventually evolved into the library that it is tody, with many more features, and more coming in the future.
+                </p>
+                <div class="pr-6">
+                    <script src="https://gist.github.com/hiteacheryouare/ab0f51358c73c0cb9a2176d8ef715558.js"></script>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="CTA">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#00c00d" fill-opacity="1" d="M0,32L48,42.7C96,53,192,75,288,122.7C384,171,480,245,576,272C672,299,768,277,864,240C960,203,1056,149,1152,144C1248,139,1344,181,1392,202.7L1440,224L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>
+        <div class="bg-UADGreen p-5">
+            <h1 class="text-white text-center font-primary font-bold text-6xl p-4">
+                Ready to get started?
+            </h1>
+            <p class="text-white text-center text-3xl p-4 pb-10 leading-9">
+                We proudly host our package on npm. You can find download instructions and further documentation on their website.
+                <a href="https://www.npmjs.com/package/uadetect"> <br>
+                    <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full">
+                        Download <img src="./node_modules/bootstrap-icons/icons/download.svg" class="m-auto" />
+                    </button>
+                </a>
             </p>
         </div>
     </section>
+    <footer>
+        <div class="bg-UADblue dark:bg-slate-800 text-white text-center">
+            <h1 class="text-6xl font-primary font-bold p-4">
+                Made with ❤️ by <a href="https://porkyproductions.github.io/"><img src="images/png/HedgehogIcon.png" id="HEDGEHOG" class="m-auto"></a> <a href="https://porkyproductions.github.io/">PorkyProductions</a>
+            </h1>
+        </div>
+        <div class="bg-white">
+            <p class="text-center text-2xl font-primary font-bold text-black">
+                &copy; 2022 <a href="https://porkyproductions.github.io/">PorkyProductions</a>, Licensed under the <a href="LICENSE" class="text-blue">Apache</a> License.
+            </p>
+        </div>
+    </footer>
 </body>
 </html>

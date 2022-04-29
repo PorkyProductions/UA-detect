@@ -5,3 +5,4 @@ const downloadButtonHeader: HTMLElement = document.querySelector("download");
 if (DEVICE_type === "mobile") {
     downloadButtonHeader.style.display = "none";
 }
+
