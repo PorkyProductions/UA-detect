@@ -38,6 +38,7 @@ The following series are just the numbers, but when used in development, they ar
 - 400
 - 500
 - 600
+  - 601: This means that the device is not a mobile device.
 - 700
 - 800
   - 801: The `doNotTrack` value could not be determined from the user's browser.
@@ -46,4 +47,5 @@ The following series are just the numbers, but when used in development, they ar
 - 1100
 - 1200
 - 1300
+  - 1301: This means that the browser refuses to report the logical processor count.
 - 1400
