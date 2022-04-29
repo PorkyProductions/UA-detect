@@ -35,6 +35,9 @@ The following series are just the numbers, but when used in development, they ar
 - 200
   - 201: This means that the user has either prevented sharing their cookie preferences, or, the browser does not support this feature. Or the user has disabled the feature.
 - 300
+  - 301: The RAM API is not supported on Firefox
+  - 302: The RAM API is not supported on Safari
+  - 303: The RAM API is not supported on Internet Explorer
 - 400
 - 500
 - 600
