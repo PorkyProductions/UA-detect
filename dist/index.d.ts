@@ -2,8 +2,8 @@ declare module 'uadetect';
 
 namespace uadetect {
     export interface UserAgent {
-        browser: string;
-        buildNumber: number;
-        cookies: boolean;
-        doNotTrack: boolean;
-        finiteMobileDeviceType: string;
+        ORIENTATION_isLandscape: boolean;
+        DEVICE_type: string;
+        DEVICE_finiteType: string;
+    }
+}
