@@ -32,6 +32,12 @@ import {
   finiteMobileDeviceType,
 } from "./finiteMobileDeviceType";
 
+// Geolocation
+
+import {
+  geo
+} from "./geolocation";
+
 // Logical Processors
 
 import {
@@ -111,5 +117,6 @@ export {
   browserOnlineStatus,
   PDFviewerStatus,
   robotStatus,
-  OS
+  OS,
+  geo
 };
