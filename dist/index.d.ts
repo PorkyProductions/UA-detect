@@ -24,12 +24,30 @@ declare type cookieStatus = boolean;
 // Do Not Track
 
 declare type doNotTrackStatus = boolean;
-    browser: string;
-    browserRam: number;
-    buildNumber: number;
-    processorCores: number;
-    maxTouchPoints: number;
-    browserOnlineStatus: boolean;
-    PDFviewerStatus: boolean;
-    robotStatus: boolean;
-    OS: string;
+
+// Browser
+declare type browser = string;
+
+// Browser Ram
+declare type browserRam = number;
+
+// Build Number
+declare type buildNumber = number;
+
+// Processor Cores
+declare type processorCores = number;
+
+// Max Touch Points
+declare type maxTouchPoints = number;
+
+// Online Status
+declare type browserOnlineStatus = boolean;
+
+// PDF Support
+declare type PDFviewerStatus = boolean;
+
+// Robot Status
+declare type robotStatus = boolean;
+
+// OS
+declare type OS = string;
