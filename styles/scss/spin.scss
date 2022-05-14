@@ -14,5 +14,8 @@
     }
     body {
         scrollbar-color: #0003f9 #00c00d;
+        img {
+            image-rendering: optimizeQuality;
+        }
     }
 }
