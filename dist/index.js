@@ -16,6 +16,8 @@ import { DEVICE_type, DetectDeviceType } from "./DetectDeviceType";
 import { doNotTrackStatus, getDoNotTrack } from "./doNotTrack";
 // Finite Mobile Device Type
 import { DEVICE_finiteType, finiteMobileDeviceType, } from "./finiteMobileDeviceType";
+// Geolocation
+import { geo } from "./geolocation";
 // Logical Processors
 import { browserSpecificSupportCores, processorCores, } from "./logicalProcessors";
 // Max Touch Points
@@ -38,4 +40,4 @@ import { robotStatus } from "./webdriver";
 // Make the functions accessible
 export { DetectScreenOrientation, DetectDeviceType, finiteMobileDeviceType, getCurrentUA, getCookies, getDoNotTrack, getBrowser, getRam, browserSpecificSupportRAM, browserSpecificSupportCores, getMaxTouchPoints, getOS, browserSpecificSupportBuildID };
 // As well as the returns on those functions
-export { ORIENTATION_isLandscape, DEVICE_type, DEVICE_finiteType, currentUA, cookieStatus, doNotTrackStatus, browser, browserRam, buildNumber, processorCores, maxTouchPoints, browserOnlineStatus, PDFviewerStatus, robotStatus, OS };
+export { ORIENTATION_isLandscape, DEVICE_type, DEVICE_finiteType, currentUA, cookieStatus, doNotTrackStatus, browser, browserRam, buildNumber, processorCores, maxTouchPoints, browserOnlineStatus, PDFviewerStatus, robotStatus, OS, geo };
