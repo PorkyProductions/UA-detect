@@ -1,15 +1,14 @@
 * {
     .spin {
-        // make the image spin
-        animation: spin 2s infinite linear;
-        @keyframes spin {
-            from {
-                transform: rotate(0deg);
-            }
+        animation: spin 2s infinite  cubic-bezier(1, 0.2, 0.49, 1.04);    
+    }
+    @keyframes spin {
+        from {
+            transform: rotate(0deg);
+        }
 
-            to {
-                transform: rotate(360deg);
-            }
+        to {
+            transform: rotate(360deg);
         }
     }
     body {

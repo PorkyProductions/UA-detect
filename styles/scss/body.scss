@@ -1,3 +1,68 @@
+$ERROR-red: #ff3700;
+$Caution: #ffd700;
+$Warning: #ffa500;
+$Danger: #ff0073;
+$Success: #00ff00;
+$Info: #0051ff;
+$Light: #f0f0f0;
+$Dark: #333333;
+$Black: #000000;
+$White: #ffffff;
+$Transparent: transparent;
+$UADBlue: #0003f9;
+$UADGreen: #00c00d;
+
+$bold: 700;
+
+
+@mixin spinning-error {
+    color: $ERROR-red;
+    animation: spin 2s infinite linear;
+}
+
+@mixin spinning-caution {
+    color: $Caution;
+    animation: spin 2s infinite linear;
+}
+
+@mixin spinning-warning {
+    color: $Warning;
+    animation: spin 2s infinite linear;
+}
+
+@mixin spinning-danger {
+    color: $Danger;
+    animation: spin 2s infinite linear;
+}
+
+
+.fourOhFour {
+    @include spinning-error;
+    font-size: 72px;
+    font-weight: bolder;
+    padding: 40px;
+}
+
+.internal {
+    color: $Danger;
+    font-size: 72px;
+    text-align: center;
+    font-weight: $bold;
+}
+
+.server {
+    color: $Caution;
+    font-size: 63px;
+    text-align: center;
+    font-weight: $bold;
+}
+.error {
+    color: $ERROR-red;
+    font-size: 50px;
+    text-align: center;
+    font-weight: $bold;
+}
+
 * {
     body {
         scroll-behavior: smooth;

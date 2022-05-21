@@ -8,7 +8,9 @@ export default {
     build: {
         rollupOptions: {
             input: {
-                main: resolve(__dirname, 'index.html')
+                main: resolve(__dirname, 'index.html'),
+                fourOhFour: resolve(__dirname, '404.html'),
+                fiveHundred: resolve(__dirname, '500.html'),
             },
             output: {
                 dir: resolve(__dirname, './docs'),
