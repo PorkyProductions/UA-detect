@@ -49,6 +49,10 @@ import {
 
 import { maxTouchPoints, getMaxTouchPoints } from "./maxTouchPoints";
 
+// Navigator Object
+
+import { navigatorObject } from './navigator';
+
 // Online Status
 
 import { browserOnlineStatus } from "./online";
@@ -114,6 +118,7 @@ export {
   buildNumber,
   processorCores,
   maxTouchPoints,
+  navigatorObject,
   browserOnlineStatus,
   PDFviewerStatus,
   robotStatus,
