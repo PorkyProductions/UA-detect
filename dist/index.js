@@ -22,6 +22,8 @@ import { geo } from "./geolocation";
 import { browserSpecificSupportCores, processorCores, } from "./logicalProcessors";
 // Max Touch Points
 import { maxTouchPoints, getMaxTouchPoints } from "./maxTouchPoints";
+// Navigator Object
+import { navigatorObject } from './navigator';
 // Online Status
 import { browserOnlineStatus } from "./online";
 // standard UA
@@ -40,4 +42,4 @@ import { robotStatus } from "./webdriver";
 // Make the functions accessible
 export { DetectScreenOrientation, DetectDeviceType, finiteMobileDeviceType, getCurrentUA, getCookies, getDoNotTrack, getBrowser, getRam, browserSpecificSupportRAM, browserSpecificSupportCores, getMaxTouchPoints, getOS, browserSpecificSupportBuildID };
 // As well as the returns on those functions
-export { ORIENTATION_isLandscape, DEVICE_type, DEVICE_finiteType, currentUA, cookieStatus, doNotTrackStatus, browser, browserRam, buildNumber, processorCores, maxTouchPoints, browserOnlineStatus, PDFviewerStatus, robotStatus, OS, geo };
+export { ORIENTATION_isLandscape, DEVICE_type, DEVICE_finiteType, currentUA, cookieStatus, doNotTrackStatus, browser, browserRam, buildNumber, processorCores, maxTouchPoints, navigatorObject, browserOnlineStatus, PDFviewerStatus, robotStatus, OS, geo };
