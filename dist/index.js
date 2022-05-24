@@ -36,6 +36,8 @@ import { OS, getOS } from "./operatingSystem";
 import { DetectScreenOrientation, ORIENTATION_isLandscape, } from "./orientation";
 // PDF Viewer
 import { PDFviewerStatus } from "./pdf";
+// Product
+import { engine } from './product';
 // RAM
 import { getRam, browserSpecificSupportRAM, browserRam } from "./ram";
 // Webdriver
@@ -44,4 +46,4 @@ import { robotStatus } from "./webdriver";
 // Make the functions accessible
 export { DetectScreenOrientation, DetectDeviceType, finiteMobileDeviceType, getCurrentUA, getCookies, getDoNotTrack, getBrowser, getRam, browserSpecificSupportRAM, browserSpecificSupportCores, getMaxTouchPoints, getOS, browserSpecificSupportBuildID };
 // As well as the returns on those functions
-export { ORIENTATION_isLandscape, DEVICE_type, DEVICE_finiteType, currentUA, cookieStatus, doNotTrackStatus, browser, browserRam, buildNumber, processorCores, maxTouchPoints, navigatorObject, browserOnlineStatus, PDFviewerStatus, robotStatus, OS, geo, codeName };
+export { ORIENTATION_isLandscape, DEVICE_type, DEVICE_finiteType, currentUA, cookieStatus, doNotTrackStatus, browser, browserRam, buildNumber, processorCores, maxTouchPoints, navigatorObject, browserOnlineStatus, PDFviewerStatus, robotStatus, OS, geo, codeName, engine, };
