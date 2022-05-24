@@ -78,7 +78,11 @@ import {
 
 // PDF Viewer
 
-import { PDFviewerStatus } from "./pdf"; 
+import { PDFviewerStatus } from "./pdf";
+
+// Product
+
+import {engine} from './product';
 
 // RAM
 
@@ -128,5 +132,6 @@ export {
   robotStatus,
   OS,
   geo,
-  codeName
+  codeName,
+  engine,
 };

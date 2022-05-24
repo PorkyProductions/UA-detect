@@ -8,6 +8,8 @@ Licensed under the Apache-2.0 License.
 import { browser, getBrowser } from "./browser";
 // Build Number
 import { buildNumber, browserSpecificSupportBuildID } from "./buildNumber";
+// Code Name
+import { codeName } from "./appCodeName";
 // Cookies
 import { getCookies, cookieStatus } from "./cookies";
 // Device Type
@@ -42,4 +44,4 @@ import { robotStatus } from "./webdriver";
 // Make the functions accessible
 export { DetectScreenOrientation, DetectDeviceType, finiteMobileDeviceType, getCurrentUA, getCookies, getDoNotTrack, getBrowser, getRam, browserSpecificSupportRAM, browserSpecificSupportCores, getMaxTouchPoints, getOS, browserSpecificSupportBuildID };
 // As well as the returns on those functions
-export { ORIENTATION_isLandscape, DEVICE_type, DEVICE_finiteType, currentUA, cookieStatus, doNotTrackStatus, browser, browserRam, buildNumber, processorCores, maxTouchPoints, navigatorObject, browserOnlineStatus, PDFviewerStatus, robotStatus, OS, geo };
+export { ORIENTATION_isLandscape, DEVICE_type, DEVICE_finiteType, currentUA, cookieStatus, doNotTrackStatus, browser, browserRam, buildNumber, processorCores, maxTouchPoints, navigatorObject, browserOnlineStatus, PDFviewerStatus, robotStatus, OS, geo, codeName };

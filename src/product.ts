@@ -20,3 +20,5 @@ const getProductID = (productID): String | 'Gecko' | 'WebKit' | 'Trident' | 'Pre
 }
 
 let engine = getProductID(productID);
+
+export {engine};
