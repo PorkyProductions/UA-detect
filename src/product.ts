@@ -19,4 +19,4 @@ const getProductID = (productID): String | 'Gecko' | 'WebKit' | 'Trident' | 'Pre
     }
 }
 
-let product = getProductID(productID);
+let engine = getProductID(productID);

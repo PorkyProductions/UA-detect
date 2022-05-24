@@ -28,6 +28,8 @@ The following series are just the numbers, but when used in development, they ar
 - 1300 (processorCores)
 - 1400 (robotStatus)
 - 1500 (buildNumber) 
+- 1600 (codeName)
+- 1700 (engine)
 
 ## Explanations
 
@@ -62,3 +64,5 @@ The following series are just the numbers, but when used in development, they ar
   - 1505: Build number is not supported on Safari
 - 1600
   - 1601: This means that the browser has either hidden, or disabled, the `appCodeName` feature
+- 1700
+  - 1701: This menas that the browser has either hidden, or disabled, the `engine` feature due to it being deprecated.
