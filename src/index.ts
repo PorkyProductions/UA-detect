@@ -13,6 +13,10 @@ import { browser, getBrowser } from "./browser";
 
 import { buildNumber, browserSpecificSupportBuildID } from "./buildNumber";
 
+// Code Name
+
+import { codeName } from "./appCodeName";
+
 // Cookies
 
 import { getCookies, cookieStatus } from "./cookies";
@@ -123,5 +127,6 @@ export {
   PDFviewerStatus,
   robotStatus,
   OS,
-  geo
+  geo,
+  codeName
 };
