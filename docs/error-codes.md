@@ -60,3 +60,5 @@ The following series are just the numbers, but when used in development, they ar
   - 1503: Build number is not supported on IE
   - 1504: Build number is not supported on Opera
   - 1505: Build number is not supported on Safari
+- 1600
+  - 1601: This means that the browser has either hidden, or disabled, the `appCodeName` feature

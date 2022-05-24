@@ -11,6 +11,7 @@ You can think of a componet as a function, each of which return an interaction w
 
 ## Componets
 
+- [`codeName`](codeName.md)
 - [`browser`](browser.md)
 - [`browserOnlineStatus`](browserOnlineStatus.md)
 - [`browserRam`](browserRam.md)

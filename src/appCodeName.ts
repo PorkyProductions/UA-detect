@@ -2,16 +2,16 @@ let appCodeName = window.navigator.appCodeName
 
 const getCodeName = (appCodeName) => {
     if (appCodeName === 'Mozilla') {
-        return 'Firefox'
+        return 'mozilla'
     }
     else if (appCodeName === 'Microsoft') {
-        return 'Edge'
+        return 'Microsoft'
     }
     else if (appCodeName === 'Apple Computer, Inc.') {
-        return 'Safari'
+        return 'Apple'
     }
     else if (appCodeName === 'Google Inc.') {
-        return 'Chrome'
+        return 'Google'
     }
     else {
         throw new Error("Unknown appCodeName")  // throw error;
