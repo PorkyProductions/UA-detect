@@ -11,14 +11,17 @@ You can think of a componet as a function, each of which return an interaction w
 
 ## Componets
 
+- [`codeName`](codeName.md)
 - [`browser`](browser.md)
 - [`browserOnlineStatus`](browserOnlineStatus.md)
-- [`browserRam`](browserRam.md) 
+- [`browserRam`](browserRam.md)
+- [`buildNumber`](buildNumber.md)
 - [`cookieStatus`](cookieStatus.md)
 - [`currentUA`](currentUA.md)
 - [`DEVICE_finiteType`](DEVICE_finiteType.md)
 - [`DEVICE_type`](DEVICE_type.md)
 - [`doNotTrackStatus`](doNotTrackStatus.md)
+- [`engine`](engine.md)
 - [`maxTouchPoints`](maxTouchPoints.md)
 - [`ORIENTATION_isLandscape`](orientation.md)
 - [`OS`](os.md)

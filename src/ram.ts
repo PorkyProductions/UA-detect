@@ -10,13 +10,16 @@ const browserSpecificSupportRAM = (getRam) => {
         getRam();
     }
     if (browser == "Firefox") {
-        return "RAM API not availible in Firefox";
+        throw new Error("RAM API not supported on Firefox\(UAD_301\)");
+        
     }
     if (browser == "Safari") {
-        return "RAM API not availible in Safari";
+        throw new Error("RAM API not supported on Safari\(UAD_302\)");
+        
     }
     if (browser == "IE") {
-        return "RAM API not availible in IE";
+        throw new Error("RAM API not supported on IE\(UAD_303\)");
+        
     }
     if (browser == "Opera") {
         getRam();

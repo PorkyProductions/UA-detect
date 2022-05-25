@@ -22,8 +22,7 @@ export default function finiteMobileDeviceType(): "iOS" | "Android" | "BlackBerr
         return "webOS";
     }
     else {
-        console.log("ERR: Unknown Device");
-        return "unknown";
+        throw new Error("Unknown device type\(UAD_601\)");
     }
 }
 let DEVICE_finiteType = finiteMobileDeviceType();
