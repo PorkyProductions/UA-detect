@@ -40,10 +40,12 @@ import { PDFviewerStatus } from "./pdf";
 import { engine } from './product';
 // RAM
 import { getRam, browserSpecificSupportRAM, browserRam } from "./ram";
+// Version
+import { version } from './appVersion';
 // Webdriver
 import { robotStatus } from "./webdriver";
 // Exports
 // Make the functions accessible
 export { DetectScreenOrientation, DetectDeviceType, finiteMobileDeviceType, getCurrentUA, getCookies, getDoNotTrack, getBrowser, getRam, browserSpecificSupportRAM, browserSpecificSupportCores, getMaxTouchPoints, getOS, browserSpecificSupportBuildID };
 // As well as the returns on those functions
-export { ORIENTATION_isLandscape, DEVICE_type, DEVICE_finiteType, currentUA, cookieStatus, doNotTrackStatus, browser, browserRam, buildNumber, processorCores, maxTouchPoints, navigatorObject, browserOnlineStatus, PDFviewerStatus, robotStatus, OS, geo, codeName, engine, };
+export { ORIENTATION_isLandscape, DEVICE_type, DEVICE_finiteType, currentUA, cookieStatus, doNotTrackStatus, browser, browserRam, buildNumber, processorCores, maxTouchPoints, navigatorObject, browserOnlineStatus, PDFviewerStatus, robotStatus, OS, geo, codeName, engine, version };
