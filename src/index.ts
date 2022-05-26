@@ -88,6 +88,10 @@ import {engine} from './product';
 
 import { getRam, browserSpecificSupportRAM, browserRam } from "./ram";
 
+// Version
+
+import {version} from './appVersion'
+
 // Webdriver
 
 import { robotStatus } from "./webdriver";
@@ -109,7 +113,7 @@ export {
   browserSpecificSupportCores,
   getMaxTouchPoints,
   getOS,
-  browserSpecificSupportBuildID
+    browserSpecificSupportBuildID
 };
 
 // As well as the returns on those functions
@@ -133,5 +137,6 @@ export {
   OS,
   geo,
   codeName,
-  engine,
+    engine,
+    version
 };

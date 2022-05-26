@@ -30,6 +30,7 @@ The following series are just the numbers, but when used in development, they ar
 - 1500 (buildNumber) 
 - 1600 (codeName)
 - 1700 (engine)
+- 1800 (version)
 
 ## Explanations
 
@@ -66,3 +67,5 @@ The following series are just the numbers, but when used in development, they ar
   - 1601: This means that the browser has either hidden, or disabled, the `appCodeName` feature
 - 1700
   - 1701: This menas that the browser has either hidden, or disabled, the `engine` feature due to it being deprecated.
+- 1800
+  - 1801: This means that the browser does not report the verion that it is using
