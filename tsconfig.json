@@ -1,7 +1,10 @@
 {
     "compilerOptions": {
         "target": "es2019",
-        "outDir": "./dist/"
+        "outDir": "./dist/",
+        "moduleResolution": "node",
+        "pretty": true,
+
     },
     "files": [
         "./src/index.ts"

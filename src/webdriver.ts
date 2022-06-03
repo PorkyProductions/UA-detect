@@ -11,4 +11,4 @@ const getBots = ({ webdriverControlled }: { webdriverControlled; }): "ROBOT_cont
 
 let robotStatus: "ROBOT_controlled" | "HUMAN_controlled" | "ERROR" = getBots({ webdriverControlled });
 
-export { robotStatus };
+export { robotStatus, webdriverControlled };

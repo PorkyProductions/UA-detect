@@ -22,7 +22,7 @@ const getBrowser = ({ ua }) => {
         return 'Edge';
     }
     else {
-        return 'unknown';
+        throw new Error("ERR: Browser can not be determined \(UAD_101\)");
     }
 };
 let browser = getBrowser({ ua });

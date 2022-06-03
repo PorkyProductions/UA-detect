@@ -9,6 +9,10 @@ Licensed under the Apache-2.0 License.
 
 import { browser, getBrowser } from "./browser";
 
+// Code Name
+
+import { codeName } from "./appCodeName";
+
 // Cookies
 
 import { getCookies, cookieStatus } from "./cookies";
@@ -28,6 +32,12 @@ import {
   finiteMobileDeviceType,
 } from "./finiteMobileDeviceType";
 
+// Geolocation
+
+import {
+  geo
+} from "./geolocation";
+
 // Logical Processors
 
 import {
@@ -38,6 +48,10 @@ import {
 // Max Touch Points
 
 import { maxTouchPoints, getMaxTouchPoints } from "./maxTouchPoints";
+
+// Navigator Object
+
+import { navigatorObject } from './navigator';
 
 // Online Status
 
@@ -60,11 +74,15 @@ import {
 
 // PDF Viewer
 
-import { PDFviewerStatus } from "./pdf"; 
+import { PDFviewerStatus } from "./pdf";
 
-// RAM
+// Product
 
-import { getRam, browserSpecificSupportRAM, browserRam } from "./ram";
+import {engine} from './product';
+
+// Version
+
+import {version} from './appVersion'
 
 // Webdriver
 
@@ -82,11 +100,9 @@ export {
   getCookies,
   getDoNotTrack,
   getBrowser,
-  getRam,
-  browserSpecificSupportRAM,
   browserSpecificSupportCores,
   getMaxTouchPoints,
-  getOS
+  getOS,
 };
 
 // As well as the returns on those functions
@@ -99,11 +115,15 @@ export {
   cookieStatus,
   doNotTrackStatus,
   browser,
-  browserRam,
   processorCores,
   maxTouchPoints,
+  navigatorObject,
   browserOnlineStatus,
   PDFviewerStatus,
   robotStatus,
-  OS
+  OS,
+  geo,
+  codeName,
+    engine,
+    version
 };

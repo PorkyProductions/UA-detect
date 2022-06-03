@@ -21,7 +21,8 @@ const getOS = ({ ua }: { ua; }): "Windows" | "Mac" | "Linux" | "Android" | "iOS"
         return 'iOS';
     }
     else {
-        return 'unknown';
+        throw new Error("Unknown Operating System\(UAD_1101\)");
+        
     }
 }
 
