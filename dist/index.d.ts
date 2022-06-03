@@ -10,44 +10,44 @@ Licensed under the Apache-2.0 License.
 declare module 'uadetect';
 
 // ORIENTATION
-export type ORIENTATION_isLandscape = boolean;
+declare const ORIENTATION_isLandscape: boolean;
 
 // DEVICE TYPES
 
-export type DEVICE_type = string;
-export type DEVICE_finiteType = string;
+declare const DEVICE_type : string;
+declare const DEVICE_finiteType : string;
 
 // COOKIES
 
-export type cookieStatus = boolean;
+declare const cookieStatus : boolean;
 
 // Do Not Track
 
-export type doNotTrackStatus = boolean;
+declare const doNotTrackStatus : boolean;
 
 // Browser
-export type browser = string;
+declare const browser : string;
 
 // Browser Ram
-export type browserRam = number;
+declare const browserRam : number;
 
 // Build Number
-export type buildNumber = number;
+declare const buildNumber : number;
 
 // Processor Cores
-export type processorCores = number;
+declare const processorCores : number;
 
 // Max Touch Points
-export type maxTouchPoints = number;
+declare const maxTouchPoints : number;
 
 // Online Status
-export type browserOnlineStatus = boolean;
+declare const browserOnlineStatus : boolean;
 
 // PDF Support
-export type PDFviewerStatus = boolean;
+declare const PDFviewerStatus : boolean;
 
 // Robot Status
-export type robotStatus = boolean;
+declare const robotStatus : boolean;
 
 // OS
-export type OS = string;
+declare const OS : string;
