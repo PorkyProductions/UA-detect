@@ -9,10 +9,6 @@ Licensed under the Apache-2.0 License.
 
 import { browser, getBrowser } from "./browser";
 
-// Build Number
-
-import { buildNumber, browserSpecificSupportBuildID } from "./buildNumber";
-
 // Code Name
 
 import { codeName } from "./appCodeName";
@@ -84,10 +80,6 @@ import { PDFviewerStatus } from "./pdf";
 
 import {engine} from './product';
 
-// RAM
-
-import { getRam, browserSpecificSupportRAM, browserRam } from "./ram";
-
 // Version
 
 import {version} from './appVersion'
@@ -108,12 +100,9 @@ export {
   getCookies,
   getDoNotTrack,
   getBrowser,
-  getRam,
-  browserSpecificSupportRAM,
   browserSpecificSupportCores,
   getMaxTouchPoints,
   getOS,
-    browserSpecificSupportBuildID
 };
 
 // As well as the returns on those functions
@@ -126,8 +115,6 @@ export {
   cookieStatus,
   doNotTrackStatus,
   browser,
-  browserRam,
-  buildNumber,
   processorCores,
   maxTouchPoints,
   navigatorObject,
