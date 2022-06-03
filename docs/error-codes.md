@@ -15,7 +15,6 @@ The following series are just the numbers, but when used in development, they ar
 
 - 100 (browser)
 - 200 (browserOnlineStatus)
-- 300 (browserRam)
 - 400 (cookieStatus)
 - 500 (currentUA)
 - 600 (DEVICE_finiteType)
@@ -27,7 +26,6 @@ The following series are just the numbers, but when used in development, they ar
 - 1200 (PDFviewerStatus)
 - 1300 (processorCores)
 - 1400 (robotStatus)
-- 1500 (buildNumber) 
 - 1600 (codeName)
 - 1700 (engine)
 - 1800 (version)
@@ -38,10 +36,6 @@ The following series are just the numbers, but when used in development, they ar
   - 101: This means that UAD could not detect the browser, or, the browser is not mainstream enough to be supported.
 - 200
   - 201: This means that the user has either prevented sharing their cookie preferences, or, the browser does not support this feature. Or the user has disabled the feature.
-- 300
-  - 301: The RAM API is not supported on Firefox
-  - 302: The RAM API is not supported on Safari
-  - 303: The RAM API is not supported on Internet Explorer
 - 400
 - 500
 - 600
@@ -57,12 +51,6 @@ The following series are just the numbers, but when used in development, they ar
 - 1300
   - 1301: This means that the browser refuses to report the logical processor count.
 - 1400
-- 1500
-  - 1501: Build number is not supported on Chrome
-  - 1502: Build number is not supported on Edge
-  - 1503: Build number is not supported on IE
-  - 1504: Build number is not supported on Opera
-  - 1505: Build number is not supported on Safari
 - 1600
   - 1601: This means that the browser has either hidden, or disabled, the `appCodeName` feature
 - 1700
