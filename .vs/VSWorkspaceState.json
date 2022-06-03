@@ -1,9 +1,9 @@
 {
   "ExpandedNodes": [
     "",
-    "\\docs",
-    "\\src"
+    "\\src",
+    "\\tests"
   ],
-  "SelectedNode": "\\src\\index.ts",
+  "SelectedNode": "\\src\\doNotTrack.ts",
   "PreviewInSolutionExplorer": false
 }
