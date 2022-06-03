@@ -14,40 +14,40 @@ declare const ORIENTATION_isLandscape: boolean;
 
 // DEVICE TYPES
 
-declare const DEVICE_type : string;
-declare const DEVICE_finiteType : string;
+declare const DEVICE_type: string;
+declare const DEVICE_finiteType: string;
 
 // COOKIES
 
-declare const cookieStatus : boolean;
+declare const cookieStatus: boolean;
 
 // Do Not Track
 
-declare const doNotTrackStatus : boolean;
+declare const doNotTrackStatus: boolean;
 
 // Browser
-declare const browser : string;
+declare const browser: string;
 
 // Browser Ram
-declare const browserRam : number;
+declare const browserRam: number;
 
 // Build Number
-declare const buildNumber : number;
+declare const buildNumber: number;
 
 // Processor Cores
-declare const processorCores : number;
+declare const processorCores: number;
 
 // Max Touch Points
-declare const maxTouchPoints : number;
+declare const maxTouchPoints: number;
 
 // Online Status
-declare const browserOnlineStatus : boolean;
+declare const browserOnlineStatus: boolean;
 
 // PDF Support
-declare const PDFviewerStatus : boolean;
+declare const PDFviewerStatus: boolean;
 
 // Robot Status
-declare const robotStatus : boolean;
+declare const robotStatus: boolean;
 
 // OS
-declare const OS : string;
+declare const OS: string;
