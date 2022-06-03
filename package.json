@@ -1,6 +1,6 @@
 {
   "name": "uadetect",
-  "version": "2.0.2",
+  "version": "3.0.0",
   "description": "The dead-simple way of interacting with the navigator API",
   "main": "./dist/index.js",
   "scripts": {
