@@ -22,7 +22,8 @@ export default function finiteMobileDeviceType() {
         return "webOS";
     }
     else {
-        throw new Error("Unknown device type\(UAD_601\)");
+        console.error("Unknown device type\(UAD_601\)");
+        return "Unknown";
     }
 }
 let DEVICE_finiteType = finiteMobileDeviceType();

@@ -21,7 +21,8 @@ const getOS = ({ ua }) => {
         return 'iOS';
     }
     else {
-        throw new Error("Unknown Operating System\(UAD_1101\)");
+        console.error("Unknown Operating System\(UAD_1101\)");
+        return "Unknown";
     }
 };
 let OS = getOS({ ua: navigator.userAgent });

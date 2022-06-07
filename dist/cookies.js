@@ -8,7 +8,8 @@ const getCookies = (cookies) => {
         return "COOKIES_notEnabled";
     }
     else {
-        throw new Error("ERR: Cookie status can not be determined \(UAD_201\)");
+        console.error("ERR: Cookie status can not be determined \(UAD_201\)");
+        return "ERROR";
     }
 };
 let cookieStatus = getCookies(cookies);

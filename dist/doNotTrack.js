@@ -14,7 +14,8 @@ const getDoNotTrack = (browserDoNotTrack) => {
         return "TRACKING_unspecified";
     }
     else {
-        throw new Error("Unknown doNotTrack value\(UAD_801\)");
+        console.error("Unknown doNotTrack value\(UAD_801\)");
+        return "ERROR";
     }
 };
 let doNotTrackStatus = getDoNotTrack(browserDoNotTrack);

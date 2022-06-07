@@ -4,7 +4,8 @@ const getAppVersion = (appVersion) => {
         return appVersion;
     }
     else {
-        throw new Error("No app version detected. \(UAD_1801\)");
+        console.error("No app version detected. \(UAD_1801\)");
+        return "Unknown";
     }
 };
 let version = getAppVersion(appVersion);

@@ -8,4 +8,4 @@ const getBots = ({ webdriverControlled }) => {
     }
 };
 let robotStatus = getBots({ webdriverControlled });
-export { robotStatus };
+export { robotStatus, webdriverControlled };

@@ -14,7 +14,7 @@ const browserSpecificSupportCores = () => {
         return getProcessors();
     }
     if (browser === "IE") {
-        throw new Error("Not supported on this browser\(UAD_1301\)");
+        console.error("Not supported on this browser\(UAD_1301\)");
     }
     if (browser === "Opera") {
         return getProcessors();
@@ -23,7 +23,7 @@ const browserSpecificSupportCores = () => {
         return getProcessors();
     }
     else {
-        throw new Error("Not supported on this browser\(UAD_1301\)");
+        console.error("Not supported on this browser\(UAD_1301\)");
     }
 };
 let processorCores = browserSpecificSupportCores();
