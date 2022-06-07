@@ -1,5 +1,5 @@
 ﻿// Finite Device Type
-export default function finiteMobileDeviceType(): "iOS" | "Android" | "BlackBerry" | "Windows Phone" | "webOS" | Error {
+export default function finiteMobileDeviceType(): "iOS" | "Android" | "BlackBerry" | "Windows Phone" | "webOS" | "Unknown" | Error {
     const ua = navigator.userAgent;
     if (/(iPhone|iPod|iPad)/i.test(ua)) {
         console.log("iOS");
@@ -22,7 +22,8 @@ export default function finiteMobileDeviceType(): "iOS" | "Android" | "BlackBerr
         return "webOS";
     }
     else {
-        throw new Error("Unknown device type\(UAD_601\)");
+        console.error("Unknown device type\(UAD_601\)");
+        return "Unknown";
     }
 }
 let DEVICE_finiteType = finiteMobileDeviceType();

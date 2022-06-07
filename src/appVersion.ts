@@ -1,12 +1,13 @@
 let appVersion = window.navigator.appVersion;
 
 
-const getAppVersion = (appVersion): number | Error => {
+const getAppVersion = (appVersion): number | Error | "Unknown" => {
     if (appVersion in navigator) {
         return appVersion
     }
     else {
-        throw new Error("No app version detected. \(UAD_1801\)");
+        console.error("No app version detected. \(UAD_1801\)");
+        return "Unknown";
     }
 }
 

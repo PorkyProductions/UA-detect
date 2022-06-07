@@ -25,7 +25,8 @@ const getBrowser = ({ ua }: { ua; }): "Opera" | "Chrome" | "Firefox" | "Safari" 
     }
     
     else {
-        throw new Error("ERR: Browser can not be determined \(UAD_101\)"); 
+        console.error("ERR: Browser can not be determined \(UAD_101\)"); 
+        "Unknown";
     }
 };
 
