@@ -1,4 +1,4 @@
-const getOS = ({ ua }: { ua; }): "Windows" | "Mac" | "Linux" | "Android" | "iOS" | "unknown" => {
+const getOS = ({ ua }: { ua; }): "Windows" | "Mac" | "Linux" | "Android" | "iOS" | "Unknown" => {
     if (ua.indexOf('Windows') > -1) {
         return 'Windows';
     }
@@ -21,7 +21,8 @@ const getOS = ({ ua }: { ua; }): "Windows" | "Mac" | "Linux" | "Android" | "iOS"
         return 'iOS';
     }
     else {
-        throw new Error("Unknown Operating System\(UAD_1101\)");
+        console.error("Unknown Operating System\(UAD_1101\)");
+        return "Unknown";
         
     }
 }

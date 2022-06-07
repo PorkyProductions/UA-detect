@@ -15,7 +15,8 @@ const getProductID = (productID): String | 'Gecko' | 'WebKit' | 'Trident' | 'Pre
         return 'Presto'
     }
     else {
-        throw new Error("Unknown engine \(UAD_1702\)")  // throw error;
+        console.error("Unknown engine \(UAD_1702\)")  // throw error;
+        return "Other"
     }
 }
 

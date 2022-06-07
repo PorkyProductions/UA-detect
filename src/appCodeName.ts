@@ -14,7 +14,8 @@ const getCodeName = (appCodeName): String | 'mozilla' | 'Microsoft' | 'Apple' | 
         return 'Google'
     }
     else {
-        throw new Error("Unknown appCodeName \(UAD_1601\)")  // throw error;
+        console.error("Unknown appCodeName \(UAD_1601\)");
+        return "Unknown"
     }
 }
 
