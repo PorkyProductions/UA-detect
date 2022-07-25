@@ -82,7 +82,7 @@ import {engine, getProductID} from './product';
 
 // Version
 
-import {version} from './appVersion'
+import {version, getAppVersion} from './appVersion'
 
 // Webdriver
 
