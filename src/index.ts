@@ -78,7 +78,7 @@ import { PDFviewerStatus, getPDF } from "./pdf";
 
 // Product
 
-import {engine} from './product';
+import {engine, getProductID} from './product';
 
 // Version
 
