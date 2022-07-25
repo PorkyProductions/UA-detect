@@ -138,7 +138,8 @@ export {
 // Create the UADetect Object
 
 export const UADetect = {
-  DetectDeviceType() {
+  detectDeviceType() {
     return DetectDeviceType()
   }
+  
 }
