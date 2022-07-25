@@ -51,11 +51,11 @@ import { maxTouchPoints, getMaxTouchPoints } from "./maxTouchPoints";
 
 // Navigator Object
 
-import { navigatorObject } from './navigator';
+import { navigatorObject, getterForNavigator } from './navigator';
 
 // Online Status
 
-import { browserOnlineStatus } from "./online";
+import { browserOnlineStatus, getBrowserIsOnline } from "./online";
 
 // standard UA
 
