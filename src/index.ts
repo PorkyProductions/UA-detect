@@ -11,7 +11,7 @@ import { browser, getBrowser } from "./browser";
 
 // Code Name
 
-import { codeName } from "./appCodeName";
+import { codeName, getCodeName } from "./appCodeName";
 
 // Cookies
 
