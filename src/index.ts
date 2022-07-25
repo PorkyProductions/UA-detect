@@ -86,7 +86,7 @@ import {version, getAppVersion} from './appVersion'
 
 // Webdriver
 
-import { robotStatus } from "./webdriver";
+import { robotStatus, getBots } from "./webdriver";
 
 // Exports
 
