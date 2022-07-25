@@ -7,7 +7,7 @@ Licensed under the Apache-2.0 License.
 // Browser
 import { browser, getBrowser } from "./browser";
 // Code Name
-import { codeName } from "./appCodeName";
+import { codeName, getCodeName } from "./appCodeName";
 // Cookies
 import { getCookies, cookieStatus } from "./cookies";
 // Device Type
@@ -23,9 +23,9 @@ import { browserSpecificSupportCores, processorCores, } from "./logicalProcessor
 // Max Touch Points
 import { maxTouchPoints, getMaxTouchPoints } from "./maxTouchPoints";
 // Navigator Object
-import { navigatorObject } from './navigator';
+import { navigatorObject, getterForNavigator } from './navigator';
 // Online Status
-import { browserOnlineStatus } from "./online";
+import { browserOnlineStatus, getBrowserIsOnline } from "./online";
 // standard UA
 import { getCurrentUA, currentUA } from "./getCurrentUA";
 // Operating System
@@ -33,15 +33,21 @@ import { OS, getOS } from "./operatingSystem";
 //SCREEN ORIENTATION
 import { DetectScreenOrientation, ORIENTATION_isLandscape, } from "./orientation";
 // PDF Viewer
-import { PDFviewerStatus } from "./pdf";
+import { PDFviewerStatus, getPDF } from "./pdf";
 // Product
-import { engine } from './product';
+import { engine, getProductID } from './product';
 // Version
-import { version } from './appVersion';
+import { version, getAppVersion } from './appVersion';
 // Webdriver
-import { robotStatus } from "./webdriver";
+import { robotStatus, getBots } from "./webdriver";
 // Exports
 // Make the functions accessible
-export { DetectScreenOrientation, DetectDeviceType, finiteMobileDeviceType, getCurrentUA, getCookies, getDoNotTrack, getBrowser, browserSpecificSupportCores, getMaxTouchPoints, getOS, };
+export { DetectScreenOrientation, DetectDeviceType, finiteMobileDeviceType, getCurrentUA, getCookies, getDoNotTrack, getBrowser, browserSpecificSupportCores, getMaxTouchPoints, getOS, getCodeName, getterForNavigator, getBrowserIsOnline, getPDF, getAppVersion, getBots, getProductID, };
 // As well as the returns on those functions
 export { ORIENTATION_isLandscape, DEVICE_type, DEVICE_finiteType, currentUA, cookieStatus, doNotTrackStatus, browser, processorCores, maxTouchPoints, navigatorObject, browserOnlineStatus, PDFviewerStatus, robotStatus, OS, geo, codeName, engine, version };
+// Create the UADetect Object
+export const UADetect = {
+    DetectDeviceType() {
+        return DetectDeviceType();
+    }
+};

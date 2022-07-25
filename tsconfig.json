@@ -4,6 +4,13 @@
         "outDir": "./dist/",
         "moduleResolution": "node",
         "pretty": true,
+        "removeComments": false,
+        "watch": false,
+        "noErrorTruncation": false,
+        "strict": true,
+        "charset": "UTF-8",
+        "noImplicitThis": true,
+        "diagnostics": true,
 
     },
     "files": [
