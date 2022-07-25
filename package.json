@@ -4,7 +4,7 @@
   "description": "The dead-simple way of interacting with the navigator API",
   "main": "./dist/index.js",
   "scripts": {
-    "test": "jest",
+    "test": "jest --verbose",
     "build": "npx tsc -p tsconfig.json"
   },
   "repository": {
