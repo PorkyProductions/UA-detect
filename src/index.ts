@@ -103,6 +103,13 @@ export {
   browserSpecificSupportCores,
   getMaxTouchPoints,
   getOS,
+  getCodeName,
+  getterForNavigator,
+  getBrowserIsOnline,
+  getPDF,
+  getAppVersion,
+  getBots,
+  getProductID,
 };
 
 // As well as the returns on those functions
@@ -124,6 +131,14 @@ export {
   OS,
   geo,
   codeName,
-    engine,
-    version
+  engine,
+  version
 };
+
+// Create the UADetect Object
+
+export const UADetect = {
+  DetectDeviceType() {
+    return DetectDeviceType()
+  }
+}
