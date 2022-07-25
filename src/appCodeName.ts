@@ -1,6 +1,6 @@
 let appCodeName = window.navigator.appCodeName
 
-export const getCodeName = (appCodeName): String | 'mozilla' | 'Microsoft' | 'Apple' | 'Google' | Error => {
+export const getCodeName = (appCodeName: string): String | 'mozilla' | 'Microsoft' | 'Apple' | 'Google' | Error => {
     if (appCodeName === 'Mozilla') {
         return 'mozilla'
     }
