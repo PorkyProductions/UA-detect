@@ -74,7 +74,7 @@ import {
 
 // PDF Viewer
 
-import { PDFviewerStatus } from "./pdf";
+import { PDFviewerStatus, getPDF } from "./pdf";
 
 // Product
 
