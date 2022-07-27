@@ -134,12 +134,3 @@ export {
   engine,
   version
 };
-
-// Create the UADetect Object
-
-export const UADetect = {
-  detectDeviceType() {
-    return DetectDeviceType()
-  }
-  
-}
