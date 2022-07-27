@@ -25,6 +25,7 @@ const getBrowser = ({ ua }) => {
         console.error("ERR: Browser can not be determined \(UAD_101\)");
         "Unknown";
     }
+    return;
 };
 let browser = getBrowser({ ua });
 export { browser, getBrowser };

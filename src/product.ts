@@ -1,7 +1,7 @@
 let productID = window.navigator.product;
 
 
-const getProductID = (productID): String | 'Gecko' | 'WebKit' | 'Trident' | 'Presto' | 'Other' | Error => {
+export const getProductID = (productID: string): String | 'Gecko' | 'WebKit' | 'Trident' | 'Presto' | 'Other' | Error => {
     if (productID === 'Gecko') {
         return 'Gecko'
     }

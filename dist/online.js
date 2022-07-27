@@ -1,5 +1,5 @@
 let browserIsOnline = navigator.onLine;
-const getBrowserIsOnline = ({ browserIsOnline }) => {
+export const getBrowserIsOnline = ({ browserIsOnline }) => {
     if (browserIsOnline) {
         return "BROWSER_online";
     }

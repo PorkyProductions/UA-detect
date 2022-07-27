@@ -1,5 +1,5 @@
 let pdf = navigator.pdfViewerEnabled;
-const getPDF = ({ pdf }) => {
+export const getPDF = ({ pdf }) => {
     if (pdf) {
         return "PDF_viewerEnabled";
     }

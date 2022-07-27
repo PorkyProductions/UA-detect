@@ -1,5 +1,5 @@
 let productID = window.navigator.product;
-const getProductID = (productID) => {
+export const getProductID = (productID) => {
     if (productID === 'Gecko') {
         return 'Gecko';
     }

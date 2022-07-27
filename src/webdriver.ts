@@ -1,6 +1,6 @@
 let webdriverControlled: boolean = navigator.webdriver
 
-const getBots = ({ webdriverControlled }: { webdriverControlled; }): "ROBOT_controlled" | "HUMAN_controlled" | "ERROR" => {
+export const getBots = ({ webdriverControlled }: { webdriverControlled: boolean; }): "ROBOT_controlled" | "HUMAN_controlled" | "ERROR" => {
     if (webdriverControlled) { 
         return "ROBOT_controlled";
     }

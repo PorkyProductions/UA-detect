@@ -11,7 +11,7 @@ import { browser, getBrowser } from "./browser";
 
 // Code Name
 
-import { codeName } from "./appCodeName";
+import { codeName, getCodeName } from "./appCodeName";
 
 // Cookies
 
@@ -51,11 +51,11 @@ import { maxTouchPoints, getMaxTouchPoints } from "./maxTouchPoints";
 
 // Navigator Object
 
-import { navigatorObject } from './navigator';
+import { navigatorObject, getterForNavigator } from './navigator';
 
 // Online Status
 
-import { browserOnlineStatus } from "./online";
+import { browserOnlineStatus, getBrowserIsOnline } from "./online";
 
 // standard UA
 
@@ -74,19 +74,19 @@ import {
 
 // PDF Viewer
 
-import { PDFviewerStatus } from "./pdf";
+import { PDFviewerStatus, getPDF } from "./pdf";
 
 // Product
 
-import {engine} from './product';
+import {engine, getProductID} from './product';
 
 // Version
 
-import {version} from './appVersion'
+import {version, getAppVersion} from './appVersion'
 
 // Webdriver
 
-import { robotStatus } from "./webdriver";
+import { robotStatus, getBots } from "./webdriver";
 
 // Exports
 
@@ -103,6 +103,13 @@ export {
   browserSpecificSupportCores,
   getMaxTouchPoints,
   getOS,
+  getCodeName,
+  getterForNavigator,
+  getBrowserIsOnline,
+  getPDF,
+  getAppVersion,
+  getBots,
+  getProductID,
 };
 
 // As well as the returns on those functions
@@ -124,6 +131,6 @@ export {
   OS,
   geo,
   codeName,
-    engine,
-    version
+  engine,
+  version
 };

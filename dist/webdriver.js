@@ -1,5 +1,5 @@
 let webdriverControlled = navigator.webdriver;
-const getBots = ({ webdriverControlled }) => {
+export const getBots = ({ webdriverControlled }) => {
     if (webdriverControlled) {
         return "ROBOT_controlled";
     }
