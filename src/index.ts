@@ -144,6 +144,8 @@ export const UADetect = {
   detectScreenOrientation() {
     return DetectScreenOrientation()
   },
-  
+  detectFiniteMobileDeviceType() {
+    return finiteMobileDeviceType()
+  }
   
 }
