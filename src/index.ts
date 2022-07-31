@@ -140,6 +140,10 @@ export {
 export const UADetect = {
   detectDeviceType() {
     return DetectDeviceType()
-  }
+  },
+  detectScreenOrientation() {
+    return DetectScreenOrientation()
+  },
+  
   
 }
