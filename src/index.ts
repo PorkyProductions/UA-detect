@@ -169,7 +169,9 @@ interface UADetect {
   robotStatus: "robotControlled" | "humanControlled" | "ERROR",
   OS: "Windows" | "Mac" | "Linux" | "Android" | "iOS" | "Unknown",
   geo: any,
-  codeName: string | Error
+  codeName: string | Error,
+  engine: string | 'Gecko' | 'WebKit' | 'Trident' | 'Presto' | 'Other' | Error,
+  version: string | number | Error
 }
 
 // Create the UADetect Object
