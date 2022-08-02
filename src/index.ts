@@ -164,7 +164,8 @@ interface UADetect {
   processorCores: number | undefined,
   maxTouchPoints: number,
   navigatorObject: object,
-  
+  browserOnlineStatus: "browserOnline" | "browserOffline",
+  PDFviewerStatus: "PDFviewerEnabled" | "PDFviewerDisabled",
 }
 
 // Create the UADetect Object
