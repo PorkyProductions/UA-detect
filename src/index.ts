@@ -189,7 +189,10 @@ export const UADetect: UADetect = {
   getCurrentUA() {
     return getCurrentUA()
   },
-  getCookieStatus() {
+  getCookieStatus(cookies: boolean) {
     return getCookies(cookies)
   },
+  getDoNotTrackStatus(browserDoNotTrack: string | number | null) {
+    return getDoNotTrack(browserDoNotTrack)
+  }
 }
