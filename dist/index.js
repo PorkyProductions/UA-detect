@@ -44,10 +44,22 @@ import { robotStatus, getBots } from "./webdriver";
 // Make the functions accessible
 export { DetectScreenOrientation, DetectDeviceType, finiteMobileDeviceType, getCurrentUA, getCookies, getDoNotTrack, getBrowser, browserSpecificSupportCores, getMaxTouchPoints, getOS, getCodeName, getterForNavigator, getBrowserIsOnline, getPDF, getAppVersion, getBots, getProductID, };
 // As well as the returns on those functions
-export { ORIENTATION_isLandscape, DEVICE_type, DEVICE_finiteType, currentUA, cookieStatus, doNotTrackStatus, browser, processorCores, maxTouchPoints, navigatorObject, browserOnlineStatus, PDFviewerStatus, robotStatus, OS, geo, codeName, engine, version };
+export { ORIENTATION_isLandscape as orientationIsLandscape, DEVICE_type as deviceType, DEVICE_finiteType as deviceFiniteType, currentUA, cookieStatus, doNotTrackStatus, browser, processorCores, maxTouchPoints, navigatorObject, browserOnlineStatus, PDFviewerStatus, robotStatus, OS, geo, codeName, engine, version };
 // Create the UADetect Object
 export const UADetect = {
-    DetectDeviceType() {
+    getDeviceType() {
         return DetectDeviceType();
-    }
+    },
+    getScreenOrientation() {
+        return DetectScreenOrientation();
+    },
+    getFiniteMobileDeviceType() {
+        return finiteMobileDeviceType();
+    },
+    getCurrentUA() {
+        return getCurrentUA();
+    },
+    getCookieStatus() {
+        return getCookies(cookies);
+    },
 };

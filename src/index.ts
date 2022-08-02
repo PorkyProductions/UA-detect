@@ -140,7 +140,7 @@ interface UADetect {
   getScreenOrientation: Function,
   getFiniteMobileDeviceType: Function,
   getCurrentUA: Function,
-  getCookieStats: Function,
+  getCookieStatus: Function,
   getDoNotTrackStatus: Function
   getBrowser: Function,
   getProcessorCores: Function,
@@ -188,6 +188,8 @@ export const UADetect: UADetect = {
   },
   getCurrentUA() {
     return getCurrentUA()
-  }
-
+  },
+  getCookieStatus() {
+    return getCookies(cookies)
+  },
 }

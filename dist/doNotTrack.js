@@ -1,17 +1,17 @@
 let browserDoNotTrack = navigator.doNotTrack;
 const getDoNotTrack = (browserDoNotTrack) => {
     if (browserDoNotTrack == 0) {
-        return "TRACKING_allowed";
+        return "trackingAllowed";
     }
     ;
     if (browserDoNotTrack == 1) {
-        return "TRACKING_notAllowed";
+        return "trackingNotAllowed";
     }
     if (browserDoNotTrack == "unspecified") {
-        return "TRACKING_unspecified";
+        return "trackingUnspecified";
     }
     if (browserDoNotTrack == "null") {
-        return "TRACKING_unspecified";
+        return "trackingUnspecified";
     }
     else {
         console.error("Unknown doNotTrack value\(UAD_801\)");
