@@ -160,6 +160,11 @@ interface UADetect {
   currentUA: string,
   cookieStatus: "cookiesEnabled" | "cookiesNotEnables" | "ERROR",
   doNotTrackStatus: "trackingAllowed" | "trackingNotAllowed" | "trackingUnspecified" | "ERROR"
+  browser: "Opera" | "Chrome" | "Firefox" | "Safari" | "IE" | "Edge" | "unknown" | undefined,
+  processorCores: number | undefined,
+  maxTouchPoints: number,
+  navigatorObject: object,
+  
 }
 
 // Create the UADetect Object
