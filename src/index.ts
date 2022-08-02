@@ -135,9 +135,16 @@ export {
   version
 };
 
+interface UADetect {
+  detectDeviceType: Function,
+  detectScreenOrientation: Function,
+  detectFiniteMobileDeviceType: Function,
+  getCurrentUA: Function,
+}
+
 // Create the UADetect Object
 
-export const UADetect = {
+export const UADetect: UADetect = {
   detectDeviceType() {
     return DetectDeviceType()
   },
@@ -146,6 +153,9 @@ export const UADetect = {
   },
   detectFiniteMobileDeviceType() {
     return finiteMobileDeviceType() 
+  },
+  getCurrentUA() {
+    return getCurrentUA()
   }
 
 }
