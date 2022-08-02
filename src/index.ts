@@ -157,7 +157,8 @@ interface UADetect {
   orientationIsLandscape: boolean,
   deviceType: "tablet" | "mobile" | "desktop",
   deviceFiniteType: "Android" | "iOS" | "Unknown" | Error | "BlackBerry" | "Windows Phone" | "webOS",
-  currentUA
+  currentUA: string,
+  cookieStatus: "cookiesEnabled" | "cookiesNotEnables" | "ERROR"
 }
 
 // Create the UADetect Object
