@@ -115,9 +115,9 @@ export {
 // As well as the returns on those functions
 
 export {
-  ORIENTATION_isLandscape,
-  DEVICE_type,
-  DEVICE_finiteType,
+  ORIENTATION_isLandscape as orientationIsLandscape,
+  DEVICE_type as deviceType,
+  DEVICE_finiteType as deviceFiniteType,
   currentUA,
   cookieStatus,
   doNotTrackStatus,
@@ -136,22 +136,40 @@ export {
 };
 
 interface UADetect {
-  detectDeviceType: Function,
-  detectScreenOrientation: Function,
-  detectFiniteMobileDeviceType: Function,
+  getDeviceType: Function,
+  getScreenOrientation: Function,
+  getFiniteMobileDeviceType: Function,
   getCurrentUA: Function,
+  getCookieStats: Function,
+  getDoNotTrackStatus: Function
+  getBrowser: Function,
+  getProcessorCores: Function,
+  getMaxTouchPoints: Function,
+  getNavigatorObject: Function,
+  getBrowserOnlineStatus: Function,
+  getPDFviewerStatus: Function,
+  getRobotStatus: Function,
+  getOS: Function,
+  getGeo: Function,
+  getCodeName: Function,
+  getEngine: Function,
+  getVersion: Function,
+  orientationIsLandscape: boolean,
+  deviceType: "tablet" | "mobile" | "desktop",
+  deviceFiniteType: "Android" | "iOS" | "Unknown" | Error | "BlackBerry" | "Windows Phone" | "webOS",
+  currentUA
 }
 
 // Create the UADetect Object
 
 export const UADetect: UADetect = {
-  detectDeviceType() {
+  getDeviceType() {
     return DetectDeviceType()
   },
-  detectScreenOrientation() {
+  getScreenOrientation() {
     return DetectScreenOrientation()
   },
-  detectFiniteMobileDeviceType() {
+  getFiniteMobileDeviceType() {
     return finiteMobileDeviceType() 
   },
   getCurrentUA() {
