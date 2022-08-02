@@ -166,6 +166,10 @@ interface UADetect {
   navigatorObject: object,
   browserOnlineStatus: "browserOnline" | "browserOffline",
   PDFviewerStatus: "PDFviewerEnabled" | "PDFviewerDisabled",
+  robotStatus: "robotControlled" | "humanControlled" | "ERROR",
+  OS: "Windows" | "Mac" | "Linux" | "Android" | "iOS" | "Unknown",
+  geo: any,
+  codeName: string | Error
 }
 
 // Create the UADetect Object
