@@ -158,7 +158,8 @@ interface UADetect {
   deviceType: "tablet" | "mobile" | "desktop",
   deviceFiniteType: "Android" | "iOS" | "Unknown" | Error | "BlackBerry" | "Windows Phone" | "webOS",
   currentUA: string,
-  cookieStatus: "cookiesEnabled" | "cookiesNotEnables" | "ERROR"
+  cookieStatus: "cookiesEnabled" | "cookiesNotEnables" | "ERROR",
+  doNotTrackStatus: "trackingAllowed" | "trackingNotAllowed" | "trackingUnspecified" | "ERROR"
 }
 
 // Create the UADetect Object
