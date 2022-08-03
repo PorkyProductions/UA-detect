@@ -158,7 +158,7 @@ interface UADetect {
   deviceType: "tablet" | "mobile" | "desktop",
   deviceFiniteType: "Android" | "iOS" | "Unknown" | Error | "BlackBerry" | "Windows Phone" | "webOS",
   currentUA: string,
-  cookieStatus: "cookiesEnabled" | "cookiesNotEnables" | "ERROR",
+  cookieStatus: "cookiesEnabled" | "cookiesNotEnabled" | "ERROR",
   doNotTrackStatus: "trackingAllowed" | "trackingNotAllowed" | "trackingUnspecified" | "ERROR"
   browser: "Opera" | "Chrome" | "Firefox" | "Safari" | "IE" | "Edge" | "unknown" | undefined,
   processorCores: number | undefined,
@@ -230,7 +230,25 @@ export const UADetect: UADetect = {
   },
   getVersion(appVersion: string) {
     return getAppVersion(appVersion)
-  }
+  },
   // From here, we can then begin to call the returns on those functions here
-  
+  // Most of them are just transferring the name over
+  orientationIsLandscape: ORIENTATION_isLandscape,
+  deviceType: DEVICE_type,
+  deviceFiniteType: DEVICE_finiteType,
+  currentUA: currentUA,
+  cookieStatus: cookieStatus,
+  doNotTrackStatus: doNotTrackStatus,
+  browser: browser,
+  processorCores: processorCores,
+  maxTouchPoints: maxTouchPoints,
+  navigatorObject: navigatorObject,
+  browserOnlineStatus: browserOnlineStatus,
+  PDFviewerStatus: PDFviewerStatus,
+  robotStatus: robotStatus,
+  OS: OS,
+  geo: geo,
+  codeName: codeName,
+  engine: engine,
+  version: version
 }
