@@ -59,7 +59,66 @@ export const UADetect = {
     getCurrentUA() {
         return getCurrentUA();
     },
-    getCookieStatus() {
+    getCookieStatus(cookies) {
         return getCookies(cookies);
     },
+    getDoNotTrackStatus(browserDoNotTrack) {
+        return getDoNotTrack(browserDoNotTrack);
+    },
+    getBrowser({ ua }) {
+        return getBrowser({ ua });
+    },
+    getProcessorCores() {
+        return browserSpecificSupportCores();
+    },
+    getMaxTouchPoints() {
+        return getMaxTouchPoints();
+    },
+    getNavigatorObject(navigatorObjectDev) {
+        return getterForNavigator(navigatorObjectDev);
+    },
+    getBrowserOnlineStatus({ browserIsOnline }) {
+        return getBrowserIsOnline({ browserIsOnline });
+    },
+    getPDFviewerStatus({ pdf }) {
+        return getPDF({ pdf });
+    },
+    getRobotStatus({ webdriverControlled }) {
+        return getBots({ webdriverControlled });
+    },
+    getOS({ ua }) {
+        return getOS({ ua: navigator.userAgent });
+    },
+    getGeo() {
+        return console.error("Geolocation API must be called on it's own. Try calling it independent of the \'UADetect\' object");
+    },
+    getCodeName(appCodeName) {
+        return getCodeName(appCodeName);
+    },
+    getEngine(productID) {
+        return getProductID(productID);
+    },
+    getVersion(appVersion) {
+        return getAppVersion(appVersion);
+    },
+    // From here, we can then begin to call the returns on those functions here
+    // Most of them are just transferring the name over
+    orientationIsLandscape: ORIENTATION_isLandscape,
+    deviceType: DEVICE_type,
+    deviceFiniteType: DEVICE_finiteType,
+    currentUA: currentUA,
+    cookieStatus: cookieStatus,
+    doNotTrackStatus: doNotTrackStatus,
+    browser: browser,
+    processorCores: processorCores,
+    maxTouchPoints: maxTouchPoints,
+    navigatorObject: navigatorObject,
+    browserOnlineStatus: browserOnlineStatus,
+    PDFviewerStatus: PDFviewerStatus,
+    robotStatus: robotStatus,
+    OS: OS,
+    geo: geo,
+    codeName: codeName,
+    engine: engine,
+    version: version
 };
