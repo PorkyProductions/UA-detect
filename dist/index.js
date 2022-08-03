@@ -44,10 +44,81 @@ import { robotStatus, getBots } from "./webdriver";
 // Make the functions accessible
 export { DetectScreenOrientation, DetectDeviceType, finiteMobileDeviceType, getCurrentUA, getCookies, getDoNotTrack, getBrowser, browserSpecificSupportCores, getMaxTouchPoints, getOS, getCodeName, getterForNavigator, getBrowserIsOnline, getPDF, getAppVersion, getBots, getProductID, };
 // As well as the returns on those functions
-export { ORIENTATION_isLandscape, DEVICE_type, DEVICE_finiteType, currentUA, cookieStatus, doNotTrackStatus, browser, processorCores, maxTouchPoints, navigatorObject, browserOnlineStatus, PDFviewerStatus, robotStatus, OS, geo, codeName, engine, version };
+export { ORIENTATION_isLandscape as orientationIsLandscape, DEVICE_type as deviceType, DEVICE_finiteType as deviceFiniteType, currentUA, cookieStatus, doNotTrackStatus, browser, processorCores, maxTouchPoints, navigatorObject, browserOnlineStatus, PDFviewerStatus, robotStatus, OS, geo, codeName, engine, version };
 // Create the UADetect Object
 export const UADetect = {
-    DetectDeviceType() {
+    getDeviceType() {
         return DetectDeviceType();
-    }
+    },
+    getScreenOrientation() {
+        return DetectScreenOrientation();
+    },
+    getFiniteMobileDeviceType() {
+        return finiteMobileDeviceType();
+    },
+    getCurrentUA() {
+        return getCurrentUA();
+    },
+    getCookieStatus(cookies) {
+        return getCookies(cookies);
+    },
+    getDoNotTrackStatus(browserDoNotTrack) {
+        return getDoNotTrack(browserDoNotTrack);
+    },
+    getBrowser({ ua }) {
+        return getBrowser({ ua });
+    },
+    getProcessorCores() {
+        return browserSpecificSupportCores();
+    },
+    getMaxTouchPoints() {
+        return getMaxTouchPoints();
+    },
+    getNavigatorObject(navigatorObjectDev) {
+        return getterForNavigator(navigatorObjectDev);
+    },
+    getBrowserOnlineStatus({ browserIsOnline }) {
+        return getBrowserIsOnline({ browserIsOnline });
+    },
+    getPDFviewerStatus({ pdf }) {
+        return getPDF({ pdf });
+    },
+    getRobotStatus({ webdriverControlled }) {
+        return getBots({ webdriverControlled });
+    },
+    getOS({ ua }) {
+        return getOS({ ua: navigator.userAgent });
+    },
+    getGeo() {
+        return console.error("Geolocation API must be called on it's own. Try calling it independent of the \'UADetect\' object");
+    },
+    getCodeName(appCodeName) {
+        return getCodeName(appCodeName);
+    },
+    getEngine(productID) {
+        return getProductID(productID);
+    },
+    getVersion(appVersion) {
+        return getAppVersion(appVersion);
+    },
+    // From here, we can then begin to call the returns on those functions here
+    // Most of them are just transferring the name over
+    orientationIsLandscape: ORIENTATION_isLandscape,
+    deviceType: DEVICE_type,
+    deviceFiniteType: DEVICE_finiteType,
+    currentUA: currentUA,
+    cookieStatus: cookieStatus,
+    doNotTrackStatus: doNotTrackStatus,
+    browser: browser,
+    processorCores: processorCores,
+    maxTouchPoints: maxTouchPoints,
+    navigatorObject: navigatorObject,
+    browserOnlineStatus: browserOnlineStatus,
+    PDFviewerStatus: PDFviewerStatus,
+    robotStatus: robotStatus,
+    OS: OS,
+    geo: geo,
+    codeName: codeName,
+    engine: engine,
+    version: version
 };

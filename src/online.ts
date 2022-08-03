@@ -1,11 +1,11 @@
 let browserIsOnline: boolean = navigator.onLine;
 
-export const getBrowserIsOnline = ({ browserIsOnline }: { browserIsOnline: boolean; }): "BROWSER_online" | "BROWSER_offline" => {
+export const getBrowserIsOnline = ({ browserIsOnline }: { browserIsOnline: boolean; }): "browserOnline" | "browserOffline" => {
     if (browserIsOnline) {
-        return "BROWSER_online";
+        return "browserOnline";
     }
     else {
-        return "BROWSER_offline";
+        return "browserOffline";
     }
 }
 
