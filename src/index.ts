@@ -194,5 +194,23 @@ export const UADetect: UADetect = {
   },
   getDoNotTrackStatus(browserDoNotTrack: string | number | null) {
     return getDoNotTrack(browserDoNotTrack)
+  },
+  getBrowser({ ua }: { ua: string; }) {
+    return getBrowser({ ua })
+  },
+  getProcessorCores() {
+    return browserSpecificSupportCores()
+  },
+  getMaxTouchPoints() {
+    return getMaxTouchPoints()
+  },
+  getNavigatorObject(navigatorObjectDev: Navigator) {
+    return getterForNavigator(navigatorObjectDev)
+  },
+  getBrowserOnlineStatus({ browserIsOnline }: { browserIsOnline: boolean; }) {
+    return getBrowserIsOnline({ browserIsOnline });
+  },
+  getPDFviewerStatus({ pdf }: { pdf: boolean; }) {
+    return getPDF({ pdf });
   }
 }
