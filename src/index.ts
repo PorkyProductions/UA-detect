@@ -212,5 +212,25 @@ export const UADetect: UADetect = {
   },
   getPDFviewerStatus({ pdf }: { pdf: boolean; }) {
     return getPDF({ pdf });
+  },
+  getRobotStatus({ webdriverControlled }: { webdriverControlled: boolean; }) {
+    return getBots({ webdriverControlled })
+  },
+  getOS({ ua }: { ua: string; }) {
+    return getOS({ ua: navigator.userAgent })
+  },
+  getGeo() {
+    return console.error("Geolocation API must be called on it's own. Try calling it independent of the \'UADetect\' object")
+  },
+  getCodeName(appCodeName: string) {
+    return getCodeName(appCodeName)
+  },
+  getEngine(productID: string) {
+    return getProductID(productID)
+  },
+  getVersion(appVersion: string) {
+    return getAppVersion(appVersion)
   }
+  // From here, we can then begin to call the returns on those functions here
+  
 }
