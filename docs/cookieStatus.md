@@ -13,8 +13,8 @@ Tell's whether the client has cookies enabled or disabled.
 
 ## Possible Returns
 
-- `COOKIES_enabled`
-- `COOKIES_notEnabled`
+- `cookiesEnables`
+- `cookiesNotEnabled`
 - `ERROR`
 
 ## Usage Example

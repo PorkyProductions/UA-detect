@@ -13,9 +13,9 @@ Returns whether the client has enabled Do Not Track.
 
 ## Possible Returns
 
-- `TRACKING_allowed`
-- `TRACKING_notAllowed`
-- `TRACKING_unspecified`
+- `trackingAllowed`
+- `trackingNotAllowed`
+- `trackingUnspecified`
 - `ERROR` 
 
 ## Usage Example
@@ -25,7 +25,7 @@ Returns whether the client has enabled Do Not Track.
 ```js
 import { doNotTrackStatus } from 'uadetect';
 
-if (doNotTrackStatus === 'TRACKING_allowed') {
+if (doNotTrackStatus === 'trackingAllowed') {
   // Run Google Analytics
 }
 ```
@@ -35,7 +35,7 @@ if (doNotTrackStatus === 'TRACKING_allowed') {
 ```js
 import { doNotTrackStatus } from 'uadetect';
 
-if (doNotTrackStatus === 'TRACKING_notAllowed') {
+if (doNotTrackStatus === 'trackingNotAllowed') {
   alert('You have Do Not Track enabled');
   alert('PLS let us track you for that $$$');
 }

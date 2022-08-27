@@ -13,8 +13,8 @@ Tell's if the client's browser is online or offline.
 
 ## Possible Returns
 
-- `BROWSER_online`
-- `BROWSER_offline`
+- `browserOnline`
+- `browserOffline`
 
 ## Usage Example
 
