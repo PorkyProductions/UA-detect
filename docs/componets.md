@@ -2,12 +2,17 @@
 
 - [UADetect Componets](#uadetect-componets)
   - [Overview](#overview)
+  - [Alternate](#alternate)
   - [Componets](#componets)
     - [NOTE:](#note)
 
 ## Overview
 
 You can think of a componet as a function, each of which return an interaction with the `navigator`, in a more readable form. Each of the componets are self-contained, and can be used in any project. Here are all of the componets available:
+
+## Alternate
+
+Alternatively, you can call the `UADetect` object, and (hopefully), your IDE will autocomplete the functions and returns on them.
 
 ## Componets
 
