@@ -35,7 +35,8 @@ import {
 // Geolocation
 
 import {
-  geo
+  lat,
+  lon
 } from "./geolocation";
 
 // Logical Processors
@@ -129,7 +130,8 @@ export {
   PDFviewerStatus,
   robotStatus,
   OS,
-  geo,
+  lat,
+  lon,
   codeName,
   engine,
   version
@@ -150,7 +152,6 @@ interface UADetect {
   getPDFviewerStatus: Function,
   getRobotStatus: Function,
   getOS: Function,
-  getGeo: Function,
   getCodeName: Function,
   getEngine: Function,
   getVersion: Function,
@@ -168,7 +169,8 @@ interface UADetect {
   PDFviewerStatus: "PDFviewerEnabled" | "PDFviewerDisabled",
   robotStatus: "robotControlled" | "humanControlled" | "ERROR",
   OS: "Windows" | "Mac" | "Linux" | "Android" | "iOS" | "Unknown",
-  geo: any,
+  lat: number,
+  lon: number,
   codeName: string | Error,
   engine: string | 'Gecko' | 'WebKit' | 'Trident' | 'Presto' | 'Other' | Error,
   version: string | number | Error
@@ -219,9 +221,6 @@ export const UADetect: UADetect = {
   getOS({ ua }: { ua: string; }) {
     return getOS({ ua: navigator.userAgent })
   },
-  getGeo() {
-    return console.error("Geolocation API must be called on it's own. Try calling it independent of the \'UADetect\' object")
-  },
   getCodeName(appCodeName: string) {
     return getCodeName(appCodeName)
   },
@@ -247,7 +246,8 @@ export const UADetect: UADetect = {
   PDFviewerStatus: PDFviewerStatus,
   robotStatus: robotStatus,
   OS: OS,
-  geo: geo,
+  lat: lat,
+  lon: lon,
   codeName: codeName,
   engine: engine,
   version: version
