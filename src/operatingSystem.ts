@@ -1,4 +1,4 @@
-const getOS = ({ ua }: { ua; }): "Windows" | "Mac" | "Linux" | "Android" | "iOS" | "Unknown" => {
+const getOS = ({ ua }: { ua: string; }): "Windows" | "Mac" | "Linux" | "Android" | "iOS" | "Unknown" => {
     if (ua.indexOf('Windows') > -1) {
         return 'Windows';
     }

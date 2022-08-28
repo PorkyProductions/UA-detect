@@ -26,6 +26,6 @@ export default function finiteMobileDeviceType(): "iOS" | "Android" | "BlackBerr
         return "Unknown";
     }
 }
-let DEVICE_finiteType = finiteMobileDeviceType();
+let finiteDeviceType = finiteMobileDeviceType();
 
-export { DEVICE_finiteType, finiteMobileDeviceType }
+export { finiteDeviceType as DEVICE_finiteType, finiteMobileDeviceType }

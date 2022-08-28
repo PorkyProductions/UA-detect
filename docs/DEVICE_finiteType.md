@@ -1,6 +1,6 @@
-# UADetect `DEVICE_finiteType` Componet
+# UADetect `finiteDeviceType` Componet
 
-- [UADetect `DEVICE_finiteType` Componet](#uadetect-device_finitetype-componet)
+- [UADetect `finiteDeviceType` Componet](#uadetect-finitedevicetype-componet)
   - [Description](#description)
   - [Possible Returns](#possible-returns)
   - [Usage Example](#usage-example)
@@ -26,9 +26,9 @@ Get's the name of the **MOBILE** Operating System the client is using.
 ### #1
 
 ```js
-import { DEVICE_finiteType } from 'uadetect';
+import { finiteDeviceType } from 'uadetect';
 
-if (DEVICE_finiteType === 'iOS') {
+if (finiteDeviceType === 'iOS') {
   downloadOniOS.innerHTML = 'Download on iOS!';
 }
 ```
@@ -36,9 +36,9 @@ if (DEVICE_finiteType === 'iOS') {
 ### #2
 
 ```js
-import { DEVICE_finiteType } from 'uadetect';
+import { finiteDeviceType } from 'uadetect';
 
-if (DEVICE_finiteType === 'Android') {
+if (finiteDeviceType === 'Android') {
   downloadOnAndroid.innerHTML = 'Download on Android!'; 
 }
 ```

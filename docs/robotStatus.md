@@ -13,8 +13,8 @@ Tells whether the client is being operated by a webdriver (robot) or not.
 
 ## Possible Returns
 
-- `ROBOT_controlled`
-- `HUMAN_controlled`
+- `robotControlled`
+- `humanControlled`
 - `ERROR`
 
 ## Usage Example
@@ -24,7 +24,7 @@ Tells whether the client is being operated by a webdriver (robot) or not.
 ```js
 import { robotStatus } from 'uadetect';
 
-if (robotStatus === 'ROBOT_controlled') {
+if (robotStatus === 'robotControlled') {
   alert('🤖')
 }
 ```
@@ -34,7 +34,7 @@ if (robotStatus === 'ROBOT_controlled') {
 ```js
 import { robotStatus } from 'uadetect';
 
-if (robotStatus === 'HUMAN_controlled') {
+if (robotStatus === 'humanControlled') {
   alert('👤')
 }
 ```

@@ -1,7 +1,7 @@
 let ua = navigator.userAgent;
 
 
-const getBrowser = ({ ua }: { ua; }): "Opera" | "Chrome" | "Firefox" | "Safari" | "IE" | "Edge" | "unknown" => {
+const getBrowser = ({ ua }: { ua: string; }): "Opera" | "Chrome" | "Firefox" | "Safari" | "IE" | "Edge" | "unknown" | undefined => {
     if (ua.indexOf('Opera') > -1) {
         return 'Opera';
     }
@@ -28,6 +28,7 @@ const getBrowser = ({ ua }: { ua; }): "Opera" | "Chrome" | "Firefox" | "Safari" 
         console.error("ERR: Browser can not be determined \(UAD_101\)"); 
         "Unknown";
     }
+    return
 };
 
 let browser = getBrowser({ ua });

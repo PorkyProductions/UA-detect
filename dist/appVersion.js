@@ -1,5 +1,5 @@
 let appVersion = window.navigator.appVersion;
-const getAppVersion = (appVersion) => {
+export const getAppVersion = (appVersion) => {
     if (appVersion in navigator) {
         return appVersion;
     }

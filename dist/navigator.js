@@ -1,5 +1,5 @@
 let navigatorObjectDev = window.navigator;
-const getterForNavigator = (navigatorObjectDev) => {
+export const getterForNavigator = (navigatorObjectDev) => {
     return [
         {
             name: 'appCodeName',

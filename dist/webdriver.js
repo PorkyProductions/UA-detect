@@ -1,10 +1,10 @@
 let webdriverControlled = navigator.webdriver;
-const getBots = ({ webdriverControlled }) => {
+export const getBots = ({ webdriverControlled }) => {
     if (webdriverControlled) {
-        return "ROBOT_controlled";
+        return "robotControlled";
     }
     else {
-        return "HUMAN_controlled";
+        return "humanControlled";
     }
 };
 let robotStatus = getBots({ webdriverControlled });

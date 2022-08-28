@@ -1,5 +1,5 @@
 let appCodeName = window.navigator.appCodeName;
-const getCodeName = (appCodeName) => {
+export const getCodeName = (appCodeName) => {
     if (appCodeName === 'Mozilla') {
         return 'mozilla';
     }

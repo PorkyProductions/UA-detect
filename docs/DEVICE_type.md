@@ -1,6 +1,6 @@
-# UADetect `DEVICE_type` Componet
+# UADetect `deviceType` Componet
 
-- [UADetect `DEVICE_type` Componet](#uadetect-device_type-componet)
+- [UADetect `deviceType` Componet](#uadetect-devicetype-componet)
   - [Description](#description)
   - [Possible Returns](#possible-returns)
   - [Usage Example](#usage-example)
@@ -22,9 +22,9 @@ Shows whether the client is using a mobile, desktop, or tablet device.
 ### #1
 
 ```js
-import { DEVICE_type } from 'uadetect';
+import { deviceType } from 'uadetect';
 
-if (DEVICE_type === 'mobile') {
+if (deviceType === 'mobile') {
   element.style.display = 'none';
 }
 ```
@@ -32,7 +32,7 @@ if (DEVICE_type === 'mobile') {
 ### #2
 
 ```js
-import { DEVICE_type } from 'uadetect';
+import { deviceType } from 'uadetect';
 
 if (DEVICE_type === 'desktop') {
   element.style.display = 'block';

@@ -13,8 +13,8 @@ Tells whether the clients browser is able to view PDF files.
 
 ## Possible Returns
 
-- `PDF_viewerEnabled`
-- `PDF_viewerDisabled`
+- `PDFviewerEnabled`
+- `PDFviewerDisabled`
 
 ## Usage Example
 
@@ -23,7 +23,7 @@ Tells whether the clients browser is able to view PDF files.
 ```js
 import { PDFviewerStatus } from 'uadetect';
 
-if (PDFviewerStatus === 'PDF_viewerEnabled') {
+if (PDFviewerStatus === 'PDFviewerEnabled') {
   element.innerHTML = 'Show PDF';
 }
 ```
@@ -33,7 +33,7 @@ if (PDFviewerStatus === 'PDF_viewerEnabled') {
 ```js
 import { PDFviewerStatus } from 'uadetect';
 
-if (PDFviewerStatus === 'PDF_viewerDisabled') {
+if (PDFviewerStatus === 'PDFviewerDisabled') {
   element.innerHTML = 'Download PDF';
 }
 ```

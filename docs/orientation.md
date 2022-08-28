@@ -1,6 +1,6 @@
-# UADetect `ORIENTATION_isLandscape` Componet
+# UADetect `orientationIsLandscape` Componet
 
-- [UADetect `ORIENTATION_isLandscape` Componet](#uadetect-orientation_islandscape-componet)
+- [UADetect `orientationIsLandscape` Componet](#uadetect-orientationislandscape-componet)
   - [Description](#description)
   - [Possible Returns](#possible-returns)
   - [Usage Example](#usage-example)

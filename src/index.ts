@@ -11,7 +11,7 @@ import { browser, getBrowser } from "./browser";
 
 // Code Name
 
-import { codeName } from "./appCodeName";
+import { codeName, getCodeName } from "./appCodeName";
 
 // Cookies
 
@@ -35,7 +35,8 @@ import {
 // Geolocation
 
 import {
-  geo
+  lat,
+  lon
 } from "./geolocation";
 
 // Logical Processors
@@ -51,11 +52,11 @@ import { maxTouchPoints, getMaxTouchPoints } from "./maxTouchPoints";
 
 // Navigator Object
 
-import { navigatorObject } from './navigator';
+import { navigatorObject, getterForNavigator } from './navigator';
 
 // Online Status
 
-import { browserOnlineStatus } from "./online";
+import { browserOnlineStatus, getBrowserIsOnline } from "./online";
 
 // standard UA
 
@@ -74,19 +75,19 @@ import {
 
 // PDF Viewer
 
-import { PDFviewerStatus } from "./pdf";
+import { PDFviewerStatus, getPDF } from "./pdf";
 
 // Product
 
-import {engine} from './product';
+import {engine, getProductID} from './product';
 
 // Version
 
-import {version} from './appVersion'
+import {version, getAppVersion} from './appVersion'
 
 // Webdriver
 
-import { robotStatus } from "./webdriver";
+import { robotStatus, getBots } from "./webdriver";
 
 // Exports
 
@@ -103,14 +104,21 @@ export {
   browserSpecificSupportCores,
   getMaxTouchPoints,
   getOS,
+  getCodeName,
+  getterForNavigator,
+  getBrowserIsOnline,
+  getPDF,
+  getAppVersion,
+  getBots,
+  getProductID,
 };
 
 // As well as the returns on those functions
 
 export {
-  ORIENTATION_isLandscape,
-  DEVICE_type,
-  DEVICE_finiteType,
+  ORIENTATION_isLandscape as orientationIsLandscape,
+  DEVICE_type as deviceType,
+  DEVICE_finiteType as deviceFiniteType,
   currentUA,
   cookieStatus,
   doNotTrackStatus,
@@ -122,8 +130,125 @@ export {
   PDFviewerStatus,
   robotStatus,
   OS,
-  geo,
+  lat,
+  lon,
   codeName,
-    engine,
-    version
+  engine,
+  version
 };
+
+interface UADetect {
+  getDeviceType: Function,
+  getScreenOrientation: Function,
+  getFiniteMobileDeviceType: Function,
+  getCurrentUA: Function,
+  getCookieStatus: Function,
+  getDoNotTrackStatus: Function
+  getBrowser: Function,
+  getProcessorCores: Function,
+  getMaxTouchPoints: Function,
+  getNavigatorObject: Function,
+  getBrowserOnlineStatus: Function,
+  getPDFviewerStatus: Function,
+  getRobotStatus: Function,
+  getOS: Function,
+  getCodeName: Function,
+  getEngine: Function,
+  getVersion: Function,
+  orientationIsLandscape: boolean,
+  deviceType: "tablet" | "mobile" | "desktop",
+  deviceFiniteType: "Android" | "iOS" | "Unknown" | Error | "BlackBerry" | "Windows Phone" | "webOS",
+  currentUA: string,
+  cookieStatus: "cookiesEnabled" | "cookiesNotEnabled" | "ERROR",
+  doNotTrackStatus: "trackingAllowed" | "trackingNotAllowed" | "trackingUnspecified" | "ERROR"
+  browser: "Opera" | "Chrome" | "Firefox" | "Safari" | "IE" | "Edge" | "unknown" | undefined,
+  processorCores: number | undefined,
+  maxTouchPoints: number,
+  navigatorObject: object,
+  browserOnlineStatus: "browserOnline" | "browserOffline",
+  PDFviewerStatus: "PDFviewerEnabled" | "PDFviewerDisabled",
+  robotStatus: "robotControlled" | "humanControlled" | "ERROR",
+  OS: "Windows" | "Mac" | "Linux" | "Android" | "iOS" | "Unknown",
+  lat: number,
+  lon: number,
+  codeName: string | Error,
+  engine: string | 'Gecko' | 'WebKit' | 'Trident' | 'Presto' | 'Other' | Error,
+  version: string | number | Error
+}
+
+// Create the UADetect Object
+
+export const UADetect: UADetect = {
+  getDeviceType() {
+    return DetectDeviceType()
+  },
+  getScreenOrientation() {
+    return DetectScreenOrientation()
+  },
+  getFiniteMobileDeviceType() {
+    return finiteMobileDeviceType() 
+  },
+  getCurrentUA() {
+    return getCurrentUA()
+  },
+  getCookieStatus(cookies: boolean) {
+    return getCookies(cookies)
+  },
+  getDoNotTrackStatus(browserDoNotTrack: string | number | null) {
+    return getDoNotTrack(browserDoNotTrack)
+  },
+  getBrowser({ ua }: { ua: string; }) {
+    return getBrowser({ ua })
+  },
+  getProcessorCores() {
+    return browserSpecificSupportCores()
+  },
+  getMaxTouchPoints() {
+    return getMaxTouchPoints()
+  },
+  getNavigatorObject(navigatorObjectDev: Navigator) {
+    return getterForNavigator(navigatorObjectDev)
+  },
+  getBrowserOnlineStatus({ browserIsOnline }: { browserIsOnline: boolean; }) {
+    return getBrowserIsOnline({ browserIsOnline });
+  },
+  getPDFviewerStatus({ pdf }: { pdf: boolean; }) {
+    return getPDF({ pdf });
+  },
+  getRobotStatus({ webdriverControlled }: { webdriverControlled: boolean; }) {
+    return getBots({ webdriverControlled })
+  },
+  getOS({ ua }: { ua: string; }) {
+    return getOS({ ua: navigator.userAgent })
+  },
+  getCodeName(appCodeName: string) {
+    return getCodeName(appCodeName)
+  },
+  getEngine(productID: string) {
+    return getProductID(productID)
+  },
+  getVersion(appVersion: string) {
+    return getAppVersion(appVersion)
+  },
+  // From here, we can then begin to call the returns on those functions here
+  // Most of them are just transferring the name over
+  orientationIsLandscape: ORIENTATION_isLandscape,
+  deviceType: DEVICE_type,
+  deviceFiniteType: DEVICE_finiteType,
+  currentUA: currentUA,
+  cookieStatus: cookieStatus,
+  doNotTrackStatus: doNotTrackStatus,
+  browser: browser,
+  processorCores: processorCores,
+  maxTouchPoints: maxTouchPoints,
+  navigatorObject: navigatorObject,
+  browserOnlineStatus: browserOnlineStatus,
+  PDFviewerStatus: PDFviewerStatus,
+  robotStatus: robotStatus,
+  OS: OS,
+  lat: lat,
+  lon: lon,
+  codeName: codeName,
+  engine: engine,
+  version: version
+}
