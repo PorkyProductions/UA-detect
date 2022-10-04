@@ -1,16 +1,16 @@
 /*
 
-Copyright � 2022, PorkyProductions, and it's contributors.
+Copyright (c) 2022, PorkyProductions, and it's contributors.
 Licensed under the Apache-2.0 License.
 
 */
 //SCREEN ORIENTATION
-let ORIENTATION_isLandscape = true;
+let orientationIsLandscape = true;
 const DetectScreenOrientation = () => {
     //detects orientation of device
-    ORIENTATION_isLandscape = window.innerHeight <= window.innerWidth;
-    return ORIENTATION_isLandscape;
+    orientationIsLandscape = window.innerHeight <= window.innerWidth;
+    return orientationIsLandscape;
 };
 window.addEventListener("resize", DetectScreenOrientation);
 // Exports
-export { DetectScreenOrientation, ORIENTATION_isLandscape };
+export { DetectScreenOrientation, orientationIsLandscape as ORIENTATION_isLandscape };

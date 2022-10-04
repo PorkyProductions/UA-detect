@@ -13,3 +13,4 @@ export const getPDF = ({ pdf }: { pdf: boolean; }): "PDFviewerEnabled" | "PDFvie
 let PDFviewerStatus = getPDF({ pdf });
 
 export { PDFviewerStatus };
+

@@ -17,7 +17,7 @@ import { doNotTrackStatus, getDoNotTrack } from "./doNotTrack";
 // Finite Mobile Device Type
 import { DEVICE_finiteType, finiteMobileDeviceType, } from "./finiteMobileDeviceType";
 // Geolocation
-import { geo } from "./geolocation";
+import { lat, lon } from "./geolocation";
 // Logical Processors
 import { browserSpecificSupportCores, processorCores, } from "./logicalProcessors";
 // Max Touch Points
@@ -44,7 +44,7 @@ import { robotStatus, getBots } from "./webdriver";
 // Make the functions accessible
 export { DetectScreenOrientation, DetectDeviceType, finiteMobileDeviceType, getCurrentUA, getCookies, getDoNotTrack, getBrowser, browserSpecificSupportCores, getMaxTouchPoints, getOS, getCodeName, getterForNavigator, getBrowserIsOnline, getPDF, getAppVersion, getBots, getProductID, };
 // As well as the returns on those functions
-export { ORIENTATION_isLandscape as orientationIsLandscape, DEVICE_type as deviceType, DEVICE_finiteType as deviceFiniteType, currentUA, cookieStatus, doNotTrackStatus, browser, processorCores, maxTouchPoints, navigatorObject, browserOnlineStatus, PDFviewerStatus, robotStatus, OS, geo, codeName, engine, version };
+export { ORIENTATION_isLandscape as orientationIsLandscape, DEVICE_type as deviceType, DEVICE_finiteType as deviceFiniteType, currentUA, cookieStatus, doNotTrackStatus, browser, processorCores, maxTouchPoints, navigatorObject, browserOnlineStatus, PDFviewerStatus, robotStatus, OS, lat, lon, codeName, engine, version };
 // Create the UADetect Object
 export const UADetect = {
     getDeviceType() {
@@ -89,9 +89,6 @@ export const UADetect = {
     getOS({ ua }) {
         return getOS({ ua: navigator.userAgent });
     },
-    getGeo() {
-        return console.error("Geolocation API must be called on it's own. Try calling it independent of the \'UADetect\' object");
-    },
     getCodeName(appCodeName) {
         return getCodeName(appCodeName);
     },
@@ -117,7 +114,8 @@ export const UADetect = {
     PDFviewerStatus: PDFviewerStatus,
     robotStatus: robotStatus,
     OS: OS,
-    geo: geo,
+    lat: lat,
+    lon: lon,
     codeName: codeName,
     engine: engine,
     version: version

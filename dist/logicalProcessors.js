@@ -25,6 +25,7 @@ const browserSpecificSupportCores = () => {
     else {
         console.error("Not supported on this browser\(UAD_1301\)");
     }
+    return;
 };
 let processorCores = browserSpecificSupportCores();
 export { processorCores, browserSpecificSupportCores };

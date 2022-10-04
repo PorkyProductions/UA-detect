@@ -5,6 +5,7 @@ Licensed under the Apache-2.0 License.
 
 */
 
+
 // Browser
 
 import { browser, getBrowser } from "./browser";
@@ -137,7 +138,7 @@ export {
   version
 };
 
-interface UADetect {
+export interface UADetect {
   getDeviceType: Function,
   getScreenOrientation: Function,
   getFiniteMobileDeviceType: Function,

@@ -4,7 +4,7 @@ const getProcessors = (): number => {
     return navigator.hardwareConcurrency;
 }
 
-const browserSpecificSupportCores = () => {
+const browserSpecificSupportCores = (): number | undefined => {
     if (browser === "Chrome") {
         return getProcessors();
     };
@@ -24,10 +24,9 @@ const browserSpecificSupportCores = () => {
         return getProcessors();
     }
     else {
-        console.error("Not supported on this browser\(UAD_1301\)");
-        
+        console.error("Not supported on this browser\(UAD_1301\)");   
     }
-
+    return
 }
 
 let processorCores: any = browserSpecificSupportCores();

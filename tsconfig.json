@@ -1,18 +1,23 @@
 {
-    "compilerOptions": {
-        "target": "es2019",
-        "outDir": "./dist/",
-        "moduleResolution": "node",
-        "pretty": true,
-        "removeComments": false,
-        "watch": false,
-        "noErrorTruncation": false,
-        "strict": true,
-        "charset": "UTF-8",
-        "noImplicitThis": true,
-        "diagnostics": true,
-        "allowUnreachableCode": false,
-    },
+  "compilerOptions": {
+    "allowUnreachableCode": false,
+    "allowUnusedLabels": false,
+    "alwaysStrict": true,
+    "charset": "UTF-8",
+    "diagnostics": true,
+    "moduleResolution": "node",
+    "noErrorTruncation": false,
+    "noImplicitAny": true,
+    "noImplicitReturns": true,
+    "noImplicitThis": true,
+    "outDir": "./dist/",
+    "pretty": true,
+    "removeComments": false,
+    "strict": true,
+    "strictFunctionTypes": true,
+    "target": "es2019", // 3 years ago JavaScript is up to date enough, right???
+    "watch": false
+  },
     "files": [
         "./src/index.ts"
     ],

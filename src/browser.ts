@@ -23,7 +23,6 @@ const getBrowser = ({ ua }: { ua: string; }): "Opera" | "Chrome" | "Firefox" | "
     else if (ua.indexOf('Edge') > -1) {
         return 'Edge';
     }
-    
     else {
         console.error("ERR: Browser can not be determined \(UAD_101\)"); 
         "Unknown";

@@ -1,6 +1,6 @@
 /*
 
-Copyright � 2022, PorkyProductions, and it's contributors.
+Copyright (c) 2022, PorkyProductions, and it's contributors.
 Licensed under the Apache-2.0 License.
 
 */

@@ -26,5 +26,5 @@ export default function finiteMobileDeviceType() {
         return "Unknown";
     }
 }
-let DEVICE_finiteType = finiteMobileDeviceType();
-export { DEVICE_finiteType, finiteMobileDeviceType };
+let finiteDeviceType = finiteMobileDeviceType();
+export { finiteDeviceType as DEVICE_finiteType, finiteMobileDeviceType };
