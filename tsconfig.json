@@ -22,7 +22,6 @@
         "./src/index.ts"
     ],
     "types": [
-        "jquery",
     ],
     "typeRoots": [
         "node_modules/@types"
