@@ -4,6 +4,10 @@
   "description": "The dead-simple way of interacting with the navigator API",
   "main": "./dist/index.js",
   "type": "module",
+  "engines": {
+    "node": ">=18",
+    "vscode": "^1.60.0"
+  },
   "scripts": {
     "test": "jest",
     "build": "npx tsc -p tsconfig.json",
@@ -51,6 +55,7 @@
   ],
   "homepage": "https://porkyproductions.github.io/UA-detect/",
   "dependencies": {
+    "eslint-config-airbnb-base": "^15.0.0",
     "jest-environment-jsdom": "^29.0.0",
     "npm-packlist": "^7.0.0-pre.1",
     "serve": "^14.0.1",
