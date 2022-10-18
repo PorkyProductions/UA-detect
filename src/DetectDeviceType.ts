@@ -1,10 +1,10 @@
 ﻿//DEVICE TYPE
-function DetectDeviceType(): "tablet" | "mobile" | "desktop" {
-  const ua = navigator.userAgent;
-  if (/(tablet|ipad|playbook|silk)|(android(?!.*mobi))/i.test(ua)) {
-    return "tablet";
-  } else if (
-    /(iPhone|iPod|iPad)/i.test(ua) ||
+function DetectDeviceType(): 'tablet' | 'mobile' | 'desktop' {
+	const ua = navigator.userAgent;
+	if (/(tablet|ipad|playbook|silk)|(android(?!.*mobi))/i.test(ua)) {
+		return 'tablet';
+	} else if (
+		/(iPhone|iPod|iPad)/i.test(ua) ||
     /(android)/i.test(ua) ||
     /(windows phone)/i.test(ua) ||
     /(blackberry)/i.test(ua) ||
@@ -46,13 +46,13 @@ function DetectDeviceType(): "tablet" | "mobile" | "desktop" {
     /(playstation.wiiu)/i.test(ua) ||
     /(playstation.wii)/i.test(ua) ||
     /(webos)/i.test(ua)
-  ) {
-    return "mobile";
-    // add "| /(firefox)/i.test(ua) |" if you want to detect Firefox (not tested for mobile)
-  } else {
-    return "desktop";
-  }
+	) {
+		return 'mobile';
+		// add "| /(firefox)/i.test(ua) |" if you want to detect Firefox (not tested for mobile)
+	} else {
+		return 'desktop';
+	}
 }
-let DEVICE_type = DetectDeviceType();
+const DEVICE_type = DetectDeviceType();
 
 export { DEVICE_type, DetectDeviceType };
