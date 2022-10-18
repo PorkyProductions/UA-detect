@@ -6,15 +6,15 @@ Licensed under the Apache-2.0 License.
 */
 
 //SCREEN ORIENTATION
-let orientationIsLandscape: boolean = true;
+let orientationIsLandscape = true;
 
 const DetectScreenOrientation = (): boolean => {
-  //detects orientation of device
-  orientationIsLandscape = window.innerHeight <= window.innerWidth;
-  return orientationIsLandscape;
+	//detects orientation of device
+	orientationIsLandscape = window.innerHeight <= window.innerWidth;
+	return orientationIsLandscape;
 };
 
-window.addEventListener("resize", DetectScreenOrientation);
+window.addEventListener('resize', DetectScreenOrientation);
 
 
 // Exports
