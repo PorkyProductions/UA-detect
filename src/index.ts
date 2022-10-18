@@ -164,7 +164,7 @@ export interface UADetect {
   cookieStatus: 'cookiesEnabled' | 'cookiesNotEnabled' | 'ERROR',
   doNotTrackStatus: 'trackingAllowed' | 'trackingNotAllowed' | 'trackingUnspecified' | 'ERROR'
   browser: 'Opera' | 'Chrome' | 'Firefox' | 'Safari' | 'IE' | 'Edge' | 'unknown' | undefined,
-  processorCores: number | undefined,
+  processorCores: number | undefined | unknown,
   maxTouchPoints: number,
   navigatorObject: object,
   browserOnlineStatus: 'browserOnline' | 'browserOffline',
