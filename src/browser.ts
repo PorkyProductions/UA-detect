@@ -1,7 +1,7 @@
 const ua = navigator.userAgent;
 
 
-const getBrowser = ({ ua }: { ua: string; }): 'Opera' | 'Chrome' | 'Firefox' | 'Safari' | 'IE' | 'Edge' | 'unknown' | undefined => {
+const getBrowser = (): 'Opera' | 'Chrome' | 'Firefox' | 'Safari' | 'IE' | 'Edge' | 'unknown' | undefined => {
 	if (ua.indexOf('Opera') > -1) {
 		return 'Opera';
 	}
@@ -30,6 +30,6 @@ const getBrowser = ({ ua }: { ua: string; }): 'Opera' | 'Chrome' | 'Firefox' | '
 	return;
 };
 
-const browser = getBrowser({ ua });
+const browser = getBrowser();
 
 export { browser, getBrowser };
