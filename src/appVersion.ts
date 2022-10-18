@@ -1,7 +1,7 @@
 const appVersion = window.navigator.appVersion;
 
 
-export const getAppVersion = (appVersion: string): string | number | Error | 'Unknown' => {
+export const getAppVersion = (): string | number | Error | 'Unknown' => {
 	if (appVersion in navigator) {
 		return appVersion;
 	}
@@ -11,6 +11,6 @@ export const getAppVersion = (appVersion: string): string | number | Error | 'Un
 	}
 };
 
-const version = getAppVersion(appVersion);
+const version = getAppVersion();
 
 export {version};
