@@ -1,6 +1,6 @@
-const browserDoNotTrack: string | number | null = navigator.doNotTrack;
+const browserDoNotTrack: number | string | any = navigator.doNotTrack;
 
-const getDoNotTrack = (browserDoNotTrack: string | number | null): 'trackingAllowed' | 'trackingNotAllowed' | 'trackingUnspecified' | 'ERROR' => {
+const getDoNotTrack = (): 'trackingAllowed' | 'trackingNotAllowed' | 'trackingUnspecified' | 'ERROR' => {
 	if (browserDoNotTrack == 0) {
 		return 'trackingAllowed';
 	}
@@ -19,6 +19,6 @@ const getDoNotTrack = (browserDoNotTrack: string | number | null): 'trackingAllo
 	}
 };
 
-const doNotTrackStatus = getDoNotTrack(browserDoNotTrack);
+const doNotTrackStatus = getDoNotTrack();
 
 export { doNotTrackStatus, getDoNotTrack };
