@@ -1,15 +1,15 @@
-let browserIsOnline: boolean = navigator.onLine;
+const browserIsOnline: boolean = navigator.onLine;
 
-export const getBrowserIsOnline = ({ browserIsOnline }: { browserIsOnline: boolean; }): "browserOnline" | "browserOffline" => {
-    if (browserIsOnline) {
-        return "browserOnline";
-    }
-    else {
-        return "browserOffline";
-    }
-}
+export const getBrowserIsOnline = ({ browserIsOnline }: { browserIsOnline: boolean; }): 'browserOnline' | 'browserOffline' => {
+	if (browserIsOnline) {
+		return 'browserOnline';
+	}
+	else {
+		return 'browserOffline';
+	}
+};
 
-let browserOnlineStatus = getBrowserIsOnline({ browserIsOnline });
+const browserOnlineStatus = getBrowserIsOnline({ browserIsOnline });
 
 
 export { browserOnlineStatus };
