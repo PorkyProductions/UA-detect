@@ -1,6 +1,6 @@
 const cookies: boolean = navigator.cookieEnabled;
 
-const getCookies = (cookies: boolean): 'cookiesEnabled' | 'cookiesNotEnabled' | 'ERROR' => {
+const getCookies = (): 'cookiesEnabled' | 'cookiesNotEnabled' | 'ERROR' => {
 	if (cookies === true) {
 		return 'cookiesEnabled';
 	}
@@ -13,7 +13,7 @@ const getCookies = (cookies: boolean): 'cookiesEnabled' | 'cookiesNotEnabled' | 
 	}
 };
 
-const cookieStatus = getCookies(cookies);
+const cookieStatus = getCookies();
 
 export { cookieStatus };
 export { getCookies };
