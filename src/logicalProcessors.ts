@@ -1,34 +1,34 @@
-import { browser } from "./browser";
+import { browser } from './browser';
 
 const getProcessors = (): number => {
-    return navigator.hardwareConcurrency;
-}
+	return navigator.hardwareConcurrency;
+};
 
 const browserSpecificSupportCores = (): number | undefined => {
-    if (browser === "Chrome") {
-        return getProcessors();
-    };
-    if (browser === "Edge") {
-        return getProcessors();
-    }
-    if (browser === "Firefox") {
-        return getProcessors();
-    }
-    if (browser === "IE") {
-        console.error("Not supported on this browser\(UAD_1301\)");
-    }
-    if (browser === "Opera") {
-        return getProcessors();
-    }
-    if (browser === "Safari") {
-        return getProcessors();
-    }
-    else {
-        console.error("Not supported on this browser\(UAD_1301\)");   
-    }
-    return
-}
+	if (browser === 'Chrome') {
+		return getProcessors();
+	}
+	if (browser === 'Edge') {
+		return getProcessors();
+	}
+	if (browser === 'Firefox') {
+		return getProcessors();
+	}
+	if (browser === 'IE') {
+		console.error('Not supported on this browser (UAD_1301)');
+	}
+	if (browser === 'Opera') {
+		return getProcessors();
+	}
+	if (browser === 'Safari') {
+		return getProcessors();
+	}
+	else {
+		console.error('Not supported on this browser (UAD_1301)');   
+	}
+	return;
+};
 
-let processorCores: any = browserSpecificSupportCores();
+const processorCores: number | undefined | unknown = browserSpecificSupportCores();
 
 export { processorCores, browserSpecificSupportCores };
