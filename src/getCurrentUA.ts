@@ -1,6 +1,6 @@
-﻿let getCurrentUA = (): string => {
-  return navigator.userAgent;
+﻿const getCurrentUA = (): string => {
+	return navigator.userAgent;
 };
-let currentUA = getCurrentUA();
+const currentUA = getCurrentUA();
 
 export { currentUA, getCurrentUA };
