@@ -5,12 +5,13 @@ export default {
         open: '/index.html',
         port: 3000,
     },
+    base: "/UA-detect/",
     build: {
         rollupOptions: {
             input: {
-                main: resolve(__dirname, 'index.html'),
-                fourOhFour: resolve(__dirname, '404.html'),
-                fiveHundred: resolve(__dirname, '500.html'),
+                main: 'index.html',
+                fourOhFour: '404.html',
+                fiveHundred: '500.html',
             },
             output: {
                 dir: resolve(__dirname, './docs'),
