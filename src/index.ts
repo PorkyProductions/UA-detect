@@ -139,24 +139,24 @@ export {
 	version
 };
 
-export interface UADetect {
-  getDeviceType: unknown,
-  getScreenOrientation: unknown,
-  getFiniteMobileDeviceType: unknown,
-  getCurrentUA: unknown,
-  getCookieStatus: unknown,
-  getDoNotTrackStatus: unknown
-  getBrowser: unknown,
-  getProcessorCores: unknown,
-  getMaxTouchPoints: unknown,
-  getNavigatorObject: unknown,
-  getBrowserOnlineStatus: unknown,
-  getPDFviewerStatus: unknown,
-  getRobotStatus: unknown,
-  getOS: unknown,
-  getCodeName: unknown,
-  getEngine: unknown,
-  getVersion: unknown,
+export interface _UADetect {
+  getDeviceType: () => "tablet" | "mobile" | "desktop",
+  getScreenOrientation: () => boolean,
+  getFiniteMobileDeviceType: () => "Android" | "iOS" | "Unknown" | Error | "BlackBerry" | "Windows Phone" | "webOS",
+  getCurrentUA: () => string,
+  getCookieStatus: () =>  "cookiesEnabled" | "cookiesNotEnabled" | "ERROR",
+  getDoNotTrackStatus: () => "ERROR" | "trackingAllowed" | "trackingNotAllowed" | "trackingUnspecified"
+  getBrowser: () => "Opera" | "Chrome" | "Firefox" | "Safari" | "IE" | "Edge" | "unknown" | undefined,
+  getProcessorCores: () => number | undefined,
+  getMaxTouchPoints: () => number,
+  getNavigatorObject: () => object,
+  getBrowserOnlineStatus: () => "browserOnline" | "browserOffline",
+  getPDFviewerStatus: () => "PDFviewerEnabled" | "PDFviewerDisabled",
+  getRobotStatus: () => 'robotControlled' | 'humanControlled' | 'ERROR',
+  getOS: () => 'Windows' | 'Mac' | 'Linux' | 'Android' | 'iOS' | 'Unknown',
+  getCodeName: () => string | Error,
+  getEngine: () => string | 'Gecko' | 'WebKit' | 'Trident' | 'Presto' | 'Other' | Error,
+  getVersion: () => string | number | Error,
   orientationIsLandscape: boolean,
   deviceType: 'tablet' | 'mobile' | 'desktop',
   deviceFiniteType: 'Android' | 'iOS' | 'Unknown' | Error | 'BlackBerry' | 'Windows Phone' | 'webOS',
@@ -180,7 +180,7 @@ export interface UADetect {
 
 // Create the UADetect Object
 
-export const UADetect: UADetect = {
+export const UADetect: _UADetect = {
 	getDeviceType() {
 		return DetectDeviceType();
 	},
@@ -193,14 +193,14 @@ export const UADetect: UADetect = {
 	getCurrentUA() {
 		return getCurrentUA();
 	},
-	getCookieStatus(cookies: boolean) {
-		return getCookies(cookies);
+	getCookieStatus() {
+		return getCookies();
 	},
-	getDoNotTrackStatus(browserDoNotTrack: string | number | null) {
-		return getDoNotTrack(browserDoNotTrack);
+	getDoNotTrackStatus() {
+		return getDoNotTrack();
 	},
-	getBrowser({ ua }: { ua: string; }) {
-		return getBrowser({ ua });
+	getBrowser() {
+		return getBrowser();
 	},
 	getProcessorCores() {
 		return browserSpecificSupportCores();
@@ -208,29 +208,29 @@ export const UADetect: UADetect = {
 	getMaxTouchPoints() {
 		return getMaxTouchPoints();
 	},
-	getNavigatorObject(navigatorObjectDev: Navigator) {
-		return getterForNavigator(navigatorObjectDev);
+	getNavigatorObject() {
+		return getterForNavigator();
 	},
-	getBrowserOnlineStatus({ browserIsOnline }: { browserIsOnline: boolean; }) {
-		return getBrowserIsOnline({ browserIsOnline });
+	getBrowserOnlineStatus() {
+		return getBrowserIsOnline();
 	},
-	getPDFviewerStatus({ pdf }: { pdf: boolean; }) {
-		return getPDF({ pdf });
+	getPDFviewerStatus() {
+		return getPDF();
 	},
-	getRobotStatus({ webdriverControlled }: { webdriverControlled: boolean; }) {
-		return getBots({ webdriverControlled });
+	getRobotStatus() {
+		return getBots();
 	},
 	getOS() {
-		return getOS({ ua: navigator.userAgent });
+		return getOS();
 	},
-	getCodeName(appCodeName: string) {
-		return getCodeName(appCodeName);
+	getCodeName() {
+		return getCodeName();
 	},
-	getEngine(productID: string) {
-		return getProductID(productID);
+	getEngine() {
+		return getProductID();
 	},
-	getVersion(appVersion: string) {
-		return getAppVersion(appVersion);
+	getVersion() {
+		return getAppVersion();
 	},
 	// From here, we can then begin to call the returns on those unknowns here
 	// Most of them are just transferring the name over
@@ -254,3 +254,114 @@ export const UADetect: UADetect = {
 	engine: engine,
 	version: version
 };
+
+export class uaDetect implements _UADetect {
+	getDeviceType!: () => 'tablet' | 'mobile' | 'desktop';
+	getScreenOrientation!: () => boolean;
+	getFiniteMobileDeviceType!: () => 'Android' | 'iOS' | 'Unknown' | Error | 'BlackBerry' | 'Windows Phone' | 'webOS';
+	getCurrentUA!: () => string;
+	getCookieStatus!: () => 'cookiesEnabled' | 'cookiesNotEnabled' | 'ERROR';
+	getDoNotTrackStatus!: () => 'ERROR' | 'trackingAllowed' | 'trackingNotAllowed' | 'trackingUnspecified';
+	getBrowser!: () => 'Opera' | 'Chrome' | 'Firefox' | 'Safari' | 'IE' | 'Edge' | 'unknown' | undefined;
+	getProcessorCores!: () => number | undefined;
+	getMaxTouchPoints!: () => number;
+	getNavigatorObject!: () => object;
+	getBrowserOnlineStatus!: () => 'browserOnline' | 'browserOffline';
+	getPDFviewerStatus!: () => 'PDFviewerEnabled' | 'PDFviewerDisabled';
+	getRobotStatus!: () => 'ERROR' | 'robotControlled' | 'humanControlled';
+	getOS!: () => 'Windows' | 'Mac' | 'Linux' | 'Android' | 'iOS' | 'Unknown';
+	getCodeName!: () => string | Error;
+	getEngine!: () => string | Error;
+	getVersion!: () => string | number | Error;
+	orientationIsLandscape!: boolean;
+	deviceType!: 'tablet' | 'mobile' | 'desktop';
+	deviceFiniteType!: 'Android' | 'iOS' | 'Unknown' | Error | 'BlackBerry' | 'Windows Phone' | 'webOS';
+	currentUA!: string;
+	cookieStatus!: 'cookiesEnabled' | 'cookiesNotEnabled' | 'ERROR';
+	doNotTrackStatus!: 'ERROR' | 'trackingAllowed' | 'trackingNotAllowed' | 'trackingUnspecified';
+	browser: 'Opera' | 'Chrome' | 'Firefox' | 'Safari' | 'IE' | 'Edge' | 'unknown' | undefined;
+	processorCores: unknown;
+	maxTouchPoints!: number;
+	navigatorObject!: object;
+	browserOnlineStatus!: 'browserOnline' | 'browserOffline';
+	PDFviewerStatus!: 'PDFviewerEnabled' | 'PDFviewerDisabled';
+	robotStatus!: 'ERROR' | 'robotControlled' | 'humanControlled';
+	OS!: 'Windows' | 'Mac' | 'Linux' | 'Android' | 'iOS' | 'Unknown';
+	lat!: number;
+	lon!: number;
+	codeName!: string | Error;
+	engine!: string | Error;
+	version!: string | number | Error;
+	constructor() {
+		this.getDeviceType = () => {
+			return DetectDeviceType();
+		}
+		this.getScreenOrientation = () => {
+			return DetectScreenOrientation();
+		}
+		this.getFiniteMobileDeviceType = () => {
+			return finiteMobileDeviceType();
+		}
+		this.getCurrentUA =() => {
+			return getCurrentUA()
+		}
+		this.getCookieStatus = () => {
+			return getCookies()
+		}
+		this.getDoNotTrackStatus = () => {
+			return getDoNotTrack();
+		}
+		this.getBrowser = () => {
+			return getBrowser()
+		}
+		this.getProcessorCores = () => {
+			return browserSpecificSupportCores()
+		}
+		this.getMaxTouchPoints = () => {
+			return getMaxTouchPoints();
+		}
+		this.getNavigatorObject = () => {
+			return getterForNavigator();
+		}
+		this.getBrowserOnlineStatus = () => {
+			return getBrowserIsOnline()
+		}
+		this.getPDFviewerStatus = () => {
+			return getPDF()
+		}
+		this.getRobotStatus = () => {
+			return getBots()
+		}
+		this.getOS = () => {
+			return getOS()
+		}
+		this.getCodeName = () => {
+			return getCodeName()
+		}
+		this.getEngine = () => {
+			return getProductID()
+		}
+		this.getVersion = () => {
+			return getAppVersion()
+		}
+		this.orientationIsLandscape = ORIENTATION_isLandscape;
+		this.deviceType = DEVICE_type
+		this.deviceFiniteType = DEVICE_finiteType;
+		this.currentUA = currentUA
+		this.cookieStatus = cookieStatus
+		this.doNotTrackStatus = doNotTrackStatus
+		this.browser = browser
+		this.processorCores = processorCores
+		this.maxTouchPoints = maxTouchPoints;
+		this.navigatorObject = navigatorObject
+		this.browserOnlineStatus = browserOnlineStatus
+		this.PDFviewerStatus = PDFviewerStatus
+		this.robotStatus = robotStatus
+		this.OS = OS;
+		this.lat = lat
+		this.lon = lon
+		this.codeName = codeName
+		this.engine = engine
+		this.version = version
+	}
+}
