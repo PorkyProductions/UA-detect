@@ -1,7 +1,7 @@
 const productID = window.navigator.product;
 
 
-export const getProductID = (productID: string): string | 'Gecko' | 'WebKit' | 'Trident' | 'Presto' | 'Other' | Error => {
+export const getProductID = (): string | 'Gecko' | 'WebKit' | 'Trident' | 'Presto' | 'Other' | Error => {
 	if (productID === 'Gecko') {
 		return 'Gecko';
 	}
@@ -20,6 +20,6 @@ export const getProductID = (productID: string): string | 'Gecko' | 'WebKit' | '
 	}
 };
 
-const engine = getProductID(productID);
+const engine = getProductID();
 
 export {engine};
