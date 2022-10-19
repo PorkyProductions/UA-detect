@@ -1,4 +1,5 @@
-const getOS = ({ ua }: { ua: string; }): 'Windows' | 'Mac' | 'Linux' | 'Android' | 'iOS' | 'Unknown' => {
+const ua = navigator.userAgent
+const getOS = (): 'Windows' | 'Mac' | 'Linux' | 'Android' | 'iOS' | 'Unknown' => {
 	if (ua.indexOf('Windows') > -1) {
 		return 'Windows';
 	}
@@ -27,6 +28,6 @@ const getOS = ({ ua }: { ua: string; }): 'Windows' | 'Mac' | 'Linux' | 'Android'
 	}
 };
 
-const OS = getOS({ ua: navigator.userAgent });
+const OS = getOS();
 
 export { OS, getOS };
