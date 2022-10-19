@@ -1,6 +1,6 @@
-const navigatorObjectDev = window.navigator;
+const navigatorObjectDev: Navigator = window.navigator;
 
-export const getterForNavigator = (navigatorObjectDev: Navigator): object => {
+export const getterForNavigator = (): object => {
 	return [
 		{
 			name: 'appCodeName',
@@ -60,6 +60,6 @@ export const getterForNavigator = (navigatorObjectDev: Navigator): object => {
 		},
 	];
 };
-const navigatorObject = getterForNavigator(navigatorObjectDev);
+const navigatorObject = getterForNavigator();
 
 export { navigatorObject };
