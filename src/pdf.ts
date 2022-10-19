@@ -1,7 +1,7 @@
 const pdf: boolean = navigator.pdfViewerEnabled;
 
 
-export const getPDF = ({ pdf }: { pdf: boolean; }): 'PDFviewerEnabled' | 'PDFviewerDisabled' => {
+export const getPDF = (): 'PDFviewerEnabled' | 'PDFviewerDisabled' => {
 	if (pdf) {
 		return 'PDFviewerEnabled';
 	}
@@ -10,7 +10,7 @@ export const getPDF = ({ pdf }: { pdf: boolean; }): 'PDFviewerEnabled' | 'PDFvie
 	}
 };
 
-const PDFviewerStatus = getPDF({ pdf });
+const PDFviewerStatus = getPDF();
 
 export { PDFviewerStatus };
 
