@@ -21,7 +21,7 @@ import { getCookies, cookieStatus } from './cookies';
 
 // Device Type
 
-import { DEVICE_type, DetectDeviceType } from './DetectDeviceType';
+import { DEVICE_type, DetectDeviceType } from './deviceType';
 
 // Do Not Track
 
