@@ -1,10 +1,9 @@
 {
   "ExpandedNodes": [
     "",
-    "\\dist",
     "\\src",
     "\\tests"
   ],
-  "SelectedNode": "\\dist\\DetectDeviceType.js",
+  "SelectedNode": "\\package.json",
   "PreviewInSolutionExplorer": false
 }
