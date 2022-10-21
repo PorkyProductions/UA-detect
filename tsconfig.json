@@ -12,6 +12,7 @@
     "noImplicitThis": true,
     "outDir": "./dist/",
     "pretty": true,
+    "declaration": false,
     "removeComments": false,
     "strict": true,
     "strictFunctionTypes": true,
