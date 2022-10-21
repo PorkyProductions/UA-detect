@@ -18,7 +18,7 @@ const getBrowser = (): 'Opera' | 'Chrome' | 'Firefox' | 'Safari' | 'IE' | 'Edge'
 	}
 
 	console.error(`Browser can not be determined (UAD_${Math.round(Math.floor(Math.random() * 1000) + 1)})`);
-	'Unknown';
+	return 'Unknown';
 };
 
 const browser = getBrowser();

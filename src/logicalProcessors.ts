@@ -20,6 +20,7 @@ const browserSpecificSupportCores = (): number | undefined => {
 	} else {
 		console.error(`Not supported on this browser (UAD_${randomNumber()})`);
 	}
+	return;
 };
 
 const processorCores: number | undefined | unknown = browserSpecificSupportCores();
