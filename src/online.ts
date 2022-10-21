@@ -3,8 +3,7 @@ const browserIsOnline: boolean = navigator.onLine;
 export const getBrowserIsOnline = (): 'browserOnline' | 'browserOffline' => {
 	if (browserIsOnline) {
 		return 'browserOnline';
-	}
-	else {
+	} else {
 		return 'browserOffline';
 	}
 };

@@ -140,19 +140,19 @@ export {
 };
 
 export interface _UADetect {
-  getDeviceType: () => "tablet" | "mobile" | "desktop",
+  getDeviceType: () => 'tablet' | 'mobile' | 'desktop',
   getScreenOrientation: () => boolean,
-  getFiniteMobileDeviceType: () => "Android" | "iOS" | "Unknown" | Error | "BlackBerry" | "Windows Phone" | "webOS",
+  getFiniteMobileDeviceType: () => 'Android' | 'iOS' | 'Unknown' | Error | 'BlackBerry' | 'Windows Phone' | 'webOS',
   getCurrentUA: () => string,
-  getCookieStatus: () =>  "cookiesEnabled" | "cookiesNotEnabled" | "ERROR",
-  getDoNotTrackStatus: () => "ERROR" | "trackingAllowed" | "trackingNotAllowed" | "trackingUnspecified"
-  getBrowser: () => "Opera" | "Chrome" | "Firefox" | "Safari" | "IE" | "Edge" | "unknown" | undefined,
+  getCookieStatus: () =>  'cookiesEnabled' | 'cookiesNotEnabled' | 'Unknown',
+  getDoNotTrackStatus: () => 'Unknown' | 'trackingAllowed' | 'trackingNotAllowed' | 'trackingUnspecified'
+  getBrowser: () => 'Opera' | 'Chrome' | 'Firefox' | 'Safari' | 'IE' | 'Edge' | 'Unknown' | undefined,
   getProcessorCores: () => number | undefined,
   getMaxTouchPoints: () => number,
-  getNavigatorObject: () => object,
-  getBrowserOnlineStatus: () => "browserOnline" | "browserOffline",
-  getPDFviewerStatus: () => "PDFviewerEnabled" | "PDFviewerDisabled",
-  getRobotStatus: () => 'robotControlled' | 'humanControlled' | 'ERROR',
+  getNavigatorObject: () => object[],
+  getBrowserOnlineStatus: () => 'browserOnline' | 'browserOffline',
+  getPDFviewerStatus: () => 'PDFviewerEnabled' | 'PDFviewerDisabled',
+  getRobotStatus: () => 'robotControlled' | 'humanControlled' | 'Unknown',
   getOS: () => 'Windows' | 'Mac' | 'Linux' | 'Android' | 'iOS' | 'Unknown',
   getCodeName: () => string | Error,
   getEngine: () => string | 'Gecko' | 'WebKit' | 'Trident' | 'Presto' | 'Other' | Error,
@@ -161,20 +161,20 @@ export interface _UADetect {
   deviceType: 'tablet' | 'mobile' | 'desktop',
   deviceFiniteType: 'Android' | 'iOS' | 'Unknown' | Error | 'BlackBerry' | 'Windows Phone' | 'webOS',
   currentUA: string,
-  cookieStatus: 'cookiesEnabled' | 'cookiesNotEnabled' | 'ERROR',
-  doNotTrackStatus: 'trackingAllowed' | 'trackingNotAllowed' | 'trackingUnspecified' | 'ERROR'
-  browser: 'Opera' | 'Chrome' | 'Firefox' | 'Safari' | 'IE' | 'Edge' | 'unknown' | undefined,
+  cookieStatus: 'cookiesEnabled' | 'cookiesNotEnabled' | 'Unknown',
+  doNotTrackStatus: 'trackingAllowed' | 'trackingNotAllowed' | 'trackingUnspecified' | 'Unknown'
+  browser: 'Opera' | 'Chrome' | 'Firefox' | 'Safari' | 'IE' | 'Edge' | 'Unknown' | undefined,
   processorCores: number | undefined | unknown,
   maxTouchPoints: number,
   navigatorObject: object,
   browserOnlineStatus: 'browserOnline' | 'browserOffline',
   PDFviewerStatus: 'PDFviewerEnabled' | 'PDFviewerDisabled',
-  robotStatus: 'robotControlled' | 'humanControlled' | 'ERROR',
+  robotStatus: 'robotControlled' | 'humanControlled' | 'Unknown',
   OS: 'Windows' | 'Mac' | 'Linux' | 'Android' | 'iOS' | 'Unknown',
   lat: number,
   lon: number,
   codeName: string | Error,
-  engine: string | 'Gecko' | 'WebKit' | 'Trident' | 'Presto' | 'Other' | Error,
+  engine: string | 'Gecko' | 'WebKit' | 'Trident' | 'Presto' | 'Unknown' | Error,
   version: string | number | Error
 }
 
@@ -260,15 +260,15 @@ export class uaDetect implements _UADetect {
 	getScreenOrientation!: () => boolean;
 	getFiniteMobileDeviceType!: () => 'Android' | 'iOS' | 'Unknown' | Error | 'BlackBerry' | 'Windows Phone' | 'webOS';
 	getCurrentUA!: () => string;
-	getCookieStatus!: () => 'cookiesEnabled' | 'cookiesNotEnabled' | 'ERROR';
-	getDoNotTrackStatus!: () => 'ERROR' | 'trackingAllowed' | 'trackingNotAllowed' | 'trackingUnspecified';
-	getBrowser!: () => 'Opera' | 'Chrome' | 'Firefox' | 'Safari' | 'IE' | 'Edge' | 'unknown' | undefined;
+	getCookieStatus!: () => 'cookiesEnabled' | 'cookiesNotEnabled' | 'Unknown';
+	getDoNotTrackStatus!: () => 'Unknown' | 'trackingAllowed' | 'trackingNotAllowed' | 'trackingUnspecified';
+	getBrowser!: () => 'Opera' | 'Chrome' | 'Firefox' | 'Safari' | 'IE' | 'Edge' | 'Unknown' | undefined;
 	getProcessorCores!: () => number | undefined;
 	getMaxTouchPoints!: () => number;
-	getNavigatorObject!: () => object;
+	getNavigatorObject!: () => object[];
 	getBrowserOnlineStatus!: () => 'browserOnline' | 'browserOffline';
 	getPDFviewerStatus!: () => 'PDFviewerEnabled' | 'PDFviewerDisabled';
-	getRobotStatus!: () => 'ERROR' | 'robotControlled' | 'humanControlled';
+	getRobotStatus!: () => 'Unknown' | 'robotControlled' | 'humanControlled';
 	getOS!: () => 'Windows' | 'Mac' | 'Linux' | 'Android' | 'iOS' | 'Unknown';
 	getCodeName!: () => string | Error;
 	getEngine!: () => string | Error;
@@ -277,15 +277,15 @@ export class uaDetect implements _UADetect {
 	deviceType!: 'tablet' | 'mobile' | 'desktop';
 	deviceFiniteType!: 'Android' | 'iOS' | 'Unknown' | Error | 'BlackBerry' | 'Windows Phone' | 'webOS';
 	currentUA!: string;
-	cookieStatus!: 'cookiesEnabled' | 'cookiesNotEnabled' | 'ERROR';
-	doNotTrackStatus!: 'ERROR' | 'trackingAllowed' | 'trackingNotAllowed' | 'trackingUnspecified';
-	browser: 'Opera' | 'Chrome' | 'Firefox' | 'Safari' | 'IE' | 'Edge' | 'unknown' | undefined;
+	cookieStatus!: 'cookiesEnabled' | 'cookiesNotEnabled' | 'Unknown';
+	doNotTrackStatus!: 'Unknown' | 'trackingAllowed' | 'trackingNotAllowed' | 'trackingUnspecified';
+	browser: 'Opera' | 'Chrome' | 'Firefox' | 'Safari' | 'IE' | 'Edge' | 'Unknown' | undefined;
 	processorCores: unknown;
 	maxTouchPoints!: number;
 	navigatorObject!: object;
 	browserOnlineStatus!: 'browserOnline' | 'browserOffline';
 	PDFviewerStatus!: 'PDFviewerEnabled' | 'PDFviewerDisabled';
-	robotStatus!: 'ERROR' | 'robotControlled' | 'humanControlled';
+	robotStatus!: 'Unknown' | 'robotControlled' | 'humanControlled';
 	OS!: 'Windows' | 'Mac' | 'Linux' | 'Android' | 'iOS' | 'Unknown';
 	lat!: number;
 	lon!: number;
@@ -295,73 +295,73 @@ export class uaDetect implements _UADetect {
 	constructor() {
 		this.getDeviceType = () => {
 			return DetectDeviceType();
-		}
+		};
 		this.getScreenOrientation = () => {
 			return DetectScreenOrientation();
-		}
+		};
 		this.getFiniteMobileDeviceType = () => {
 			return finiteMobileDeviceType();
-		}
+		};
 		this.getCurrentUA =() => {
-			return getCurrentUA()
-		}
+			return getCurrentUA();
+		};
 		this.getCookieStatus = () => {
-			return getCookies()
-		}
+			return getCookies();
+		};
 		this.getDoNotTrackStatus = () => {
 			return getDoNotTrack();
-		}
+		};
 		this.getBrowser = () => {
-			return getBrowser()
-		}
+			return getBrowser();
+		};
 		this.getProcessorCores = () => {
-			return browserSpecificSupportCores()
-		}
+			return browserSpecificSupportCores();
+		};
 		this.getMaxTouchPoints = () => {
 			return getMaxTouchPoints();
-		}
+		};
 		this.getNavigatorObject = () => {
 			return getterForNavigator();
-		}
+		};
 		this.getBrowserOnlineStatus = () => {
-			return getBrowserIsOnline()
-		}
+			return getBrowserIsOnline();
+		};
 		this.getPDFviewerStatus = () => {
-			return getPDF()
-		}
+			return getPDF();
+		};
 		this.getRobotStatus = () => {
-			return getBots()
-		}
+			return getBots();
+		};
 		this.getOS = () => {
-			return getOS()
-		}
+			return getOS();
+		};
 		this.getCodeName = () => {
-			return getCodeName()
-		}
+			return getCodeName();
+		};
 		this.getEngine = () => {
-			return getProductID()
-		}
+			return getProductID();
+		};
 		this.getVersion = () => {
-			return getAppVersion()
-		}
+			return getAppVersion();
+		};
 		this.orientationIsLandscape = ORIENTATION_isLandscape;
-		this.deviceType = DEVICE_type
+		this.deviceType = DEVICE_type;
 		this.deviceFiniteType = DEVICE_finiteType;
-		this.currentUA = currentUA
-		this.cookieStatus = cookieStatus
-		this.doNotTrackStatus = doNotTrackStatus
-		this.browser = browser
-		this.processorCores = processorCores
+		this.currentUA = currentUA;
+		this.cookieStatus = cookieStatus;
+		this.doNotTrackStatus = doNotTrackStatus;
+		this.browser = browser;
+		this.processorCores = processorCores;
 		this.maxTouchPoints = maxTouchPoints;
-		this.navigatorObject = navigatorObject
-		this.browserOnlineStatus = browserOnlineStatus
-		this.PDFviewerStatus = PDFviewerStatus
-		this.robotStatus = robotStatus
+		this.navigatorObject = navigatorObject;
+		this.browserOnlineStatus = browserOnlineStatus;
+		this.PDFviewerStatus = PDFviewerStatus;
+		this.robotStatus = robotStatus;
 		this.OS = OS;
-		this.lat = lat
-		this.lon = lon
-		this.codeName = codeName
-		this.engine = engine
-		this.version = version
+		this.lat = lat;
+		this.lon = lon;
+		this.codeName = codeName;
+		this.engine = engine;
+		this.version = version;
 	}
 }

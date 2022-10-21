@@ -1,14 +1,13 @@
 const webdriverControlled: boolean = navigator.webdriver;
 
-export const getBots = (): 'robotControlled' | 'humanControlled' | 'ERROR' => {
+export const getBots = (): 'robotControlled' | 'humanControlled' | 'Unknown' => {
 	if (webdriverControlled) { 
 		return 'robotControlled';
-	}
-	else {
+	} else {
 		return 'humanControlled';
 	}
 };
 
-const robotStatus: 'robotControlled' | 'humanControlled' | 'ERROR' = getBots();
+const robotStatus: 'robotControlled' | 'humanControlled' | 'Unknown' = getBots();
 
 export { robotStatus, webdriverControlled };

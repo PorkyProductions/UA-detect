@@ -1,6 +1,6 @@
 const cookies: boolean = navigator.cookieEnabled;
 
-const getCookies = (): 'cookiesEnabled' | 'cookiesNotEnabled' | 'ERROR' => {
+const getCookies = (): 'cookiesEnabled' | 'cookiesNotEnabled' | 'Unknown' => {
 	if (cookies === true) {
 		return 'cookiesEnabled';
 	}
@@ -8,8 +8,8 @@ const getCookies = (): 'cookiesEnabled' | 'cookiesNotEnabled' | 'ERROR' => {
 		return 'cookiesNotEnabled';
 	}
 	else {
-		console.error('ERR: Cookie status can not be determined (UAD_201)');
-		return 'ERROR';
+		console.error(`Cookie status can not be determined (UAD_${Math.round(Math.floor(Math.random() * 1000) + 1)})`);
+		return 'Unknown';
 	}
 };
 

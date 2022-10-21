@@ -22,7 +22,7 @@ export default function finiteMobileDeviceType(): 'iOS' | 'Android' | 'BlackBerr
 		return 'webOS';
 	}
 	else {
-		console.error('Unknown device type (UAD_601)');
+		console.error(`Unknown device type (UAD_${Math.round(Math.floor(Math.random() * 1000) + 1)})`);
 		return 'Unknown';
 	}
 }

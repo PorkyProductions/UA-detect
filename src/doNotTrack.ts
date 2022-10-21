@@ -1,21 +1,17 @@
-const browserDoNotTrack: number | string | any = navigator.doNotTrack;
+const browserDoNotTrack: number | string | unknown = navigator.doNotTrack;
 
-const getDoNotTrack = (): 'trackingAllowed' | 'trackingNotAllowed' | 'trackingUnspecified' | 'ERROR' => {
+const getDoNotTrack = (): 'trackingAllowed' | 'trackingNotAllowed' | 'trackingUnspecified' | 'Unknown' => {
 	if (browserDoNotTrack == 0) {
 		return 'trackingAllowed';
-	}
-	if (browserDoNotTrack == 1) {
+	} else if (browserDoNotTrack == 1) {
 		return 'trackingNotAllowed';
-	}
-	if (browserDoNotTrack == 'unspecified') {
+	} else if (browserDoNotTrack == 'unspecified') {
 		return 'trackingUnspecified';
-	}
-	if (browserDoNotTrack == 'null') {
+	} else if (browserDoNotTrack == 'null') {
 		return 'trackingUnspecified';
-	}
-	else {
-		console.error('Unknown doNotTrack value (UAD_801)');
-		return 'ERROR';
+	} else {
+		console.error(`Unknown doNotTrack value (UAD_${Math.round(Math.floor(Math.random() * 1000) + 1)})`);
+		return 'Unknown';
 	}
 };
 

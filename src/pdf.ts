@@ -4,8 +4,7 @@ const pdf: boolean = navigator.pdfViewerEnabled;
 export const getPDF = (): 'PDFviewerEnabled' | 'PDFviewerDisabled' => {
 	if (pdf) {
 		return 'PDFviewerEnabled';
-	}
-	else {
+	} else {
 		return 'PDFviewerDisabled';
 	}
 };

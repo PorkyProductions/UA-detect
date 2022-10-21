@@ -1,6 +1,6 @@
 const navigatorObjectDev: Navigator = window.navigator;
 
-export const getterForNavigator = (): object => {
+export const getterForNavigator = (): object[] => {
 	return [
 		{
 			name: 'appCodeName',
