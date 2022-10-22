@@ -76,7 +76,6 @@ console.log(UAD.deviceType)
 ### NOTE: 
 Click any of them to go to their individual documentation.
 
-- [`codeName`](codeName.md)
 - [`browser`](browser.md)
 - [`browserOnlineStatus`](browserOnlineStatus.md)
 - [`cookieStatus`](cookieStatus.md)
@@ -106,7 +105,6 @@ Click any of them to go to their individual documentation.
 - `browserSpecificSupportCores`
 - `getMaxTouchPoints`
 - `getOS`
-- `getCodeName`
 - `getterForNavigator`
 - `getBrowserIsOnline`
 - `getPDF`

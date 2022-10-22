@@ -11,10 +11,6 @@ Licensed under the Apache-2.0 License.
 
 import { browser, getBrowser } from './browser';
 
-// Code Name
-
-import { codeName, getCodeName } from './appCodeName';
-
 // Cookies
 
 import { getCookies, cookieStatus } from './cookies';
@@ -120,7 +116,6 @@ export {
 	browserSpecificSupportCores,
 	getMaxTouchPoints,
 	getOS,
-	getCodeName,
 	getterForNavigator,
 	getBrowserIsOnline,
 	getPDF,
@@ -150,7 +145,6 @@ export {
 	OS,
 	lat,
 	lon,
-	codeName,
 	engine,
 	version,
 	language,
@@ -172,7 +166,6 @@ export interface _UADetect {
   getPDFviewerStatus: () => 'PDFviewerEnabled' | 'PDFviewerDisabled',
   getRobotStatus: () => 'robotControlled' | 'humanControlled' | 'Unknown',
   getOS: () => 'Windows' | 'Mac' | 'Linux' | 'Android' | 'iOS' | 'Unknown',
-  getCodeName: () => string | Error,
   getEngine: () => string | 'Gecko' | 'WebKit' | 'Trident' | 'Presto' | 'Other' | Error,
   getVersion: () => string | number | Error,
   getLang: () => 'Amharic' | 'Arabic' | 'Basque' | 'Bengali' | 'British English' | 'Brazillian Portuguese' | 'Bulgarian' | 'Catalan' | 'Cherokee' | 'Croatian' | 'Czech' | 'Danish' | 'Dutch' | 'American English' | 'Estonian' | 'Filipino' | 'Finnish' | 'French' | 'German' | 'Greek' | 'Gujarati' | 'Hebrew' | 'Hindi' | 'Hungarian' | 'Icelandic' | 'Indonesian' | 'Italian' | 'Japanese' | 'Kannada' | 'Korean' | 'Latvian' | 'Lithuanian' | 'Malay' | 'Malayalam' | 'Marathi' | 'Norwegian' | 'Polish' | 'Portugal Portuguese' | 'Romanian' | 'Russian' | 'PRC Chinese' | 'Serbian' | 'Slovak' | 'Slovenian' | 'Spanish' | 'Swahili' | 'Swedish' | 'Tamil' | 'Telugu' | 'Thai' | 'Taiwan Chinese' | 'Turkish' | 'Urdu' | 'Ukrainian' | 'Vietnamese' | 'Welsh' | undefined
@@ -193,7 +186,6 @@ export interface _UADetect {
   OS: 'Windows' | 'Mac' | 'Linux' | 'Android' | 'iOS' | 'Unknown',
   lat: number,
   lon: number,
-  codeName: string | Error,
   engine: string | 'Gecko' | 'WebKit' | 'Trident' | 'Presto' | 'Unknown' | Error,
   version: string | number | Error,
   language: 'Amharic' | 'Arabic' | 'Basque' | 'Bengali' | 'British English' | 'Brazillian Portuguese' | 'Bulgarian' | 'Catalan' | 'Cherokee' | 'Croatian' | 'Czech' | 'Danish' | 'Dutch' | 'American English' | 'Estonian' | 'Filipino' | 'Finnish' | 'French' | 'German' | 'Greek' | 'Gujarati' | 'Hebrew' | 'Hindi' | 'Hungarian' | 'Icelandic' | 'Indonesian' | 'Italian' | 'Japanese' | 'Kannada' | 'Korean' | 'Latvian' | 'Lithuanian' | 'Malay' | 'Malayalam' | 'Marathi' | 'Norwegian' | 'Polish' | 'Portugal Portuguese' | 'Romanian' | 'Russian' | 'PRC Chinese' | 'Serbian' | 'Slovak' | 'Slovenian' | 'Spanish' | 'Swahili' | 'Swedish' | 'Tamil' | 'Telugu' | 'Thai' | 'Taiwan Chinese' | 'Turkish' | 'Urdu' | 'Ukrainian' | 'Vietnamese' | 'Welsh' | undefined,
@@ -245,9 +237,6 @@ export const UADetect: _UADetect = {
 	getOS() {
 		return getOS();
 	},
-	getCodeName() {
-		return getCodeName();
-	},
 	getEngine() {
 		return getProductID();
 	},
@@ -278,7 +267,6 @@ export const UADetect: _UADetect = {
 	OS: OS,
 	lat: lat,
 	lon: lon,
-	codeName: codeName,
 	engine: engine,
 	version: version, 
 	language: language,
@@ -300,7 +288,6 @@ export class uaDetect implements _UADetect {
 	getPDFviewerStatus!: () => 'PDFviewerEnabled' | 'PDFviewerDisabled';
 	getRobotStatus!: () => 'Unknown' | 'robotControlled' | 'humanControlled';
 	getOS!: () => 'Windows' | 'Mac' | 'Linux' | 'Android' | 'iOS' | 'Unknown';
-	getCodeName!: () => string | Error;
 	getEngine!: () => string | Error;
 	getVersion!: () => string | number | Error;
 	getLang!: () => 'Amharic' | 'Arabic' | 'Basque' | 'Bengali' | 'British English' | 'Brazillian Portuguese' | 'Bulgarian' | 'Catalan' | 'Cherokee' | 'Croatian' | 'Czech' | 'Danish' | 'Dutch' | 'American English' | 'Estonian' | 'Filipino' | 'Finnish' | 'French' | 'German' | 'Greek' | 'Gujarati' | 'Hebrew' | 'Hindi' | 'Hungarian' | 'Icelandic' | 'Indonesian' | 'Italian' | 'Japanese' | 'Kannada' | 'Korean' | 'Latvian' | 'Lithuanian' | 'Malay' | 'Malayalam' | 'Marathi' | 'Norwegian' | 'Polish' | 'Portugal Portuguese' | 'Romanian' | 'Russian' | 'PRC Chinese' | 'Serbian' | 'Slovak' | 'Slovenian' | 'Spanish' | 'Swahili' | 'Swedish' | 'Tamil' | 'Telugu' | 'Thai' | 'Taiwan Chinese' | 'Turkish' | 'Urdu' | 'Ukrainian' | 'Vietnamese' | 'Welsh' | undefined;
@@ -321,7 +308,6 @@ export class uaDetect implements _UADetect {
 	OS!: 'Windows' | 'Mac' | 'Linux' | 'Android' | 'iOS' | 'Unknown';
 	lat!: number;
 	lon!: number;
-	codeName!: string | Error;
 	engine!: string | Error;
 	version!: string | number | Error;
 	language!: 'Amharic' | 'Arabic' | 'Basque' | 'Bengali' | 'British English' | 'Brazillian Portuguese' | 'Bulgarian' | 'Catalan' | 'Cherokee' | 'Croatian' | 'Czech' | 'Danish' | 'Dutch' | 'American English' | 'Estonian' | 'Filipino' | 'Finnish' | 'French' | 'German' | 'Greek' | 'Gujarati' | 'Hebrew' | 'Hindi' | 'Hungarian' | 'Icelandic' | 'Indonesian' | 'Italian' | 'Japanese' | 'Kannada' | 'Korean' | 'Latvian' | 'Lithuanian' | 'Malay' | 'Malayalam' | 'Marathi' | 'Norwegian' | 'Polish' | 'Portugal Portuguese' | 'Romanian' | 'Russian' | 'PRC Chinese' | 'Serbian' | 'Slovak' | 'Slovenian' | 'Spanish' | 'Swahili' | 'Swedish' | 'Tamil' | 'Telugu' | 'Thai' | 'Taiwan Chinese' | 'Turkish' | 'Urdu' | 'Ukrainian' | 'Vietnamese' | 'Welsh' | undefined;
@@ -369,9 +355,6 @@ export class uaDetect implements _UADetect {
 		this.getOS = () => {
 			return getOS();
 		};
-		this.getCodeName = () => {
-			return getCodeName();
-		};
 		this.getEngine = () => {
 			return getProductID();
 		};
@@ -400,7 +383,6 @@ export class uaDetect implements _UADetect {
 		this.OS = OS;
 		this.lat = lat;
 		this.lon = lon;
-		this.codeName = codeName;
 		this.engine = engine;
 		this.version = version;
 		this.language = language;
