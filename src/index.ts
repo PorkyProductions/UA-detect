@@ -41,6 +41,13 @@ import {
 	lon
 } from './geolocation';
 
+// Language
+
+import {
+	language,
+	getLang
+} from './language';
+
 // Logical Processors
 
 import {
@@ -113,6 +120,7 @@ export {
 	getAppVersion,
 	getBots,
 	getProductID,
+	getLang
 };
 
 // As well as the returns on those unknowns
@@ -136,7 +144,8 @@ export {
 	lon,
 	codeName,
 	engine,
-	version
+	version,
+	language
 };
 
 export interface _UADetect {
@@ -157,6 +166,7 @@ export interface _UADetect {
   getCodeName: () => string | Error,
   getEngine: () => string | 'Gecko' | 'WebKit' | 'Trident' | 'Presto' | 'Other' | Error,
   getVersion: () => string | number | Error,
+  getLang: () => 'Amharic' | 'Arabic' | 'Basque' | 'Bengali' | 'British English' | 'Brazillian Portuguese' | 'Bulgarian' | 'Catalan' | 'Cherokee' | 'Croatian' | 'Czech' | 'Danish' | 'Dutch' | 'American English' | 'Estonian' | 'Filipino' | 'Finnish' | 'French' | 'German' | 'Greek' | 'Gujarati' | 'Hebrew' | 'Hindi' | 'Hungarian' | 'Icelandic' | 'Indonesian' | 'Italian' | 'Japanese' | 'Kannada' | 'Korean' | 'Latvian' | 'Lithuanian' | 'Malay' | 'Malayalam' | 'Marathi' | 'Norwegian' | 'Polish' | 'Portugal Portuguese' | 'Romanian' | 'Russian' | 'PRC Chinese' | 'Serbian' | 'Slovak' | 'Slovenian' | 'Spanish' | 'Swahili' | 'Swedish' | 'Tamil' | 'Telugu' | 'Thai' | 'Taiwan Chinese' | 'Turkish' | 'Urdu' | 'Ukrainian' | 'Vietnamese' | 'Welsh' | undefined
   orientationIsLandscape: boolean,
   deviceType: 'tablet' | 'mobile' | 'desktop',
   deviceFiniteType: 'Android' | 'iOS' | 'Unknown' | Error | 'BlackBerry' | 'Windows Phone' | 'webOS',
@@ -175,7 +185,8 @@ export interface _UADetect {
   lon: number,
   codeName: string | Error,
   engine: string | 'Gecko' | 'WebKit' | 'Trident' | 'Presto' | 'Unknown' | Error,
-  version: string | number | Error
+  version: string | number | Error,
+  language: 'Amharic' | 'Arabic' | 'Basque' | 'Bengali' | 'British English' | 'Brazillian Portuguese' | 'Bulgarian' | 'Catalan' | 'Cherokee' | 'Croatian' | 'Czech' | 'Danish' | 'Dutch' | 'American English' | 'Estonian' | 'Filipino' | 'Finnish' | 'French' | 'German' | 'Greek' | 'Gujarati' | 'Hebrew' | 'Hindi' | 'Hungarian' | 'Icelandic' | 'Indonesian' | 'Italian' | 'Japanese' | 'Kannada' | 'Korean' | 'Latvian' | 'Lithuanian' | 'Malay' | 'Malayalam' | 'Marathi' | 'Norwegian' | 'Polish' | 'Portugal Portuguese' | 'Romanian' | 'Russian' | 'PRC Chinese' | 'Serbian' | 'Slovak' | 'Slovenian' | 'Spanish' | 'Swahili' | 'Swedish' | 'Tamil' | 'Telugu' | 'Thai' | 'Taiwan Chinese' | 'Turkish' | 'Urdu' | 'Ukrainian' | 'Vietnamese' | 'Welsh' | undefined
 }
 
 // Create the UADetect Object
@@ -232,6 +243,9 @@ export const UADetect: _UADetect = {
 	getVersion() {
 		return getAppVersion();
 	},
+	getLang() {
+		return getLang();
+	},
 	// From here, we can then begin to call the returns on those unknowns here
 	// Most of them are just transferring the name over
 	orientationIsLandscape: ORIENTATION_isLandscape,
@@ -252,7 +266,8 @@ export const UADetect: _UADetect = {
 	lon: lon,
 	codeName: codeName,
 	engine: engine,
-	version: version
+	version: version, 
+	language: language
 };
 
 export class uaDetect implements _UADetect {
@@ -273,6 +288,7 @@ export class uaDetect implements _UADetect {
 	getCodeName!: () => string | Error;
 	getEngine!: () => string | Error;
 	getVersion!: () => string | number | Error;
+	getLang!: () => 'Amharic' | 'Arabic' | 'Basque' | 'Bengali' | 'British English' | 'Brazillian Portuguese' | 'Bulgarian' | 'Catalan' | 'Cherokee' | 'Croatian' | 'Czech' | 'Danish' | 'Dutch' | 'American English' | 'Estonian' | 'Filipino' | 'Finnish' | 'French' | 'German' | 'Greek' | 'Gujarati' | 'Hebrew' | 'Hindi' | 'Hungarian' | 'Icelandic' | 'Indonesian' | 'Italian' | 'Japanese' | 'Kannada' | 'Korean' | 'Latvian' | 'Lithuanian' | 'Malay' | 'Malayalam' | 'Marathi' | 'Norwegian' | 'Polish' | 'Portugal Portuguese' | 'Romanian' | 'Russian' | 'PRC Chinese' | 'Serbian' | 'Slovak' | 'Slovenian' | 'Spanish' | 'Swahili' | 'Swedish' | 'Tamil' | 'Telugu' | 'Thai' | 'Taiwan Chinese' | 'Turkish' | 'Urdu' | 'Ukrainian' | 'Vietnamese' | 'Welsh' | undefined;
 	orientationIsLandscape!: boolean;
 	deviceType!: 'tablet' | 'mobile' | 'desktop';
 	deviceFiniteType!: 'Android' | 'iOS' | 'Unknown' | Error | 'BlackBerry' | 'Windows Phone' | 'webOS';
@@ -292,6 +308,7 @@ export class uaDetect implements _UADetect {
 	codeName!: string | Error;
 	engine!: string | Error;
 	version!: string | number | Error;
+	language!: 'Amharic' | 'Arabic' | 'Basque' | 'Bengali' | 'British English' | 'Brazillian Portuguese' | 'Bulgarian' | 'Catalan' | 'Cherokee' | 'Croatian' | 'Czech' | 'Danish' | 'Dutch' | 'American English' | 'Estonian' | 'Filipino' | 'Finnish' | 'French' | 'German' | 'Greek' | 'Gujarati' | 'Hebrew' | 'Hindi' | 'Hungarian' | 'Icelandic' | 'Indonesian' | 'Italian' | 'Japanese' | 'Kannada' | 'Korean' | 'Latvian' | 'Lithuanian' | 'Malay' | 'Malayalam' | 'Marathi' | 'Norwegian' | 'Polish' | 'Portugal Portuguese' | 'Romanian' | 'Russian' | 'PRC Chinese' | 'Serbian' | 'Slovak' | 'Slovenian' | 'Spanish' | 'Swahili' | 'Swedish' | 'Tamil' | 'Telugu' | 'Thai' | 'Taiwan Chinese' | 'Turkish' | 'Urdu' | 'Ukrainian' | 'Vietnamese' | 'Welsh' | undefined;
 	constructor() {
 		this.getDeviceType = () => {
 			return DetectDeviceType();
@@ -344,6 +361,9 @@ export class uaDetect implements _UADetect {
 		this.getVersion = () => {
 			return getAppVersion();
 		};
+		this.getLang = () => {
+			return getLang();
+		};
 		this.orientationIsLandscape = ORIENTATION_isLandscape;
 		this.deviceType = DEVICE_type;
 		this.deviceFiniteType = DEVICE_finiteType;
@@ -363,5 +383,6 @@ export class uaDetect implements _UADetect {
 		this.codeName = codeName;
 		this.engine = engine;
 		this.version = version;
+		this.language = language;
 	}
 }

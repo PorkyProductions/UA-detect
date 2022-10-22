@@ -25,6 +25,7 @@ Alternatively, you can call the `UADetect` object, and (hopefully), your IDE wil
 - [`deviceType`](DEVICE_type.md)
 - [`doNotTrackStatus`](doNotTrackStatus.md)
 - [`engine`](engine.md)
+- [`language`](language.md)
 - [`maxTouchPoints`](maxTouchPoints.md)
 - [`orientationIsLandscape`](orientation.md)
 - [`OS`](os.md)
