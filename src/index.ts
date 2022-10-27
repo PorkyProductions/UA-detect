@@ -85,6 +85,10 @@ import {
 
 import { PDFviewerStatus, getPDF } from './pdf';
 
+// Vibrate
+
+import vibrate from './vibrate';
+
 // Webdriver
 
 import { robotStatus, getBots } from './webdriver';
@@ -109,10 +113,9 @@ export {
 	getBots,
 	getLang,
 	browserSpecificGetMemory as getMemory
+	vibrate,
 };
-
 // As well as the returns on those unknowns
-
 export {
 	ORIENTATION_isLandscape as orientationIsLandscape,
 	DEVICE_type as deviceType,
@@ -132,6 +135,7 @@ export {
 	language,
 	deviceMemory
 };
+
 
 export interface _UADetect {
   getDeviceType: () => 'tablet' | 'mobile' | 'desktop',
@@ -166,6 +170,7 @@ export interface _UADetect {
   lon: number,
   language: 'Amharic' | 'Arabic' | 'Basque' | 'Bengali' | 'British English' | 'Brazillian Portuguese' | 'Bulgarian' | 'Catalan' | 'Cherokee' | 'Croatian' | 'Czech' | 'Danish' | 'Dutch' | 'American English' | 'Estonian' | 'Filipino' | 'Finnish' | 'French' | 'German' | 'Greek' | 'Gujarati' | 'Hebrew' | 'Hindi' | 'Hungarian' | 'Icelandic' | 'Indonesian' | 'Italian' | 'Japanese' | 'Kannada' | 'Korean' | 'Latvian' | 'Lithuanian' | 'Malay' | 'Malayalam' | 'Marathi' | 'Norwegian' | 'Polish' | 'Portugal Portuguese' | 'Romanian' | 'Russian' | 'PRC Chinese' | 'Serbian' | 'Slovak' | 'Slovenian' | 'Spanish' | 'Swahili' | 'Swedish' | 'Tamil' | 'Telugu' | 'Thai' | 'Taiwan Chinese' | 'Turkish' | 'Urdu' | 'Ukrainian' | 'Vietnamese' | 'Welsh' | undefined,
   deviceMemory: number | 'Unknown' | undefined
+	vibrate: (pattern: number | number[] | VibratePattern) => 'success' | 'failure' 
 }
 
 // Create the UADetect Object
@@ -216,6 +221,9 @@ export const UADetect: _UADetect = {
 	getMemory() {
 		return browserSpecificGetMemory();
 	},
+	vibrate: (pattern: VibratePattern) => {
+		return vibrate(pattern);
+	},
 	// From here, we can then begin to call the returns on those unknowns here
 	// Most of them are just transferring the name over
 	orientationIsLandscape: ORIENTATION_isLandscape,
@@ -256,6 +264,7 @@ export class uaDetect implements _UADetect {
 	getVersion!: () => string | number | Error;
 	getLang!: () => 'Amharic' | 'Arabic' | 'Basque' | 'Bengali' | 'British English' | 'Brazillian Portuguese' | 'Bulgarian' | 'Catalan' | 'Cherokee' | 'Croatian' | 'Czech' | 'Danish' | 'Dutch' | 'American English' | 'Estonian' | 'Filipino' | 'Finnish' | 'French' | 'German' | 'Greek' | 'Gujarati' | 'Hebrew' | 'Hindi' | 'Hungarian' | 'Icelandic' | 'Indonesian' | 'Italian' | 'Japanese' | 'Kannada' | 'Korean' | 'Latvian' | 'Lithuanian' | 'Malay' | 'Malayalam' | 'Marathi' | 'Norwegian' | 'Polish' | 'Portugal Portuguese' | 'Romanian' | 'Russian' | 'PRC Chinese' | 'Serbian' | 'Slovak' | 'Slovenian' | 'Spanish' | 'Swahili' | 'Swedish' | 'Tamil' | 'Telugu' | 'Thai' | 'Taiwan Chinese' | 'Turkish' | 'Urdu' | 'Ukrainian' | 'Vietnamese' | 'Welsh' | undefined;
 	getMemory!: () => number | 'Unknown' | undefined;
+	vibrate!: (pattern: VibratePattern) => 'success' | 'failure';
 	orientationIsLandscape!: boolean;
 	deviceType!: 'tablet' | 'mobile' | 'desktop';
 	deviceFiniteType!: 'Android' | 'iOS' | 'Unknown' | Error | 'BlackBerry' | 'Windows Phone' | 'webOS';
@@ -321,6 +330,9 @@ export class uaDetect implements _UADetect {
 		};
 		this.getMemory = () => {
 			return browserSpecificGetMemory();
+		};
+		this.vibrate = (pattern: VibratePattern) => {
+			return vibrate(pattern);
 		};
 		this.orientationIsLandscape = ORIENTATION_isLandscape;
 		this.deviceType = DEVICE_type;
