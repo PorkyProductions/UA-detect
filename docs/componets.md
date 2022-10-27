@@ -94,6 +94,7 @@ Click any of them to go to their individual documentation.
 
 ## Methods
 - [`vibrate`](vibrate.md)
+- [`canShareData`](canShare.md)
 - `getScreenOrientation`
 - `getDeviceType`
 - `getFiniteMobileDeviceType`
