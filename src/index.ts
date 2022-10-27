@@ -11,6 +11,10 @@ Licensed under the Apache-2.0 License.
 
 import { browser, getBrowser } from './browser';
 
+// CanShare
+
+import { canShareData } from './canShare'
+
 // Cookies
 
 import { cookieStatus, getCookies } from './cookies';
@@ -113,6 +117,7 @@ export {
 	getLang,
 	browserSpecificGetMemory as getMemory,
 	vibrate,
+	canShareData,
 };
 // As well as the returns on those unknowns
 export {
@@ -152,7 +157,8 @@ export interface _UADetect {
 	getOS: () => 'Windows' | 'Mac' | 'Linux' | 'Android' | 'iOS' | 'Unknown',
 	getLang: () => 'Amharic' | 'Arabic' | 'Basque' | 'Bengali' | 'British English' | 'Brazillian Portuguese' | 'Bulgarian' | 'Catalan' | 'Cherokee' | 'Croatian' | 'Czech' | 'Danish' | 'Dutch' | 'American English' | 'Estonian' | 'Filipino' | 'Finnish' | 'French' | 'German' | 'Greek' | 'Gujarati' | 'Hebrew' | 'Hindi' | 'Hungarian' | 'Icelandic' | 'Indonesian' | 'Italian' | 'Japanese' | 'Kannada' | 'Korean' | 'Latvian' | 'Lithuanian' | 'Malay' | 'Malayalam' | 'Marathi' | 'Norwegian' | 'Polish' | 'Portugal Portuguese' | 'Romanian' | 'Russian' | 'PRC Chinese' | 'Serbian' | 'Slovak' | 'Slovenian' | 'Spanish' | 'Swahili' | 'Swedish' | 'Tamil' | 'Telugu' | 'Thai' | 'Taiwan Chinese' | 'Turkish' | 'Urdu' | 'Ukrainian' | 'Vietnamese' | 'Welsh' | undefined
 	getMemory: () => number | 'Unknown' | undefined,
-	vibrate: (pattern: number | number[] | VibratePattern) => 'success' | 'failure' 
+	vibrate: (pattern: number | number[] | VibratePattern) => 'success' | 'failure',
+	canShareData: (data?: ShareData) => boolean,
 	orientationIsLandscape: boolean,
 	deviceType: 'tablet' | 'mobile' | 'desktop',
 	deviceFiniteType: 'Android' | 'iOS' | 'Unknown' | Error | 'BlackBerry' | 'Windows Phone' | 'webOS',
@@ -223,6 +229,9 @@ export const UADetect: _UADetect = {
 	vibrate: (pattern: VibratePattern) => {
 		return vibrate(pattern);
 	},
+	canShareData: (data?: ShareData) => {
+		return canShareData(data)
+    },
 	// From here, we can then begin to call the returns on those unknowns here
 	// Most of them are just transferring the name over
 	orientationIsLandscape: ORIENTATION_isLandscape,
@@ -264,6 +273,7 @@ export class uaDetect implements _UADetect {
 	getLang!: () => 'Amharic' | 'Arabic' | 'Basque' | 'Bengali' | 'British English' | 'Brazillian Portuguese' | 'Bulgarian' | 'Catalan' | 'Cherokee' | 'Croatian' | 'Czech' | 'Danish' | 'Dutch' | 'American English' | 'Estonian' | 'Filipino' | 'Finnish' | 'French' | 'German' | 'Greek' | 'Gujarati' | 'Hebrew' | 'Hindi' | 'Hungarian' | 'Icelandic' | 'Indonesian' | 'Italian' | 'Japanese' | 'Kannada' | 'Korean' | 'Latvian' | 'Lithuanian' | 'Malay' | 'Malayalam' | 'Marathi' | 'Norwegian' | 'Polish' | 'Portugal Portuguese' | 'Romanian' | 'Russian' | 'PRC Chinese' | 'Serbian' | 'Slovak' | 'Slovenian' | 'Spanish' | 'Swahili' | 'Swedish' | 'Tamil' | 'Telugu' | 'Thai' | 'Taiwan Chinese' | 'Turkish' | 'Urdu' | 'Ukrainian' | 'Vietnamese' | 'Welsh' | undefined;
 	getMemory!: () => number | 'Unknown' | undefined;
 	vibrate!: (pattern: VibratePattern) => 'success' | 'failure';
+	canShareData!: (data?: ShareData) => boolean;
 	orientationIsLandscape!: boolean;
 	deviceType!: 'tablet' | 'mobile' | 'desktop';
 	deviceFiniteType!: 'Android' | 'iOS' | 'Unknown' | Error | 'BlackBerry' | 'Windows Phone' | 'webOS';
@@ -283,7 +293,7 @@ export class uaDetect implements _UADetect {
 	engine!: string | Error;
 	version!: string | number | Error;
 	language!: 'Amharic' | 'Arabic' | 'Basque' | 'Bengali' | 'British English' | 'Brazillian Portuguese' | 'Bulgarian' | 'Catalan' | 'Cherokee' | 'Croatian' | 'Czech' | 'Danish' | 'Dutch' | 'American English' | 'Estonian' | 'Filipino' | 'Finnish' | 'French' | 'German' | 'Greek' | 'Gujarati' | 'Hebrew' | 'Hindi' | 'Hungarian' | 'Icelandic' | 'Indonesian' | 'Italian' | 'Japanese' | 'Kannada' | 'Korean' | 'Latvian' | 'Lithuanian' | 'Malay' | 'Malayalam' | 'Marathi' | 'Norwegian' | 'Polish' | 'Portugal Portuguese' | 'Romanian' | 'Russian' | 'PRC Chinese' | 'Serbian' | 'Slovak' | 'Slovenian' | 'Spanish' | 'Swahili' | 'Swedish' | 'Tamil' | 'Telugu' | 'Thai' | 'Taiwan Chinese' | 'Turkish' | 'Urdu' | 'Ukrainian' | 'Vietnamese' | 'Welsh' | undefined;
-	deviceMemory!: number | 'Unknown' | undefined; 
+	deviceMemory!: number | 'Unknown' | undefined;
 	constructor() {
 		this.getDeviceType = () => {
 			return DetectDeviceType();
@@ -333,6 +343,9 @@ export class uaDetect implements _UADetect {
 		this.vibrate = (pattern: VibratePattern) => {
 			return vibrate(pattern);
 		};
+		this.canShareData = (data?: ShareData) => {
+			return canShareData(data)
+        }
 		this.orientationIsLandscape = ORIENTATION_isLandscape;
 		this.deviceType = DEVICE_type;
 		this.deviceFiniteType = DEVICE_finiteType;
