@@ -26,10 +26,6 @@ import {
 
 import { DEVICE_type, DetectDeviceType } from './deviceType';
 
-// Do Not Track
-
-import { doNotTrackStatus, getDoNotTrack } from './doNotTrack';
-
 // Finite Mobile Device Type
 
 import {
@@ -89,14 +85,6 @@ import {
 
 import { PDFviewerStatus, getPDF } from './pdf';
 
-// Product
-
-import {engine, getProductID} from './product';
-
-// Version
-
-import {version, getAppVersion} from './appVersion';
-
 // Webdriver
 
 import { robotStatus, getBots } from './webdriver';
@@ -111,7 +99,6 @@ export {
 	finiteMobileDeviceType as getFiniteMobileDeviceType,
 	getCurrentUA,
 	getCookies,
-	getDoNotTrack,
 	getBrowser,
 	browserSpecificSupportCores,
 	getMaxTouchPoints,
@@ -119,9 +106,7 @@ export {
 	getterForNavigator,
 	getBrowserIsOnline,
 	getPDF,
-	getAppVersion,
 	getBots,
-	getProductID,
 	getLang,
 	browserSpecificGetMemory as getMemory
 };
@@ -134,7 +119,6 @@ export {
 	DEVICE_finiteType as deviceFiniteType,
 	currentUA,
 	cookieStatus,
-	doNotTrackStatus,
 	browser,
 	processorCores,
 	maxTouchPoints,
@@ -145,8 +129,6 @@ export {
 	OS,
 	lat,
 	lon,
-	engine,
-	version,
 	language,
 	deviceMemory
 };
@@ -157,7 +139,6 @@ export interface _UADetect {
   getFiniteMobileDeviceType: () => 'Android' | 'iOS' | 'Unknown' | Error | 'BlackBerry' | 'Windows Phone' | 'webOS',
   getCurrentUA: () => string,
   getCookieStatus: () =>  'cookiesEnabled' | 'cookiesNotEnabled' | 'Unknown',
-  getDoNotTrackStatus: () => 'Unknown' | 'trackingAllowed' | 'trackingNotAllowed' | 'trackingUnspecified'
   getBrowser: () => 'Opera' | 'Chrome' | 'Firefox' | 'Safari' | 'IE' | 'Edge' | 'Unknown' | undefined,
   getProcessorCores: () => number | undefined,
   getMaxTouchPoints: () => number,
@@ -166,8 +147,6 @@ export interface _UADetect {
   getPDFviewerStatus: () => 'PDFviewerEnabled' | 'PDFviewerDisabled',
   getRobotStatus: () => 'robotControlled' | 'humanControlled' | 'Unknown',
   getOS: () => 'Windows' | 'Mac' | 'Linux' | 'Android' | 'iOS' | 'Unknown',
-  getEngine: () => string | 'Gecko' | 'WebKit' | 'Trident' | 'Presto' | 'Other' | Error,
-  getVersion: () => string | number | Error,
   getLang: () => 'Amharic' | 'Arabic' | 'Basque' | 'Bengali' | 'British English' | 'Brazillian Portuguese' | 'Bulgarian' | 'Catalan' | 'Cherokee' | 'Croatian' | 'Czech' | 'Danish' | 'Dutch' | 'American English' | 'Estonian' | 'Filipino' | 'Finnish' | 'French' | 'German' | 'Greek' | 'Gujarati' | 'Hebrew' | 'Hindi' | 'Hungarian' | 'Icelandic' | 'Indonesian' | 'Italian' | 'Japanese' | 'Kannada' | 'Korean' | 'Latvian' | 'Lithuanian' | 'Malay' | 'Malayalam' | 'Marathi' | 'Norwegian' | 'Polish' | 'Portugal Portuguese' | 'Romanian' | 'Russian' | 'PRC Chinese' | 'Serbian' | 'Slovak' | 'Slovenian' | 'Spanish' | 'Swahili' | 'Swedish' | 'Tamil' | 'Telugu' | 'Thai' | 'Taiwan Chinese' | 'Turkish' | 'Urdu' | 'Ukrainian' | 'Vietnamese' | 'Welsh' | undefined
   getMemory: () => number | 'Unknown' | undefined
   orientationIsLandscape: boolean,
@@ -175,7 +154,6 @@ export interface _UADetect {
   deviceFiniteType: 'Android' | 'iOS' | 'Unknown' | Error | 'BlackBerry' | 'Windows Phone' | 'webOS',
   currentUA: string,
   cookieStatus: 'cookiesEnabled' | 'cookiesNotEnabled' | 'Unknown',
-  doNotTrackStatus: 'trackingAllowed' | 'trackingNotAllowed' | 'trackingUnspecified' | 'Unknown'
   browser: 'Opera' | 'Chrome' | 'Firefox' | 'Safari' | 'IE' | 'Edge' | 'Unknown' | undefined,
   processorCores: number | undefined | unknown,
   maxTouchPoints: number,
@@ -186,8 +164,6 @@ export interface _UADetect {
   OS: 'Windows' | 'Mac' | 'Linux' | 'Android' | 'iOS' | 'Unknown',
   lat: number,
   lon: number,
-  engine: string | 'Gecko' | 'WebKit' | 'Trident' | 'Presto' | 'Unknown' | Error,
-  version: string | number | Error,
   language: 'Amharic' | 'Arabic' | 'Basque' | 'Bengali' | 'British English' | 'Brazillian Portuguese' | 'Bulgarian' | 'Catalan' | 'Cherokee' | 'Croatian' | 'Czech' | 'Danish' | 'Dutch' | 'American English' | 'Estonian' | 'Filipino' | 'Finnish' | 'French' | 'German' | 'Greek' | 'Gujarati' | 'Hebrew' | 'Hindi' | 'Hungarian' | 'Icelandic' | 'Indonesian' | 'Italian' | 'Japanese' | 'Kannada' | 'Korean' | 'Latvian' | 'Lithuanian' | 'Malay' | 'Malayalam' | 'Marathi' | 'Norwegian' | 'Polish' | 'Portugal Portuguese' | 'Romanian' | 'Russian' | 'PRC Chinese' | 'Serbian' | 'Slovak' | 'Slovenian' | 'Spanish' | 'Swahili' | 'Swedish' | 'Tamil' | 'Telugu' | 'Thai' | 'Taiwan Chinese' | 'Turkish' | 'Urdu' | 'Ukrainian' | 'Vietnamese' | 'Welsh' | undefined,
   deviceMemory: number | 'Unknown' | undefined
 }
@@ -209,9 +185,6 @@ export const UADetect: _UADetect = {
 	},
 	getCookieStatus() {
 		return getCookies();
-	},
-	getDoNotTrackStatus() {
-		return getDoNotTrack();
 	},
 	getBrowser() {
 		return getBrowser();
@@ -237,12 +210,6 @@ export const UADetect: _UADetect = {
 	getOS() {
 		return getOS();
 	},
-	getEngine() {
-		return getProductID();
-	},
-	getVersion() {
-		return getAppVersion();
-	},
 	getLang() {
 		return getLang();
 	},
@@ -256,7 +223,6 @@ export const UADetect: _UADetect = {
 	deviceFiniteType: DEVICE_finiteType,
 	currentUA: currentUA,
 	cookieStatus: cookieStatus,
-	doNotTrackStatus: doNotTrackStatus,
 	browser: browser,
 	processorCores: processorCores,
 	maxTouchPoints: maxTouchPoints,
@@ -267,8 +233,6 @@ export const UADetect: _UADetect = {
 	OS: OS,
 	lat: lat,
 	lon: lon,
-	engine: engine,
-	version: version, 
 	language: language,
 	deviceMemory: deviceMemory
 };
@@ -328,9 +292,6 @@ export class uaDetect implements _UADetect {
 		this.getCookieStatus = () => {
 			return getCookies();
 		};
-		this.getDoNotTrackStatus = () => {
-			return getDoNotTrack();
-		};
 		this.getBrowser = () => {
 			return getBrowser();
 		};
@@ -355,12 +316,6 @@ export class uaDetect implements _UADetect {
 		this.getOS = () => {
 			return getOS();
 		};
-		this.getEngine = () => {
-			return getProductID();
-		};
-		this.getVersion = () => {
-			return getAppVersion();
-		};
 		this.getLang = () => {
 			return getLang();
 		};
@@ -372,7 +327,6 @@ export class uaDetect implements _UADetect {
 		this.deviceFiniteType = DEVICE_finiteType;
 		this.currentUA = currentUA;
 		this.cookieStatus = cookieStatus;
-		this.doNotTrackStatus = doNotTrackStatus;
 		this.browser = browser;
 		this.processorCores = processorCores;
 		this.maxTouchPoints = maxTouchPoints;
@@ -383,8 +337,6 @@ export class uaDetect implements _UADetect {
 		this.OS = OS;
 		this.lat = lat;
 		this.lon = lon;
-		this.engine = engine;
-		this.version = version;
 		this.language = language;
 		this.deviceMemory = deviceMemory;
 	}
