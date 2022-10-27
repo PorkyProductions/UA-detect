@@ -84,7 +84,6 @@ Click any of them to go to their individual documentation.
 - [`deviceMemory`](deviceMemory.md)
 - [`deviceType`](DEVICE_type.md)
 - [`doNotTrackStatus`](doNotTrackStatus.md)
-- [`engine`](engine.md)
 - [`language`](language.md)
 - [`maxTouchPoints`](maxTouchPoints.md)
 - [`orientationIsLandscape`](orientation.md)
@@ -92,7 +91,6 @@ Click any of them to go to their individual documentation.
 - [`PDFviewerStatus`](pdfviewerStatus.md)
 - [`processorCores`](processorCores.md)
 - [`robotStatus`](robotStatus.md)
-- [`version`](version.md)
 
 ## Methods
 - `getScreenOrientation`
@@ -100,7 +98,6 @@ Click any of them to go to their individual documentation.
 - `getFiniteMobileDeviceType`
 - `getCurrentUA`
 	`getCookies`
-- `getDoNotTrack`
 - `getBrowser`
 - `browserSpecificSupportCores`
 - `getMaxTouchPoints`
@@ -108,8 +105,6 @@ Click any of them to go to their individual documentation.
 - `getterForNavigator`
 - `getBrowserIsOnline`
 - `getPDF`
-- `getAppVersion`
 - `getBots`
-- `getProductID`
 - `getLang`
 - `getMemory`
