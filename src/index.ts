@@ -13,7 +13,7 @@ import { browser, getBrowser } from './browser';
 
 // CanShare
 
-import { canShareData } from './canShare'
+import { canShareData } from './canShare';
 
 // Cookies
 
@@ -230,8 +230,8 @@ export const UADetect: _UADetect = {
 		return vibrate(pattern);
 	},
 	canShareData: (data?: ShareData) => {
-		return canShareData(data)
-    },
+		return canShareData(data);
+	},
 	// From here, we can then begin to call the returns on those unknowns here
 	// Most of them are just transferring the name over
 	orientationIsLandscape: ORIENTATION_isLandscape,
@@ -344,8 +344,8 @@ export class uaDetect implements _UADetect {
 			return vibrate(pattern);
 		};
 		this.canShareData = (data?: ShareData) => {
-			return canShareData(data)
-        }
+			return canShareData(data);
+		};
 		this.orientationIsLandscape = ORIENTATION_isLandscape;
 		this.deviceType = DEVICE_type;
 		this.deviceFiniteType = DEVICE_finiteType;
