@@ -93,6 +93,7 @@ Click any of them to go to their individual documentation.
 - [`robotStatus`](robotStatus.md)
 
 ## Methods
+- [`vibrate`](vibrate.md)
 - `getScreenOrientation`
 - `getDeviceType`
 - `getFiniteMobileDeviceType`
