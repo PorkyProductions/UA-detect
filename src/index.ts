@@ -13,7 +13,7 @@ import { browser, getBrowser } from './browser';
 
 // Cookies
 
-import { getCookies, cookieStatus } from './cookies';
+import { cookieStatus, getCookies } from './cookies';
 
 // Device Memory
 
@@ -24,13 +24,13 @@ import {
 
 // Device Type
 
-import { DEVICE_type, DetectDeviceType } from './deviceType';
+import { DetectDeviceType, DEVICE_type } from './deviceType';
 
 // Finite Mobile Device Type
 
 import {
 	DEVICE_finiteType,
-	finiteMobileDeviceType,
+	finiteMobileDeviceType
 } from './finiteMobileDeviceType';
 
 // Geolocation
@@ -43,24 +43,23 @@ import {
 // Language
 
 import {
-	language,
-	getLang
+	getLang, language
 } from './language';
 
 // Logical Processors
 
 import {
 	browserSpecificSupportCores,
-	processorCores,
+	processorCores
 } from './logicalProcessors';
 
 // Max Touch Points
 
-import { maxTouchPoints, getMaxTouchPoints } from './maxTouchPoints';
+import { getMaxTouchPoints, maxTouchPoints } from './maxTouchPoints';
 
 // Navigator Object
 
-import { navigatorObject, getterForNavigator } from './navigator';
+import { getterForNavigator, navigatorObject } from './navigator';
 
 // Online Status
 
@@ -68,22 +67,22 @@ import { browserOnlineStatus, getBrowserIsOnline } from './online';
 
 // standard UA
 
-import { getCurrentUA, currentUA } from './getCurrentUA';
+import { currentUA, getCurrentUA } from './getCurrentUA';
 
 // Operating System
 
-import { OS, getOS } from './operatingSystem';
+import { getOS, OS } from './operatingSystem';
 
 //SCREEN ORIENTATION
 
 import {
 	DetectScreenOrientation,
-	ORIENTATION_isLandscape,
+	ORIENTATION_isLandscape
 } from './orientation';
 
 // PDF Viewer
 
-import { PDFviewerStatus, getPDF } from './pdf';
+import { getPDF, PDFviewerStatus } from './pdf';
 
 // Vibrate
 
@@ -91,7 +90,7 @@ import vibrate from './vibrate';
 
 // Webdriver
 
-import { robotStatus, getBots } from './webdriver';
+import { getBots, robotStatus } from './webdriver';
 
 // Exports
 
@@ -112,7 +111,7 @@ export {
 	getPDF,
 	getBots,
 	getLang,
-	browserSpecificGetMemory as getMemory
+	browserSpecificGetMemory as getMemory,
 	vibrate,
 };
 // As well as the returns on those unknowns
@@ -138,39 +137,39 @@ export {
 
 
 export interface _UADetect {
-  getDeviceType: () => 'tablet' | 'mobile' | 'desktop',
-  getScreenOrientation: () => boolean,
-  getFiniteMobileDeviceType: () => 'Android' | 'iOS' | 'Unknown' | Error | 'BlackBerry' | 'Windows Phone' | 'webOS',
-  getCurrentUA: () => string,
-  getCookieStatus: () =>  'cookiesEnabled' | 'cookiesNotEnabled' | 'Unknown',
-  getBrowser: () => 'Opera' | 'Chrome' | 'Firefox' | 'Safari' | 'IE' | 'Edge' | 'Unknown' | undefined,
-  getProcessorCores: () => number | undefined,
-  getMaxTouchPoints: () => number,
-  getNavigatorObject: () => object[],
-  getBrowserOnlineStatus: () => 'browserOnline' | 'browserOffline',
-  getPDFviewerStatus: () => 'PDFviewerEnabled' | 'PDFviewerDisabled',
-  getRobotStatus: () => 'robotControlled' | 'humanControlled' | 'Unknown',
-  getOS: () => 'Windows' | 'Mac' | 'Linux' | 'Android' | 'iOS' | 'Unknown',
-  getLang: () => 'Amharic' | 'Arabic' | 'Basque' | 'Bengali' | 'British English' | 'Brazillian Portuguese' | 'Bulgarian' | 'Catalan' | 'Cherokee' | 'Croatian' | 'Czech' | 'Danish' | 'Dutch' | 'American English' | 'Estonian' | 'Filipino' | 'Finnish' | 'French' | 'German' | 'Greek' | 'Gujarati' | 'Hebrew' | 'Hindi' | 'Hungarian' | 'Icelandic' | 'Indonesian' | 'Italian' | 'Japanese' | 'Kannada' | 'Korean' | 'Latvian' | 'Lithuanian' | 'Malay' | 'Malayalam' | 'Marathi' | 'Norwegian' | 'Polish' | 'Portugal Portuguese' | 'Romanian' | 'Russian' | 'PRC Chinese' | 'Serbian' | 'Slovak' | 'Slovenian' | 'Spanish' | 'Swahili' | 'Swedish' | 'Tamil' | 'Telugu' | 'Thai' | 'Taiwan Chinese' | 'Turkish' | 'Urdu' | 'Ukrainian' | 'Vietnamese' | 'Welsh' | undefined
-  getMemory: () => number | 'Unknown' | undefined
-  orientationIsLandscape: boolean,
-  deviceType: 'tablet' | 'mobile' | 'desktop',
-  deviceFiniteType: 'Android' | 'iOS' | 'Unknown' | Error | 'BlackBerry' | 'Windows Phone' | 'webOS',
-  currentUA: string,
-  cookieStatus: 'cookiesEnabled' | 'cookiesNotEnabled' | 'Unknown',
-  browser: 'Opera' | 'Chrome' | 'Firefox' | 'Safari' | 'IE' | 'Edge' | 'Unknown' | undefined,
-  processorCores: number | undefined | unknown,
-  maxTouchPoints: number,
-  navigatorObject: object,
-  browserOnlineStatus: 'browserOnline' | 'browserOffline',
-  PDFviewerStatus: 'PDFviewerEnabled' | 'PDFviewerDisabled',
-  robotStatus: 'robotControlled' | 'humanControlled' | 'Unknown',
-  OS: 'Windows' | 'Mac' | 'Linux' | 'Android' | 'iOS' | 'Unknown',
-  lat: number,
-  lon: number,
-  language: 'Amharic' | 'Arabic' | 'Basque' | 'Bengali' | 'British English' | 'Brazillian Portuguese' | 'Bulgarian' | 'Catalan' | 'Cherokee' | 'Croatian' | 'Czech' | 'Danish' | 'Dutch' | 'American English' | 'Estonian' | 'Filipino' | 'Finnish' | 'French' | 'German' | 'Greek' | 'Gujarati' | 'Hebrew' | 'Hindi' | 'Hungarian' | 'Icelandic' | 'Indonesian' | 'Italian' | 'Japanese' | 'Kannada' | 'Korean' | 'Latvian' | 'Lithuanian' | 'Malay' | 'Malayalam' | 'Marathi' | 'Norwegian' | 'Polish' | 'Portugal Portuguese' | 'Romanian' | 'Russian' | 'PRC Chinese' | 'Serbian' | 'Slovak' | 'Slovenian' | 'Spanish' | 'Swahili' | 'Swedish' | 'Tamil' | 'Telugu' | 'Thai' | 'Taiwan Chinese' | 'Turkish' | 'Urdu' | 'Ukrainian' | 'Vietnamese' | 'Welsh' | undefined,
-  deviceMemory: number | 'Unknown' | undefined
+	getDeviceType: () => 'tablet' | 'mobile' | 'desktop',
+	getScreenOrientation: () => boolean,
+	getFiniteMobileDeviceType: () => 'Android' | 'iOS' | 'Unknown' | Error | 'BlackBerry' | 'Windows Phone' | 'webOS',
+	getCurrentUA: () => string,
+	getCookieStatus: () =>  'cookiesEnabled' | 'cookiesNotEnabled' | 'Unknown',
+	getBrowser: () => 'Opera' | 'Chrome' | 'Firefox' | 'Safari' | 'IE' | 'Edge' | 'Unknown' | undefined,
+	getProcessorCores: () => number | undefined,
+	getMaxTouchPoints: () => number,
+	getNavigatorObject: () => object[],
+	getBrowserOnlineStatus: () => 'browserOnline' | 'browserOffline',
+	getPDFviewerStatus: () => 'PDFviewerEnabled' | 'PDFviewerDisabled',
+	getRobotStatus: () => 'robotControlled' | 'humanControlled' | 'Unknown',
+	getOS: () => 'Windows' | 'Mac' | 'Linux' | 'Android' | 'iOS' | 'Unknown',
+	getLang: () => 'Amharic' | 'Arabic' | 'Basque' | 'Bengali' | 'British English' | 'Brazillian Portuguese' | 'Bulgarian' | 'Catalan' | 'Cherokee' | 'Croatian' | 'Czech' | 'Danish' | 'Dutch' | 'American English' | 'Estonian' | 'Filipino' | 'Finnish' | 'French' | 'German' | 'Greek' | 'Gujarati' | 'Hebrew' | 'Hindi' | 'Hungarian' | 'Icelandic' | 'Indonesian' | 'Italian' | 'Japanese' | 'Kannada' | 'Korean' | 'Latvian' | 'Lithuanian' | 'Malay' | 'Malayalam' | 'Marathi' | 'Norwegian' | 'Polish' | 'Portugal Portuguese' | 'Romanian' | 'Russian' | 'PRC Chinese' | 'Serbian' | 'Slovak' | 'Slovenian' | 'Spanish' | 'Swahili' | 'Swedish' | 'Tamil' | 'Telugu' | 'Thai' | 'Taiwan Chinese' | 'Turkish' | 'Urdu' | 'Ukrainian' | 'Vietnamese' | 'Welsh' | undefined
+	getMemory: () => number | 'Unknown' | undefined,
 	vibrate: (pattern: number | number[] | VibratePattern) => 'success' | 'failure' 
+	orientationIsLandscape: boolean,
+	deviceType: 'tablet' | 'mobile' | 'desktop',
+	deviceFiniteType: 'Android' | 'iOS' | 'Unknown' | Error | 'BlackBerry' | 'Windows Phone' | 'webOS',
+	currentUA: string,
+	cookieStatus: 'cookiesEnabled' | 'cookiesNotEnabled' | 'Unknown',
+	browser: 'Opera' | 'Chrome' | 'Firefox' | 'Safari' | 'IE' | 'Edge' | 'Unknown' | undefined,
+	processorCores: number | undefined | unknown,
+	maxTouchPoints: number,
+	navigatorObject: object,
+	browserOnlineStatus: 'browserOnline' | 'browserOffline',
+	PDFviewerStatus: 'PDFviewerEnabled' | 'PDFviewerDisabled',
+	robotStatus: 'robotControlled' | 'humanControlled' | 'Unknown',
+	OS: 'Windows' | 'Mac' | 'Linux' | 'Android' | 'iOS' | 'Unknown',
+	lat: number,
+	lon: number,
+	language: 'Amharic' | 'Arabic' | 'Basque' | 'Bengali' | 'British English' | 'Brazillian Portuguese' | 'Bulgarian' | 'Catalan' | 'Cherokee' | 'Croatian' | 'Czech' | 'Danish' | 'Dutch' | 'American English' | 'Estonian' | 'Filipino' | 'Finnish' | 'French' | 'German' | 'Greek' | 'Gujarati' | 'Hebrew' | 'Hindi' | 'Hungarian' | 'Icelandic' | 'Indonesian' | 'Italian' | 'Japanese' | 'Kannada' | 'Korean' | 'Latvian' | 'Lithuanian' | 'Malay' | 'Malayalam' | 'Marathi' | 'Norwegian' | 'Polish' | 'Portugal Portuguese' | 'Romanian' | 'Russian' | 'PRC Chinese' | 'Serbian' | 'Slovak' | 'Slovenian' | 'Spanish' | 'Swahili' | 'Swedish' | 'Tamil' | 'Telugu' | 'Thai' | 'Taiwan Chinese' | 'Turkish' | 'Urdu' | 'Ukrainian' | 'Vietnamese' | 'Welsh' | undefined,
+	deviceMemory: number | 'Unknown' | undefined
 }
 
 // Create the UADetect Object
@@ -183,7 +182,7 @@ export const UADetect: _UADetect = {
 		return DetectScreenOrientation();
 	},
 	getFiniteMobileDeviceType() {
-		return finiteMobileDeviceType(); 
+		return finiteMobileDeviceType();
 	},
 	getCurrentUA() {
 		return getCurrentUA();
@@ -242,7 +241,7 @@ export const UADetect: _UADetect = {
 	lat: lat,
 	lon: lon,
 	language: language,
-	deviceMemory: deviceMemory
+	deviceMemory: deviceMemory,
 };
 
 export class uaDetect implements _UADetect {
