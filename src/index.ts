@@ -86,7 +86,7 @@ import { getPDF, PDFviewerStatus } from './pdf';
 
 // Vibrate
 
-import vibrate from './vibrate';
+import { vibrate } from './vibrate';
 
 // Webdriver
 
