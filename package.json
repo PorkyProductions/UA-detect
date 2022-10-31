@@ -22,7 +22,7 @@
   },
   "displayName": "UADetect",
   "engines": {
-    "node": ">=18",
+    "node": ">= 14",
     "vscode": "^1.60.0"
   },
   "files": [
