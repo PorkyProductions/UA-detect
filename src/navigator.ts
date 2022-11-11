@@ -16,7 +16,12 @@
 */
 const navigatorObjectDev: Navigator = window.navigator;
 
-export const getterForNavigator = (): object[] => [
+export interface NavigatorSub {
+	name: string;
+	value: string | null | boolean | undefined | Geolocation
+}
+
+export const getterForNavigator = (): NavigatorSub[] => [
 	{
 		name: 'appCodeName',
 		value: navigatorObjectDev.appCodeName,

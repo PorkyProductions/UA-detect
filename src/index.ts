@@ -57,7 +57,7 @@ import {
 // Language
 
 import {
-	getLang, language
+	getLang, language, Language
 } from './language';
 
 // Logical Processors
@@ -73,7 +73,7 @@ import { getMaxTouchPoints, maxTouchPoints } from './maxTouchPoints';
 
 // Navigator Object
 
-import { getterForNavigator, navigatorObject } from './navigator';
+import { getterForNavigator, navigatorObject, NavigatorSub } from './navigator';
 
 // Online Status
 
@@ -160,12 +160,12 @@ export interface _UADetect {
 	getBrowser: () => 'Opera' | 'Chrome' | 'Firefox' | 'Safari' | 'IE' | 'Edge' | 'Unknown' | undefined,
 	getProcessorCores: () => number | undefined,
 	getMaxTouchPoints: () => number,
-	getNavigatorObject: () => object[],
+	getNavigatorObject: () => NavigatorSub[],
 	getBrowserOnlineStatus: () => 'browserOnline' | 'browserOffline',
 	getPDFviewerStatus: () => 'PDFviewerEnabled' | 'PDFviewerDisabled',
 	getRobotStatus: () => 'robotControlled' | 'humanControlled' | 'Unknown',
 	getOS: () => 'Windows' | 'Mac' | 'Linux' | 'Android' | 'iOS' | 'Unknown',
-	getLang: () => 'Amharic' | 'Arabic' | 'Basque' | 'Bengali' | 'British English' | 'Brazillian Portuguese' | 'Bulgarian' | 'Catalan' | 'Cherokee' | 'Croatian' | 'Czech' | 'Danish' | 'Dutch' | 'American English' | 'Estonian' | 'Filipino' | 'Finnish' | 'French' | 'German' | 'Greek' | 'Gujarati' | 'Hebrew' | 'Hindi' | 'Hungarian' | 'Icelandic' | 'Indonesian' | 'Italian' | 'Japanese' | 'Kannada' | 'Korean' | 'Latvian' | 'Lithuanian' | 'Malay' | 'Malayalam' | 'Marathi' | 'Norwegian' | 'Polish' | 'Portugal Portuguese' | 'Romanian' | 'Russian' | 'PRC Chinese' | 'Serbian' | 'Slovak' | 'Slovenian' | 'Spanish' | 'Swahili' | 'Swedish' | 'Tamil' | 'Telugu' | 'Thai' | 'Taiwan Chinese' | 'Turkish' | 'Urdu' | 'Ukrainian' | 'Vietnamese' | 'Welsh' | undefined
+	getLang: () => Language;
 	getMemory: () => number | 'Unknown' | undefined,
 	vibrate: (pattern: number | number[] | VibratePattern) => 'success' | 'failure',
 	canShareData: (data?: ShareData) => boolean,
@@ -184,7 +184,7 @@ export interface _UADetect {
 	OS: 'Windows' | 'Mac' | 'Linux' | 'Android' | 'iOS' | 'Unknown',
 	lat: number,
 	lon: number,
-	language: 'Amharic' | 'Arabic' | 'Basque' | 'Bengali' | 'British English' | 'Brazillian Portuguese' | 'Bulgarian' | 'Catalan' | 'Cherokee' | 'Croatian' | 'Czech' | 'Danish' | 'Dutch' | 'American English' | 'Estonian' | 'Filipino' | 'Finnish' | 'French' | 'German' | 'Greek' | 'Gujarati' | 'Hebrew' | 'Hindi' | 'Hungarian' | 'Icelandic' | 'Indonesian' | 'Italian' | 'Japanese' | 'Kannada' | 'Korean' | 'Latvian' | 'Lithuanian' | 'Malay' | 'Malayalam' | 'Marathi' | 'Norwegian' | 'Polish' | 'Portugal Portuguese' | 'Romanian' | 'Russian' | 'PRC Chinese' | 'Serbian' | 'Slovak' | 'Slovenian' | 'Spanish' | 'Swahili' | 'Swedish' | 'Tamil' | 'Telugu' | 'Thai' | 'Taiwan Chinese' | 'Turkish' | 'Urdu' | 'Ukrainian' | 'Vietnamese' | 'Welsh' | undefined,
+	language: Language
 	deviceMemory: number | 'Unknown' | undefined
 }
 
@@ -273,7 +273,7 @@ export class uaDetect implements _UADetect {
 	getBrowser!: () => 'Opera' | 'Chrome' | 'Firefox' | 'Safari' | 'IE' | 'Edge' | 'Unknown' | undefined;
 	getProcessorCores!: () => number | undefined;
 	getMaxTouchPoints!: () => number;
-	getNavigatorObject!: () => object[];
+	getNavigatorObject!: () => NavigatorSub[];
 	getBrowserOnlineStatus!: () => 'browserOnline' | 'browserOffline';
 	getPDFviewerStatus!: () => 'PDFviewerEnabled' | 'PDFviewerDisabled';
 	getRobotStatus!: () => 'Unknown' | 'robotControlled' | 'humanControlled';
