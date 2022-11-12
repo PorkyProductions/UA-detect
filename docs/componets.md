@@ -86,6 +86,7 @@ Click any of them to go to their individual documentation.
 - [`doNotTrackStatus`](doNotTrackStatus.md)
 - [`language`](language.md)
 - [`maxTouchPoints`](maxTouchPoints.md)
+- [`media`](media.md)
 - [`orientationIsLandscape`](orientation.md)
 - [`OS`](os.md)
 - [`PDFviewerStatus`](pdfviewerStatus.md)
@@ -95,6 +96,7 @@ Click any of them to go to their individual documentation.
 ## Methods
 - [`vibrate`](vibrate.md)
 - [`canShareData`](canShare.md)
+- [`getMedia`](getMedia.md)
 - `getScreenOrientation`
 - `getDeviceType`
 - `getFiniteMobileDeviceType`

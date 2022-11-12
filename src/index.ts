@@ -71,6 +71,17 @@ import {
 
 import { getMaxTouchPoints, maxTouchPoints } from './maxTouchPoints';
 
+// Camera, Audio, Media
+
+import {
+	MediaConstraints,
+	camera,
+	audio,
+	audioAndCamera
+} from './media';
+
+import getMedia from './media';
+
 // Navigator Object
 
 import { getterForNavigator, navigatorObject, NavigatorSub } from './navigator';
@@ -169,6 +180,7 @@ export interface _UADetect {
 	getMemory: () => number | 'Unknown' | undefined,
 	vibrate: (pattern: number | number[] | VibratePattern) => 'success' | 'failure',
 	canShareData: (data?: ShareData) => boolean,
+	getMedia: (constraints: MediaConstraints) => Promise<void | unknown | MediaStream | undefined>
 	orientationIsLandscape: boolean,
 	deviceType: 'tablet' | 'mobile' | 'desktop',
 	deviceFiniteType: 'Android' | 'iOS' | 'Unknown' | Error | 'BlackBerry' | 'Windows Phone' | 'webOS',
@@ -185,7 +197,10 @@ export interface _UADetect {
 	lat: number,
 	lon: number,
 	language: Language
-	deviceMemory: number | 'Unknown' | undefined
+	deviceMemory: number | 'Unknown' | undefined,
+	camera: Promise<unknown | MediaStream | undefined>,
+	audio: Promise<unknown | MediaStream | undefined>,
+	audioAndCamera: Promise<unknown | MediaStream | undefined>
 }
 
 // Create the UADetect Object
@@ -242,6 +257,9 @@ export const UADetect: _UADetect = {
 	canShareData: (data?: ShareData) => {
 		return canShareData(data);
 	},
+	getMedia: (constraints: MediaConstraints) => {
+		return getMedia(constraints);
+	},
 	// From here, we can then begin to call the returns on those unknowns here
 	// Most of them are just transferring the name over
 	orientationIsLandscape: ORIENTATION_isLandscape,
@@ -261,6 +279,9 @@ export const UADetect: _UADetect = {
 	lon: lon,
 	language: language,
 	deviceMemory: deviceMemory,
+	camera: camera,
+	audio: audio,
+	audioAndCamera: audioAndCamera
 };
 
 export class uaDetect implements _UADetect {
@@ -284,6 +305,7 @@ export class uaDetect implements _UADetect {
 	getMemory!: () => number | 'Unknown' | undefined;
 	vibrate!: (pattern: VibratePattern) => 'success' | 'failure';
 	canShareData!: (data?: ShareData) => boolean;
+	getMedia!: (constraints: MediaConstraints) => Promise<void | unknown | MediaStream | undefined>;
 	orientationIsLandscape!: boolean;
 	deviceType!: 'tablet' | 'mobile' | 'desktop';
 	deviceFiniteType!: 'Android' | 'iOS' | 'Unknown' | Error | 'BlackBerry' | 'Windows Phone' | 'webOS';
@@ -304,6 +326,9 @@ export class uaDetect implements _UADetect {
 	version!: string | number | Error;
 	language!: 'Amharic' | 'Arabic' | 'Basque' | 'Bengali' | 'British English' | 'Brazillian Portuguese' | 'Bulgarian' | 'Catalan' | 'Cherokee' | 'Croatian' | 'Czech' | 'Danish' | 'Dutch' | 'American English' | 'Estonian' | 'Filipino' | 'Finnish' | 'French' | 'German' | 'Greek' | 'Gujarati' | 'Hebrew' | 'Hindi' | 'Hungarian' | 'Icelandic' | 'Indonesian' | 'Italian' | 'Japanese' | 'Kannada' | 'Korean' | 'Latvian' | 'Lithuanian' | 'Malay' | 'Malayalam' | 'Marathi' | 'Norwegian' | 'Polish' | 'Portugal Portuguese' | 'Romanian' | 'Russian' | 'PRC Chinese' | 'Serbian' | 'Slovak' | 'Slovenian' | 'Spanish' | 'Swahili' | 'Swedish' | 'Tamil' | 'Telugu' | 'Thai' | 'Taiwan Chinese' | 'Turkish' | 'Urdu' | 'Ukrainian' | 'Vietnamese' | 'Welsh' | undefined;
 	deviceMemory!: number | 'Unknown' | undefined;
+	camera!: Promise<unknown | MediaStream | undefined>;
+	audio!: Promise<unknown | MediaStream | undefined>;
+	audioAndCamera!: Promise<unknown | MediaStream | undefined>;
 	constructor() {
 		this.getDeviceType = () => {
 			return DetectDeviceType();
@@ -356,6 +381,9 @@ export class uaDetect implements _UADetect {
 		this.canShareData = (data?: ShareData) => {
 			return canShareData(data);
 		};
+		this.getMedia = (constraints: MediaConstraints) => {
+			return getMedia(constraints);
+		};
 		this.orientationIsLandscape = ORIENTATION_isLandscape;
 		this.deviceType = DEVICE_type;
 		this.deviceFiniteType = DEVICE_finiteType;
@@ -373,5 +401,8 @@ export class uaDetect implements _UADetect {
 		this.lon = lon;
 		this.language = language;
 		this.deviceMemory = deviceMemory;
+		this.camera = camera;
+		this.audio = audio;
+		this.audioAndCamera = audioAndCamera;
 	}
 }
