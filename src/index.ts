@@ -77,10 +77,9 @@ import {
 	MediaConstraints,
 	camera,
 	audio,
-	audioAndCamera
+	audioAndCamera,
+	getMedia
 } from './media';
-
-import getMedia from './media';
 
 // Navigator Object
 

@@ -20,7 +20,7 @@ export interface MediaConstraints {
     }
 }
 
-export default async function getMedia(constraints: MediaConstraints): Promise<MediaStream | unknown | undefined> {
+export async function getMedia(constraints: MediaConstraints): Promise<MediaStream | unknown | undefined> {
 	let stream: MediaStream | null = null;
 	try {
 		stream = await navigator.mediaDevices.getUserMedia(constraints);
