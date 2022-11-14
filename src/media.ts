@@ -1,26 +1,72 @@
+/**
+ * Media Constraints Interface
+ * @export
+ * @interface MediaConstraints
+ * @typedef {MediaConstraints}
+ */
 export interface MediaConstraints {
-    audio: boolean
-    video: boolean | {
+  /**
+   * Grab Audio
+   * @type {boolean}
+   */
+  audio: boolean;
+  /**
+     * Grab Video streams & optional config
+     * @type {(boolean | {
+            width?: {
+                min?: number,
+                ideal?: number,
+                max?: number
+            }
+            height?: {
+                min?: number,
+                ideal?: number,
+                max?: number
+            }
+            facingMode?: string | {
+                exact?: string
+            }
+            deviceId?: string | {
+                exact?: string
+            }
+        })}
+     */
+  video:
+    | boolean
+    | {
         width?: {
-            min?: number,
-            ideal?: number,
-            max?: number
-        }
+          min?: number;
+          ideal?: number;
+          max?: number;
+        };
         height?: {
-            min?: number,
-            ideal?: number,
-            max?: number
-        }
-        facingMode?: string | {
-            exact?: string
-        }
-        deviceId?: string | {
-            exact?: string
-        }
-    }
+          min?: number;
+          ideal?: number;
+          max?: number;
+        };
+        facingMode?:
+          | string
+          | {
+              exact?: string;
+            };
+        deviceId?:
+          | string
+          | {
+              exact?: string;
+            };
+      };
 }
 
-export async function getMedia(constraints: MediaConstraints): Promise<MediaStream | unknown | undefined> {
+/**
+ * Runs the function to get the permission from the user, and then return the selected media streams
+ * @export
+ * @async
+ * @param {MediaConstraints} constraints
+ * @returns {(Promise<MediaStream | unknown | undefined>)}
+ */
+export async function getMedia(
+	constraints: MediaConstraints
+): Promise<MediaStream | unknown | undefined> {
 	let stream: MediaStream | null = null;
 	try {
 		stream = await navigator.mediaDevices.getUserMedia(constraints);
@@ -30,17 +76,30 @@ export async function getMedia(constraints: MediaConstraints): Promise<MediaStre
 	}
 }
 
+/**
+ * Example camera return
+ * @type {*}
+ */
 export const camera = getMedia({
 	audio: false,
-	video: true
+	video: true,
 });
 
+/**
+ * Example audio return
+ *
+ * @type {*}
+ */
 export const audio = getMedia({
 	audio: true,
-	video: false
+	video: false,
 });
 
+/**
+ * Example audio and camera retyrn
+ * @type {*}
+ */
 export const audioAndCamera = getMedia({
 	audio: true,
-	video: true
+	video: true,
 });
