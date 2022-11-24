@@ -7,7 +7,7 @@
     "Tristan Winata"
   ],
   "dependencies": {
-    "typescript": "^4.8.2"
+    "typescript": "^4.9.3"
   },
   "description": "The dead-simple way of interacting with the navigator API",
   "devDependencies": {
@@ -80,5 +80,5 @@
   },
   "type": "module",
   "types": "./dist/types/*.d.ts",
-  "version": "5.0.0-beta-14"
+  "version": "5.0.0-beta-15"
 }
