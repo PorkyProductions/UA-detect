@@ -10,12 +10,15 @@
     "noImplicitAny": true,
     "noImplicitReturns": true,
     "noImplicitThis": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
     "outDir": "./dist/",
     "pretty": true,
     "declaration": false,
     "removeComments": false,
     "strict": true,
     "strictFunctionTypes": true,
+    "sourceMap": true,
     "target": "es2019", // 3 years ago JavaScript is up to date enough, right???
     "watch": false
   },

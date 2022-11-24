@@ -27,6 +27,7 @@
   },
   "files": [
     "./dist/**/*.js",
+    "./dist/**/*.js.map",
     "./dist/types/**/*.d.ts"
   ],
   "homepage": "https://porkyproductions.github.io/UA-detect/",
