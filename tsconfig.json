@@ -19,19 +19,12 @@
     "strict": true,
     "strictFunctionTypes": true,
     "sourceMap": true,
+    "skipLibCheck": true,
     "target": "es2019", // 3 years ago JavaScript is up to date enough, right???
     "watch": false
   },
-    "files": [
-        "./src/index.ts"
-    ],
-    "types": [
-    ],
-    "typeRoots": [
-        "node_modules/@types"
-    ],
-    "lib": [
-        "dom",
-        "es2019"
-    ]
+  "files": ["./src/index.ts"],
+  "types": [],
+  "typeRoots": ["node_modules/@types"],
+  "lib": ["dom", "es2019"]
 }
