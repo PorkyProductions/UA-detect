@@ -73,10 +73,10 @@
   "scripts": {
     "test": "jest",
     "build": "tsc -p tsconfig.json",
-    "types": " tsc ./src/index.ts --declaration --allowJs --emitDeclarationOnly --outDir ./dist/types",
+    "types": " tsc ./src/index.ts --declaration --skipLibCheck --allowJs --emitDeclarationOnly --outDir ./dist/types",
     "buildThenGenerateTypes": "npm run build && npm run types",
     "publish": "npm publish",
-    "lint": "eslint ./src/*"
+    "lint": "eslint ./src/* --fix"
   },
   "type": "module",
   "types": "./dist/types/*.d.ts",
