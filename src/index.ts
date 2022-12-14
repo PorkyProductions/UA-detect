@@ -108,6 +108,10 @@ import {
 
 import { getPDF, PDFviewerStatus } from './pdf';
 
+// Service Worker
+
+import { registerServiceWorker } from './sw';
+
 // Vibrate
 
 import { vibrate } from './vibrate';
@@ -138,6 +142,7 @@ export {
 	browserSpecificGetMemory as getMemory,
 	vibrate,
 	canShareData,
+	registerServiceWorker
 };
 // As well as the returns on those unknowns
 export {
@@ -175,6 +180,7 @@ export interface _UADetect {
 	getPDFviewerStatus: () => 'PDFviewerEnabled' | 'PDFviewerDisabled',
 	getRobotStatus: () => 'robotControlled' | 'humanControlled' | 'Unknown',
 	getOS: () => 'Windows' | 'Mac' | 'Linux' | 'Android' | 'iOS' | 'Unknown',
+	registerServiceWorker: (path: string | URL, options?: RegistrationOptions) => void,
 	getLang: () => Language;
 	getMemory: () => number | 'Unknown' | undefined,
 	vibrate: (pattern: number | number[] | VibratePattern) => 'success' | 'failure',
@@ -250,6 +256,9 @@ export const UADetect: _UADetect = {
 	getMemory() {
 		return browserSpecificGetMemory();
 	},
+	registerServiceWorker(path: string | URL, options?: RegistrationOptions) {
+		return registerServiceWorker(path, options);
+	},
 	vibrate: (pattern: VibratePattern) => {
 		return vibrate(pattern);
 	},
@@ -302,6 +311,7 @@ export class uaDetect implements _UADetect {
 	getVersion!: () => string | number | Error;
 	getLang!: () => 'Amharic' | 'Arabic' | 'Basque' | 'Bengali' | 'British English' | 'Brazillian Portuguese' | 'Bulgarian' | 'Catalan' | 'Cherokee' | 'Croatian' | 'Czech' | 'Danish' | 'Dutch' | 'American English' | 'Estonian' | 'Filipino' | 'Finnish' | 'French' | 'German' | 'Greek' | 'Gujarati' | 'Hebrew' | 'Hindi' | 'Hungarian' | 'Icelandic' | 'Indonesian' | 'Italian' | 'Japanese' | 'Kannada' | 'Korean' | 'Latvian' | 'Lithuanian' | 'Malay' | 'Malayalam' | 'Marathi' | 'Norwegian' | 'Polish' | 'Portugal Portuguese' | 'Romanian' | 'Russian' | 'PRC Chinese' | 'Serbian' | 'Slovak' | 'Slovenian' | 'Spanish' | 'Swahili' | 'Swedish' | 'Tamil' | 'Telugu' | 'Thai' | 'Taiwan Chinese' | 'Turkish' | 'Urdu' | 'Ukrainian' | 'Vietnamese' | 'Welsh' | undefined;
 	getMemory!: () => number | 'Unknown' | undefined;
+	registerServiceWorker!: (path: string | URL, options?: RegistrationOptions) => void;
 	vibrate!: (pattern: VibratePattern) => 'success' | 'failure';
 	canShareData!: (data?: ShareData) => boolean;
 	getMedia!: (constraints: MediaConstraints) => Promise<void | unknown | MediaStream | undefined>;
@@ -382,6 +392,9 @@ export class uaDetect implements _UADetect {
 		};
 		this.getMedia = (constraints: MediaConstraints) => {
 			return getMedia(constraints);
+		};
+		this.registerServiceWorker = (path: string | URL, options?: RegistrationOptions) => {
+			return registerServiceWorker(path, options);
 		};
 		this.orientationIsLandscape = ORIENTATION_isLandscape;
 		this.deviceType = DEVICE_type;
