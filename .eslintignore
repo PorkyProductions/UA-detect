@@ -1,4 +1,6 @@
 dist/
 tests/
+specs/
 coverage/
 node_modules/
+jest.config.cjs
