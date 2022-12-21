@@ -79,6 +79,6 @@
     "lint": "eslint ./src/* --fix"
   },
   "type": "module",
-  "types": "./dist/types/*.d.ts",
+  "types": "./dist/types/index.d.ts",
   "version": "5.0.0-beta-16"
 }
