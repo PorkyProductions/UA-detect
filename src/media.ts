@@ -69,7 +69,7 @@ export async function getMedia(
 ): Promise<MediaStream | unknown | undefined> {
 	let stream: MediaStream | null = null;
 	try {
-		stream = await navigator.mediaDevices.getUserMedia(constraints);
+		stream ||= await navigator.mediaDevices.getUserMedia(constraints);
 		return stream;
 	} catch (err) {
 		return err;
