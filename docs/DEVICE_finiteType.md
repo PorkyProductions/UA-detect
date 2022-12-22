@@ -26,9 +26,9 @@ Get's the name of the **MOBILE** Operating System the client is using.
 ### #1
 
 ```js
-import { finiteDeviceType } from 'uadetect';
+import { deviceFiniteType } from 'uadetect';
 
-if (finiteDeviceType === 'iOS') {
+if (deviceFiniteType === 'iOS') {
   downloadOniOS.innerHTML = 'Download on iOS!';
 }
 ```
@@ -36,9 +36,9 @@ if (finiteDeviceType === 'iOS') {
 ### #2
 
 ```js
-import { finiteDeviceType } from 'uadetect';
+import { deviceFiniteType } from 'uadetect';
 
-if (finiteDeviceType === 'Android') {
+if (deviceFiniteType === 'Android') {
   downloadOnAndroid.innerHTML = 'Download on Android!'; 
 }
 ```
