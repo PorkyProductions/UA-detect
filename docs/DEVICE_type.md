@@ -34,7 +34,7 @@ if (deviceType === 'mobile') {
 ```js
 import { deviceType } from 'uadetect';
 
-if (DEVICE_type === 'desktop') {
+if (deviceType === 'desktop') {
   element.style.display = 'block';
 }
 ```

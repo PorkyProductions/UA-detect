@@ -14,9 +14,10 @@
         "types",
         "tests",
         "readme",
-        "community"
+        "community",
         "errors",
-        "docs"
+        "docs",
+        "rm"
     ],
     "typescript.tsdk": "node_modules\\typescript\\lib"
 }
