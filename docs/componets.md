@@ -97,7 +97,7 @@ Click any of them to go to their individual documentation.
 - [`vibrate`](vibrate.md)
 - [`canShareData`](canShare.md)
 - [`getMedia`](getMedia.md)
-- -[registerServiceWorker](registerServiceWorker.md)
+- [`registerServiceWorker`](registerServiceWorker.md)
 - `getScreenOrientation`
 - `getDeviceType`
 - `getFiniteMobileDeviceType`
