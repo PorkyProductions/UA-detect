@@ -192,7 +192,6 @@ export interface _UADetect {
 	currentUA: string,
 	cookieStatus: 'cookiesEnabled' | 'cookiesNotEnabled' | 'Unknown',
 	browser: 'Opera' | 'Chrome' | 'Firefox' | 'Safari' | 'IE' | 'Edge' | 'Unknown' | undefined,
-	processorCores: number | undefined | unknown,
 	maxTouchPoints: number,
 	navigatorObject: object,
 	browserOnlineStatus: 'browserOnline' | 'browserOffline',
@@ -276,7 +275,6 @@ export const UADetect: _UADetect = {
 	currentUA: currentUA,
 	cookieStatus: cookieStatus,
 	browser: browser,
-	processorCores: processorCores,
 	maxTouchPoints: maxTouchPoints,
 	navigatorObject: navigatorObject,
 	browserOnlineStatus: browserOnlineStatus,
@@ -309,35 +307,31 @@ export class uaDetect implements _UADetect {
 	getOS!: () => 'Windows' | 'Mac' | 'Linux' | 'Android' | 'iOS' | 'Unknown';
 	getEngine!: () => string | Error;
 	getVersion!: () => string | number | Error;
-	getLang!: () => 'Amharic' | 'Arabic' | 'Basque' | 'Bengali' | 'British English' | 'Brazillian Portuguese' | 'Bulgarian' | 'Catalan' | 'Cherokee' | 'Croatian' | 'Czech' | 'Danish' | 'Dutch' | 'American English' | 'Estonian' | 'Filipino' | 'Finnish' | 'French' | 'German' | 'Greek' | 'Gujarati' | 'Hebrew' | 'Hindi' | 'Hungarian' | 'Icelandic' | 'Indonesian' | 'Italian' | 'Japanese' | 'Kannada' | 'Korean' | 'Latvian' | 'Lithuanian' | 'Malay' | 'Malayalam' | 'Marathi' | 'Norwegian' | 'Polish' | 'Portugal Portuguese' | 'Romanian' | 'Russian' | 'PRC Chinese' | 'Serbian' | 'Slovak' | 'Slovenian' | 'Spanish' | 'Swahili' | 'Swedish' | 'Tamil' | 'Telugu' | 'Thai' | 'Taiwan Chinese' | 'Turkish' | 'Urdu' | 'Ukrainian' | 'Vietnamese' | 'Welsh' | undefined;
+	getLang!: () => Language;
 	getMemory!: () => number | 'Unknown' | undefined;
 	registerServiceWorker!: (path: string | URL, options?: RegistrationOptions) => void;
 	vibrate!: (pattern: VibratePattern) => 'success' | 'failure';
 	canShareData!: (data?: ShareData) => boolean;
 	getMedia!: (constraints: MediaConstraints) => Promise<void | unknown | MediaStream | undefined>;
-	orientationIsLandscape!: boolean;
-	deviceType!: 'tablet' | 'mobile' | 'desktop';
-	deviceFiniteType!: 'Android' | 'iOS' | 'Unknown' | Error | 'BlackBerry' | 'Windows Phone' | 'webOS';
-	currentUA!: string;
-	cookieStatus!: 'cookiesEnabled' | 'cookiesNotEnabled' | 'Unknown';
-	doNotTrackStatus!: 'Unknown' | 'trackingAllowed' | 'trackingNotAllowed' | 'trackingUnspecified';
-	browser: 'Opera' | 'Chrome' | 'Firefox' | 'Safari' | 'IE' | 'Edge' | 'Unknown' | undefined;
-	processorCores: unknown;
-	maxTouchPoints!: number;
-	navigatorObject!: object;
-	browserOnlineStatus!: 'browserOnline' | 'browserOffline';
-	PDFviewerStatus!: 'PDFviewerEnabled' | 'PDFviewerDisabled';
-	robotStatus!: 'Unknown' | 'robotControlled' | 'humanControlled';
-	OS!: 'Windows' | 'Mac' | 'Linux' | 'Android' | 'iOS' | 'Unknown';
-	lat!: number;
-	lon!: number;
-	engine!: string | Error;
-	version!: string | number | Error;
-	language!: 'Amharic' | 'Arabic' | 'Basque' | 'Bengali' | 'British English' | 'Brazillian Portuguese' | 'Bulgarian' | 'Catalan' | 'Cherokee' | 'Croatian' | 'Czech' | 'Danish' | 'Dutch' | 'American English' | 'Estonian' | 'Filipino' | 'Finnish' | 'French' | 'German' | 'Greek' | 'Gujarati' | 'Hebrew' | 'Hindi' | 'Hungarian' | 'Icelandic' | 'Indonesian' | 'Italian' | 'Japanese' | 'Kannada' | 'Korean' | 'Latvian' | 'Lithuanian' | 'Malay' | 'Malayalam' | 'Marathi' | 'Norwegian' | 'Polish' | 'Portugal Portuguese' | 'Romanian' | 'Russian' | 'PRC Chinese' | 'Serbian' | 'Slovak' | 'Slovenian' | 'Spanish' | 'Swahili' | 'Swedish' | 'Tamil' | 'Telugu' | 'Thai' | 'Taiwan Chinese' | 'Turkish' | 'Urdu' | 'Ukrainian' | 'Vietnamese' | 'Welsh' | undefined;
-	deviceMemory!: number | 'Unknown' | undefined;
-	camera!: Promise<unknown | MediaStream | undefined>;
-	audio!: Promise<unknown | MediaStream | undefined>;
-	audioAndCamera!: Promise<unknown | MediaStream | undefined>;
+	orientationIsLandscape: boolean = ORIENTATION_isLandscape;
+	deviceType: 'tablet' | 'mobile' | 'desktop' = DEVICE_type;
+	deviceFiniteType: 'Android' | 'iOS' | 'Unknown' | Error | 'BlackBerry' | 'Windows Phone' | 'webOS' = DEVICE_finiteType;
+	currentUA: string = currentUA;
+	cookieStatus: 'cookiesEnabled' | 'cookiesNotEnabled' | 'Unknown' = cookieStatus;
+	browser: 'Opera' | 'Chrome' | 'Firefox' | 'Safari' | 'IE' | 'Edge' | 'Unknown' | undefined = browser;
+	maxTouchPoints: number = maxTouchPoints;
+	navigatorObject: object = navigator;
+	browserOnlineStatus: 'browserOnline' | 'browserOffline' = browserOnlineStatus;
+	PDFviewerStatus: 'PDFviewerEnabled' | 'PDFviewerDisabled' = PDFviewerStatus;
+	robotStatus: 'Unknown' | 'robotControlled' | 'humanControlled' = robotStatus;
+	OS: 'Windows' | 'Mac' | 'Linux' | 'Android' | 'iOS' | 'Unknown' = OS;
+	lat: number = lat;
+	lon: number = lon;
+	language: Language = language;
+	deviceMemory: number | 'Unknown' | undefined = deviceMemory;
+	camera: Promise<unknown | MediaStream | undefined> = camera;
+	audio: Promise<unknown | MediaStream | undefined> = audio;
+	audioAndCamera: Promise<unknown | MediaStream | undefined> = audioAndCamera;
 	constructor() {
 		this.getDeviceType = () => {
 			return DetectDeviceType();
@@ -396,25 +390,11 @@ export class uaDetect implements _UADetect {
 		this.registerServiceWorker = (path: string | URL, options?: RegistrationOptions) => {
 			return registerServiceWorker(path, options);
 		};
-		this.orientationIsLandscape = ORIENTATION_isLandscape;
-		this.deviceType = DEVICE_type;
-		this.deviceFiniteType = DEVICE_finiteType;
-		this.currentUA = currentUA;
-		this.cookieStatus = cookieStatus;
-		this.browser = browser;
-		this.processorCores = processorCores;
-		this.maxTouchPoints = maxTouchPoints;
-		this.navigatorObject = navigatorObject;
-		this.browserOnlineStatus = browserOnlineStatus;
-		this.PDFviewerStatus = PDFviewerStatus;
-		this.robotStatus = robotStatus;
-		this.OS = OS;
-		this.lat = lat;
-		this.lon = lon;
-		this.language = language;
-		this.deviceMemory = deviceMemory;
-		this.camera = camera;
-		this.audio = audio;
-		this.audioAndCamera = audioAndCamera;
+	}
+	public refresh(amount: number): void {
+		for (let i = 1; i <= amount; i++) {
+			new uaDetect();
+		}
+		return;
 	}
 }
