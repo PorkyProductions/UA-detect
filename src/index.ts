@@ -291,10 +291,6 @@ export const UADetect: _UADetect = {
 };
 
 export class uaDetect implements _UADetect {
-	getDeviceType!: () => 'tablet' | 'mobile' | 'desktop';
-	getScreenOrientation!: () => boolean;
-	getFiniteMobileDeviceType!: () => 'Android' | 'iOS' | 'Unknown' | Error | 'BlackBerry' | 'Windows Phone' | 'webOS';
-	getCurrentUA!: () => string;
 	getCookieStatus!: () => 'cookiesEnabled' | 'cookiesNotEnabled' | 'Unknown';
 	getDoNotTrackStatus!: () => 'Unknown' | 'trackingAllowed' | 'trackingNotAllowed' | 'trackingUnspecified';
 	getBrowser!: () => 'Opera' | 'Chrome' | 'Firefox' | 'Safari' | 'IE' | 'Edge' | 'Unknown' | undefined;
@@ -333,18 +329,6 @@ export class uaDetect implements _UADetect {
 	audio: Promise<unknown | MediaStream | undefined> = audio;
 	audioAndCamera: Promise<unknown | MediaStream | undefined> = audioAndCamera;
 	constructor() {
-		this.getDeviceType = () => {
-			return DetectDeviceType();
-		};
-		this.getScreenOrientation = () => {
-			return DetectScreenOrientation();
-		};
-		this.getFiniteMobileDeviceType = () => {
-			return finiteMobileDeviceType();
-		};
-		this.getCurrentUA =() => {
-			return getCurrentUA();
-		};
 		this.getCookieStatus = () => {
 			return getCookies();
 		};
@@ -391,10 +375,24 @@ export class uaDetect implements _UADetect {
 			return registerServiceWorker(path, options);
 		};
 	}
-	public refresh(amount: number): void {
-		for (let i = 1; i <= amount; i++) {
-			new uaDetect();
-		}
+	private refresh(): void {
+		new uaDetect();
 		return;
+	}
+	public getDeviceType(): 'tablet' | 'mobile' | 'desktop' {
+		this.refresh()
+		return DetectDeviceType() as 'tablet' | 'mobile' | 'desktop';
+	}
+	public getScreenOrientation(): boolean {
+		this.refresh();
+		return DetectScreenOrientation() as boolean;
+	}
+	public getFiniteMobileDeviceType(): 'Android' | 'iOS' | 'Unknown' | Error | 'BlackBerry' | 'Windows Phone' | 'webOS' {
+		this.refresh();
+		return finiteMobileDeviceType() as 'Android' | 'iOS' | 'Unknown' | Error | 'BlackBerry' | 'Windows Phone' | 'webOS';
+	}
+	public getCurrentUA(): string {
+		this.refresh();
+		return getCurrentUA() as string;
 	}
 }
