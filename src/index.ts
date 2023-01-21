@@ -32,9 +32,7 @@ import { cookieStatus, getCookies, type CookieStatus } from './cookies';
 // Device Memory
 
 import {
-	browserSpecificGetMemory,
-	type DeviceMemory,
-	deviceMemory
+    browserSpecificGetMemory, deviceMemory, type DeviceMemory
 } from './deviceMemory';
 
 // Device Type
@@ -43,31 +41,28 @@ import { DetectDeviceType, DEVICE_type, type DeviceType } from './deviceType';
 
 // Exact Mobile Device Type
 
-import ExactMobileDeviceType,
-{
-	exactMobileDeviceType,
-	type __ExactMobileDeviceType
+import ExactMobileDeviceType, {
+    exactMobileDeviceType,
+    type __ExactMobileDeviceType
 } from './exactMobileDeviceType';
 
 // Geolocation
 
 import {
-	lat,
-	lon
+    lat,
+    lon
 } from './geolocation';
 
 // Language
 
 import {
-	getLang, language, type Language
+    getLang, language, type Language
 } from './language';
 
 // Logical Processors
 
 import {
-	browserSpecificSupportCores,
-	type ProcessorCores,
-	processorCores
+    browserSpecificSupportCores, processorCores, type ProcessorCores
 } from './logicalProcessors';
 
 // Max Touch Points
@@ -77,12 +72,8 @@ import { getMaxTouchPoints, maxTouchPoints } from './maxTouchPoints';
 // Camera, Audio, Media
 
 import {
-	type MediaConstraints,
-	camera,
-	audio,
-	audioAndCamera,
-	getMedia,
-    type MediaStreamResult
+    audio,
+    audioAndCamera, camera, getMedia, type MediaConstraints, type MediaStreamResult
 } from './media';
 
 // Navigator Object
@@ -91,7 +82,7 @@ import { getterForNavigator, navigatorObject, type NavigatorSub } from './naviga
 
 // Online Status
 
-import { type BrowserOnlineStatus, browserOnlineStatus, getBrowserIsOnline } from './online';
+import { browserOnlineStatus, getBrowserIsOnline, type BrowserOnlineStatus } from './online';
 
 // standard UA
 
@@ -99,18 +90,18 @@ import { currentUA, getCurrentUA } from './getCurrentUA';
 
 // Operating System
 
-import { getOS, type OperatingSystem, OS } from './operatingSystem';
+import { getOS, OS, type OperatingSystem } from './operatingSystem';
 
 //SCREEN ORIENTATION
 
 import {
-	DetectScreenOrientation,
-	ORIENTATION_isLandscape
+    DetectScreenOrientation,
+    ORIENTATION_isLandscape
 } from './orientation';
 
 // PDF Viewer
 
-import { getPDF, type PDFStatus, PDFviewerStatus } from './pdf';
+import { getPDF, PDFviewerStatus, type PDFStatus } from './pdf';
 
 // Service Worker
 
@@ -122,51 +113,51 @@ import { vibrate, type VibrateResult } from './vibrate';
 
 // Webdriver
 
-import { getBots, type RobotStatus, robotStatus } from './webdriver';
+import { getBots, robotStatus, type RobotStatus } from './webdriver';
 
 // Exports
 
 // Make the unknowns accessible
 
 export {
-	DetectScreenOrientation as getScreenOrientation,
-	DetectDeviceType as getDeviceType,
-	ExactMobileDeviceType as getExactMobileDeviceType,
-	getCurrentUA,
-	getCookies,
-	getBrowser,
-	browserSpecificSupportCores,
-	getMaxTouchPoints,
-	getOS,
-	getterForNavigator,
-	getBrowserIsOnline,
-	getPDF,
-	getBots,
-	getLang,
-	browserSpecificGetMemory as getMemory,
-	vibrate,
-	canShareData,
-	registerServiceWorker
+    DetectScreenOrientation as getScreenOrientation,
+    DetectDeviceType as getDeviceType,
+    ExactMobileDeviceType as getExactMobileDeviceType,
+    getCurrentUA,
+    getCookies,
+    getBrowser,
+    browserSpecificSupportCores,
+    getMaxTouchPoints,
+    getOS,
+    getterForNavigator,
+    getBrowserIsOnline,
+    getPDF,
+    getBots,
+    getLang,
+    browserSpecificGetMemory as getMemory,
+    vibrate,
+    canShareData,
+    registerServiceWorker
 };
 // As well as the returns on those unknowns
 export {
-	ORIENTATION_isLandscape as orientationIsLandscape,
-	DEVICE_type as deviceType,
-	exactMobileDeviceType,
-	currentUA,
-	cookieStatus,
-	browser,
-	processorCores,
-	maxTouchPoints,
-	navigatorObject,
-	browserOnlineStatus,
-	PDFviewerStatus,
-	robotStatus,
-	OS,
-	lat,
-	lon,
-	language,
-	deviceMemory
+    ORIENTATION_isLandscape as orientationIsLandscape,
+    DEVICE_type as deviceType,
+    exactMobileDeviceType,
+    currentUA,
+    cookieStatus,
+    browser,
+    processorCores,
+    maxTouchPoints,
+    navigatorObject,
+    browserOnlineStatus,
+    PDFviewerStatus,
+    robotStatus,
+    OS,
+    lat,
+    lon,
+    language,
+    deviceMemory
 };
 
 // TODO: write custom types for all of the compound returns like DeviceType
