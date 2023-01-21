@@ -16,11 +16,13 @@
 */
 import { browser } from './browser';
 
+export type ProcessorCores = number | undefined | unknown
+
 const getProcessors = (): number => navigator.hardwareConcurrency;
 
 const randomNumber = (): number => Math.round(Math.floor(Math.random() * 1000) + 1);
 
-const browserSpecificSupportCores = (): number | undefined => {
+const browserSpecificSupportCores = (): ProcessorCores => {
 	if (browser === 'Chrome') {
 		return getProcessors();
 	} if (browser === 'Edge') {
@@ -39,6 +41,6 @@ const browserSpecificSupportCores = (): number | undefined => {
 	return;
 };
 
-const processorCores: number | undefined | unknown = browserSpecificSupportCores();
+const processorCores: ProcessorCores = browserSpecificSupportCores();
 
 export { processorCores, browserSpecificSupportCores };

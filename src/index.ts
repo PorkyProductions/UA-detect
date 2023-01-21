@@ -65,6 +65,7 @@ import {
 
 import {
 	browserSpecificSupportCores,
+	type ProcessorCores,
 	processorCores
 } from './logicalProcessors';
 
@@ -174,7 +175,7 @@ export interface __UADetect {
 	getCurrentUA: () => string,
 	getCookieStatus: () => CookieStatus,
 	getBrowser: () => Browser,
-	getProcessorCores: () => number | undefined,
+	getProcessorCores: () => ProcessorCores,
 	getMaxTouchPoints: () => number,
 	getNavigatorObject: () => NavigatorSub[],
 	getBrowserOnlineStatus: () => BrowserOnlineStatus,
