@@ -117,7 +117,7 @@ import { registerServiceWorker } from './sw';
 
 // Vibrate
 
-import { vibrate } from './vibrate';
+import { vibrate, type VibrateResult } from './vibrate';
 
 // Webdriver
 
@@ -186,7 +186,7 @@ export interface __UADetect {
 	registerServiceWorker: (path: string | URL, options?: RegistrationOptions) => void,
 	getLang: () => Language;
 	getMemory: () => DeviceMemory,
-	vibrate: (pattern: number | number[] | VibratePattern) => 'success' | 'failure',
+	vibrate: (pattern: number | number[] | VibratePattern) => VibrateResult,
 	canShareData: (data?: ShareData) => boolean,
 	getMedia: (constraints: MediaConstraints) => Promise<void | unknown | MediaStream | undefined>
 	orientationIsLandscape: boolean,
@@ -204,7 +204,7 @@ export interface __UADetect {
 	lat: number,
 	lon: number,
 	language: Language
-	deviceMemory: number | 'Unknown' | undefined,
+	deviceMemory: DeviceMemory,
 	camera: Promise<unknown | MediaStream | undefined>,
 	audio: Promise<unknown | MediaStream | undefined>,
 	audioAndCamera: Promise<unknown | MediaStream | undefined>

@@ -15,12 +15,15 @@
 * limitations under the License.
 */
 import { browser } from './browser';
+
+export type VibrateResult = 'success' | 'failure'
+
 /**
  * vibrate
  * @param {(number[] | number | VibratePattern)} pattern
  * @returns {('success' | 'failure')}
  */
-export const vibrate = (pattern: number[] | number | VibratePattern): 'success' | 'failure' => {
+export const vibrate = (pattern: number[] | number | VibratePattern): VibrateResult => {
 	if (browser === 'Safari') {
 		console.error(`Vibration API not supported on Safari. (UAD_${Math.round(Math.floor(Math.random() * 1000) + 1)})`);
 		return 'failure';
