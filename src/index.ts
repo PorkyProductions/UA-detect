@@ -33,6 +33,7 @@ import { cookieStatus, getCookies, type CookieStatus } from './cookies';
 
 import {
 	browserSpecificGetMemory,
+	type DeviceMemory,
 	deviceMemory
 } from './deviceMemory';
 
@@ -184,7 +185,7 @@ export interface __UADetect {
 	getOS: () => OperatingSystem,
 	registerServiceWorker: (path: string | URL, options?: RegistrationOptions) => void,
 	getLang: () => Language;
-	getMemory: () => number | 'Unknown' | undefined,
+	getMemory: () => DeviceMemory,
 	vibrate: (pattern: number | number[] | VibratePattern) => 'success' | 'failure',
 	canShareData: (data?: ShareData) => boolean,
 	getMedia: (constraints: MediaConstraints) => Promise<void | unknown | MediaStream | undefined>

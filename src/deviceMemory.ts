@@ -16,11 +16,15 @@
 */
 const randomNumber = (): number => Math.round(Math.floor(Math.random() * 1000) + 1);
 import { browser } from './browser';
+
+export type DeviceMemory = number | 'Unknown' | undefined
+
+
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore
 export const getMemory = (): number => navigator.deviceMemory;
 
-export const browserSpecificGetMemory = (): number | 'Unknown' | undefined => {
+export const browserSpecificGetMemory = (): DeviceMemory => {
 	if (browser === 'Chrome') {
 		return getMemory();
 	} if (browser === 'Edge') {
