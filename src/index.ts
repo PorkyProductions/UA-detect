@@ -19,7 +19,7 @@
 // Browser
 
 
-import { browser, getBrowser } from './browser';
+import { browser, getBrowser, type Browser } from './browser';
 
 // CanShare
 
@@ -38,14 +38,15 @@ import {
 
 // Device Type
 
-import { DetectDeviceType, DEVICE_type } from './deviceType';
+import { DetectDeviceType, DEVICE_type, type DeviceType } from './deviceType';
 
-// Finite Mobile Device Type
+// Exact Mobile Device Type
 
-import {
-	DEVICE_finiteType,
-	finiteMobileDeviceType
-} from './finiteMobileDeviceType';
+import ExactMobileDeviceType,
+{
+	exactMobileDeviceType,
+	type __ExactMobileDeviceType
+} from './exactMobileDeviceType';
 
 // Geolocation
 
@@ -57,7 +58,7 @@ import {
 // Language
 
 import {
-	getLang, language, Language
+	getLang, language, type Language
 } from './language';
 
 // Logical Processors
@@ -83,7 +84,7 @@ import {
 
 // Navigator Object
 
-import { getterForNavigator, navigatorObject, NavigatorSub } from './navigator';
+import { getterForNavigator, navigatorObject, type NavigatorSub } from './navigator';
 
 // Online Status
 
@@ -127,7 +128,7 @@ import { getBots, robotStatus } from './webdriver';
 export {
 	DetectScreenOrientation as getScreenOrientation,
 	DetectDeviceType as getDeviceType,
-	finiteMobileDeviceType as getFiniteMobileDeviceType,
+	ExactMobileDeviceType as getExactMobileDeviceType,
 	getCurrentUA,
 	getCookies,
 	getBrowser,
@@ -148,7 +149,7 @@ export {
 export {
 	ORIENTATION_isLandscape as orientationIsLandscape,
 	DEVICE_type as deviceType,
-	DEVICE_finiteType as deviceFiniteType,
+	exactMobileDeviceType,
 	currentUA,
 	cookieStatus,
 	browser,
@@ -165,14 +166,14 @@ export {
 	deviceMemory
 };
 
-
-export interface _UADetect {
-	getDeviceType: () => 'tablet' | 'mobile' | 'desktop',
+// TODO: write custom types for all of the compound returns like DeviceType
+export interface __UADetect {
+	getDeviceType: () => DeviceType,
 	getScreenOrientation: () => boolean,
-	getFiniteMobileDeviceType: () => 'Android' | 'iOS' | 'Unknown' | Error | 'BlackBerry' | 'Windows Phone' | 'webOS',
+	getExactMobileDeviceType: () => __ExactMobileDeviceType,
 	getCurrentUA: () => string,
-	getCookieStatus: () =>  'cookiesEnabled' | 'cookiesNotEnabled' | 'Unknown',
-	getBrowser: () => 'Opera' | 'Chrome' | 'Firefox' | 'Safari' | 'IE' | 'Edge' | 'Unknown' | undefined,
+	getCookieStatus: () => 'cookiesEnabled' | 'cookiesNotEnabled' | 'Unknown',
+	getBrowser: () => Browser,
 	getProcessorCores: () => number | undefined,
 	getMaxTouchPoints: () => number,
 	getNavigatorObject: () => NavigatorSub[],
@@ -187,8 +188,8 @@ export interface _UADetect {
 	canShareData: (data?: ShareData) => boolean,
 	getMedia: (constraints: MediaConstraints) => Promise<void | unknown | MediaStream | undefined>
 	orientationIsLandscape: boolean,
-	deviceType: 'tablet' | 'mobile' | 'desktop',
-	deviceFiniteType: 'Android' | 'iOS' | 'Unknown' | Error | 'BlackBerry' | 'Windows Phone' | 'webOS',
+	deviceType: DeviceType,
+	exactMobileDeviceType: __ExactMobileDeviceType,
 	currentUA: string,
 	cookieStatus: 'cookiesEnabled' | 'cookiesNotEnabled' | 'Unknown',
 	browser: 'Opera' | 'Chrome' | 'Firefox' | 'Safari' | 'IE' | 'Edge' | 'Unknown' | undefined,
@@ -209,15 +210,15 @@ export interface _UADetect {
 
 // Create the UADetect Object
 
-export const UADetect: _UADetect = {
+export const UADetect: __UADetect = {
 	getDeviceType() {
 		return DetectDeviceType();
 	},
 	getScreenOrientation() {
 		return DetectScreenOrientation();
 	},
-	getFiniteMobileDeviceType() {
-		return finiteMobileDeviceType();
+	getExactMobileDeviceType() {
+		return ExactMobileDeviceType();
 	},
 	getCurrentUA() {
 		return getCurrentUA();
@@ -271,7 +272,7 @@ export const UADetect: _UADetect = {
 	// Most of them are just transferring the name over
 	orientationIsLandscape: ORIENTATION_isLandscape,
 	deviceType: DEVICE_type,
-	deviceFiniteType: DEVICE_finiteType,
+	exactMobileDeviceType: exactMobileDeviceType,
 	currentUA: currentUA,
 	cookieStatus: cookieStatus,
 	browser: browser,
@@ -290,10 +291,8 @@ export const UADetect: _UADetect = {
 	audioAndCamera: audioAndCamera
 };
 
-export class uaDetect implements _UADetect {
-	getCookieStatus!: () => 'cookiesEnabled' | 'cookiesNotEnabled' | 'Unknown';
+export class uaDetect implements __UADetect {
 	getDoNotTrackStatus!: () => 'Unknown' | 'trackingAllowed' | 'trackingNotAllowed' | 'trackingUnspecified';
-	getBrowser!: () => 'Opera' | 'Chrome' | 'Firefox' | 'Safari' | 'IE' | 'Edge' | 'Unknown' | undefined;
 	getProcessorCores!: () => number | undefined;
 	getMaxTouchPoints!: () => number;
 	getNavigatorObject!: () => NavigatorSub[];
@@ -311,7 +310,7 @@ export class uaDetect implements _UADetect {
 	getMedia!: (constraints: MediaConstraints) => Promise<void | unknown | MediaStream | undefined>;
 	orientationIsLandscape: boolean = ORIENTATION_isLandscape;
 	deviceType: 'tablet' | 'mobile' | 'desktop' = DEVICE_type;
-	deviceFiniteType: 'Android' | 'iOS' | 'Unknown' | Error | 'BlackBerry' | 'Windows Phone' | 'webOS' = DEVICE_finiteType;
+	exactMobileDeviceType: __ExactMobileDeviceType = exactMobileDeviceType;
 	currentUA: string = currentUA;
 	cookieStatus: 'cookiesEnabled' | 'cookiesNotEnabled' | 'Unknown' = cookieStatus;
 	browser: 'Opera' | 'Chrome' | 'Firefox' | 'Safari' | 'IE' | 'Edge' | 'Unknown' | undefined = browser;
@@ -328,13 +327,8 @@ export class uaDetect implements _UADetect {
 	camera: Promise<unknown | MediaStream | undefined> = camera;
 	audio: Promise<unknown | MediaStream | undefined> = audio;
 	audioAndCamera: Promise<unknown | MediaStream | undefined> = audioAndCamera;
+	exactMobileDeviceType: __ExactMobileDeviceType = exactMobileDeviceType;
 	constructor() {
-		this.getCookieStatus = () => {
-			return getCookies();
-		};
-		this.getBrowser = () => {
-			return getBrowser();
-		};
 		this.getProcessorCores = () => {
 			return browserSpecificSupportCores();
 		};
@@ -375,24 +369,29 @@ export class uaDetect implements _UADetect {
 			return registerServiceWorker(path, options);
 		};
 	}
-	private refresh(): void {
-		new uaDetect();
-		return;
+	private refresh(): __UADetect {
+		return new uaDetect() as __UADetect;
 	}
 	public getDeviceType(): 'tablet' | 'mobile' | 'desktop' {
-		this.refresh()
+		this.refresh();
 		return DetectDeviceType() as 'tablet' | 'mobile' | 'desktop';
 	}
 	public getScreenOrientation(): boolean {
 		this.refresh();
 		return DetectScreenOrientation() as boolean;
 	}
-	public getFiniteMobileDeviceType(): 'Android' | 'iOS' | 'Unknown' | Error | 'BlackBerry' | 'Windows Phone' | 'webOS' {
+	public getExactMobileDeviceType(): __ExactMobileDeviceType {
 		this.refresh();
-		return finiteMobileDeviceType() as 'Android' | 'iOS' | 'Unknown' | Error | 'BlackBerry' | 'Windows Phone' | 'webOS';
+		return ExactMobileDeviceType() as __ExactMobileDeviceType;
 	}
 	public getCurrentUA(): string {
 		this.refresh();
 		return getCurrentUA() as string;
+	}
+	public getCookieStatus(): 'cookiesEnabled' | 'cookiesNotEnabled' | 'Unknown' {
+		return getCookies() as 'cookiesEnabled' | 'cookiesNotEnabled' | 'Unknown';
+	}
+	public getBrowser(): Browser {
+		return getBrowser();
 	}
 }

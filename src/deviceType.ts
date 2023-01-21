@@ -15,8 +15,11 @@
 * limitations under the License.
 */
 
+
+export type DeviceType = 'tablet' | 'mobile' | 'desktop'
+
 // DEVICE TYPE
-function DetectDeviceType(): 'tablet' | 'mobile' | 'desktop' {
+function DetectDeviceType(): DeviceType {
 	const ua = navigator.userAgent;
 	if (/(tablet|ipad|playbook|silk)|(android(?!.*mobi))/i.test(ua)) {
 		return 'tablet';
