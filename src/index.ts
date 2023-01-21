@@ -107,7 +107,7 @@ import {
 
 // PDF Viewer
 
-import { getPDF, PDFviewerStatus } from './pdf';
+import { getPDF, type PDFStatus, PDFviewerStatus } from './pdf';
 
 // Service Worker
 
@@ -178,7 +178,7 @@ export interface __UADetect {
 	getMaxTouchPoints: () => number,
 	getNavigatorObject: () => NavigatorSub[],
 	getBrowserOnlineStatus: () => BrowserOnlineStatus,
-	getPDFviewerStatus: () => 'PDFviewerEnabled' | 'PDFviewerDisabled',
+	getPDFviewerStatus: () => PDFStatus,
 	getRobotStatus: () => 'robotControlled' | 'humanControlled' | 'Unknown',
 	getOS: () => 'Windows' | 'Mac' | 'Linux' | 'Android' | 'iOS' | 'Unknown',
 	registerServiceWorker: (path: string | URL, options?: RegistrationOptions) => void,
@@ -196,7 +196,7 @@ export interface __UADetect {
 	maxTouchPoints: number,
 	navigatorObject: object,
 	browserOnlineStatus: BrowserOnlineStatus,
-	PDFviewerStatus: 'PDFviewerEnabled' | 'PDFviewerDisabled',
+	PDFviewerStatus: PDFStatus,
 	robotStatus: 'robotControlled' | 'humanControlled' | 'Unknown',
 	OS: 'Windows' | 'Mac' | 'Linux' | 'Android' | 'iOS' | 'Unknown',
 	lat: number,
