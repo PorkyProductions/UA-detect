@@ -27,7 +27,7 @@ import { canShareData } from './canShare';
 
 // Cookies
 
-import { cookieStatus, getCookies } from './cookies';
+import { cookieStatus, getCookies, type CookieStatus } from './cookies';
 
 // Device Memory
 
@@ -88,7 +88,7 @@ import { getterForNavigator, navigatorObject, type NavigatorSub } from './naviga
 
 // Online Status
 
-import { browserOnlineStatus, getBrowserIsOnline } from './online';
+import { type BrowserOnlineStatus, browserOnlineStatus, getBrowserIsOnline } from './online';
 
 // standard UA
 
@@ -172,12 +172,12 @@ export interface __UADetect {
 	getScreenOrientation: () => boolean,
 	getExactMobileDeviceType: () => __ExactMobileDeviceType,
 	getCurrentUA: () => string,
-	getCookieStatus: () => 'cookiesEnabled' | 'cookiesNotEnabled' | 'Unknown',
+	getCookieStatus: () => CookieStatus,
 	getBrowser: () => Browser,
 	getProcessorCores: () => number | undefined,
 	getMaxTouchPoints: () => number,
 	getNavigatorObject: () => NavigatorSub[],
-	getBrowserOnlineStatus: () => 'browserOnline' | 'browserOffline',
+	getBrowserOnlineStatus: () => BrowserOnlineStatus,
 	getPDFviewerStatus: () => 'PDFviewerEnabled' | 'PDFviewerDisabled',
 	getRobotStatus: () => 'robotControlled' | 'humanControlled' | 'Unknown',
 	getOS: () => 'Windows' | 'Mac' | 'Linux' | 'Android' | 'iOS' | 'Unknown',
@@ -191,11 +191,11 @@ export interface __UADetect {
 	deviceType: DeviceType,
 	exactMobileDeviceType: __ExactMobileDeviceType,
 	currentUA: string,
-	cookieStatus: 'cookiesEnabled' | 'cookiesNotEnabled' | 'Unknown',
-	browser: 'Opera' | 'Chrome' | 'Firefox' | 'Safari' | 'IE' | 'Edge' | 'Unknown' | undefined,
+	cookieStatus: CookieStatus,
+	browser: Browser
 	maxTouchPoints: number,
 	navigatorObject: object,
-	browserOnlineStatus: 'browserOnline' | 'browserOffline',
+	browserOnlineStatus: BrowserOnlineStatus,
 	PDFviewerStatus: 'PDFviewerEnabled' | 'PDFviewerDisabled',
 	robotStatus: 'robotControlled' | 'humanControlled' | 'Unknown',
 	OS: 'Windows' | 'Mac' | 'Linux' | 'Android' | 'iOS' | 'Unknown',

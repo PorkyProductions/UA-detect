@@ -15,8 +15,9 @@
 * limitations under the License.
 */
 const browserIsOnline: boolean = navigator.onLine;
+export type BrowserOnlineStatus = 'browserOnline' | 'browserOffline'
 
-export const getBrowserIsOnline = (): 'browserOnline' | 'browserOffline' => {
+export const getBrowserIsOnline = (): BrowserOnlineStatus => {
 	if (browserIsOnline) {
 		return 'browserOnline';
 	}

@@ -16,7 +16,9 @@
 */
 const cookies: boolean = navigator.cookieEnabled;
 
-const getCookies = (): 'cookiesEnabled' | 'cookiesNotEnabled' | 'Unknown' => {
+export type CookieStatus = 'cookiesEnabled' | 'cookiesNotEnabled' | 'Unknown'
+
+const getCookies = (): CookieStatus => {
 	if (cookies === true) {
 		return 'cookiesEnabled';
 	} if (cookies === false) {
@@ -28,5 +30,4 @@ const getCookies = (): 'cookiesEnabled' | 'cookiesNotEnabled' | 'Unknown' => {
 
 const cookieStatus = getCookies();
 
-export { cookieStatus };
-export { getCookies };
+export { cookieStatus, getCookies };
