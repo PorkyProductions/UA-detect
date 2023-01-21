@@ -97,7 +97,7 @@ import { currentUA, getCurrentUA } from './getCurrentUA';
 
 // Operating System
 
-import { getOS, OS } from './operatingSystem';
+import { getOS, type OperatingSystem, OS } from './operatingSystem';
 
 //SCREEN ORIENTATION
 
@@ -181,7 +181,7 @@ export interface __UADetect {
 	getBrowserOnlineStatus: () => BrowserOnlineStatus,
 	getPDFviewerStatus: () => PDFStatus,
 	getRobotStatus: () => RobotStatus,
-	getOS: () => 'Windows' | 'Mac' | 'Linux' | 'Android' | 'iOS' | 'Unknown',
+	getOS: () => OperatingSystem,
 	registerServiceWorker: (path: string | URL, options?: RegistrationOptions) => void,
 	getLang: () => Language;
 	getMemory: () => number | 'Unknown' | undefined,
@@ -199,7 +199,7 @@ export interface __UADetect {
 	browserOnlineStatus: BrowserOnlineStatus,
 	PDFviewerStatus: PDFStatus,
 	robotStatus: RobotStatus,
-	OS: 'Windows' | 'Mac' | 'Linux' | 'Android' | 'iOS' | 'Unknown',
+	OS: OperatingSystem,
 	lat: number,
 	lon: number,
 	language: Language
