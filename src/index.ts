@@ -295,21 +295,6 @@ export const UADetect: __UADetect = {
 };
 
 export class uaDetect implements __UADetect {
-	getProcessorCores!: () => ProcessorCores;
-	getMaxTouchPoints!: () => number;
-	getNavigatorObject!: () => NavigatorSub[];
-	getBrowserOnlineStatus!: () => BrowserOnlineStatus;
-	getPDFviewerStatus!: () => PDFStatus;
-	getRobotStatus!: () => RobotStatus;
-	getOS!: () => OperatingSystem;
-	getEngine!: () => string | Error;
-	getVersion!: () => string | number | Error;
-	getLang!: () => Language;
-	getMemory!: () => DeviceMemory;
-	registerServiceWorker!: (path: string | URL, options?: RegistrationOptions) => void;
-	vibrate!: (pattern: VibratePattern) => VibrateResult;
-	canShareData!: (data?: ShareData) => boolean;
-	getMedia!: (constraints: MediaConstraints) => Promise<void | unknown | MediaStream | undefined>;
 	orientationIsLandscape: boolean = ORIENTATION_isLandscape;
 	deviceType: DeviceType = DEVICE_type;
 	exactMobileDeviceType: __ExactMobileDeviceType = exactMobileDeviceType;
@@ -329,47 +314,7 @@ export class uaDetect implements __UADetect {
 	camera: MediaStreamResult = camera;
 	audio: MediaStreamResult = audio;
 	audioAndCamera: MediaStreamResult = audioAndCamera;
-	constructor() {
-		this.getProcessorCores = () => {
-			return browserSpecificSupportCores();
-		};
-		this.getMaxTouchPoints = () => {
-			return getMaxTouchPoints();
-		};
-		this.getNavigatorObject = () => {
-			return getterForNavigator();
-		};
-		this.getBrowserOnlineStatus = () => {
-			return getBrowserIsOnline();
-		};
-		this.getPDFviewerStatus = () => {
-			return getPDF();
-		};
-		this.getRobotStatus = () => {
-			return getBots();
-		};
-		this.getOS = () => {
-			return getOS();
-		};
-		this.getLang = () => {
-			return getLang();
-		};
-		this.getMemory = () => {
-			return browserSpecificGetMemory();
-		};
-		this.vibrate = (pattern: VibratePattern) => {
-			return vibrate(pattern);
-		};
-		this.canShareData = (data?: ShareData) => {
-			return canShareData(data);
-		};
-		this.getMedia = (constraints: MediaConstraints) => {
-			return getMedia(constraints);
-		};
-		this.registerServiceWorker = (path: string | URL, options?: RegistrationOptions) => {
-			return registerServiceWorker(path, options);
-		};
-	}
+	constructor() {}
 	private refresh(): __UADetect {
 		return new uaDetect() as __UADetect;
 	}
@@ -390,9 +335,63 @@ export class uaDetect implements __UADetect {
 		return getCurrentUA() as string;
 	}
 	public getCookieStatus(): CookieStatus {
+		this.refresh()
 		return getCookies() as CookieStatus;
 	}
 	public getBrowser(): Browser {
-		return getBrowser();
+		this.refresh()
+		return getBrowser() as Browser;
+	}
+	public getProcessorCores(): ProcessorCores {
+		this.refresh();
+		return browserSpecificSupportCores() as ProcessorCores
+	}
+	public getMaxTouchPoints(): number {
+		this.refresh()
+		return getMaxTouchPoints() as number
+	}
+	public getNavigatorObject(): NavigatorSub[] {
+		this.refresh()
+		return getterForNavigator() as NavigatorSub[]
+	}
+	public getBrowserOnlineStatus(): BrowserOnlineStatus {
+		this.refresh();
+		return getBrowserIsOnline() as BrowserOnlineStatus
+	}
+	public getPDFviewerStatus(): PDFStatus {
+		this.refresh()
+		return getPDF() as PDFStatus
+	}
+	public getRobotStatus(): RobotStatus {
+		this.refresh()
+		return getBots() as RobotStatus
+	}
+	public getOS(): OperatingSystem {
+		this.refresh();
+		return getOS() as OperatingSystem;
+	}
+	public getLang(): Language {
+		this.refresh();
+		return getLang() as Language
+	}
+	public getMemory(): DeviceMemory {
+		this.refresh();
+		return browserSpecificGetMemory() as DeviceMemory
+	}
+	public vibrate(pattern: VibratePattern): VibrateResult {
+		this.refresh();
+		return vibrate(pattern) as VibrateResult
+	}
+	public canShareData(data?: ShareData): boolean {
+		this.refresh();
+		return canShareData(data) as boolean;
+	}
+	public async getMedia(constraints: MediaConstraints): MediaStreamResult {
+		this.refresh()
+		return getMedia(constraints) as MediaStreamResult
+	}
+	public registerServiceWorker(path: string | URL, options?: RegistrationOptions): void {
+		this.refresh()
+		return registerServiceWorker(path, options);
 	}
 }

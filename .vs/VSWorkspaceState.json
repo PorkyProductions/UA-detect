@@ -1,8 +1,9 @@
 {
   "ExpandedNodes": [
     "",
+    "\\images\\png",
     "\\src"
   ],
-  "SelectedNode": "\\src\\browser.ts",
+  "SelectedNode": "\\images",
   "PreviewInSolutionExplorer": false
 }
