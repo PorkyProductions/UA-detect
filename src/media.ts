@@ -64,6 +64,10 @@ export interface MediaConstraints {
  * @param {MediaConstraints} constraints
  * @returns {(Promise<MediaStream | unknown | undefined>)}
  */
+
+
+export type MediaStreamResult = Promise<void | unknown | MediaStream | undefined>
+
 export async function getMedia(
 	constraints: MediaConstraints
 ): Promise<MediaStream | unknown | undefined> {

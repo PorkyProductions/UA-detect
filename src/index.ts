@@ -77,11 +77,12 @@ import { getMaxTouchPoints, maxTouchPoints } from './maxTouchPoints';
 // Camera, Audio, Media
 
 import {
-	MediaConstraints,
+	type MediaConstraints,
 	camera,
 	audio,
 	audioAndCamera,
-	getMedia
+	getMedia,
+    type MediaStreamResult
 } from './media';
 
 // Navigator Object
@@ -188,7 +189,7 @@ export interface __UADetect {
 	getMemory: () => DeviceMemory,
 	vibrate: (pattern: number | number[] | VibratePattern) => VibrateResult,
 	canShareData: (data?: ShareData) => boolean,
-	getMedia: (constraints: MediaConstraints) => Promise<void | unknown | MediaStream | undefined>
+	getMedia: (constraints: MediaConstraints) => MediaStreamResult
 	orientationIsLandscape: boolean,
 	deviceType: DeviceType,
 	exactMobileDeviceType: __ExactMobileDeviceType,
@@ -205,9 +206,9 @@ export interface __UADetect {
 	lon: number,
 	language: Language
 	deviceMemory: DeviceMemory,
-	camera: Promise<unknown | MediaStream | undefined>,
-	audio: Promise<unknown | MediaStream | undefined>,
-	audioAndCamera: Promise<unknown | MediaStream | undefined>
+	camera: MediaStreamResult,
+	audio: MediaStreamResult,
+	audioAndCamera: MediaStreamResult
 }
 
 // Create the UADetect Object
@@ -374,9 +375,9 @@ export class uaDetect implements __UADetect {
 	private refresh(): __UADetect {
 		return new uaDetect() as __UADetect;
 	}
-	public getDeviceType(): 'tablet' | 'mobile' | 'desktop' {
+	public getDeviceType(): DeviceType {
 		this.refresh();
-		return DetectDeviceType() as 'tablet' | 'mobile' | 'desktop';
+		return DetectDeviceType() as DeviceType;
 	}
 	public getScreenOrientation(): boolean {
 		this.refresh();
@@ -390,8 +391,8 @@ export class uaDetect implements __UADetect {
 		this.refresh();
 		return getCurrentUA() as string;
 	}
-	public getCookieStatus(): 'cookiesEnabled' | 'cookiesNotEnabled' | 'Unknown' {
-		return getCookies() as 'cookiesEnabled' | 'cookiesNotEnabled' | 'Unknown';
+	public getCookieStatus(): CookieStatus {
+		return getCookies() as CookieStatus;
 	}
 	public getBrowser(): Browser {
 		return getBrowser();
