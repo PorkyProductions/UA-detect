@@ -120,7 +120,7 @@ import { vibrate } from './vibrate';
 
 // Webdriver
 
-import { getBots, robotStatus } from './webdriver';
+import { getBots, type RobotStatus, robotStatus } from './webdriver';
 
 // Exports
 
@@ -180,7 +180,7 @@ export interface __UADetect {
 	getNavigatorObject: () => NavigatorSub[],
 	getBrowserOnlineStatus: () => BrowserOnlineStatus,
 	getPDFviewerStatus: () => PDFStatus,
-	getRobotStatus: () => 'robotControlled' | 'humanControlled' | 'Unknown',
+	getRobotStatus: () => RobotStatus,
 	getOS: () => 'Windows' | 'Mac' | 'Linux' | 'Android' | 'iOS' | 'Unknown',
 	registerServiceWorker: (path: string | URL, options?: RegistrationOptions) => void,
 	getLang: () => Language;
@@ -198,7 +198,7 @@ export interface __UADetect {
 	navigatorObject: object,
 	browserOnlineStatus: BrowserOnlineStatus,
 	PDFviewerStatus: PDFStatus,
-	robotStatus: 'robotControlled' | 'humanControlled' | 'Unknown',
+	robotStatus: RobotStatus,
 	OS: 'Windows' | 'Mac' | 'Linux' | 'Android' | 'iOS' | 'Unknown',
 	lat: number,
 	lon: number,

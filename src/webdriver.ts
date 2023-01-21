@@ -16,13 +16,15 @@
 */
 const webdriverControlled: boolean = navigator.webdriver;
 
-export const getBots = (): 'robotControlled' | 'humanControlled' | 'Unknown' => {
+export type RobotStatus = 'robotControlled' | 'humanControlled' | 'Unknown'
+
+export const getBots = (): RobotStatus => {
 	if (webdriverControlled) {
 		return 'robotControlled';
 	}
 	return 'humanControlled';
 };
 
-const robotStatus: 'robotControlled' | 'humanControlled' | 'Unknown' = getBots();
+const robotStatus: RobotStatus = getBots();
 
 export { robotStatus, webdriverControlled };
