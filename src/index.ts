@@ -32,7 +32,7 @@ import { cookieStatus, getCookies, type CookieStatus } from './cookies';
 // Device Memory
 
 import {
-    browserSpecificGetMemory, deviceMemory, type DeviceMemory
+	browserSpecificGetMemory, deviceMemory, type DeviceMemory
 } from './deviceMemory';
 
 // Device Type
@@ -42,27 +42,27 @@ import { DetectDeviceType, DEVICE_type, type DeviceType } from './deviceType';
 // Exact Mobile Device Type
 
 import ExactMobileDeviceType, {
-    exactMobileDeviceType,
-    type __ExactMobileDeviceType
+	exactMobileDeviceType,
+	type __ExactMobileDeviceType
 } from './exactMobileDeviceType';
 
 // Geolocation
 
 import {
-    lat,
-    lon
+	lat,
+	lon
 } from './geolocation';
 
 // Language
 
 import {
-    getLang, language, type Language
+	getLang, language, type Language
 } from './language';
 
 // Logical Processors
 
 import {
-    browserSpecificSupportCores, processorCores, type ProcessorCores
+	browserSpecificSupportCores, processorCores, type ProcessorCores
 } from './logicalProcessors';
 
 // Max Touch Points
@@ -72,8 +72,8 @@ import { getMaxTouchPoints, maxTouchPoints } from './maxTouchPoints';
 // Camera, Audio, Media
 
 import {
-    audio,
-    audioAndCamera, camera, getMedia, type MediaConstraints, type MediaStreamResult
+	audio,
+	audioAndCamera, camera, getMedia, type MediaConstraints, type MediaStreamResult
 } from './media';
 
 // Navigator Object
@@ -95,8 +95,8 @@ import { getOS, OS, type OperatingSystem } from './operatingSystem';
 //SCREEN ORIENTATION
 
 import {
-    DetectScreenOrientation,
-    ORIENTATION_isLandscape
+	DetectScreenOrientation,
+	ORIENTATION_isLandscape
 } from './orientation';
 
 // PDF Viewer
@@ -120,44 +120,44 @@ import { getBots, robotStatus, type RobotStatus } from './webdriver';
 // Make the unknowns accessible
 
 export {
-    DetectScreenOrientation as getScreenOrientation,
-    DetectDeviceType as getDeviceType,
-    ExactMobileDeviceType as getExactMobileDeviceType,
-    getCurrentUA,
-    getCookies,
-    getBrowser,
-    browserSpecificSupportCores,
-    getMaxTouchPoints,
-    getOS,
-    getterForNavigator,
-    getBrowserIsOnline,
-    getPDF,
-    getBots,
-    getLang,
-    browserSpecificGetMemory as getMemory,
-    vibrate,
-    canShareData,
-    registerServiceWorker
+	DetectScreenOrientation as getScreenOrientation,
+	DetectDeviceType as getDeviceType,
+	ExactMobileDeviceType as getExactMobileDeviceType,
+	getCurrentUA,
+	getCookies,
+	getBrowser,
+	browserSpecificSupportCores,
+	getMaxTouchPoints,
+	getOS,
+	getterForNavigator,
+	getBrowserIsOnline,
+	getPDF,
+	getBots,
+	getLang,
+	browserSpecificGetMemory as getMemory,
+	vibrate,
+	canShareData,
+	registerServiceWorker
 };
 // As well as the returns on those unknowns
 export {
-    ORIENTATION_isLandscape as orientationIsLandscape,
-    DEVICE_type as deviceType,
-    exactMobileDeviceType,
-    currentUA,
-    cookieStatus,
-    browser,
-    processorCores,
-    maxTouchPoints,
-    navigatorObject,
-    browserOnlineStatus,
-    PDFviewerStatus,
-    robotStatus,
-    OS,
-    lat,
-    lon,
-    language,
-    deviceMemory
+	ORIENTATION_isLandscape as orientationIsLandscape,
+	DEVICE_type as deviceType,
+	exactMobileDeviceType,
+	currentUA,
+	cookieStatus,
+	browser,
+	processorCores,
+	maxTouchPoints,
+	navigatorObject,
+	browserOnlineStatus,
+	PDFviewerStatus,
+	robotStatus,
+	OS,
+	lat,
+	lon,
+	language,
+	deviceMemory
 };
 
 // TODO: write custom types for all of the compound returns like DeviceType
@@ -305,7 +305,6 @@ export class uaDetect implements __UADetect {
 	camera: MediaStreamResult = camera;
 	audio: MediaStreamResult = audio;
 	audioAndCamera: MediaStreamResult = audioAndCamera;
-	constructor() {}
 	private refresh(): __UADetect {
 		return new uaDetect() as __UADetect;
 	}
@@ -326,36 +325,36 @@ export class uaDetect implements __UADetect {
 		return getCurrentUA() as string;
 	}
 	public getCookieStatus(): CookieStatus {
-		this.refresh()
+		this.refresh();
 		return getCookies() as CookieStatus;
 	}
 	public getBrowser(): Browser {
-		this.refresh()
+		this.refresh();
 		return getBrowser() as Browser;
 	}
 	public getProcessorCores(): ProcessorCores {
 		this.refresh();
-		return browserSpecificSupportCores() as ProcessorCores
+		return browserSpecificSupportCores() as ProcessorCores;
 	}
 	public getMaxTouchPoints(): number {
-		this.refresh()
-		return getMaxTouchPoints() as number
+		this.refresh();
+		return getMaxTouchPoints() as number;
 	}
 	public getNavigatorObject(): NavigatorSub[] {
-		this.refresh()
-		return getterForNavigator() as NavigatorSub[]
+		this.refresh();
+		return getterForNavigator() as NavigatorSub[];
 	}
 	public getBrowserOnlineStatus(): BrowserOnlineStatus {
 		this.refresh();
-		return getBrowserIsOnline() as BrowserOnlineStatus
+		return getBrowserIsOnline() as BrowserOnlineStatus;
 	}
 	public getPDFviewerStatus(): PDFStatus {
-		this.refresh()
-		return getPDF() as PDFStatus
+		this.refresh();
+		return getPDF() as PDFStatus;
 	}
 	public getRobotStatus(): RobotStatus {
-		this.refresh()
-		return getBots() as RobotStatus
+		this.refresh();
+		return getBots() as RobotStatus;
 	}
 	public getOS(): OperatingSystem {
 		this.refresh();
@@ -363,26 +362,26 @@ export class uaDetect implements __UADetect {
 	}
 	public getLang(): Language {
 		this.refresh();
-		return getLang() as Language
+		return getLang() as Language;
 	}
 	public getMemory(): DeviceMemory {
 		this.refresh();
-		return browserSpecificGetMemory() as DeviceMemory
+		return browserSpecificGetMemory() as DeviceMemory;
 	}
 	public vibrate(pattern: VibratePattern): VibrateResult {
 		this.refresh();
-		return vibrate(pattern) as VibrateResult
+		return vibrate(pattern) as VibrateResult;
 	}
 	public canShareData(data?: ShareData): boolean {
 		this.refresh();
 		return canShareData(data) as boolean;
 	}
-	public async getMedia(constraints: MediaConstraints): MediaStreamResult {
-		this.refresh()
-		return getMedia(constraints) as MediaStreamResult
+	public getMedia(constraints: MediaConstraints): MediaStreamResult {
+		this.refresh();
+		return getMedia(constraints) as MediaStreamResult;
 	}
 	public registerServiceWorker(path: string | URL, options?: RegistrationOptions): void {
-		this.refresh()
+		this.refresh();
 		return registerServiceWorker(path, options);
 	}
 }
