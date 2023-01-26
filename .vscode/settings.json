@@ -17,7 +17,8 @@
         "community",
         "errors",
         "docs",
-        "rm"
+        "rm",
+        "deps"
     ],
     "typescript.tsdk": "node_modules\\typescript\\lib"
 }

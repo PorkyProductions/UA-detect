@@ -11,14 +11,14 @@
   },
   "description": "The dead-simple way of interacting with the navigator API",
   "devDependencies": {
-    "@types/jest": "^29.2.4",
-    "@types/node": "^18.11.17",
-    "jest-environment-jsdom": "^29.3.1",
+    "@types/jest": "^29.4.0",
+    "@types/node": "^18.11.18",
+    "@typescript-eslint/eslint-plugin": "^5.49.0",
+    "@typescript-eslint/parser": "^5.49.0",
+    "eslint": "^8.32.0",
     "eslint-config-airbnb-base": "^15.0.0",
-    "@typescript-eslint/eslint-plugin": "^5.47.0",
-    "@typescript-eslint/parser": "^5.47.0",
-    "eslint": "^8.30.0",
-    "jest": "^29.3.1"
+    "jest": "^29.4.1",
+    "jest-environment-jsdom": "^29.4.1"
   },
   "displayName": "UADetect",
   "engines": {
@@ -28,7 +28,8 @@
   "files": [
     "./dist/**/*.js",
     "./dist/**/*.js.map",
-    "./dist/types/**/*.d.ts"
+    "./dist/types/**/*.d.ts",
+    "./dist/types/**/*.d.ts.map"
   ],
   "homepage": "https://porkyproductions.github.io/UA-detect/",
   "keywords": [
@@ -73,12 +74,10 @@
   "scripts": {
     "test": "jest",
     "build": "tsc -p tsconfig.json",
-    "types": " tsc ./src/index.ts --declaration --skipLibCheck --allowJs --emitDeclarationOnly --outDir ./dist/types",
-    "buildThenGenerateTypes": "npm run build && npm run types",
     "publish": "npm publish",
     "lint": "eslint ./src/* --fix"
   },
   "type": "module",
   "types": "./dist/types/index.d.ts",
-  "version": "5.0.0"
+  "version": "6.0.0-alpha"
 }
