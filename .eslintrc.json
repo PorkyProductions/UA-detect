@@ -37,6 +37,15 @@
     "semi": [
       "error",
       "always"
-    ]
+    ],
+    "camelcase": 2,
+    "eqeqeq": [
+      "error",
+      "smart"
+    ],
+    "prefer-arrow-callback": "error",
+    "prefer-const": "error",
+    "block-scoped-var": "error",
+    "require-await": "error"
   }
 }
