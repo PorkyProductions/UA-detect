@@ -29,7 +29,7 @@ export const vibrate = (pattern: number[] | number | VibratePattern): VibrateRes
 		return 'failure';
 	} else {
 		const result: boolean = navigator.vibrate(pattern);
-		if (result == true) {
+		if (result === true) {
 			return 'success';
 		} else {
 			return 'failure';
