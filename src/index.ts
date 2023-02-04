@@ -19,7 +19,7 @@
 // Browser
 
 
-import { browser, getBrowser, type Browser } from './browser';
+import { type Browser, browser, getBrowser } from './browser';
 
 // CanShare
 
@@ -27,23 +27,25 @@ import { canShareData } from './canShare';
 
 // Cookies
 
-import { cookieStatus, getCookies, type CookieStatus } from './cookies';
+import { cookieStatus, getCookies } from './cookies';
+import type { CookieStatus } from './cookies';
 
 // Device Memory
 
 import {
-	browserSpecificGetMemory, deviceMemory, type DeviceMemory
+	browserSpecificGetMemory, deviceMemory
 } from './deviceMemory';
+import type { DeviceMemory } from './deviceMemory';
 
 // Device Type
 
-import { DetectDeviceType, DEVICE_type, type DeviceType } from './deviceType';
+import { type DeviceType, deviceType, getDeviceType } from './deviceType';
 
 // Exact Mobile Device Type
 
-import ExactMobileDeviceType, {
-	exactMobileDeviceType,
-	type __ExactMobileDeviceType
+import getExactMobileDeviceType, {
+	type ExactMobileDeviceType,
+	exactMobileDeviceType
 } from './exactMobileDeviceType';
 
 // Geolocation
@@ -56,13 +58,13 @@ import {
 // Language
 
 import {
-	getLang, language, type Language
+	type Language, getLang, language
 } from './language';
 
 // Logical Processors
 
 import {
-	browserSpecificSupportCores, processorCores, type ProcessorCores
+	type ProcessorCores, browserSpecificSupportCores, processorCores
 } from './logicalProcessors';
 
 // Max Touch Points
@@ -72,17 +74,17 @@ import { getMaxTouchPoints, maxTouchPoints } from './maxTouchPoints';
 // Camera, Audio, Media
 
 import {
-	audio,
-	audioAndCamera, camera, getMedia, type MediaConstraints, type MediaStreamResult
+	type MediaConstraints,
+	type MediaStreamResult, audio, audioAndCamera, camera, getMedia
 } from './media';
 
 // Navigator Object
 
-import { getterForNavigator, navigatorObject, type NavigatorSub } from './navigator';
+import { type NavigatorSub, getterForNavigator, navigatorObject } from './navigator';
 
 // Online Status
 
-import { browserOnlineStatus, getBrowserIsOnline, type BrowserOnlineStatus } from './online';
+import { type BrowserOnlineStatus, browserOnlineStatus, getBrowserIsOnline } from './online';
 
 // standard UA
 
@@ -90,18 +92,19 @@ import { currentUA, getCurrentUA } from './getCurrentUA';
 
 // Operating System
 
-import { getOS, OS, type OperatingSystem } from './operatingSystem';
+import { OS, type OperatingSystem, getOS } from './operatingSystem';
 
 //SCREEN ORIENTATION
 
 import {
-	DetectScreenOrientation,
-	ORIENTATION_isLandscape
+	getScreenOrientation,
+	orientationIsLandscape,
+	orientationIsPortrait
 } from './orientation';
 
 // PDF Viewer
 
-import { getPDF, PDFviewerStatus, type PDFStatus } from './pdf';
+import { type PDFStatus, PDFviewerStatus, getPDF } from './pdf';
 
 // Service Worker
 
@@ -109,20 +112,20 @@ import { registerServiceWorker } from './sw';
 
 // Vibrate
 
-import { vibrate, type VibrateResult } from './vibrate';
+import { type VibrateResult, vibrate } from './vibrate';
 
 // Webdriver
 
-import { getBots, robotStatus, type RobotStatus } from './webdriver';
+import { type RobotStatus, getBots, robotStatus } from './webdriver';
 
 // Exports
 
 // Make the unknowns accessible
 
 export {
-	DetectScreenOrientation as getScreenOrientation,
-	DetectDeviceType as getDeviceType,
-	ExactMobileDeviceType as getExactMobileDeviceType,
+	getScreenOrientation as getScreenOrientation,
+	getDeviceType as getDeviceType,
+	getExactMobileDeviceType as getExactMobileDeviceType,
 	getCurrentUA,
 	getCookies,
 	getBrowser,
@@ -141,8 +144,9 @@ export {
 };
 // As well as the returns on those unknowns
 export {
-	ORIENTATION_isLandscape as orientationIsLandscape,
-	DEVICE_type as deviceType,
+	orientationIsLandscape,
+	orientationIsPortrait,
+	deviceType as deviceType,
 	exactMobileDeviceType,
 	currentUA,
 	cookieStatus,
@@ -159,12 +163,10 @@ export {
 	language,
 	deviceMemory
 };
-
-// TODO: write custom types for all of the compound returns like DeviceType
 export interface __UADetect {
 	getDeviceType: () => DeviceType,
-	getScreenOrientation: () => boolean,
-	getExactMobileDeviceType: () => __ExactMobileDeviceType,
+	getScreenOrientation: () => void,
+	getExactMobileDeviceType: () => ExactMobileDeviceType,
 	getCurrentUA: () => string,
 	getCookieStatus: () => CookieStatus,
 	getBrowser: () => Browser,
@@ -182,8 +184,9 @@ export interface __UADetect {
 	canShareData: (data?: ShareData) => boolean,
 	getMedia: (constraints: MediaConstraints) => MediaStreamResult
 	orientationIsLandscape: boolean,
+	orientationIsPortrait: boolean,
 	deviceType: DeviceType,
-	exactMobileDeviceType: __ExactMobileDeviceType,
+	exactMobileDeviceType: ExactMobileDeviceType,
 	currentUA: string,
 	cookieStatus: CookieStatus,
 	browser: Browser
@@ -206,13 +209,13 @@ export interface __UADetect {
 
 export const UADetect: __UADetect = {
 	getDeviceType() {
-		return DetectDeviceType();
+		return getDeviceType();
 	},
 	getScreenOrientation() {
-		return DetectScreenOrientation();
+		return getScreenOrientation();
 	},
 	getExactMobileDeviceType() {
-		return ExactMobileDeviceType();
+		return getExactMobileDeviceType();
 	},
 	getCurrentUA() {
 		return getCurrentUA();
@@ -264,8 +267,9 @@ export const UADetect: __UADetect = {
 	},
 	// From here, we can then begin to call the returns on those unknowns here
 	// Most of them are just transferring the name over
-	orientationIsLandscape: ORIENTATION_isLandscape,
-	deviceType: DEVICE_type,
+	orientationIsLandscape: orientationIsLandscape,
+	orientationIsPortrait: orientationIsPortrait,
+	deviceType: deviceType,
 	exactMobileDeviceType: exactMobileDeviceType,
 	currentUA: currentUA,
 	cookieStatus: cookieStatus,
@@ -286,9 +290,10 @@ export const UADetect: __UADetect = {
 };
 
 export class uaDetect implements __UADetect {
-	orientationIsLandscape: boolean = ORIENTATION_isLandscape;
-	deviceType: DeviceType = DEVICE_type;
-	exactMobileDeviceType: __ExactMobileDeviceType = exactMobileDeviceType;
+	orientationIsLandscape: boolean = orientationIsLandscape;
+	orientationIsPortrait: boolean = orientationIsPortrait;
+	deviceType: DeviceType = deviceType;
+	exactMobileDeviceType: ExactMobileDeviceType = exactMobileDeviceType;
 	currentUA: string = currentUA;
 	cookieStatus: CookieStatus = cookieStatus;
 	browser: Browser = browser;
@@ -310,15 +315,15 @@ export class uaDetect implements __UADetect {
 	}
 	public getDeviceType(): DeviceType {
 		this.refresh();
-		return DetectDeviceType() as DeviceType;
+		return getDeviceType() as DeviceType;
 	}
-	public getScreenOrientation(): boolean {
+	public getScreenOrientation(): void {
 		this.refresh();
-		return DetectScreenOrientation() as boolean;
+		return getScreenOrientation() as void;
 	}
-	public getExactMobileDeviceType(): __ExactMobileDeviceType {
+	public getExactMobileDeviceType(): ExactMobileDeviceType {
 		this.refresh();
-		return ExactMobileDeviceType() as __ExactMobileDeviceType;
+		return getExactMobileDeviceType() as ExactMobileDeviceType;
 	}
 	public getCurrentUA(): string {
 		this.refresh();

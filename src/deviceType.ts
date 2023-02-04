@@ -19,7 +19,7 @@
 export type DeviceType = 'tablet' | 'mobile' | 'desktop'
 
 // DEVICE TYPE
-function DetectDeviceType(): DeviceType {
+function getDeviceType(): DeviceType {
 	const ua = navigator.userAgent;
 	if (/(tablet|ipad|playbook|silk)|(android(?!.*mobi))/i.test(ua)) {
 		return 'tablet';
@@ -72,6 +72,6 @@ function DetectDeviceType(): DeviceType {
 	}
 	return 'desktop';
 }
-const DEVICE_type = DetectDeviceType();
+const deviceType = getDeviceType();
 
-export { DEVICE_type, DetectDeviceType };
+export { deviceType, getDeviceType };

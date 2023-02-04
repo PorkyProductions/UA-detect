@@ -15,10 +15,10 @@
 * limitations under the License.
 */
 
-export type __ExactMobileDeviceType = 'iOS' | 'Android' | 'BlackBerry' | 'Windows Phone' | 'webOS' | 'Unknown' | Error
+export type ExactMobileDeviceType = 'iOS' | 'Android' | 'BlackBerry' | 'Windows Phone' | 'webOS' | 'Unknown' | Error
 
 
-export default function ExactMobileDeviceType(): __ExactMobileDeviceType {
+export default function getExactMobileDeviceType(): ExactMobileDeviceType {
 	const ua = navigator.userAgent;
 	if (/(iPhone|iPod|iPad)/i.test(ua)) {
 		console.log('iOS');
@@ -44,4 +44,4 @@ export default function ExactMobileDeviceType(): __ExactMobileDeviceType {
 	console.error(`Unknown device type (UAD_${Math.round(Math.floor(Math.random() * 1000) + 1)})`);
 	return 'Unknown';
 }
-export const exactMobileDeviceType = ExactMobileDeviceType();
+export const exactMobileDeviceType = getExactMobileDeviceType();

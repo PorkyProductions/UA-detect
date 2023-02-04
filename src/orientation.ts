@@ -17,15 +17,17 @@
 
 // SCREEN ORIENTATION
 let orientationIsLandscape = true;
+let orientationIsPortrait = false;
 
-const DetectScreenOrientation = (): boolean => {
+const getScreenOrientation = (): void => {
 	// detects orientation of device
 	orientationIsLandscape = window.innerHeight <= window.innerWidth;
-	return orientationIsLandscape;
+	orientationIsPortrait = window.innerHeight >= window.innerWidth;
+	return;
 };
 
-window.addEventListener('resize', DetectScreenOrientation);
+window.addEventListener('resize', getScreenOrientation);
 
 // Exports
 
-export { DetectScreenOrientation, orientationIsLandscape as ORIENTATION_isLandscape };
+export { getScreenOrientation, orientationIsLandscape, orientationIsPortrait };
