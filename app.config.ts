@@ -25,8 +25,10 @@ export default defineAppConfig({
     },
     github: {
       edit: true,
-      repo: "https://github.com/PorkyProductions/UA-detect/",
-      contributors: true
+      repo: "UA-detect",
+      contributors: true,
+      branch: "mega",
+      owner: "PorkyProductions"
     }
   },
 });

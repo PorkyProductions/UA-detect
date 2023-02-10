@@ -1,0 +1,1 @@
+import e from"./ProseP.5dd5dac5.js";import{f as r,q as t,B as n}from"./runtime-core.esm-bundler.c752936e.js";import"./Container.f35eac57.js";import"./index.c4ce3048.js";const u=r({__name:"SourceLink",props:{source:{type:String,required:!0}},setup(p){return(_,c)=>{const o=e;return t(),n(o)}}});export{u as default};
