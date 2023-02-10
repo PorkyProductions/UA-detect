@@ -17,12 +17,29 @@ export default defineAppConfig({
       exclude: [],
     },
     footer: {
-      iconLinks: [
-        {
-          href: "https://nuxt.com",
-          icon: "IconNuxtLabs",
-        },
-      ],
+      credits: {
+        icon: "",
+        text: "A PorkyProdutions Product. All Rights Reserved",
+        href: "https://porkyproductions.github.io/",
+      },
     },
+    github: {
+      edit: true,
+      repo: "https://github.com/PorkyProductions/UA-detect/",
+      contributors: true
+    }
   },
 });
+
+
+/*
+
+
+      credits: {
+        icon: "https://porkyproductions.github.io/assets/HedgehogIcon.4737d2b0.png",
+        text: "A PorkyProdutions Product. All Rights Reserved",
+        href: "https://porkyproductions.github.io/"
+      },
+    
+
+*/
