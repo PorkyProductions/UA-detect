@@ -5,7 +5,7 @@ export default defineAppConfig({
     image:
       "https://raw.githubusercontent.com/PorkyProductions/UA-detect/mega/images/png/full.png",
     socials: {
-      github: "PorkyProudctions/UA-detect",
+      github: "PorkyProductions/UA-detect",
     },
     aside: {
       level: 0,
