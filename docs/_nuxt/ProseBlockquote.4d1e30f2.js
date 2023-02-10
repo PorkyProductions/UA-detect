@@ -1,0 +1,1 @@
+/* empty css                            */import{d as o}from"./Container.8a94b673.js";import{q as t,x as r,O as c}from"./runtime-core.esm-bundler.c752936e.js";import"./index.f52f82a7.js";const n={};function s(e,a){return t(),r("blockquote",null,[c(e.$slots,"default",{},void 0,!0)])}const _=o(n,[["render",s],["__scopeId","data-v-dce1efe8"]]);export{_ as default};
