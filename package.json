@@ -79,5 +79,5 @@
   },
   "type": "module",
   "types": "./dist/types/index.d.ts",
-  "version": "6.0.0-alpha"
+  "version": "6.0.0-alpha-1"
 }
