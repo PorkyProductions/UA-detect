@@ -54,8 +54,6 @@ registerServiceWorker(jq, {
 })
 ```
 
-## Note:
-
 ## Note: 
 ::list{type="warning"}
 - This component must be run in secure enviornments
