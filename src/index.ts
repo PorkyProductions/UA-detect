@@ -30,6 +30,15 @@ import { canShareData } from './canShare';
 import { cookieStatus, getCookies } from './cookies';
 import type { CookieStatus } from './cookies';
 
+// Clipboard
+
+import {
+	getClipboardAdvanced,
+	getClipboardText,
+	setClipboardAdvanced,
+	setClipboardText
+} from './clipboard';
+
 // Device Memory
 
 import {
@@ -140,7 +149,11 @@ export {
 	browserSpecificGetMemory as getMemory,
 	vibrate,
 	canShareData,
-	registerServiceWorker
+	registerServiceWorker,
+	getClipboardText,
+	getClipboardAdvanced,
+	setClipboardAdvanced,
+	setClipboardText
 };
 // As well as the returns on those unknowns
 export {
@@ -183,6 +196,10 @@ export interface __UADetect {
 	vibrate: (pattern: number | number[] | VibratePattern) => VibrateResult,
 	canShareData: (data?: ShareData) => boolean,
 	getMedia: (constraints: MediaConstraints) => MediaStreamResult
+	getClipboardText: () => Promise<string | void>
+	setClipboardText: (text: string) => Promise<void>
+	getClipboardAdvanced: () => Promise<ClipboardItems | void>
+	setClipboardAdvanced: (items: ClipboardItems) => Promise<void>
 	orientationIsLandscape: boolean,
 	orientationIsPortrait: boolean,
 	deviceType: DeviceType,
@@ -262,8 +279,20 @@ export const UADetect: __UADetect = {
 	canShareData: (data?: ShareData) => {
 		return canShareData(data);
 	},
-	getMedia: (constraints: MediaConstraints) => {
-		return getMedia(constraints);
+	getMedia: async (constraints: MediaConstraints) => {
+		return await getMedia(constraints);
+	},
+	getClipboardText: async () => {
+		return await getClipboardText();
+	},
+	getClipboardAdvanced: async () => {
+		return await getClipboardAdvanced();
+	},
+	setClipboardText: async (text: string) => {
+		return await setClipboardText(text);
+	},
+	setClipboardAdvanced: async (items: ClipboardItems) => {
+		return await setClipboardAdvanced(items);
 	},
 	// From here, we can then begin to call the returns on those unknowns here
 	// Most of them are just transferring the name over
@@ -381,12 +410,25 @@ export class uaDetect implements __UADetect {
 		this.refresh();
 		return canShareData(data) as boolean;
 	}
-	public getMedia(constraints: MediaConstraints): MediaStreamResult {
-		this.refresh();
-		return getMedia(constraints) as MediaStreamResult;
-	}
 	public registerServiceWorker(path: string | URL, options?: RegistrationOptions): void {
 		this.refresh();
 		return registerServiceWorker(path, options);
+	}
+	public async getMedia(constraints: MediaConstraints): MediaStreamResult {
+		this.refresh();
+		return await getMedia(constraints) as MediaStreamResult;
+	}
+	public async getClipboardText(): Promise<string> {
+		this.refresh();
+		return await getClipboardText() as string;
+	}
+	public async getClipboardAdvanced(): Promise<ClipboardItems> {
+		return await getClipboardAdvanced() as ClipboardItems;
+	}
+	public async setClipboardText(text: string): Promise<void> {
+		return await setClipboardText(text);
+	}
+	public async setClipboardAdvanced(items: ClipboardItems): Promise<void> {
+		return await setClipboardAdvanced(items);
 	}
 }

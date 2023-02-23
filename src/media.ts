@@ -75,7 +75,7 @@ export async function getMedia(
 	try {
 		stream ||= await navigator.mediaDevices.getUserMedia(constraints);
 		return stream;
-	} catch (err) {
+	} catch (err: Error | unknown) {
 		return err;
 	}
 }
