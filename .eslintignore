@@ -1,6 +1,7 @@
 dist/
 tests/
 specs/
+scripts/
 coverage/
 node_modules/
 jest.config.cjs
