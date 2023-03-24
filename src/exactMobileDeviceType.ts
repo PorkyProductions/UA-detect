@@ -21,23 +21,18 @@ export type ExactMobileDeviceType = 'iOS' | 'Android' | 'BlackBerry' | 'Windows 
 export default function getExactMobileDeviceType(): ExactMobileDeviceType {
 	const ua = navigator.userAgent;
 	if (/(iPhone|iPod|iPad)/i.test(ua)) {
-		console.log('iOS');
 		return 'iOS';
 	}
 	if (/Android/i.test(ua)) {
-		console.log('Android');
 		return 'Android';
 	}
 	if (/BlackBerry/i.test(ua)) {
-		console.log('BlackBerry');
 		return 'BlackBerry';
 	}
 	if (/Windows Phone/i.test(ua)) {
-		console.log('Windows Phone');
 		return 'Windows Phone';
 	}
 	if (/webOS/i.test(ua)) {
-		console.log('webOS');
 		return 'webOS';
 	}
 
