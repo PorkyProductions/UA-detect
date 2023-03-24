@@ -16,15 +16,13 @@ export const getClipboardText = async (): Promise<string | void> => {
 			name: 'clipboard-read',
 		});
 		if (result.state === 'granted' || result.state === 'prompt') {
-			const clipText = await navigator.clipboard.readText();
-			return clipText as string;
+			return await navigator.clipboard.readText() as string;
 		} else {
 			return console.error('Permission to read from the clipboard was denied by the user or is unavilable');
 		}
 		// If it's not then we just perform the operation as normal
 	} else {
-		const clipText = await navigator.clipboard.readText();
-		return clipText as string;
+		return await navigator.clipboard.readText() as string;
 	}
 };
 
@@ -66,16 +64,14 @@ export const getClipboardAdvanced = async (): Promise<ClipboardItems | void> => 
 			name: 'clipboard-read',
 		});
 		if (result.state === 'granted' || result.state === 'prompt') {
-			const clipText = await navigator.clipboard.read();
-			return clipText as ClipboardItems;
+			return await navigator.clipboard.read() as ClipboardItems;
 		} else {
 			return console.error(
 				'Permission to read from the clipboard was denied by the user or is unavilable'
 			);
 		}
 	} else {
-		const clipText = await navigator.clipboard.read();
-		return clipText as ClipboardItems;
+		return await navigator.clipboard.read() as ClipboardItems;
 	}
 };
 
