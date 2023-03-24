@@ -73,7 +73,11 @@
   },
   "scripts": {
     "test": "jest",
-    "build": "tsc -p tsconfig.json",
+    "build": "npm run build-ts && npm run build-slim && npm run build-small && npm run types-small",
+    "build-ts": "tsc -p tsconfig.json",
+    "build-slim": "esbuild ./src/index.ts --bundle --minify --target=es2019 --outfile=./dist/slim/index.js ",
+    "build-small": "esbuild ./src/index.ts --splitting --format=esm --target=es2019 --outdir=./dist/small/ ",
+    "types-small": "tsc ./dist/small/index.js --allowJs --noEmit --declaration --declarationDir ./dist/small/types/",
     "publish": "npm publish",
     "lint": "eslint ./src/* --fix"
   },
