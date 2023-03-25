@@ -1,0 +1,1 @@
+Copy-Item -Path "./dist/types/*" -Destination "./dist/small/types/" -Recurse

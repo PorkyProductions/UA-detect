@@ -32,6 +32,8 @@
     "./dist/slim/**/*.js",
     "./dist/small/**/*.js",
     "./dist/small/**/*.js.map",
+    "./dist/small/types/**/*.d.ts.map",
+    "./dist/small/types/**/*.d.ts",
     "./dist/types/**/*.d.ts",
     "./dist/types/**/*.d.ts.map"
   ],
@@ -81,11 +83,10 @@
     "build-ts": "tsc -p tsconfig.json",
     "build-slim": "node ./scripts/buildSlim.cjs",
     "build-small": "node ./scripts/buildSmall.cjs",
-    "types-small": "tsc ./dist/small/index.js --allowJs --noEmit --declaration --declarationDir ./dist/small/types/",
     "publish": "npm publish",
     "lint": "eslint ./src/* --fix"
   },
   "type": "module",
   "types": "./dist/types/index.d.ts",
-  "version": "6.0.0-alpha-2"
+  "version": "6.0.0-alpha-3"
 }
