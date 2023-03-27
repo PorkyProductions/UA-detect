@@ -1,5 +1,6 @@
 {
   "author": "PorkyProductions",
+  "private": false,
   "bugs": {
     "url": "https://github.com/PorkyProductions/UA-detect/issues"
   },
@@ -21,6 +22,17 @@
     "jest": "^29.5.0",
     "jest-environment-jsdom": "^29.5.0"
   },
+  "displayName": "UADetect",
+  "engines": {
+    "node": ">= 14",
+    "vscode": "^1.60.0"
+  },
+  "files": [
+    "./dist/**/*.js",
+    "./dist/**/*.js.map",
+    "./dist/types/**/*.d.ts",
+    "./dist/types/**/*.d.ts.map"
+  ],
   "homepage": "https://porkyproductions.github.io/UA-detect/",
   "keywords": [
     "User",
@@ -50,25 +62,21 @@
     "hardwareConcurrency"
   ],
   "license": "Apache-2.0",
+  "main": "./dist/index.js",
   "maintainers": [
     "Ryan Mullin"
   ],
-  "name": "uadetect",
+  "name": "@uadetect/slim",
   "publisher": "PorkyProductions",
+  "qna": "https://github.com/PorkyProductions/UA-detect/discussions/categories/q-a",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/PorkyProductions/UA-detect.git"
   },
   "scripts": {
-    "test": "jest",
-    "build": "npm run build --workspaces",
-    "publish": "npm publish --workspaces",
-    "lint": "eslint ./src/* --fix"
+    "build": "node ../../scripts/buildSlim.cjs",
+    "publish": "npm publish"
   },
   "type": "module",
-  "workspaces": [
-    "./packages/uadetect/",
-    "./packages/small/",
-    "./packages/slim/"
-  ]
+  "version": "6.0.0"
 }
