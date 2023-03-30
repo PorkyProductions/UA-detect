@@ -177,49 +177,49 @@ export {
 	deviceMemory
 };
 export interface __UADetect {
-	getDeviceType: () => DeviceType,
-	getScreenOrientation: () => void,
-	getExactMobileDeviceType: () => ExactMobileDeviceType,
-	getCurrentUA: () => string,
-	getCookieStatus: () => CookieStatus,
-	getBrowser: () => Browser,
-	getProcessorCores: () => ProcessorCores,
-	getMaxTouchPoints: () => number,
-	getNavigatorObject: () => NavigatorSub[],
-	getBrowserOnlineStatus: () => BrowserOnlineStatus,
-	getPDFviewerStatus: () => PDFStatus,
-	getRobotStatus: () => RobotStatus,
-	getOS: () => OperatingSystem,
-	registerServiceWorker: (path: string | URL, options?: RegistrationOptions) => void,
-	getLang: () => Language;
-	getMemory: () => DeviceMemory,
-	vibrate: (pattern: number | number[] | VibratePattern) => VibrateResult,
-	canShareData: (data?: ShareData) => boolean,
-	getMedia: (constraints: MediaConstraints) => MediaStreamResult
-	getClipboardText: () => Promise<string | void>
-	setClipboardText: (text: string) => Promise<void>
-	getClipboardAdvanced: () => Promise<ClipboardItems | void>
-	setClipboardAdvanced: (items: ClipboardItems) => Promise<void>
-	orientationIsLandscape: boolean,
-	orientationIsPortrait: boolean,
-	deviceType: DeviceType,
-	exactMobileDeviceType: ExactMobileDeviceType,
-	currentUA: string,
-	cookieStatus: CookieStatus,
-	browser: Browser
-	maxTouchPoints: number,
-	navigatorObject: object,
-	browserOnlineStatus: BrowserOnlineStatus,
-	PDFviewerStatus: PDFStatus,
-	robotStatus: RobotStatus,
-	OS: OperatingSystem,
-	lat: number,
-	lon: number,
-	language: Language
-	deviceMemory: DeviceMemory,
-	camera: MediaStreamResult,
-	audio: MediaStreamResult,
-	audioAndCamera: MediaStreamResult
+	readonly getDeviceType: () => DeviceType,
+	readonly getScreenOrientation: () => void,
+	readonly getExactMobileDeviceType: () => ExactMobileDeviceType,
+	readonly getCurrentUA: () => string,
+	readonly getCookieStatus: () => CookieStatus,
+	readonly getBrowser: () => Browser,
+	readonly getProcessorCores: () => ProcessorCores,
+	readonly getMaxTouchPoints: () => number,
+	readonly getNavigatorObject: () => NavigatorSub[],
+	readonly getBrowserOnlineStatus: () => BrowserOnlineStatus,
+	readonly getPDFviewerStatus: () => PDFStatus,
+	readonly getRobotStatus: () => RobotStatus,
+	readonly getOS: () => OperatingSystem,
+	readonly registerServiceWorker: (path: string | URL, options?: RegistrationOptions) => void,
+	readonly getLang: () => Language;
+	readonly getMemory: () => DeviceMemory,
+	readonly vibrate: (pattern: number | number[] | VibratePattern) => VibrateResult,
+	readonly canShareData: (data?: ShareData) => boolean,
+	readonly getMedia: (constraints: MediaConstraints) => MediaStreamResult
+	readonly getClipboardText: () => Promise<string | void>
+	readonly setClipboardText: (text: string) => Promise<void>
+	readonly getClipboardAdvanced: () => Promise<ClipboardItems | void>
+	readonly setClipboardAdvanced: (items: ClipboardItems) => Promise<void>
+	readonly orientationIsLandscape: boolean,
+	readonly orientationIsPortrait: boolean,
+	readonly deviceType: DeviceType,
+	readonly exactMobileDeviceType: ExactMobileDeviceType,
+	readonly currentUA: string,
+	readonly cookieStatus: CookieStatus,
+	readonly browser: Browser
+	readonly maxTouchPoints: number,
+	readonly navigatorObject: object,
+	readonly browserOnlineStatus: BrowserOnlineStatus,
+	readonly PDFviewerStatus: PDFStatus,
+	readonly robotStatus: RobotStatus,
+	readonly OS: OperatingSystem,
+	readonly lat: number,
+	readonly lon: number,
+	readonly language: Language
+	readonly deviceMemory: DeviceMemory,
+	readonly camera: MediaStreamResult,
+	readonly audio: MediaStreamResult,
+	readonly audioAndCamera: MediaStreamResult
 }
 
 // Create the UADetect Object

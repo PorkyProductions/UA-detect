@@ -17,8 +17,8 @@
 const navigatorObjectDev: Navigator = window.navigator;
 
 export interface NavigatorSub {
-	name: string;
-	value: string | null | boolean | undefined | Geolocation
+	readonly name: string;
+	readonly value: string | null | boolean | undefined | Geolocation
 }
 
 export const getterForNavigator = (): NavigatorSub[] => [

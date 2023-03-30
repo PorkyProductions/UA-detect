@@ -9,7 +9,7 @@ export interface MediaConstraints {
    * Grab Audio
    * @type {boolean}
    */
-  audio: boolean;
+  readonly audio: boolean;
   /**
      * Grab Video streams & optional config
      * @type {(boolean | {
@@ -31,7 +31,7 @@ export interface MediaConstraints {
             }
         })}
      */
-  video:
+  readonly video:
     | boolean
     | {
         width?: {
