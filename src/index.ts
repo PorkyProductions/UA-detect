@@ -115,6 +115,12 @@ import {
 
 import { type PDFStatus, PDFviewerStatus, getPDF } from './pdf';
 
+// Permissions
+
+import {
+	permissionGranted
+} from './permissions';
+
 // Service Worker
 
 import { registerServiceWorker } from './sw';
@@ -174,7 +180,8 @@ export {
 	lat,
 	lon,
 	language,
-	deviceMemory
+	deviceMemory,
+	permissionGranted
 };
 export interface __UADetect {
 	readonly getDeviceType: () => DeviceType,
@@ -200,6 +207,7 @@ export interface __UADetect {
 	readonly setClipboardText: (text: string) => Promise<void>
 	readonly getClipboardAdvanced: () => Promise<ClipboardItems | void>
 	readonly setClipboardAdvanced: (items: ClipboardItems) => Promise<void>
+	readonly permissionGranted: (name: PermissionName) => Promise<boolean>
 	readonly orientationIsLandscape: boolean,
 	readonly orientationIsPortrait: boolean,
 	readonly deviceType: DeviceType,
@@ -294,6 +302,9 @@ const UADetect: __UADetect = {
 	setClipboardAdvanced: async (items: ClipboardItems) => {
 		return await setClipboardAdvanced(items);
 	},
+	permissionGranted: async function (name: PermissionName): Promise<boolean> {
+		return await permissionGranted(name);
+	},
 	// From here, we can then begin to call the returns on those unknowns here
 	// Most of them are just transferring the name over
 	orientationIsLandscape: orientationIsLandscape,
@@ -315,7 +326,7 @@ const UADetect: __UADetect = {
 	deviceMemory: deviceMemory,
 	camera: camera,
 	audio: audio,
-	audioAndCamera: audioAndCamera
+	audioAndCamera: audioAndCamera,
 };
 export default UADetect;
 
@@ -431,5 +442,8 @@ export class uaDetect implements __UADetect {
 	}
 	public async setClipboardAdvanced(items: ClipboardItems): Promise<void> {
 		return await setClipboardAdvanced(items);
+	}
+	public async permissionGranted(name: PermissionName): Promise<boolean> {
+		return await permissionGranted(name);
 	}
 }
