@@ -20,6 +20,7 @@ esbuild
             "../../src/navigator.ts",
             "../../src/orientation.ts",
             "../../src/pdf.ts",
+            "../../src/permissions.ts",
             "../../src/sw.ts",
             "../../src/vibrate.ts",
             "../../src/webdriver.ts"
