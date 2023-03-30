@@ -224,7 +224,7 @@ export interface __UADetect {
 
 // Create the UADetect Object
 
-export const UADetect: __UADetect = {
+const UADetect: __UADetect = {
 	getDeviceType() {
 		return getDeviceType();
 	},
@@ -317,6 +317,7 @@ export const UADetect: __UADetect = {
 	audio: audio,
 	audioAndCamera: audioAndCamera
 };
+export default UADetect;
 
 export class uaDetect implements __UADetect {
 	orientationIsLandscape: boolean = orientationIsLandscape;
