@@ -15,6 +15,14 @@
 * limitations under the License.
 */
 
+if (typeof window === 'undefined') {
+	throw new Error(`
+		Fatal Error: UADetect is not meant to be used in node or server environments.
+		Please only run UADetect in browser windows
+		Read more at https://porkyproductions.github.io/UA-detect/
+	`);
+}
+
 
 // Browser
 
