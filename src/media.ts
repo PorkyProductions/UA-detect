@@ -10,27 +10,6 @@ export interface MediaConstraints {
    * @type {boolean}
    */
   readonly audio: boolean;
-  /**
-     * Grab Video streams & optional config
-     * @type {(boolean | {
-            width?: {
-                min?: number,
-                ideal?: number,
-                max?: number
-            }
-            height?: {
-                min?: number,
-                ideal?: number,
-                max?: number
-            }
-            facingMode?: string | {
-                exact?: string
-            }
-            deviceId?: string | {
-                exact?: string
-            }
-        })}
-     */
   readonly video:
     | boolean
     | {
@@ -87,7 +66,7 @@ export async function getMedia(
 export const camera = getMedia({
 	audio: false,
 	video: true,
-});
+}).then(stream => stream);
 
 /**
  * Example audio return
@@ -97,7 +76,7 @@ export const camera = getMedia({
 export const audio = getMedia({
 	audio: true,
 	video: false,
-});
+}).then(stream => stream);
 
 /**
  * Example audio and camera retyrn
@@ -106,4 +85,4 @@ export const audio = getMedia({
 export const audioAndCamera = getMedia({
 	audio: true,
 	video: true,
-});
+}).then(stream => stream);
