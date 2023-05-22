@@ -21,20 +21,6 @@
     "jest-environment-jsdom": "^29.5.0",
     "typescript": "^4.9.5"
   },
-  "exports": {
-    ".": {
-      "types": "./dist/types/index.d.ts",
-      "import": "./dist/index.js"
-    },
-    "./small": {
-      "types": "./dist/types/index.d.ts",
-      "import": "./dist/small/index.d.ts"
-    },
-    "./slim": {
-      "types": "./dist/types/index.d.ts",
-      "import": "./dist/slim/index.js"
-    }
-  },
   "files": [
     "./dist/**/*.js",
     "./dist/**/*.js.map",
