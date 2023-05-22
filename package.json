@@ -26,11 +26,11 @@
       "types": "./dist/types/index.d.ts",
       "import": "./dist/index.js"
     },
-    "small": {
+    "./small": {
       "types": "./dist/types/index.d.ts",
       "import": "./dist/small/index.d.ts"
     },
-    "slim": {
+    "./slim": {
       "types": "./dist/types/index.d.ts",
       "import": "./dist/slim/index.js"
     }
@@ -93,5 +93,5 @@
   },
   "type": "module",
   "types": "./dist/types/index.d.ts",
-  "version": "6.0.0-beta-1"
+  "version": "6.0.0-beta-2"
 }
