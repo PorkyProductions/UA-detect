@@ -26,7 +26,7 @@
     "target": "ES2020", // 3 years ago JavaScript is up to date enough, right???
     "watch": false,
     "outDir": "./dist/",
-    "declarationDir": "./dist/types/"
+    "declarationDir": "./dist/"
   },
   "files": ["./src/index.ts"],
   "types": [],

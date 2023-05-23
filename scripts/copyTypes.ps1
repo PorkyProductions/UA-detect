@@ -1,1 +1,0 @@
-Copy-Item -Path "C:\Users\rpmul\source\repos\uadetect\packages\uadetect\dist\types\*" -Destination "C:\Users\rpmul\source\repos\uadetect\packages\small\dist\types\" -Recurse
