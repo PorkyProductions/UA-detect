@@ -53,6 +53,7 @@
     "hardwareConcurrency"
   ],
   "license": "Apache-2.0",
+  "main": "./dist/index.js",
   "maintainers": [
     "Ryan Mullin"
   ],
@@ -71,5 +72,5 @@
   },
   "type": "module",
   "types": "./dist/index.d.ts",
-  "version": "6.0.0-beta-6"
+  "version": "6.0.0-beta-7"
 }
