@@ -13,6 +13,6 @@
     "nuxt": "^3.2.0"
   },
   "dependencies": {
-    "uadetect": "^5.0.0"
+    "uadetect": "^6.0.0-beta-5"
   }
 }
