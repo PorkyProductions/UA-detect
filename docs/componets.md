@@ -80,7 +80,7 @@ Click any of them to go to their individual documentation.
 - [`browserOnlineStatus`](browserOnlineStatus.md)
 - [`cookieStatus`](cookieStatus.md)
 - [`currentUA`](currentUA.md)
-- [`finiteDeviceType`](DEVICE_finiteType.md)
+- [`exactDeviceType`](DEVICE_finiteType.md)
 - [`deviceMemory`](deviceMemory.md)
 - [`deviceType`](DEVICE_type.md)
 - [`doNotTrackStatus`](doNotTrackStatus.md)
@@ -97,10 +97,12 @@ Click any of them to go to their individual documentation.
 - [`vibrate`](vibrate.md)
 - [`canShareData`](canShare.md)
 - [`getMedia`](getMedia.md)
-- -[registerServiceWorker](registerServiceWorker.md)
+- [`registerServiceWorker`](registerServiceWorker.md)
+- [`clipboard`](clipboard.md)
+- [`permissionGranted`](permissions.md)
 - `getScreenOrientation`
 - `getDeviceType`
-- `getFiniteMobileDeviceType`
+- `getExactMobileDeviceType`
 - `getCurrentUA`
 	`getCookies`
 - `getBrowser`

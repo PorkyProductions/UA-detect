@@ -1,9 +1,9 @@
 # UADetect Documentation
 
-### Version: 5
+### Version: 6
 
 - [UADetect Documentation](#uadetect-documentation)
-    - [Version: 5](#version-5)
+    - [Version: 6](#version-6)
   - [WELCOME!](#welcome)
   - [Prerequisites](#prerequisites)
     - [node](#node)
