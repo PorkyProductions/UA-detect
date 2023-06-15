@@ -9,7 +9,6 @@
   "description": "The dead-simple way of interacting with the navigator API",
   "devDependencies": {
     "@types/jest": "^29.5.0",
-    "@types/node": "^18.15.11",
     "@typescript-eslint/eslint-plugin": "^5.57.0",
     "@typescript-eslint/parser": "^5.57.0",
     "eslint": "^8.37.0",
@@ -68,9 +67,9 @@
     "build": "npm run build:core",
     "build:core": "tsc --project tsconfig.json",
     "publish": "npm publish",
-    "lint": "eslint ./src/**"
+    "lint": "eslint ./src/** --fix"
   },
   "type": "module",
   "types": "./dist/index.d.ts",
-  "version": "6.0.0-beta-7"
+  "version": "6.0.0"
 }
