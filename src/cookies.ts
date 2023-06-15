@@ -1,6 +1,6 @@
 /**
 * @license
-* Copyright 2022, PorkyProductions, and contributors
+* Copyright 2023, PorkyProductions, and contributors
 *
 * Licensed under the Apache License, Version 2.0 (the "License");
 * you may not use this file except in compliance with the License.
@@ -16,7 +16,9 @@
 */
 const cookies: boolean = navigator.cookieEnabled;
 
-const getCookies = (): 'cookiesEnabled' | 'cookiesNotEnabled' | 'Unknown' => {
+export type CookieStatus = 'cookiesEnabled' | 'cookiesNotEnabled' | 'Unknown'
+
+const getCookies = (): CookieStatus => {
 	if (cookies === true) {
 		return 'cookiesEnabled';
 	} if (cookies === false) {
@@ -28,5 +30,4 @@ const getCookies = (): 'cookiesEnabled' | 'cookiesNotEnabled' | 'Unknown' => {
 
 const cookieStatus = getCookies();
 
-export { cookieStatus };
-export { getCookies };
+export { cookieStatus, getCookies };

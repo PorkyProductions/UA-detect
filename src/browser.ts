@@ -1,6 +1,6 @@
 /**
 * @license
-* Copyright 2022, PorkyProductions, and contributors
+* Copyright 2023, PorkyProductions, and contributors
 *
 * Licensed under the Apache License, Version 2.0 (the "License");
 * you may not use this file except in compliance with the License.
@@ -15,12 +15,15 @@
 * limitations under the License.
 */
 const ua = navigator.userAgent;
+export type Browser = 'Opera' | 'Chrome' | 'Brave' | 'Firefox' | 'Safari' | 'IE' | 'Edge' | 'Unknown' | undefined
 
-const getBrowser = (): 'Opera' | 'Chrome' | 'Firefox' | 'Safari' | 'IE' | 'Edge' | 'Unknown' | undefined => {
+const getBrowser = (): Browser => {
 	if (ua.indexOf('Opera') > -1) {
 		return 'Opera';
 	} if (ua.indexOf('Chrome') > -1) {
 		return 'Chrome';
+	} if(ua.indexOf('Brave') > -1) {
+		return 'Brave';
 	} if (ua.indexOf('Firefox') > -1) {
 		return 'Firefox';
 	} if (ua.indexOf('Safari') > -1) {

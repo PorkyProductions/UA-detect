@@ -9,29 +9,8 @@ export interface MediaConstraints {
    * Grab Audio
    * @type {boolean}
    */
-  audio: boolean;
-  /**
-     * Grab Video streams & optional config
-     * @type {(boolean | {
-            width?: {
-                min?: number,
-                ideal?: number,
-                max?: number
-            }
-            height?: {
-                min?: number,
-                ideal?: number,
-                max?: number
-            }
-            facingMode?: string | {
-                exact?: string
-            }
-            deviceId?: string | {
-                exact?: string
-            }
-        })}
-     */
-  video:
+  readonly audio: boolean;
+  readonly video:
     | boolean
     | {
         width?: {
@@ -64,6 +43,10 @@ export interface MediaConstraints {
  * @param {MediaConstraints} constraints
  * @returns {(Promise<MediaStream | unknown | undefined>)}
  */
+
+
+export type MediaStreamResult = Promise<void | unknown | MediaStream | undefined>
+
 export async function getMedia(
 	constraints: MediaConstraints
 ): Promise<MediaStream | unknown | undefined> {
@@ -71,7 +54,7 @@ export async function getMedia(
 	try {
 		stream ||= await navigator.mediaDevices.getUserMedia(constraints);
 		return stream;
-	} catch (err) {
+	} catch (err: Error | unknown) {
 		return err;
 	}
 }
@@ -83,7 +66,7 @@ export async function getMedia(
 export const camera = getMedia({
 	audio: false,
 	video: true,
-});
+}).then(stream => stream);
 
 /**
  * Example audio return
@@ -93,7 +76,7 @@ export const camera = getMedia({
 export const audio = getMedia({
 	audio: true,
 	video: false,
-});
+}).then(stream => stream);
 
 /**
  * Example audio and camera retyrn
@@ -102,4 +85,4 @@ export const audio = getMedia({
 export const audioAndCamera = getMedia({
 	audio: true,
 	video: true,
-});
+}).then(stream => stream);

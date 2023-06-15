@@ -1,6 +1,6 @@
 /**
 * @license
-* Copyright 2022, PorkyProductions, and contributors
+* Copyright 2023, PorkyProductions, and contributors
 *
 * Licensed under the Apache License, Version 2.0 (the "License");
 * you may not use this file except in compliance with the License.
@@ -15,18 +15,21 @@
 * limitations under the License.
 */
 import { browser } from './browser';
+
+export type VibrateResult = 'success' | 'failure'
+
 /**
  * vibrate
  * @param {(number[] | number | VibratePattern)} pattern
  * @returns {('success' | 'failure')}
  */
-export const vibrate = (pattern: number[] | number | VibratePattern): 'success' | 'failure' => {
+export const vibrate = (pattern: number[] | number | VibratePattern): VibrateResult => {
 	if (browser === 'Safari') {
 		console.error(`Vibration API not supported on Safari. (UAD_${Math.round(Math.floor(Math.random() * 1000) + 1)})`);
 		return 'failure';
 	} else {
 		const result: boolean = navigator.vibrate(pattern);
-		if (result == true) {
+		if (result === true) {
 			return 'success';
 		} else {
 			return 'failure';

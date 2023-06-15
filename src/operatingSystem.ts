@@ -1,6 +1,6 @@
 /**
 * @license
-* Copyright 2022, PorkyProductions, and contributors
+* Copyright 2023, PorkyProductions, and contributors
 *
 * Licensed under the Apache License, Version 2.0 (the "License");
 * you may not use this file except in compliance with the License.
@@ -14,8 +14,11 @@
 * See the License for the specific language governing permissions and
 * limitations under the License.
 */
+
+export type OperatingSystem = 'Windows' | 'Mac' | 'Linux' | 'Android' | 'iOS' | 'Unknown'
+
 const ua = navigator.userAgent;
-const getOS = (): 'Windows' | 'Mac' | 'Linux' | 'Android' | 'iOS' | 'Unknown' => {
+const getOS = (): OperatingSystem => {
 	if (ua.indexOf('Windows') > -1) {
 		return 'Windows';
 	} if (ua.indexOf('Mac') > -1) {

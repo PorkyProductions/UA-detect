@@ -1,6 +1,6 @@
 ﻿/**
 * @license
-* Copyright 2022, PorkyProductions, and contributors
+* Copyright 2023, PorkyProductions, and contributors
 *
 * Licensed under the Apache License, Version 2.0 (the "License");
 * you may not use this file except in compliance with the License.
@@ -14,32 +14,29 @@
 * See the License for the specific language governing permissions and
 * limitations under the License.
 */
-export default function finiteMobileDeviceType(): 'iOS' | 'Android' | 'BlackBerry' | 'Windows Phone' | 'webOS' | 'Unknown' | Error {
+
+export type ExactMobileDeviceType = 'iOS' | 'Android' | 'BlackBerry' | 'Windows Phone' | 'webOS' | 'Unknown' | Error
+
+
+export default function getExactMobileDeviceType(): ExactMobileDeviceType {
 	const ua = navigator.userAgent;
 	if (/(iPhone|iPod|iPad)/i.test(ua)) {
-		console.log('iOS');
 		return 'iOS';
 	}
 	if (/Android/i.test(ua)) {
-		console.log('Android');
 		return 'Android';
 	}
 	if (/BlackBerry/i.test(ua)) {
-		console.log('BlackBerry');
 		return 'BlackBerry';
 	}
 	if (/Windows Phone/i.test(ua)) {
-		console.log('Windows Phone');
 		return 'Windows Phone';
 	}
 	if (/webOS/i.test(ua)) {
-		console.log('webOS');
 		return 'webOS';
 	}
 
 	console.error(`Unknown device type (UAD_${Math.round(Math.floor(Math.random() * 1000) + 1)})`);
 	return 'Unknown';
 }
-const finiteDeviceType = finiteMobileDeviceType();
-
-export { finiteDeviceType as DEVICE_finiteType, finiteMobileDeviceType };
+export const exactMobileDeviceType = getExactMobileDeviceType();

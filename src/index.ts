@@ -1,6 +1,6 @@
 /**
 * @license
-* Copyright 2022, PorkyProductions, and contributors
+* Copyright 2023, PorkyProductions, and contributors
 *
 * Licensed under the Apache License, Version 2.0 (the "License");
 * you may not use this file except in compliance with the License.
@@ -15,11 +15,19 @@
 * limitations under the License.
 */
 
+if (typeof window === 'undefined') {
+	throw new Error(`
+		Fatal Error: UADetect is not meant to be used in node or server environments.
+		Please only run UADetect in browser windows
+		Read more at https://porkyproductions.github.io/UA-detect/
+	`);
+}
+
 
 // Browser
 
 
-import { browser, getBrowser } from './browser';
+import { type Browser, browser, getBrowser } from './browser';
 
 // CanShare
 
@@ -28,24 +36,34 @@ import { canShareData } from './canShare';
 // Cookies
 
 import { cookieStatus, getCookies } from './cookies';
+import type { CookieStatus } from './cookies';
+
+// Clipboard
+
+import {
+	getClipboardAdvanced,
+	getClipboardText,
+	setClipboardAdvanced,
+	setClipboardText
+} from './clipboard';
 
 // Device Memory
 
 import {
-	browserSpecificGetMemory,
-	deviceMemory
+	browserSpecificGetMemory, deviceMemory
 } from './deviceMemory';
+import type { DeviceMemory } from './deviceMemory';
 
 // Device Type
 
-import { DetectDeviceType, DEVICE_type } from './deviceType';
+import { type DeviceType, deviceType, getDeviceType } from './deviceType';
 
-// Finite Mobile Device Type
+// Exact Mobile Device Type
 
-import {
-	DEVICE_finiteType,
-	finiteMobileDeviceType
-} from './finiteMobileDeviceType';
+import getExactMobileDeviceType, {
+	type ExactMobileDeviceType,
+	exactMobileDeviceType
+} from './exactMobileDeviceType';
 
 // Geolocation
 
@@ -57,14 +75,13 @@ import {
 // Language
 
 import {
-	getLang, language, Language
+	type Language, getLang, language
 } from './language';
 
 // Logical Processors
 
 import {
-	browserSpecificSupportCores,
-	processorCores
+	type ProcessorCores, browserSpecificSupportCores, processorCores
 } from './logicalProcessors';
 
 // Max Touch Points
@@ -74,20 +91,17 @@ import { getMaxTouchPoints, maxTouchPoints } from './maxTouchPoints';
 // Camera, Audio, Media
 
 import {
-	MediaConstraints,
-	camera,
-	audio,
-	audioAndCamera,
-	getMedia
+	type MediaConstraints,
+	type MediaStreamResult, audio, audioAndCamera, camera, getMedia
 } from './media';
 
 // Navigator Object
 
-import { getterForNavigator, navigatorObject, NavigatorSub } from './navigator';
+import { type NavigatorSub, getterForNavigator, navigatorObject } from './navigator';
 
 // Online Status
 
-import { browserOnlineStatus, getBrowserIsOnline } from './online';
+import { type BrowserOnlineStatus, browserOnlineStatus, getBrowserIsOnline } from './online';
 
 // standard UA
 
@@ -95,18 +109,25 @@ import { currentUA, getCurrentUA } from './getCurrentUA';
 
 // Operating System
 
-import { getOS, OS } from './operatingSystem';
+import { OS, type OperatingSystem, getOS } from './operatingSystem';
 
 //SCREEN ORIENTATION
 
 import {
-	DetectScreenOrientation,
-	ORIENTATION_isLandscape
+	getScreenOrientation,
+	orientationIsLandscape,
+	orientationIsPortrait
 } from './orientation';
 
 // PDF Viewer
 
-import { getPDF, PDFviewerStatus } from './pdf';
+import { type PDFStatus, PDFviewerStatus, getPDF } from './pdf';
+
+// Permissions
+
+import {
+	permissionGranted
+} from './permissions';
 
 // Service Worker
 
@@ -114,20 +135,20 @@ import { registerServiceWorker } from './sw';
 
 // Vibrate
 
-import { vibrate } from './vibrate';
+import { type VibrateResult, vibrate } from './vibrate';
 
 // Webdriver
 
-import { getBots, robotStatus } from './webdriver';
+import { type RobotStatus, getBots, robotStatus } from './webdriver';
 
 // Exports
 
 // Make the unknowns accessible
 
 export {
-	DetectScreenOrientation as getScreenOrientation,
-	DetectDeviceType as getDeviceType,
-	finiteMobileDeviceType as getFiniteMobileDeviceType,
+	getScreenOrientation as getScreenOrientation,
+	getDeviceType as getDeviceType,
+	getExactMobileDeviceType as getExactMobileDeviceType,
 	getCurrentUA,
 	getCookies,
 	getBrowser,
@@ -142,13 +163,18 @@ export {
 	browserSpecificGetMemory as getMemory,
 	vibrate,
 	canShareData,
-	registerServiceWorker
+	registerServiceWorker,
+	getClipboardText,
+	getClipboardAdvanced,
+	setClipboardAdvanced,
+	setClipboardText
 };
 // As well as the returns on those unknowns
 export {
-	ORIENTATION_isLandscape as orientationIsLandscape,
-	DEVICE_type as deviceType,
-	DEVICE_finiteType as deviceFiniteType,
+	orientationIsLandscape,
+	orientationIsPortrait,
+	deviceType as deviceType,
+	exactMobileDeviceType,
 	currentUA,
 	cookieStatus,
 	browser,
@@ -162,63 +188,67 @@ export {
 	lat,
 	lon,
 	language,
-	deviceMemory
+	deviceMemory,
+	permissionGranted
 };
-
-
-export interface _UADetect {
-	getDeviceType: () => 'tablet' | 'mobile' | 'desktop',
-	getScreenOrientation: () => boolean,
-	getFiniteMobileDeviceType: () => 'Android' | 'iOS' | 'Unknown' | Error | 'BlackBerry' | 'Windows Phone' | 'webOS',
-	getCurrentUA: () => string,
-	getCookieStatus: () =>  'cookiesEnabled' | 'cookiesNotEnabled' | 'Unknown',
-	getBrowser: () => 'Opera' | 'Chrome' | 'Firefox' | 'Safari' | 'IE' | 'Edge' | 'Unknown' | undefined,
-	getProcessorCores: () => number | undefined,
-	getMaxTouchPoints: () => number,
-	getNavigatorObject: () => NavigatorSub[],
-	getBrowserOnlineStatus: () => 'browserOnline' | 'browserOffline',
-	getPDFviewerStatus: () => 'PDFviewerEnabled' | 'PDFviewerDisabled',
-	getRobotStatus: () => 'robotControlled' | 'humanControlled' | 'Unknown',
-	getOS: () => 'Windows' | 'Mac' | 'Linux' | 'Android' | 'iOS' | 'Unknown',
-	registerServiceWorker: (path: string | URL, options?: RegistrationOptions) => void,
-	getLang: () => Language;
-	getMemory: () => number | 'Unknown' | undefined,
-	vibrate: (pattern: number | number[] | VibratePattern) => 'success' | 'failure',
-	canShareData: (data?: ShareData) => boolean,
-	getMedia: (constraints: MediaConstraints) => Promise<void | unknown | MediaStream | undefined>
-	orientationIsLandscape: boolean,
-	deviceType: 'tablet' | 'mobile' | 'desktop',
-	deviceFiniteType: 'Android' | 'iOS' | 'Unknown' | Error | 'BlackBerry' | 'Windows Phone' | 'webOS',
-	currentUA: string,
-	cookieStatus: 'cookiesEnabled' | 'cookiesNotEnabled' | 'Unknown',
-	browser: 'Opera' | 'Chrome' | 'Firefox' | 'Safari' | 'IE' | 'Edge' | 'Unknown' | undefined,
-	processorCores: number | undefined | unknown,
-	maxTouchPoints: number,
-	navigatorObject: object,
-	browserOnlineStatus: 'browserOnline' | 'browserOffline',
-	PDFviewerStatus: 'PDFviewerEnabled' | 'PDFviewerDisabled',
-	robotStatus: 'robotControlled' | 'humanControlled' | 'Unknown',
-	OS: 'Windows' | 'Mac' | 'Linux' | 'Android' | 'iOS' | 'Unknown',
-	lat: number,
-	lon: number,
-	language: Language
-	deviceMemory: number | 'Unknown' | undefined,
-	camera: Promise<unknown | MediaStream | undefined>,
-	audio: Promise<unknown | MediaStream | undefined>,
-	audioAndCamera: Promise<unknown | MediaStream | undefined>
+export interface __UADetect {
+	readonly getDeviceType: () => DeviceType,
+	readonly getScreenOrientation: () => void,
+	readonly getExactMobileDeviceType: () => ExactMobileDeviceType,
+	readonly getCurrentUA: () => string,
+	readonly getCookieStatus: () => CookieStatus,
+	readonly getBrowser: () => Browser,
+	readonly getProcessorCores: () => ProcessorCores,
+	readonly getMaxTouchPoints: () => number,
+	readonly getNavigatorObject: () => NavigatorSub[],
+	readonly getBrowserOnlineStatus: () => BrowserOnlineStatus,
+	readonly getPDFviewerStatus: () => PDFStatus,
+	readonly getRobotStatus: () => RobotStatus,
+	readonly getOS: () => OperatingSystem,
+	readonly registerServiceWorker: (path: string | URL, options?: RegistrationOptions) => void,
+	readonly getLang: () => Language;
+	readonly getMemory: () => DeviceMemory,
+	readonly vibrate: (pattern: number | number[] | VibratePattern) => VibrateResult,
+	readonly canShareData: (data?: ShareData) => boolean,
+	readonly getMedia: (constraints: MediaConstraints) => MediaStreamResult
+	readonly getClipboardText: () => Promise<string | void>
+	readonly setClipboardText: (text: string) => Promise<void>
+	readonly getClipboardAdvanced: () => Promise<ClipboardItems | void>
+	readonly setClipboardAdvanced: (items: ClipboardItems) => Promise<void>
+	readonly permissionGranted: (name: PermissionName) => Promise<boolean>
+	readonly orientationIsLandscape: boolean,
+	readonly orientationIsPortrait: boolean,
+	readonly deviceType: DeviceType,
+	readonly exactMobileDeviceType: ExactMobileDeviceType,
+	readonly currentUA: string,
+	readonly cookieStatus: CookieStatus,
+	readonly browser: Browser
+	readonly maxTouchPoints: number,
+	readonly navigatorObject: object,
+	readonly browserOnlineStatus: BrowserOnlineStatus,
+	readonly PDFviewerStatus: PDFStatus,
+	readonly robotStatus: RobotStatus,
+	readonly OS: OperatingSystem,
+	readonly lat: number,
+	readonly lon: number,
+	readonly language: Language
+	readonly deviceMemory: DeviceMemory,
+	readonly camera: MediaStreamResult,
+	readonly audio: MediaStreamResult,
+	readonly audioAndCamera: MediaStreamResult
 }
 
 // Create the UADetect Object
 
-export const UADetect: _UADetect = {
+const UADetect: __UADetect = {
 	getDeviceType() {
-		return DetectDeviceType();
+		return getDeviceType();
 	},
 	getScreenOrientation() {
-		return DetectScreenOrientation();
+		return getScreenOrientation();
 	},
-	getFiniteMobileDeviceType() {
-		return finiteMobileDeviceType();
+	getExactMobileDeviceType() {
+		return getExactMobileDeviceType();
 	},
 	getCurrentUA() {
 		return getCurrentUA();
@@ -265,18 +295,33 @@ export const UADetect: _UADetect = {
 	canShareData: (data?: ShareData) => {
 		return canShareData(data);
 	},
-	getMedia: (constraints: MediaConstraints) => {
-		return getMedia(constraints);
+	getMedia: async (constraints: MediaConstraints) => {
+		return await getMedia(constraints);
+	},
+	getClipboardText: async () => {
+		return await getClipboardText();
+	},
+	getClipboardAdvanced: async () => {
+		return await getClipboardAdvanced();
+	},
+	setClipboardText: async (text: string) => {
+		return await setClipboardText(text);
+	},
+	setClipboardAdvanced: async (items: ClipboardItems) => {
+		return await setClipboardAdvanced(items);
+	},
+	permissionGranted: async function (name: PermissionName): Promise<boolean> {
+		return await permissionGranted(name);
 	},
 	// From here, we can then begin to call the returns on those unknowns here
 	// Most of them are just transferring the name over
-	orientationIsLandscape: ORIENTATION_isLandscape,
-	deviceType: DEVICE_type,
-	deviceFiniteType: DEVICE_finiteType,
+	orientationIsLandscape: orientationIsLandscape,
+	orientationIsPortrait: orientationIsPortrait,
+	deviceType: deviceType,
+	exactMobileDeviceType: exactMobileDeviceType,
 	currentUA: currentUA,
 	cookieStatus: cookieStatus,
 	browser: browser,
-	processorCores: processorCores,
 	maxTouchPoints: maxTouchPoints,
 	navigatorObject: navigatorObject,
 	browserOnlineStatus: browserOnlineStatus,
@@ -289,132 +334,124 @@ export const UADetect: _UADetect = {
 	deviceMemory: deviceMemory,
 	camera: camera,
 	audio: audio,
-	audioAndCamera: audioAndCamera
+	audioAndCamera: audioAndCamera,
 };
+export default UADetect;
 
-export class uaDetect implements _UADetect {
-	getDeviceType!: () => 'tablet' | 'mobile' | 'desktop';
-	getScreenOrientation!: () => boolean;
-	getFiniteMobileDeviceType!: () => 'Android' | 'iOS' | 'Unknown' | Error | 'BlackBerry' | 'Windows Phone' | 'webOS';
-	getCurrentUA!: () => string;
-	getCookieStatus!: () => 'cookiesEnabled' | 'cookiesNotEnabled' | 'Unknown';
-	getDoNotTrackStatus!: () => 'Unknown' | 'trackingAllowed' | 'trackingNotAllowed' | 'trackingUnspecified';
-	getBrowser!: () => 'Opera' | 'Chrome' | 'Firefox' | 'Safari' | 'IE' | 'Edge' | 'Unknown' | undefined;
-	getProcessorCores!: () => number | undefined;
-	getMaxTouchPoints!: () => number;
-	getNavigatorObject!: () => NavigatorSub[];
-	getBrowserOnlineStatus!: () => 'browserOnline' | 'browserOffline';
-	getPDFviewerStatus!: () => 'PDFviewerEnabled' | 'PDFviewerDisabled';
-	getRobotStatus!: () => 'Unknown' | 'robotControlled' | 'humanControlled';
-	getOS!: () => 'Windows' | 'Mac' | 'Linux' | 'Android' | 'iOS' | 'Unknown';
-	getEngine!: () => string | Error;
-	getVersion!: () => string | number | Error;
-	getLang!: () => 'Amharic' | 'Arabic' | 'Basque' | 'Bengali' | 'British English' | 'Brazillian Portuguese' | 'Bulgarian' | 'Catalan' | 'Cherokee' | 'Croatian' | 'Czech' | 'Danish' | 'Dutch' | 'American English' | 'Estonian' | 'Filipino' | 'Finnish' | 'French' | 'German' | 'Greek' | 'Gujarati' | 'Hebrew' | 'Hindi' | 'Hungarian' | 'Icelandic' | 'Indonesian' | 'Italian' | 'Japanese' | 'Kannada' | 'Korean' | 'Latvian' | 'Lithuanian' | 'Malay' | 'Malayalam' | 'Marathi' | 'Norwegian' | 'Polish' | 'Portugal Portuguese' | 'Romanian' | 'Russian' | 'PRC Chinese' | 'Serbian' | 'Slovak' | 'Slovenian' | 'Spanish' | 'Swahili' | 'Swedish' | 'Tamil' | 'Telugu' | 'Thai' | 'Taiwan Chinese' | 'Turkish' | 'Urdu' | 'Ukrainian' | 'Vietnamese' | 'Welsh' | undefined;
-	getMemory!: () => number | 'Unknown' | undefined;
-	registerServiceWorker!: (path: string | URL, options?: RegistrationOptions) => void;
-	vibrate!: (pattern: VibratePattern) => 'success' | 'failure';
-	canShareData!: (data?: ShareData) => boolean;
-	getMedia!: (constraints: MediaConstraints) => Promise<void | unknown | MediaStream | undefined>;
-	orientationIsLandscape!: boolean;
-	deviceType!: 'tablet' | 'mobile' | 'desktop';
-	deviceFiniteType!: 'Android' | 'iOS' | 'Unknown' | Error | 'BlackBerry' | 'Windows Phone' | 'webOS';
-	currentUA!: string;
-	cookieStatus!: 'cookiesEnabled' | 'cookiesNotEnabled' | 'Unknown';
-	doNotTrackStatus!: 'Unknown' | 'trackingAllowed' | 'trackingNotAllowed' | 'trackingUnspecified';
-	browser: 'Opera' | 'Chrome' | 'Firefox' | 'Safari' | 'IE' | 'Edge' | 'Unknown' | undefined;
-	processorCores: unknown;
-	maxTouchPoints!: number;
-	navigatorObject!: object;
-	browserOnlineStatus!: 'browserOnline' | 'browserOffline';
-	PDFviewerStatus!: 'PDFviewerEnabled' | 'PDFviewerDisabled';
-	robotStatus!: 'Unknown' | 'robotControlled' | 'humanControlled';
-	OS!: 'Windows' | 'Mac' | 'Linux' | 'Android' | 'iOS' | 'Unknown';
-	lat!: number;
-	lon!: number;
-	engine!: string | Error;
-	version!: string | number | Error;
-	language!: 'Amharic' | 'Arabic' | 'Basque' | 'Bengali' | 'British English' | 'Brazillian Portuguese' | 'Bulgarian' | 'Catalan' | 'Cherokee' | 'Croatian' | 'Czech' | 'Danish' | 'Dutch' | 'American English' | 'Estonian' | 'Filipino' | 'Finnish' | 'French' | 'German' | 'Greek' | 'Gujarati' | 'Hebrew' | 'Hindi' | 'Hungarian' | 'Icelandic' | 'Indonesian' | 'Italian' | 'Japanese' | 'Kannada' | 'Korean' | 'Latvian' | 'Lithuanian' | 'Malay' | 'Malayalam' | 'Marathi' | 'Norwegian' | 'Polish' | 'Portugal Portuguese' | 'Romanian' | 'Russian' | 'PRC Chinese' | 'Serbian' | 'Slovak' | 'Slovenian' | 'Spanish' | 'Swahili' | 'Swedish' | 'Tamil' | 'Telugu' | 'Thai' | 'Taiwan Chinese' | 'Turkish' | 'Urdu' | 'Ukrainian' | 'Vietnamese' | 'Welsh' | undefined;
-	deviceMemory!: number | 'Unknown' | undefined;
-	camera!: Promise<unknown | MediaStream | undefined>;
-	audio!: Promise<unknown | MediaStream | undefined>;
-	audioAndCamera!: Promise<unknown | MediaStream | undefined>;
-	constructor() {
-		this.getDeviceType = () => {
-			return DetectDeviceType();
-		};
-		this.getScreenOrientation = () => {
-			return DetectScreenOrientation();
-		};
-		this.getFiniteMobileDeviceType = () => {
-			return finiteMobileDeviceType();
-		};
-		this.getCurrentUA =() => {
-			return getCurrentUA();
-		};
-		this.getCookieStatus = () => {
-			return getCookies();
-		};
-		this.getBrowser = () => {
-			return getBrowser();
-		};
-		this.getProcessorCores = () => {
-			return browserSpecificSupportCores();
-		};
-		this.getMaxTouchPoints = () => {
-			return getMaxTouchPoints();
-		};
-		this.getNavigatorObject = () => {
-			return getterForNavigator();
-		};
-		this.getBrowserOnlineStatus = () => {
-			return getBrowserIsOnline();
-		};
-		this.getPDFviewerStatus = () => {
-			return getPDF();
-		};
-		this.getRobotStatus = () => {
-			return getBots();
-		};
-		this.getOS = () => {
-			return getOS();
-		};
-		this.getLang = () => {
-			return getLang();
-		};
-		this.getMemory = () => {
-			return browserSpecificGetMemory();
-		};
-		this.vibrate = (pattern: VibratePattern) => {
-			return vibrate(pattern);
-		};
-		this.canShareData = (data?: ShareData) => {
-			return canShareData(data);
-		};
-		this.getMedia = (constraints: MediaConstraints) => {
-			return getMedia(constraints);
-		};
-		this.registerServiceWorker = (path: string | URL, options?: RegistrationOptions) => {
-			return registerServiceWorker(path, options);
-		};
-		this.orientationIsLandscape = ORIENTATION_isLandscape;
-		this.deviceType = DEVICE_type;
-		this.deviceFiniteType = DEVICE_finiteType;
-		this.currentUA = currentUA;
-		this.cookieStatus = cookieStatus;
-		this.browser = browser;
-		this.processorCores = processorCores;
-		this.maxTouchPoints = maxTouchPoints;
-		this.navigatorObject = navigatorObject;
-		this.browserOnlineStatus = browserOnlineStatus;
-		this.PDFviewerStatus = PDFviewerStatus;
-		this.robotStatus = robotStatus;
-		this.OS = OS;
-		this.lat = lat;
-		this.lon = lon;
-		this.language = language;
-		this.deviceMemory = deviceMemory;
-		this.camera = camera;
-		this.audio = audio;
-		this.audioAndCamera = audioAndCamera;
+export class uaDetect implements __UADetect {
+	orientationIsLandscape: boolean = orientationIsLandscape;
+	orientationIsPortrait: boolean = orientationIsPortrait;
+	deviceType: DeviceType = deviceType;
+	exactMobileDeviceType: ExactMobileDeviceType = exactMobileDeviceType;
+	currentUA: string = currentUA;
+	cookieStatus: CookieStatus = cookieStatus;
+	browser: Browser = browser;
+	maxTouchPoints: number = maxTouchPoints;
+	navigatorObject: object = navigator;
+	browserOnlineStatus: BrowserOnlineStatus = browserOnlineStatus;
+	PDFviewerStatus: PDFStatus = PDFviewerStatus;
+	robotStatus: RobotStatus = robotStatus;
+	OS: OperatingSystem = OS;
+	lat: number = lat;
+	lon: number = lon;
+	language: Language = language;
+	deviceMemory: DeviceMemory = deviceMemory;
+	camera: MediaStreamResult = camera;
+	audio: MediaStreamResult = audio;
+	audioAndCamera: MediaStreamResult = audioAndCamera;
+	private refresh(): __UADetect {
+		return new uaDetect() as __UADetect;
+	}
+	public getDeviceType(): DeviceType {
+		this.refresh();
+		return getDeviceType() as DeviceType;
+	}
+	public getScreenOrientation(): void {
+		this.refresh();
+		return getScreenOrientation() as void;
+	}
+	public getExactMobileDeviceType(): ExactMobileDeviceType {
+		this.refresh();
+		return getExactMobileDeviceType() as ExactMobileDeviceType;
+	}
+	public getCurrentUA(): string {
+		this.refresh();
+		return getCurrentUA() as string;
+	}
+	public getCookieStatus(): CookieStatus {
+		this.refresh();
+		return getCookies() as CookieStatus;
+	}
+	public getBrowser(): Browser {
+		this.refresh();
+		return getBrowser() as Browser;
+	}
+	public getProcessorCores(): ProcessorCores {
+		this.refresh();
+		return browserSpecificSupportCores() as ProcessorCores;
+	}
+	public getMaxTouchPoints(): number {
+		this.refresh();
+		return getMaxTouchPoints() as number;
+	}
+	public getNavigatorObject(): NavigatorSub[] {
+		this.refresh();
+		return getterForNavigator() as NavigatorSub[];
+	}
+	public getBrowserOnlineStatus(): BrowserOnlineStatus {
+		this.refresh();
+		return getBrowserIsOnline() as BrowserOnlineStatus;
+	}
+	public getPDFviewerStatus(): PDFStatus {
+		this.refresh();
+		return getPDF() as PDFStatus;
+	}
+	public getRobotStatus(): RobotStatus {
+		this.refresh();
+		return getBots() as RobotStatus;
+	}
+	public getOS(): OperatingSystem {
+		this.refresh();
+		return getOS() as OperatingSystem;
+	}
+	public getLang(): Language {
+		this.refresh();
+		return getLang() as Language;
+	}
+	public getMemory(): DeviceMemory {
+		this.refresh();
+		return browserSpecificGetMemory() as DeviceMemory;
+	}
+	public vibrate(pattern: VibratePattern): VibrateResult {
+		this.refresh();
+		return vibrate(pattern) as VibrateResult;
+	}
+	public canShareData(data?: ShareData): boolean {
+		this.refresh();
+		return canShareData(data) as boolean;
+	}
+	public registerServiceWorker(path: string | URL, options?: RegistrationOptions): void {
+		this.refresh();
+		return registerServiceWorker(path, options);
+	}
+	public async getMedia(constraints: MediaConstraints): MediaStreamResult {
+		this.refresh();
+		return await getMedia(constraints) as MediaStreamResult;
+	}
+	public async getClipboardText(): Promise<string> {
+		this.refresh();
+		return await getClipboardText() as string;
+	}
+	public async getClipboardAdvanced(): Promise<ClipboardItems> {
+		return await getClipboardAdvanced() as ClipboardItems;
+	}
+	public async setClipboardText(text: string): Promise<void> {
+		return await setClipboardText(text);
+	}
+	public async setClipboardAdvanced(items: ClipboardItems): Promise<void> {
+		return await setClipboardAdvanced(items);
+	}
+	public async permissionGranted(name: PermissionName): Promise<boolean> {
+		return await permissionGranted(name);
 	}
 }

@@ -1,6 +1,6 @@
 ﻿/**
 * @license
-* Copyright 2022, PorkyProductions, and contributors
+* Copyright 2023, PorkyProductions, and contributors
 *
 * Licensed under the Apache License, Version 2.0 (the "License");
 * you may not use this file except in compliance with the License.
@@ -15,8 +15,11 @@
 * limitations under the License.
 */
 
+
+export type DeviceType = 'tablet' | 'mobile' | 'desktop'
+
 // DEVICE TYPE
-function DetectDeviceType(): 'tablet' | 'mobile' | 'desktop' {
+function getDeviceType(): DeviceType {
 	const ua = navigator.userAgent;
 	if (/(tablet|ipad|playbook|silk)|(android(?!.*mobi))/i.test(ua)) {
 		return 'tablet';
@@ -69,6 +72,6 @@ function DetectDeviceType(): 'tablet' | 'mobile' | 'desktop' {
 	}
 	return 'desktop';
 }
-const DEVICE_type = DetectDeviceType();
+const deviceType = getDeviceType();
 
-export { DEVICE_type, DetectDeviceType };
+export { deviceType, getDeviceType };

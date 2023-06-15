@@ -1,6 +1,6 @@
 /**
 * @license
-* Copyright 2022, PorkyProductions, and contributors
+* Copyright 2023, PorkyProductions, and contributors
 *
 * Licensed under the Apache License, Version 2.0 (the "License");
 * you may not use this file except in compliance with the License.
@@ -16,13 +16,15 @@
 */
 const webdriverControlled: boolean = navigator.webdriver;
 
-export const getBots = (): 'robotControlled' | 'humanControlled' | 'Unknown' => {
+export type RobotStatus = 'robotControlled' | 'humanControlled' | 'Unknown'
+
+export const getBots = (): RobotStatus => {
 	if (webdriverControlled) {
 		return 'robotControlled';
 	}
 	return 'humanControlled';
 };
 
-const robotStatus: 'robotControlled' | 'humanControlled' | 'Unknown' = getBots();
+const robotStatus: RobotStatus = getBots();
 
 export { robotStatus, webdriverControlled };

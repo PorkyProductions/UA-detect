@@ -1,6 +1,6 @@
 /**
 * @license
-* Copyright 2022, PorkyProductions, and contributors
+* Copyright 2023, PorkyProductions, and contributors
 *
 * Licensed under the Apache License, Version 2.0 (the "License");
 * you may not use this file except in compliance with the License.
@@ -16,7 +16,9 @@
 */
 const pdf: boolean = navigator.pdfViewerEnabled;
 
-export const getPDF = (): 'PDFviewerEnabled' | 'PDFviewerDisabled' => {
+export type PDFStatus = 'PDFviewerEnabled' | 'PDFviewerDisabled'
+
+export const getPDF = (): PDFStatus => {
 	if (pdf) {
 		return 'PDFviewerEnabled';
 	}

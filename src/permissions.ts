@@ -1,4 +1,4 @@
-/**
+﻿/**
 * @license
 * Copyright 2023, PorkyProductions, and contributors
 *
@@ -14,16 +14,13 @@
 * See the License for the specific language governing permissions and
 * limitations under the License.
 */
-const browserIsOnline: boolean = navigator.onLine;
-export type BrowserOnlineStatus = 'browserOnline' | 'browserOffline'
-
-export const getBrowserIsOnline = (): BrowserOnlineStatus => {
-	if (browserIsOnline) {
-		return 'browserOnline';
+export const permissionGranted = async (name: PermissionName): Promise<boolean> => {
+	const result = await navigator.permissions.query({
+		name: name
+	});
+	if (result.state === 'granted') {
+		return true;
+	} else {
+		return false;
 	}
-	return 'browserOffline';
 };
-
-const browserOnlineStatus = getBrowserIsOnline();
-
-export { browserOnlineStatus };
