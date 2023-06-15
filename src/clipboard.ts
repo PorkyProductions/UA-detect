@@ -1,5 +1,21 @@
-
+/**
+* @license
+* Copyright 2023, PorkyProductions, and contributors
+*
+* Licensed under the Apache License, Version 2.0 (the "License");
+* you may not use this file except in compliance with the License.
+* You may obtain a copy of the License at
+*
+*   http://www.apache.org/licenses/LICENSE-2.0
+*
+* Unless required by applicable law or agreed to in writing, software
+* distributed under the License is distributed on an "AS IS" BASIS,
+* WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+* See the License for the specific language governing permissions and
+* limitations under the License.
+*/
 import { browser } from './browser';
+import { permissionGranted } from './permissions';
 export const getClipboardText = async (): Promise<string | void> => {
 	/*
         If the browser is chromium based, we must check for permissions
@@ -10,12 +26,9 @@ export const getClipboardText = async (): Promise<string | void> => {
             browser === 'Edge' || 
             browser === 'Opera'
 	) {
-		const result = await navigator.permissions.query({
-			// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-			// @ts-ignore
-			name: 'clipboard-read',
-		});
-		if (result.state === 'granted' || result.state === 'prompt') {
+		// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+		// @ts-ignore
+		if (await permissionGranted('clipboard-read')) {
 			return await navigator.clipboard.readText() as string;
 		} else {
 			return console.error('Permission to read from the clipboard was denied by the user or is unavilable');
@@ -33,13 +46,10 @@ export const setClipboardText = async (text: string): Promise<void> => {
             browser === 'Edge' || 
             browser === 'Opera'
 	) {
-		const result = await navigator.permissions.query({
-			// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-			// @ts-ignore
-			name: 'clipboard-write',
-		});
-		if (result.state === 'granted' || result.state === 'prompt') {
-			await navigator.clipboard.writeText(text);
+		// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+		// @ts-ignore
+		if (await permissionGranted('clipboard-write')) {
+			return await navigator.clipboard.writeText(text);
 		} else {
 			return console.error(
 				'Permission to write to the clipboard was denied by the user or is unavilable'
@@ -58,12 +68,9 @@ export const getClipboardAdvanced = async (): Promise<ClipboardItems | void> => 
         browser === 'Edge' ||
         browser === 'Opera'
 	) {
-		const result = await navigator.permissions.query({
-			// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-			// @ts-ignore
-			name: 'clipboard-read',
-		});
-		if (result.state === 'granted' || result.state === 'prompt') {
+		// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+		// @ts-ignore
+		if (await permissionGranted('clipboard-read')) {
 			return await navigator.clipboard.read() as ClipboardItems;
 		} else {
 			return console.error(
@@ -78,16 +85,13 @@ export const getClipboardAdvanced = async (): Promise<ClipboardItems | void> => 
 export const setClipboardAdvanced = async (items: ClipboardItems): Promise<void> => {
 	if (
 		browser === 'Brave' ||
-    browser === 'Chrome' ||
-    browser === 'Edge' ||
-    browser === 'Opera'
+		browser === 'Chrome' ||
+		browser === 'Edge' ||
+		browser === 'Opera'
 	) {
-		const result = await navigator.permissions.query({
-			// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-			// @ts-ignore
-			name: 'clipboard-write',
-		});
-		if (result.state === 'granted' || result.state === 'prompt') {
+		// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+		// @ts-ignore
+		if (await permissionGranted('clipboard-write')) {
 			await navigator.clipboard.write(items);
 		} else {
 			return console.error(
