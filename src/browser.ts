@@ -14,7 +14,8 @@
 * See the License for the specific language governing permissions and
 * limitations under the License.
 */
-const ua = navigator.userAgent;
+import { getterForNavigator } from './navigator';
+const ua = getterForNavigator().userAgent;
 export type Browser = 'Opera' | 'Chrome' | 'Brave' | 'Firefox' | 'Safari' | 'IE' | 'Edge' | 'Unknown' | undefined
 
 const getBrowser = (): Browser => {
@@ -35,11 +36,9 @@ const getBrowser = (): Browser => {
 	} if (ua.indexOf('Edge' || 'Chrome') > -1) {
 		return 'Edge';
 	}
-
 	console.error(`Browser can not be determined (UAD_${Math.round(Math.floor(Math.random() * 1000) + 1)})`);
 	return 'Unknown';
 };
 
 const browser = getBrowser();
-
 export { browser, getBrowser };
