@@ -14,15 +14,18 @@
 * See the License for the specific language governing permissions and
 * limitations under the License.
 */
-const randomNumber = (): number => Math.round(Math.floor(Math.random() * 1000) + 1);
+import { getterForNavigator } from './navigator';
 import { browser } from './browser';
+
+
+const randomNumber = (): number => Math.round(Math.floor(Math.random() * 1000) + 1);
 
 export type DeviceMemory = number | 'Unknown' | undefined
 
 
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore
-export const getMemory = (): number => navigator.deviceMemory;
+export const getMemory = (): number => getterForNavigator().deviceMemory;
 
 export const browserSpecificGetMemory = (): DeviceMemory => {
 	if (browser === 'Chrome') {

@@ -14,6 +14,7 @@
 * See the License for the specific language governing permissions and
 * limitations under the License.
 */
+import { getterForNavigator } from './navigator';
 import { browser } from './browser';
 
 export const canShareData = (data?: ShareData): boolean => {
@@ -21,7 +22,7 @@ export const canShareData = (data?: ShareData): boolean => {
 		console.error(`canShareData API not supported on Firefox. (UAD_${Math.round(Math.floor(Math.random() * 1000) + 1)})`);
 		return false;
 	} else {
-		const result = window.navigator.canShare(data);
+		const result = getterForNavigator().canShare(data);
 		if (result === true) {
 			return true;
 		} else {

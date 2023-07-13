@@ -1,3 +1,4 @@
+
 /**
 * @license
 * Copyright 2023, PorkyProductions, and contributors
@@ -14,7 +15,8 @@
 * See the License for the specific language governing permissions and
 * limitations under the License.
 */
-const cookies: boolean = navigator.cookieEnabled;
+import { getterForNavigator } from './navigator';
+const cookies: boolean = getterForNavigator().cookieEnabled;
 
 export type CookieStatus = 'cookiesEnabled' | 'cookiesNotEnabled' | 'Unknown'
 

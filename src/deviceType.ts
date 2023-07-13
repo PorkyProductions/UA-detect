@@ -15,12 +15,14 @@
 * limitations under the License.
 */
 
+import { getCurrentUA } from './getCurrentUA';
+
 
 export type DeviceType = 'tablet' | 'mobile' | 'desktop'
 
 // DEVICE TYPE
 function getDeviceType(): DeviceType {
-	const ua = navigator.userAgent;
+	const ua = getCurrentUA();
 	if (/(tablet|ipad|playbook|silk)|(android(?!.*mobi))/i.test(ua)) {
 		return 'tablet';
 	} if (
