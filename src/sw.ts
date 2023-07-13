@@ -16,7 +16,7 @@
 */
 
 
-import { getterForNavigator } from "./navigator";
+import { getterForNavigator } from './navigator';
 /**
  * Register Service Worker
  * @param {(string | URL)} path

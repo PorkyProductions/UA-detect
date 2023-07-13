@@ -15,7 +15,7 @@
 * limitations under the License.
 */
 
-import { getCurrentUA } from "./getCurrentUA";
+import { getCurrentUA } from './getCurrentUA';
 
 export type ExactMobileDeviceType = 'iOS' | 'Android' | 'BlackBerry' | 'Windows Phone' | 'webOS' | 'Unknown' | Error
 

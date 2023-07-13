@@ -1,4 +1,4 @@
-import { getterForNavigator } from "./navigator";
+import { getterForNavigator } from './navigator';
 
 /**
  * Media Constraints Interface

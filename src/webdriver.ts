@@ -15,7 +15,7 @@
 * See the License for the specific language governing permissions and
 * limitations under the License.
 */
-import { getterForNavigator } from "./navigator";
+import { getterForNavigator } from './navigator';
 const webdriverControlled: boolean = getterForNavigator().webdriver;
 
 export type RobotStatus = 'robotControlled' | 'humanControlled' | 'Unknown'

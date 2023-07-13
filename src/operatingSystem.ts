@@ -15,7 +15,7 @@
 * limitations under the License.
 */
 
-import { getterForNavigator } from "./navigator";
+import { getterForNavigator } from './navigator';
 
 export type OperatingSystem = 'Windows' | 'Mac' | 'Linux' | 'Android' | 'iOS' | 'Unknown'
 
