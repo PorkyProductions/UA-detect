@@ -15,6 +15,8 @@
 * limitations under the License.
 */
 
+
+import { getterForNavigator } from "./navigator";
 /**
  * Register Service Worker
  * @param {(string | URL)} path
@@ -23,8 +25,8 @@
  */
 
 export const registerServiceWorker = (path: string | URL, options?: RegistrationOptions): void => {
-	if ('serviceWorker' in navigator) {
-		navigator.serviceWorker.register(path, options);
+	if ('serviceWorker' in getterForNavigator()) {
+		getterForNavigator().serviceWorker.register(path, options);
 		return;
 	} else {
 		console.error(`Could not register a service worker. Check the URL or path provided. This also might be becuase the browser does not support it. (UAD_${Math.round(Math.floor(Math.random() * 1000) + 1)})`);

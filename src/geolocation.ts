@@ -1,6 +1,7 @@
+
 /**
-* @license
-* Copyright 2023, PorkyProductions, and contributors
+ * @license
+ * Copyright 2023, PorkyProductions, and contributors
 *
 * Licensed under the Apache License, Version 2.0 (the "License");
 * you may not use this file except in compliance with the License.
@@ -14,11 +15,12 @@
 * See the License for the specific language governing permissions and
 * limitations under the License.
 */
+import { getterForNavigator } from "./navigator";
 export let lat: number;
 export let lon: number;
 
 const latitudeGetter = (): number => {
-	navigator.geolocation.getCurrentPosition((position: GeolocationPosition): number => {
+	getterForNavigator().geolocation.getCurrentPosition((position: GeolocationPosition): number => {
 		lat = position.coords.latitude;
 		return lat;
 	},
@@ -28,7 +30,7 @@ const latitudeGetter = (): number => {
 };
 
 const longitiudeGetter = (): number => {
-	navigator.geolocation.getCurrentPosition((position: GeolocationPosition) => {
+	getterForNavigator().geolocation.getCurrentPosition((position: GeolocationPosition) => {
 		lon = position.coords.longitude;
 		return lon;
 	},

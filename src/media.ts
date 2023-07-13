@@ -1,3 +1,5 @@
+import { getterForNavigator } from "./navigator";
+
 /**
  * Media Constraints Interface
  * @export
@@ -52,7 +54,7 @@ export async function getMedia(
 ): Promise<MediaStream | unknown | undefined> {
 	let stream: MediaStream | null = null;
 	try {
-		stream ||= await navigator.mediaDevices.getUserMedia(constraints);
+		stream ||= await getterForNavigator().mediaDevices.getUserMedia(constraints);
 		return stream;
 	} catch (err: Error | unknown) {
 		return err;

@@ -1,4 +1,5 @@
-﻿/**
+﻿
+/**
 * @license
 * Copyright 2023, PorkyProductions, and contributors
 *
@@ -14,8 +15,9 @@
 * See the License for the specific language governing permissions and
 * limitations under the License.
 */
+import { getterForNavigator } from "./navigator";
 export const permissionGranted = async (name: PermissionName): Promise<boolean> => {
-	const result = await navigator.permissions.query({
+	const result = await getterForNavigator().permissions.query({
 		name: name
 	});
 	if (result.state === 'granted') {

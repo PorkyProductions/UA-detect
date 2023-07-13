@@ -14,6 +14,7 @@
 * See the License for the specific language governing permissions and
 * limitations under the License.
 */
+import { getterForNavigator } from './navigator';
 import { browser } from './browser';
 import { permissionGranted } from './permissions';
 export const getClipboardText = async (): Promise<string | void> => {
@@ -29,13 +30,13 @@ export const getClipboardText = async (): Promise<string | void> => {
 		// eslint-disable-next-line @typescript-eslint/ban-ts-comment
 		// @ts-ignore
 		if (await permissionGranted('clipboard-read')) {
-			return await navigator.clipboard.readText() as string;
+			return await getterForNavigator().clipboard.readText() as string;
 		} else {
 			return console.error('Permission to read from the clipboard was denied by the user or is unavilable');
 		}
 		// If it's not then we just perform the operation as normal
 	} else {
-		return await navigator.clipboard.readText() as string;
+		return await getterForNavigator().clipboard.readText() as string;
 	}
 };
 
@@ -49,14 +50,14 @@ export const setClipboardText = async (text: string): Promise<void> => {
 		// eslint-disable-next-line @typescript-eslint/ban-ts-comment
 		// @ts-ignore
 		if (await permissionGranted('clipboard-write')) {
-			return await navigator.clipboard.writeText(text);
+			return await getterForNavigator().clipboard.writeText(text);
 		} else {
 			return console.error(
 				'Permission to write to the clipboard was denied by the user or is unavilable'
 			);
 		}
 	} else {
-		await navigator.clipboard.writeText(text);
+		await getterForNavigator().clipboard.writeText(text);
 	}
 	return;
 };
@@ -71,14 +72,14 @@ export const getClipboardAdvanced = async (): Promise<ClipboardItems | void> => 
 		// eslint-disable-next-line @typescript-eslint/ban-ts-comment
 		// @ts-ignore
 		if (await permissionGranted('clipboard-read')) {
-			return await navigator.clipboard.read() as ClipboardItems;
+			return await getterForNavigator().clipboard.read() as ClipboardItems;
 		} else {
 			return console.error(
 				'Permission to read from the clipboard was denied by the user or is unavilable'
 			);
 		}
 	} else {
-		return await navigator.clipboard.read() as ClipboardItems;
+		return await getterForNavigator().clipboard.read() as ClipboardItems;
 	}
 };
 
@@ -92,14 +93,14 @@ export const setClipboardAdvanced = async (items: ClipboardItems): Promise<void>
 		// eslint-disable-next-line @typescript-eslint/ban-ts-comment
 		// @ts-ignore
 		if (await permissionGranted('clipboard-write')) {
-			await navigator.clipboard.write(items);
+			await getterForNavigator().clipboard.write(items);
 		} else {
 			return console.error(
 				'Permission to write to the clipboard was denied by the user or is unavilable'
 			);
 		}
 	} else {
-		await navigator.clipboard.write(items);
+		await getterForNavigator().clipboard.write(items);
 	}
 	return;
 };

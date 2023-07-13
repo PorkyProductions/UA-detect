@@ -18,7 +18,7 @@
 if (typeof window === 'undefined') {
 	throw new Error(`
 		Fatal Error: UADetect is not meant to be used in node or server environments.
-		Please only run UADetect in browser windows
+		Please only run UADetect in a browser windows
 		Read more at https://porkyproductions.github.io/UA-detect/
 	`);
 }
@@ -97,7 +97,7 @@ import {
 
 // Navigator Object
 
-import { type NavigatorSub, getterForNavigator, navigatorObject } from './navigator';
+import { getterForNavigator, navigatorObject } from './navigator';
 
 // Online Status
 
@@ -200,7 +200,7 @@ export interface __UADetect {
 	readonly getBrowser: () => Browser,
 	readonly getProcessorCores: () => ProcessorCores,
 	readonly getMaxTouchPoints: () => number,
-	readonly getNavigatorObject: () => NavigatorSub[],
+	readonly getNavigatorObject: () => Navigator,
 	readonly getBrowserOnlineStatus: () => BrowserOnlineStatus,
 	readonly getPDFviewerStatus: () => PDFStatus,
 	readonly getRobotStatus: () => RobotStatus,
@@ -394,9 +394,9 @@ export class uaDetect implements __UADetect {
 		this.refresh();
 		return getMaxTouchPoints() as number;
 	}
-	public getNavigatorObject(): NavigatorSub[] {
+	public getNavigatorObject(): Navigator {
 		this.refresh();
-		return getterForNavigator() as NavigatorSub[];
+		return getterForNavigator() as Navigator;
 	}
 	public getBrowserOnlineStatus(): BrowserOnlineStatus {
 		this.refresh();

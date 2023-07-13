@@ -15,11 +15,13 @@
 * limitations under the License.
 */
 
+import { getCurrentUA } from "./getCurrentUA";
+
 export type ExactMobileDeviceType = 'iOS' | 'Android' | 'BlackBerry' | 'Windows Phone' | 'webOS' | 'Unknown' | Error
 
 
 export default function getExactMobileDeviceType(): ExactMobileDeviceType {
-	const ua = navigator.userAgent;
+	const ua = getCurrentUA();
 	if (/(iPhone|iPod|iPad)/i.test(ua)) {
 		return 'iOS';
 	}

@@ -15,9 +15,11 @@
 * limitations under the License.
 */
 
+import { getterForNavigator } from "./navigator";
+
 export type OperatingSystem = 'Windows' | 'Mac' | 'Linux' | 'Android' | 'iOS' | 'Unknown'
 
-const ua = navigator.userAgent;
+const ua = getterForNavigator().userAgent;
 const getOS = (): OperatingSystem => {
 	if (ua.indexOf('Windows') > -1) {
 		return 'Windows';

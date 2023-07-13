@@ -1,3 +1,4 @@
+
 /**
 * @license
 * Copyright 2023, PorkyProductions, and contributors
@@ -14,7 +15,8 @@
 * See the License for the specific language governing permissions and
 * limitations under the License.
 */
-const webdriverControlled: boolean = navigator.webdriver;
+import { getterForNavigator } from "./navigator";
+const webdriverControlled: boolean = getterForNavigator().webdriver;
 
 export type RobotStatus = 'robotControlled' | 'humanControlled' | 'Unknown'
 

@@ -15,10 +15,11 @@
 * limitations under the License.
 */
 import { browser } from './browser';
+import { getterForNavigator } from './navigator';
 
 export type ProcessorCores = number | undefined | unknown
 
-const getProcessors = (): number => navigator.hardwareConcurrency;
+const getProcessors = (): number => getterForNavigator().hardwareConcurrency;
 
 const randomNumber = (): number => Math.round(Math.floor(Math.random() * 1000) + 1);
 
