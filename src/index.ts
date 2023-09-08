@@ -133,6 +133,10 @@ import {
 
 import { registerServiceWorker } from './sw';
 
+// uaData
+
+import { userAgentData, getUserAgentData, type UserAgentData } from './uaData';
+
 // Vibrate
 
 import { type VibrateResult, vibrate } from './vibrate';
@@ -167,7 +171,8 @@ export {
 	getClipboardText,
 	getClipboardAdvanced,
 	setClipboardAdvanced,
-	setClipboardText
+	setClipboardText,
+	getUserAgentData
 };
 // As well as the returns on those unknowns
 export {
@@ -189,7 +194,8 @@ export {
 	lon,
 	language,
 	deviceMemory,
-	permissionGranted
+	permissionGranted,
+	userAgentData
 };
 export interface __UADetect {
 	readonly getDeviceType: () => DeviceType,
@@ -216,6 +222,7 @@ export interface __UADetect {
 	readonly getClipboardAdvanced: () => Promise<ClipboardItems | void>
 	readonly setClipboardAdvanced: (items: ClipboardItems) => Promise<void>
 	readonly permissionGranted: (name: PermissionName) => Promise<boolean>
+	readonly getUserAgentData: () => UserAgentData,
 	readonly orientationIsLandscape: boolean,
 	readonly orientationIsPortrait: boolean,
 	readonly deviceType: DeviceType,
@@ -235,7 +242,8 @@ export interface __UADetect {
 	readonly deviceMemory: DeviceMemory,
 	readonly camera: MediaStreamResult,
 	readonly audio: MediaStreamResult,
-	readonly audioAndCamera: MediaStreamResult
+	readonly audioAndCamera: MediaStreamResult,
+	readonly userAgentData: UserAgentData,
 }
 
 // Create the UADetect Object
@@ -313,6 +321,9 @@ const UADetect: __UADetect = {
 	permissionGranted: async function (name: PermissionName): Promise<boolean> {
 		return await permissionGranted(name);
 	},
+	getUserAgentData: () => {
+		return getUserAgentData();
+	},
 	// From here, we can then begin to call the returns on those unknowns here
 	// Most of them are just transferring the name over
 	orientationIsLandscape: orientationIsLandscape,
@@ -335,6 +346,7 @@ const UADetect: __UADetect = {
 	camera: camera,
 	audio: audio,
 	audioAndCamera: audioAndCamera,
+	userAgentData: userAgentData
 };
 export default UADetect;
 
@@ -359,87 +371,92 @@ export class uaDetect implements __UADetect {
 	camera: MediaStreamResult = camera;
 	audio: MediaStreamResult = audio;
 	audioAndCamera: MediaStreamResult = audioAndCamera;
-	private refresh(): __UADetect {
+	userAgentData: UserAgentData = userAgentData;
+	private __refresh(): __UADetect {
 		return new uaDetect() as __UADetect;
 	}
 	public getDeviceType(): DeviceType {
-		this.refresh();
+		this.__refresh();
 		return getDeviceType() as DeviceType;
 	}
 	public getScreenOrientation(): void {
-		this.refresh();
+		this.__refresh();
 		return getScreenOrientation() as void;
 	}
 	public getExactMobileDeviceType(): ExactMobileDeviceType {
-		this.refresh();
+		this.__refresh();
 		return getExactMobileDeviceType() as ExactMobileDeviceType;
 	}
 	public getCurrentUA(): string {
-		this.refresh();
+		this.__refresh();
 		return getCurrentUA() as string;
 	}
 	public getCookieStatus(): CookieStatus {
-		this.refresh();
+		this.__refresh();
 		return getCookies() as CookieStatus;
 	}
 	public getBrowser(): Browser {
-		this.refresh();
+		this.__refresh();
 		return getBrowser() as Browser;
 	}
 	public getProcessorCores(): ProcessorCores {
-		this.refresh();
+		this.__refresh();
 		return browserSpecificSupportCores() as ProcessorCores;
 	}
 	public getMaxTouchPoints(): number {
-		this.refresh();
+		this.__refresh();
 		return getMaxTouchPoints() as number;
 	}
 	public getNavigatorObject(): Navigator {
-		this.refresh();
+		this.__refresh();
 		return getterForNavigator() as Navigator;
 	}
 	public getBrowserOnlineStatus(): BrowserOnlineStatus {
-		this.refresh();
+		this.__refresh();
 		return getBrowserIsOnline() as BrowserOnlineStatus;
 	}
 	public getPDFviewerStatus(): PDFStatus {
-		this.refresh();
+		this.__refresh();
 		return getPDF() as PDFStatus;
 	}
 	public getRobotStatus(): RobotStatus {
-		this.refresh();
+		this.__refresh();
 		return getBots() as RobotStatus;
 	}
 	public getOS(): OperatingSystem {
-		this.refresh();
+		this.__refresh();
 		return getOS() as OperatingSystem;
 	}
 	public getLang(): Language {
-		this.refresh();
+		this.__refresh();
 		return getLang() as Language;
 	}
 	public getMemory(): DeviceMemory {
-		this.refresh();
+		this.__refresh();
 		return browserSpecificGetMemory() as DeviceMemory;
 	}
 	public vibrate(pattern: VibratePattern): VibrateResult {
-		this.refresh();
+		this.__refresh();
 		return vibrate(pattern) as VibrateResult;
 	}
 	public canShareData(data?: ShareData): boolean {
-		this.refresh();
+		this.__refresh();
 		return canShareData(data) as boolean;
 	}
 	public registerServiceWorker(path: string | URL, options?: RegistrationOptions): void {
-		this.refresh();
+		this.__refresh();
 		return registerServiceWorker(path, options);
 	}
+	public getUserAgentData(): UserAgentData {
+		this.__refresh();
+		return getUserAgentData() as UserAgentData;
+	}
 	public async getMedia(constraints: MediaConstraints): MediaStreamResult {
-		this.refresh();
+		this.__refresh();
 		return await getMedia(constraints) as MediaStreamResult;
 	}
 	public async getClipboardText(): Promise<string> {
-		this.refresh();
+		this.__refresh();
 		return await getClipboardText() as string;
 	}
 	public async getClipboardAdvanced(): Promise<ClipboardItems> {
