@@ -30,5 +30,4 @@ export interface UserAgentData {
 // API exists, not implemented in lib.dom.d.ts
 const userAgentData: UserAgentData = navigator.userAgentData;
 const getUserAgentData = () => userAgentData;
-console.log(userAgentData.platform);
 export { userAgentData, getUserAgentData };
