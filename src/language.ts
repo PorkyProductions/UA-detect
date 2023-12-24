@@ -1,141 +1,201 @@
 /**
  * @license
-* Copyright 2023, PorkyProductions, and contributors
-*
-* Licensed under the Apache License, Version 2.0 (the "License");
-* you may not use this file except in compliance with the License.
-* You may obtain a copy of the License at
-*
-*   http://www.apache.org/licenses/LICENSE-2.0
-*
-* Unless required by applicable law or agreed to in writing, software
-* distributed under the License is distributed on an "AS IS" BASIS,
-* WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-* See the License for the specific language governing permissions and
-* limitations under the License.
-*/
+ * Copyright 2023, PorkyProductions, and contributors
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *   http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
 import { getterForNavigator } from './navigator';
+
+/**
+ * The language code obtained from the navigator.
+ */
 const lang: string = getterForNavigator().language;
 
-export type Language = 'Amharic' | 'Arabic' | 'Basque' | 'Bengali' | 'British English' | 'Brazillian Portuguese' | 'Bulgarian' | 'Catalan' | 'Cherokee' | 'Croatian' | 'Czech' | 'Danish' | 'Dutch' | 'American English' | 'Estonian' | 'Filipino' | 'Finnish' | 'French' | 'German' | 'Greek' | 'Gujarati' | 'Hebrew' | 'Hindi' | 'Hungarian' | 'Icelandic' | 'Indonesian' | 'Italian' | 'Japanese' | 'Kannada' | 'Korean' | 'Latvian' | 'Lithuanian' | 'Malay' | 'Malayalam' | 'Marathi' | 'Norwegian' | 'Polish' | 'Portugal Portuguese' | 'Romanian' | 'Russian' | 'PRC Chinese' | 'Serbian' | 'Slovak' | 'Slovenian' | 'Spanish' | 'Swahili' | 'Swedish' | 'Tamil' | 'Telugu' | 'Thai' | 'Taiwan Chinese' | 'Turkish' | 'Urdu' | 'Ukrainian' | 'Vietnamese' | 'Welsh' | undefined
+/**
+ * Represents the supported languages.
+ */
+export type Language =
+  | 'Amharic'
+  | 'Arabic'
+  | 'Basque'
+  | 'Bengali'
+  | 'British English'
+  | 'Brazillian Portuguese'
+  | 'Bulgarian'
+  | 'Catalan'
+  | 'Cherokee'
+  | 'Croatian'
+  | 'Czech'
+  | 'Danish'
+  | 'Dutch'
+  | 'American English'
+  | 'Estonian'
+  | 'Filipino'
+  | 'Finnish'
+  | 'French'
+  | 'German'
+  | 'Greek'
+  | 'Gujarati'
+  | 'Hebrew'
+  | 'Hindi'
+  | 'Hungarian'
+  | 'Icelandic'
+  | 'Indonesian'
+  | 'Italian'
+  | 'Japanese'
+  | 'Kannada'
+  | 'Korean'
+  | 'Latvian'
+  | 'Lithuanian'
+  | 'Malay'
+  | 'Malayalam'
+  | 'Marathi'
+  | 'Norwegian'
+  | 'Polish'
+  | 'Portugal Portuguese'
+  | 'Romanian'
+  | 'Russian'
+  | 'PRC Chinese'
+  | 'Serbian'
+  | 'Slovak'
+  | 'Slovenian'
+  | 'Spanish'
+  | 'Swahili'
+  | 'Swedish'
+  | 'Tamil'
+  | 'Telugu'
+  | 'Thai'
+  | 'Taiwan Chinese'
+  | 'Turkish'
+  | 'Urdu'
+  | 'Ukrainian'
+  | 'Vietnamese'
+  | 'Welsh'
+  | undefined;
 
+/**
+ * Gets the language based on the navigator's language code.
+ * @returns The determined language.
+ */
 export const getLang = (): Language => {
 	if (/am/.test(lang)) {
 		return 'Amharic';
-	} if (/ar/.test(lang)) {
+	} else if (/ar/.test(lang)) {
 		return 'Arabic';
-	} if (/eu/.test(lang)) {
+	} else if (/eu/.test(lang)) {
 		return 'Basque';
-	} if (/bn/.test(lang)) {
+	} else if (/bn/.test(lang)) {
 		return 'Bengali';
-	} if (/en-GB/.test(lang)) {
+	} else if (/en-GB/.test(lang)) {
 		return 'British English';
-	} if (/pt-BR/.test(lang)) {
+	} else if (/pt-BR/.test(lang)) {
 		return 'Brazillian Portuguese';
-	} if (/bg/.test(lang)) {
+	} else if (/bg/.test(lang)) {
 		return 'Bulgarian';
-	} if (/ca/.test(lang)) {
+	} else if (/ca/.test(lang)) {
 		return 'Catalan';
-	} if (/chr/.test(lang)) {
+	} else if (/chr/.test(lang)) {
 		return 'Cherokee';
-	} if (/hr/.test(lang)) {
+	} else if (/hr/.test(lang)) {
 		return 'Croatian';
-	} if (/cs/.test(lang)) {
+	} else if (/cs/.test(lang)) {
 		return 'Czech';
-	} if (/da/.test(lang)) {
+	} else if (/da/.test(lang)) {
 		return 'Danish';
-	} if (/ni/.test(lang)) {
+	} else if (/ni/.test(lang)) {
 		return 'Dutch';
-	} if (/en-US/.test(lang)) {
+	} else if (/en-US/.test(lang)) {
 		return 'American English';
-	} if (/et/.test(lang)) {
+	} else if (/et/.test(lang)) {
 		return 'Estonian';
-	} if (/fil/.test(lang)) {
+	} else if (/fil/.test(lang)) {
 		return 'Filipino';
-	} if (/fi/.test(lang)) {
+	} else if (/fi/.test(lang)) {
 		return 'Finnish';
-	} if (/fr/.test(lang)) {
+	} else if (/fr/.test(lang)) {
 		return 'French';
-	} if (/de/.test(lang)) {
+	} else if (/de/.test(lang)) {
 		return 'German';
-	} if (/el/.test(lang)) {
+	} else if (/el/.test(lang)) {
 		return 'Greek';
-	} if (/gu/.test(lang)) {
+	} else if (/gu/.test(lang)) {
 		return 'Gujarati';
-	} if (/iw/.test(lang)) {
+	} else if (/iw/.test(lang)) {
 		return 'Hebrew';
-	} if (/hi/.test(lang)) {
+	} else if (/hi/.test(lang)) {
 		return 'Hindi';
-	} if (/hu/.test(lang)) {
+	} else if (/hu/.test(lang)) {
 		return 'Hungarian';
-	} if (/is/.test(lang)) {
+	} else if (/is/.test(lang)) {
 		return 'Icelandic';
-	} if (/id/.test(lang)) {
+	} else if (/id/.test(lang)) {
 		return 'Indonesian';
-	} if (/it/.test(lang)) {
+	} else if (/it/.test(lang)) {
 		return 'Italian';
-	} if (/ja/.test(lang)) {
+	} else if (/ja/.test(lang)) {
 		return 'Japanese';
-	} if (/kn/.test(lang)) {
+	} else if (/kn/.test(lang)) {
 		return 'Kannada';
-	} if (/ko/.test(lang)) {
+	} else if (/ko/.test(lang)) {
 		return 'Korean';
-	} if (/lv/.test(lang)) {
+	} else if (/lv/.test(lang)) {
 		return 'Latvian';
-	} if (/lt/.test(lang)) {
+	} else if (/lt/.test(lang)) {
 		return 'Lithuanian';
-	} if (/ms/.test(lang)) {
+	} else if (/ms/.test(lang)) {
 		return 'Malay';
-	} if (/ml/.test(lang)) {
+	} else if (/ml/.test(lang)) {
 		return 'Malayalam';
-	} if (/mr/.test(lang)) {
+	} else if (/mr/.test(lang)) {
 		return 'Marathi';
-	} if (/no/.test(lang)) {
+	} else if (/no/.test(lang)) {
 		return 'Norwegian';
-	} if (/pl/.test(lang)) {
+	} else if (/pl/.test(lang)) {
 		return 'Polish';
-	} if (/pt-PT/.test(lang)) {
+	} else if (/pt-PT/.test(lang)) {
 		return 'Portugal Portuguese';
-	} if (/ro/.test(lang)) {
+	} else if (/ro/.test(lang)) {
 		return 'Romanian';
-	} if (/ru/.test(lang)) {
+	} else if (/ru/.test(lang)) {
 		return 'Russian';
-	} if (/sr/.test(lang)) {
+	} else if (/sr/.test(lang)) {
 		return 'Serbian';
-	} if (/zh-CN/.test(lang)) {
+	} else if (/zh-CN/.test(lang)) {
 		return 'PRC Chinese';
-	} if (/sk/.test(lang)) {
+	} else if (/sk/.test(lang)) {
 		return 'Slovak';
-	} if (/sl/.test(lang)) {
+	} else if (/sl/.test(lang)) {
 		return 'Slovenian';
-	} if (/es/.test(lang)) {
+	} else if (/es/.test(lang)) {
 		return 'Spanish';
-	} if (/sw/.test(lang)) {
+	} else if (/sw/.test(lang)) {
 		return 'Swahili';
-	} if (/sv/.test(lang)) {
+	} else if (/sv/.test(lang)) {
 		return 'Swedish';
-	} if (/ta/.test(lang)) {
+	} else if (/ta/.test(lang)) {
 		return 'Tamil';
-	} if (/te/.test(lang)) {
+	} else if (/te/.test(lang)) {
 		return 'Telugu';
-	} if (/th/.test(lang)) {
+	} else if (/th/.test(lang)) {
 		return 'Thai';
-	} if (/zh-TW/.test(lang)) {
+	} else if (/zh-TW/.test(lang)) {
 		return 'Taiwan Chinese';
-	} if (/tr/.test(lang)) {
+	} else if (/tr/.test(lang)) {
 		return 'Turkish';
-	} if (/ur/.test(lang)) {
+	} else if (/ur/.test(lang)) {
 		return 'Urdu';
-	} if (/uk/.test(lang)) {
+	} else if (/uk/.test(lang)) {
 		return 'Ukrainian';
-	} if (/vi/.test(lang)) {
-		return 'Vietnamese';
-	} if (/cy/.test(lang)) {
-		return 'Welsh';
-	} else {
-		console.error(`After checking against 56 paramaters, the language could not be determined. (UAD_${Math.round(Math.floor(Math.random() * 1000) + 1)})`);
 	}
-	return;
 };
-
-export const language = getLang();
